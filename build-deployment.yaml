@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.3.0 (4f187a1)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: build
+  name: build
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: build
+    spec:
+      containers:
+      - args:
+        - ./bin/watch
+        image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
+        name: build
+        resources: {}
+        volumeMounts:
+        - mountPath: /code
+          name: build-claim0
+        workingDir: /code
+      restartPolicy: Always
+      volumes:
+      - name: build-claim0
+        persistentVolumeClaim:
+          claimName: build-claim0
+status: {}

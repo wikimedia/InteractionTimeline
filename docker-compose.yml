@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    image: docker-registry.tools.wmflabs.org/toollabs-static-web
+    ports:
+      - 8888:80
+    command: lighttpd -D -f /etc/lighttpd/lighttpd.conf
+    volumes:
+      - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
+      - ./:/var/www:cached
+  build:
+    image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
+    working_dir: /code
+    command:
+      - ./bin/watch
+    volumes:
+      - ./:/code:cached
