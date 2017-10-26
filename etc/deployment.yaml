@@ -30,10 +30,10 @@ spec:
               name: www
       volumes:
         -
-          hostPath: ./etc/lighttpd/lighttpd.conf
-          path: /etc/lighttpd/lighttpd.conf
           name: lighttpd-conf
+          hostPath:
+            path: ./etc/lighttpd/lighttpd.conf
         -
-          hostPath: ./
-          path: /var/www
           name: www
+          hostPath:
+            path: ./
