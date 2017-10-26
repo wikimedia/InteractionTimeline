@@ -1,0 +1,38 @@
+---
+kind: Deployment
+metadata:
+  name: interaction-timeline
+  namespace: interaction-timeline
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: interaction-timeline
+    spec:
+      containers:
+        -
+          command:
+            - lighttpd
+            - "-D"
+            - "-f"
+            - /etc/lighttpd/lighttpd.conf
+          image: docker-registry.tools.wmflabs.org/toollabs-static-web
+          imagePullPolicy: Always
+          name: web
+          volumeMounts:
+            -
+              mountPath: /etc/lighttpd/lighttpd.conf
+              name: lighttpd-conf
+            -
+              mountPath: /var/www
+              name: www
+      volumes:
+        -
+          hostPath: ./etc/lighttpd/lighttpd.conf
+          path: /etc/lighttpd/lighttpd.conf
+          name: lighttpd-conf
+        -
+          hostPath: ./
+          path: /var/www
+          name: www
