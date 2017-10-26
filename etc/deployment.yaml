@@ -1,14 +1,15 @@
 ---
 kind: Deployment
+apiVersion: extensions/v1beta1
 metadata:
-  name: interaction-timeline
+  name: tools.interaction-timeline
   namespace: interaction-timeline
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: interaction-timeline
+        name: tools.interaction-timeline
     spec:
       containers:
         -
