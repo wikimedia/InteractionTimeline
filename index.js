@@ -7,7 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { IntlProvider, defineMessages } from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import i18n from './i18n.dir';
 import App from './src/components/app';
 import reducer from './src/reducers/index';
