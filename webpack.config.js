@@ -36,6 +36,10 @@ const config = {
 				loader: 'babel-loader'
 			},
 			{
+				test: /i18n\.dir\.js$/,
+				loader: 'dir-loader'
+			},
+			{
 				test: /\.scss$|\.css$/,
 				use: extractSass.extract( {
 					use: [
