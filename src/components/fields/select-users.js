@@ -127,8 +127,7 @@ class SelectUsers extends React.Component {
 	render() {
 		return (
 			<Select
-				name={this.props.name}
-				disabled={this.props.disabled}
+				{...this.props}
 				value={this.state.value}
 				multi
 				isLoading={this.state.loading}
@@ -141,14 +140,11 @@ class SelectUsers extends React.Component {
 }
 
 SelectUsers.propTypes = {
-	name: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-	disabled: PropTypes.bool,
 	value: PropTypes.arrayOf( PropTypes.string )
 };
 
 SelectUsers.defaultProps = {
-	disabled: false,
 	value: []
 };
 

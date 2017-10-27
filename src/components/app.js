@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import FormContainer from './form.container';
+import Form from './form/form';
 
 export default () => (
 	<div className="container">
@@ -11,7 +11,7 @@ export default () => (
 		</div>
 		<div className="row">
 			<div className="col">
-				<FormContainer />
+				<Form />
 			</div>
 		</div>
 	</div>

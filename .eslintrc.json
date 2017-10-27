@@ -4,15 +4,7 @@
 		"wikimedia"
 	],
   "rules": {
-		"import/extensions": [
-			"error",
-			"never",
-			{
-				"png": "always",
-				"scss": "always",
-				"css": "always"
-			}
-		],
+		"import/extensions": ["off"],
 		"import/no-extraneous-dependencies": ["off"],
 		"import/no-unresolved": ["off"],
 		"react/jsx-indent-props": [

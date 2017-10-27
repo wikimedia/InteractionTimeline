@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import * as UserActions from 'app/actions/user';
-import Form from './form';
+import SelectUsers from './select-users';
 
 export default connect(
 	state => ( {
-		users: state.users
+		value: state.users
 	} ),
 	dispatch => ( {
-		updateUsers: value => dispatch( UserActions.updateUsers( value ) )
+		onChange: value => dispatch( UserActions.updateUsers( value ) )
 	} ),
-)( Form );
+)( SelectUsers );
