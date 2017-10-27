@@ -1,3 +1,4 @@
 {
-	"hello-world": "A 'Hello World!' Greeting"
+	"app-title": "The Title of the App",
+	"field-label-users": "Label for the 'Users' field"
 }

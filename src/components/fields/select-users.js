@@ -1,0 +1,155 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Select from 'react-select';
+import { Subject, Observable } from 'rxjs';
+import 'rxjs/add/observable/dom/ajax';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/debounceTime';
+import 'react-select/dist/react-select.css';
+
+class SelectUsers extends React.Component {
+
+	constructor( props ) {
+		super( props );
+		this.textChange = new Subject();
+
+		// Binding
+		this.onInputChange = this.onInputChange.bind( this );
+		this.onChange = this.onChange.bind( this );
+
+		// This components state should be self contained.
+		this.state = {
+			value: this.getOptionsFromUsernames( props.value ),
+			options: this.getOptionsFromUsernames( props.value ),
+			loading: false
+		};
+
+		// Text Change Handler.
+		this.textChange
+			.distinctUntilChanged()
+			.debounceTime( 250 )
+			.switchMap( ( input ) => {
+				// Set the loading state.
+				this.setState( {
+					...this.state,
+					loading: true
+				} );
+
+				// Query for the users.
+				return Observable.ajax( {
+					url: 'https://meta.wikimedia.org/w/api.php?action=query&format=json&list=globalallusers&origin=*&agufrom=' + encodeURIComponent( input ),
+					crossDomain: true
+				} )
+					.map( ( ajaxResponse ) => {
+						return ajaxResponse.response.query.globalallusers.map( ( user ) => {
+							return {
+								label: user.name,
+								value: user.name
+							};
+						} );
+					} )
+					.catch( () => {
+						return [];
+					} );
+			} )
+			.subscribe( ( options ) => {
+				// Set the internal state.
+				this.setState( {
+					...this.state,
+					loading: false,
+					options: [
+						...options
+					]
+				} );
+			} );
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		this.setState( {
+			...this.state,
+			value: this.getOptionsFromUsernames( nextProps.value )
+		} );
+	}
+
+	onInputChange( input ) {
+		this.textChange.next( input );
+		return input;
+	}
+
+	onChange( value ) {
+		// Set the internal state.
+		this.setState( {
+			...this.state,
+			value: value
+		} );
+
+		// Send the value upstream.
+		if ( this.props.onChange ) {
+			this.props.onChange( this.getUsernamesFromOptions( value ) );
+		}
+	}
+
+	getUsernamesFromOptions( options ) {
+		if ( !options ) {
+			return [];
+		}
+
+		return options.map( this.getUsernameFromOption );
+	}
+
+	getUsernameFromOption( option ) {
+		if ( !option ) {
+			return undefined;
+		}
+
+		return option.value;
+	}
+
+	getOptionFromUsername( username ) {
+		if ( !username ) {
+			return {};
+		}
+
+		return {
+			label: username,
+			value: username
+		};
+	}
+
+	getOptionsFromUsernames( usernames ) {
+		if ( !usernames ) {
+			return [];
+		}
+
+		return usernames.map( this.getOptionFromUsername );
+	}
+
+	render() {
+		return (
+			<Select
+				name={this.props.name}
+				disabled={this.props.disabled}
+				value={this.state.value}
+				multi
+				isLoading={this.state.loading}
+				options={this.state.options}
+				onInputChange={this.onInputChange}
+				onChange={this.onChange}
+			/>
+		);
+	}
+}
+
+SelectUsers.propTypes = {
+	name: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	disabled: PropTypes.bool,
+	value: PropTypes.arrayOf( PropTypes.string )
+};
+
+SelectUsers.defaultProps = {
+	disabled: false,
+	value: []
+};
+
+export default SelectUsers;
