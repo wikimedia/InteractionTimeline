@@ -1,7 +1,10 @@
+/* eslint-env browser */
 import { Observable } from 'rxjs';
+import { Map } from 'immutable';
+import { replace, LOCATION_CHANGE } from 'react-router-redux';
 import qs from 'querystring';
-import { push, LOCATION_CHANGE } from 'react-router-redux';
 import getQueryFromLocation from 'app/utils/location-query';
+import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
 
 function getWikiFromLocation( location ) {
@@ -10,7 +13,47 @@ function getWikiFromLocation( location ) {
 	return query.wiki ? query.wiki : '';
 }
 
-// @TODO Get the sitematrix so the users can choose the wiki.
+export const fetchAllWikis = ( action$ ) => (
+	action$.ofType( 'WIKI_LIST_FETCH' )
+		.first()
+		.flatMap( () => (
+			Observable.ajax( {
+				url: 'https://meta.wikimedia.org/w/api.php?action=sitematrix&format=json&origin=*',
+				crossDomain: true,
+				responseType: 'json'
+			} )
+				.map( ( ajaxResponse ) => {
+					const wikis = Object.keys( ajaxResponse.response.sitematrix ).filter( ( key ) => {
+						return ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) || key === 'specials';
+					} )
+						.map( ( key ) => {
+							// Special is different for some reason.
+							if ( key === 'specials' ) {
+								return {
+									site: ajaxResponse.response.sitematrix[ key ]
+								};
+							}
+
+							return ajaxResponse.response.sitematrix[ key ];
+						} )
+						.reduce( ( state, data ) => (
+							[
+								...state,
+								...data.site.map( ( item ) => (
+									new Wiki( {
+										id: item.dbname,
+										name: item.sitename,
+										domain: new URL( item.url ).hostname
+									} )
+								) )
+							]
+						), [] )
+						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() );
+					return WikiActions.setWikiList( wikis );
+				} )
+				.catch( () => Observable.of( WikiActions.setWikiList( new Map() ) ) )
+		) )
+);
 
 export const pushWikiToLocation = ( action$, store ) => (
 	action$.ofType( 'WIKI_SET' )
@@ -19,7 +62,7 @@ export const pushWikiToLocation = ( action$, store ) => (
 			let location = store.getState().router.location;
 			let query = getQueryFromLocation( store.getState().router.location );
 
-			if ( action.query ) {
+			if ( action.wiki ) {
 				query = {
 					...query,
 					wiki: action.wiki
@@ -33,7 +76,7 @@ export const pushWikiToLocation = ( action$, store ) => (
 				search: '?' + qs.stringify( query )
 			};
 
-			return Observable.of( push( location ) );
+			return Observable.of( replace( location ) );
 		} )
 );
 

@@ -1,20 +1,20 @@
 import { Observable } from 'rxjs';
 import qs from 'querystring';
-import { push, LOCATION_CHANGE } from 'react-router-redux';
-import arrayEqual from 'app/utils/array-equal';
+import { Set } from 'immutable';
+import { replace, LOCATION_CHANGE } from 'react-router-redux';
 import getQueryFromLocation from 'app/utils/location-query';
 import * as UserActions from 'app/actions/user';
 
 function getUsersFromQuery( query ) {
 	if ( query.user ) {
 		if ( Array.isArray( query.user ) ) {
-			return query.user;
+			return new Set( query.user );
 		} else {
-			return [ query.user ];
+			return new Set( [ query.user ] );
 		}
 	}
 
-	return [];
+	return new Set();
 }
 
 function getUsersFromLocation( location ) {
@@ -24,7 +24,7 @@ function getUsersFromLocation( location ) {
 export const pushUsersToLocation = ( action$, store ) => (
 	action$.ofType( 'USERS_UPDATE' )
 		// If there are no users and no search query, no action needs to be taken.
-		.filter( ( action ) => !arrayEqual( getUsersFromLocation( store.getState().router.location ), action.users ) )
+		.filter( ( action ) => !getUsersFromLocation( store.getState().router.location ).equals( action.users.toArray() ) )
 		.flatMap( ( action ) => {
 			let location = store.getState().router.location;
 			let query = getQueryFromLocation( location );
@@ -32,7 +32,7 @@ export const pushUsersToLocation = ( action$, store ) => (
 			query = {
 				...query,
 				user: [
-					...action.users
+					...action.users.toArray()
 				]
 			};
 
@@ -41,13 +41,13 @@ export const pushUsersToLocation = ( action$, store ) => (
 				search: '?' + qs.stringify( query )
 			};
 
-			return Observable.of( push( location ) );
+			return Observable.of( replace( location ) );
 		} )
 );
 
 export const pushLocationToUsers = ( action$, store ) => (
 	action$.ofType( LOCATION_CHANGE )
 		// If there are no users and no search query, no action needs to be taken.
-		.filter( () => !arrayEqual( getUsersFromLocation( store.getState().router.location ), store.getState().users ) )
+		.filter( () => !getUsersFromLocation( store.getState().router.location ).equals( store.getState().users ) )
 		.flatMap( () => Observable.of( UserActions.updateUsers( getUsersFromLocation( store.getState().router.location ) ) ) )
 );
