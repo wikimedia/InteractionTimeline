@@ -1,11 +1,12 @@
 import qs from 'querystring';
+import Query from 'app/entities/query';
 
 export default ( location ) => {
-	let query = {};
+	let data = {};
 
 	if ( location.search ) {
-		query = qs.parse( location.search.substring( 1 ) );
+		data = qs.parse( location.search.substring( 1 ) );
 	}
 
-	return query;
+	return new Query( data );
 };
