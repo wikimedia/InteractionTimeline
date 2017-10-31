@@ -6,7 +6,7 @@ import SelectWiki from './select-wiki';
 
 export default connect(
 	state => ( {
-		loading: !state.wikis.size,
+		isLoading: !state.wikis.size,
 		value: state.query.wiki,
 		options: WikiSelectors.getWikiOptions( state )
 	} ),
