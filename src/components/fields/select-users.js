@@ -84,9 +84,7 @@ class SelectUsers extends React.Component {
 		} );
 
 		// Send the value upstream.
-		if ( this.props.onChange ) {
-			this.props.onChange( this.getUsernamesFromOptions( value ) );
-		}
+		this.props.onChange( this.getUsernamesFromOptions( value ) );
 	}
 
 	getUsernamesFromOptions( options ) {
