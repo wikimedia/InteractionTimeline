@@ -9,7 +9,7 @@ export default connect(
 		endDate: DateSelectors.getEndDate( state )
 	} ),
 	dispatch => ( {
-		onStartDateChange: value => dispatch( QueryActions.setQueryValue( 'startDate', value ? value.utc().toISOString() : null ) ),
-		onEndDateChange: value => dispatch( QueryActions.setQueryValue( 'endDate', value ? value.utc().toISOString() : null ) )
+		onStartDateChange: value => dispatch( QueryActions.setQueryValue( 'startDate', value ? value.utc().unix() : null ) ),
+		onEndDateChange: value => dispatch( QueryActions.setQueryValue( 'endDate', value ? value.utc().unix() : null ) )
 	} ),
 )( DatePicker );
