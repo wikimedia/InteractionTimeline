@@ -3,7 +3,7 @@ import qs from 'querystring';
 import { Set } from 'immutable';
 import { replace, LOCATION_CHANGE } from 'react-router-redux';
 import getQueryFromLocation from 'app/utils/location-query';
-import * as UserActions from 'app/actions/user';
+import * as QueryActions from 'app/actions/query';
 
 function getUsersFromQuery( query ) {
 	if ( query.user ) {
@@ -48,6 +48,6 @@ export const pushUsersToLocation = ( action$, store ) => (
 export const pushLocationToUsers = ( action$, store ) => (
 	action$.ofType( LOCATION_CHANGE )
 		// If there are no users and no search query, no action needs to be taken.
-		.filter( () => !getUsersFromLocation( store.getState().router.location ).equals( store.getState().users ) )
-		.flatMap( () => Observable.of( UserActions.updateUsers( getUsersFromLocation( store.getState().router.location ) ) ) )
+		.filter( () => !getUsersFromLocation( store.getState().router.location ).equals( store.getState().query.user ) )
+		.flatMap( () => Observable.of( QueryActions.setQueryValue( 'user', getUsersFromLocation( store.getState().router.location ) ) ) )
 );

@@ -1,5 +1,6 @@
 {
 	"app-title": "The Title of the App",
 	"field-label-users": "Label for the 'Users' field",
-	"field-label-wiki": "Label for the 'Wiki' field"
+	"field-label-wiki": "Label for the 'Wiki' field",
+	"field-label-date-range": "Label for the 'Date Range' field"
 }

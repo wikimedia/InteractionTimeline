@@ -1,5 +1,6 @@
 {
 	"app-title": "Interaction Timeline",
 	"field-label-users": "Users",
-	"field-label-wiki": "Wiki"
+	"field-label-wiki": "Wiki",
+	"field-label-date-range": "Date Range"
 }

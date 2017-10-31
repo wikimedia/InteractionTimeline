@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { Map } from 'immutable';
 
 export const getWikiOptions = createSelector(
-	state => state.wiki.list,
+	state => state.wikis,
 	( wikis = new Map() ) => {
 		return wikis.map( ( wiki ) => ( {
 			value: wiki.id,
@@ -12,7 +12,7 @@ export const getWikiOptions = createSelector(
 );
 
 export const getWiki = createSelector(
-	state => state.wiki.list,
-	state => state.wiki.id,
+	state => state.wikis,
+	state => state.query.wiki,
 	( wikis = new Map(), id = '' ) => wikis.get( id )
 );

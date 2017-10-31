@@ -6,6 +6,7 @@ import qs from 'querystring';
 import getQueryFromLocation from 'app/utils/location-query';
 import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
+import * as QueryActions from 'app/actions/query';
 
 function getWikiFromLocation( location ) {
 	let query = getQueryFromLocation( location );
@@ -49,9 +50,9 @@ export const fetchAllWikis = ( action$ ) => (
 							]
 						), [] )
 						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() );
-					return WikiActions.setWikiList( wikis );
+					return WikiActions.setWikis( wikis );
 				} )
-				.catch( () => Observable.of( WikiActions.setWikiList( new Map() ) ) )
+				.catch( () => Observable.of( WikiActions.setWikis( new Map() ) ) )
 		) )
 );
 
@@ -82,6 +83,6 @@ export const pushWikiToLocation = ( action$, store ) => (
 
 export const pushLocationToWiki = ( action$, store ) => (
 	action$.ofType( LOCATION_CHANGE )
-		.filter( () => getWikiFromLocation( store.getState().router.location ) !== store.getState().wiki.id )
-		.flatMap( () => Observable.of( WikiActions.setWiki( getWikiFromLocation( store.getState().router.location ) ) ) )
+		.filter( () => getWikiFromLocation( store.getState().router.location ) !== store.getState().query.wiki )
+		.flatMap( () => Observable.of( QueryActions.setQueryValue( 'wiki', getWikiFromLocation( store.getState().router.location ) ) ) )
 );

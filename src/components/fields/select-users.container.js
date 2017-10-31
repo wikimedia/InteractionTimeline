@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { Set } from 'immutable';
-import * as UserActions from 'app/actions/user';
+import * as QueryActions from 'app/actions/query';
+import getUsers from 'app/selectors/users';
 import SelectUsers from './select-users';
 
 export default connect(
 	state => ( {
-		value: state.users.toArray()
+		value: getUsers( state )
 	} ),
 	dispatch => ( {
-		onChange: value => dispatch( UserActions.updateUsers( new Set( value ) ) )
+		onChange: value => dispatch( QueryActions.setQueryValue( 'user', new Set( value ) ) )
 	} ),
 )( SelectUsers );
