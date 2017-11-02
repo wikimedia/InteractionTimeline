@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Form from './form';
-import Timeline from './timeline';
+import Timeline from './timeline/timeline';
 
 export default () => (
 	<div className="container">
