@@ -1,8 +1,10 @@
-$wm_blue: #006699;
-$wm_red: #990000;
-$wm_green: #339966;
+$wm-blue: #006699;
+$wm-red: #990000;
+$wm-green: #339966;
 
 $primary: $wm_blue;
+
+$timeline-width: 0.25em;
 
 
 @import '~bootstrap/scss/_functions';
@@ -20,7 +22,7 @@ $primary: $wm_blue;
 			display: block;
 			width: 1.5em;
 			height: 1.5em;
-			margin-left: -1em;
+			margin-left: ($timeline-width / 2) - 1;
 			-moz-border-radius: 0.75em;
 			-webkit-border-radius: 0.75em;
 			border-radius: 0.75em;
@@ -44,19 +46,19 @@ $primary: $wm_blue;
 
 	&.right {
 		.wrapper {
-			border-left-width: 0.5em;
-			margin-left: -0.25em;
+			border-left-width: $timeline-width;
+			margin-left:  -($timeline-width / 2);
 		}
 	}
 
 	&.left {
 		.wrapper {
-			border-right-width: 0.5em;
-			margin-right: -0.25em;
+			border-right-width: $timeline-width;
+			margin-right: -($timeline-width / 2);
 			@extend .flex-row-reverse;
 			margin-left: -1.5em;
 			&:before {
-				margin-right: -1em;
+				margin-right: ($timeline-width / 2) - 1;
 			}
 		}
 		.record {
