@@ -1,3 +1,66 @@
+$wm_blue: #006699;
+$wm_red: #990000;
+$wm_green: #339966;
+
+$primary: $wm_blue;
+
+
 @import '~bootstrap/scss/_functions';
 @import "~bootstrap/scss/_variables";
 @import "~bootstrap/scss/bootstrap";
+
+.revision {
+
+	.wrapper {
+		border-style: solid;
+		border-color: $border-color;
+		border-width: 0;
+		&:before {
+			content: '';
+			display: block;
+			width: 1.5em;
+			height: 1.5em;
+			margin-left: -1em;
+			-moz-border-radius: 0.75em;
+			-webkit-border-radius: 0.75em;
+			border-radius: 0.75em;
+			background-color: theme-color("primary");
+			@extend .align-self-center;
+		}
+	}
+
+	.content {
+		background-color: $border-color;
+	}
+
+	a {
+		text-decoration: none;
+		color: $body-color;
+		&:hover {
+			text-decoration: none;
+			background-color: $gray-300;
+		}
+	}
+
+	&.right {
+		.wrapper {
+			border-left-width: 0.5em;
+			margin-left: -0.25em;
+		}
+	}
+
+	&.left {
+		.wrapper {
+			border-right-width: 0.5em;
+			margin-right: -0.25em;
+			@extend .flex-row-reverse;
+			margin-left: -1.5em;
+			&:before {
+				margin-right: -1em;
+			}
+		}
+		.record {
+			@extend .flex-row-reverse;
+		}
+	}
+}
