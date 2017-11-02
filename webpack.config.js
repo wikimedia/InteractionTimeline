@@ -55,12 +55,23 @@ const config = {
 				} )
 			},
 			{
-				test: /\.(png|jpg|gif)$/,
+				test: /\.(png|svg|jpg|gif)$/,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
 							outputPath: './images/'
+						}
+					}
+				]
+			},
+			{
+				test: /\.(eot|woff2|woff|ttf)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							outputPath: './fonts/'
 						}
 					}
 				]
