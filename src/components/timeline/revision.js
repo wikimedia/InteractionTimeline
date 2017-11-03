@@ -45,7 +45,7 @@ const Revision = ( { side, revision, date, duration } ) => {
 		<div>
 			{displayDate}
 			<div className={classes.join( ' ' )}>
-				<div className="col-6 p-0">
+				<div className="col-md-6 col p-0">
 					<div className="wrapper row">
 						<div className="col mb-2 mt-2">
 							<div className="record row justify-content-end">

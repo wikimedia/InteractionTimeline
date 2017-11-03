@@ -13,22 +13,45 @@ $timeline-width: 0.25em;
 
 .revision {
 
-	.wrapper {
-		border-style: solid;
-		border-color: $border-color;
-		border-width: 0;
-		&:before {
-			content: '';
-			display: block;
-			width: 1.5em;
-			height: 1.5em;
-			margin-left: ($timeline-width / 2) - 1;
-			-moz-border-radius: 0.75em;
-			-webkit-border-radius: 0.75em;
-			border-radius: 0.75em;
-			background-color: theme-color("primary");
-			@extend .align-self-center;
+	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
+		.wrapper {
+			border-style: solid;
+			border-color: $border-color;
+			border-width: 0;
+			&:before {
+				content: '';
+				display: block;
+				width: 1.5em;
+				height: 1.5em;
+				margin-left: ($timeline-width / 2) - 1;
+				-moz-border-radius: 0.75em;
+				-webkit-border-radius: 0.75em;
+				border-radius: 0.75em;
+				background-color: theme-color("primary");
+			}
 		}
+
+		&.right {
+			.wrapper {
+				border-left-width: $timeline-width;
+				margin-left:  -($timeline-width / 2);
+			}
+		}
+
+		&.left {
+			.wrapper {
+				border-right-width: $timeline-width;
+				margin-right: -($timeline-width / 2);
+				margin-left: -1.5em;
+				&:before {
+					margin-right: ($timeline-width / 2) - 1;
+				}
+			}
+		}
+	}
+
+	.wrapper:before {
+		@extend .align-self-center;
 	}
 
 	.content {
@@ -44,23 +67,9 @@ $timeline-width: 0.25em;
 		}
 	}
 
-	&.right {
-		.wrapper {
-			border-left-width: $timeline-width;
-			margin-left:  -($timeline-width / 2);
-		}
-	}
 
 	&.left {
-		.wrapper {
-			border-right-width: $timeline-width;
-			margin-right: -($timeline-width / 2);
-			@extend .flex-row-reverse;
-			margin-left: -1.5em;
-			&:before {
-				margin-right: ($timeline-width / 2) - 1;
-			}
-		}
+		.wrapper,
 		.record {
 			@extend .flex-row-reverse;
 		}
