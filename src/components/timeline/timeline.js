@@ -1,14 +1,15 @@
 import React from 'react';
 import moment from 'moment';
-import { OrderedMap } from 'immutable';
+import { OrderedMap, OrderedSet } from 'immutable';
 import RevisionEntity from 'app/entities/revision';
 import Revision from './revision';
+import User from './user';
 
 // @TODO Get from store.
-const users = [
+const users = new OrderedSet( [
 	'Davidwbarratt',
 	'DBarratt (WMF)'
-];
+] );
 
 // @TODO Get from store.
 const revisions = new OrderedMap( [
@@ -66,9 +67,12 @@ const revisions = new OrderedMap( [
 
 const getSide = ( user, users ) => {
 	let side;
-	if ( user === users[ 0 ] ) {
+
+	users = users.slice( 0, 2 );
+
+	if ( user === users.first() ) {
 		side = 'left';
-	} else if ( user === users[ 1 ] ) {
+	} else if ( user === users.last() ) {
 		side = 'right';
 	}
 
@@ -102,8 +106,17 @@ export default () => {
 		);
 	} ).toArray();
 
+	const userDisplay = users.slice( 0, 2 ).map( ( user ) => {
+		return (
+			<User key={user} user={user} />
+		);
+	} ).toArray();
+
 	return (
 		<div className="timeline container">
+			<div className="row align-items-center justify-content-around mb-2 text-center">
+				{userDisplay}
+			</div>
 			{edits}
 		</div>
 	);
