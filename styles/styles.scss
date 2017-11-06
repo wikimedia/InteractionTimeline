@@ -21,6 +21,52 @@ $timeline-text-comment: (
 	right: $gray-700,
 );
 
+.DateRangePickerInput {
+	@extend .rounded;
+}
+
+.select-users .Select-multi-value-wrapper {
+	// First in the list
+	> .Select-value {
+		border-color: darken(map-get($timeline-bg, "left"), 10%);
+		background-color: map-get($timeline-bg, "left");
+		color: map-get($timeline-text, "left");
+		.Select-value-icon {
+			border-color: darken(map-get($timeline-bg, "left"), 10%);
+			&:hover {
+				color: map-get($timeline-text, "left");
+				border-color: darken(map-get($timeline-bg, "left"), 10%);
+				background-color: lighten(map-get($timeline-bg, "left"), 10%);
+			}
+		}
+		// All others in the list (will be restriected to 2).
+		& ~ .Select-value {
+			border-color: darken(map-get($timeline-bg, "right"), 10%);
+			background-color: map-get($timeline-bg, "right");
+			color: map-get($timeline-text, "right");
+			.Select-value-icon {
+				border-color: darken(map-get($timeline-bg, "right"), 10%);
+				&:hover {
+					color: map-get($timeline-text, "right");
+					border-color: darken(map-get($timeline-bg, "right"), 10%);
+					background-color: lighten(map-get($timeline-bg, "right"), 10%);
+				}
+			}
+		}
+	}
+}
+
+.timeline .user {
+	&.left {
+		background-color: map-get($timeline-bg, "left");
+		color: map-get($timeline-text, "left");
+	}
+	&.right {
+		background-color: map-get($timeline-bg, "right");
+		color: map-get($timeline-text, "right");
+	}
+}
+
 .revision {
 
 	.wrapper:before {

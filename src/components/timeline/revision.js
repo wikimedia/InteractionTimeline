@@ -51,7 +51,7 @@ const Revision = ( { side, revision, date, duration } ) => {
 							<div className="record row justify-content-between">
 								<div className="col-2 mr-auto ml-auto align-self-center">{timestamp.format( 'h:mma' )}</div>
 								{/* @TODO Link to Revision. */}
-								<a href={'#' + revision.id} className="col-9 d-block content pt-2 pb-2">
+								<a href={'#' + revision.id} className="col-9 d-block content rounded pt-2 pb-2">
 									<span className="d-block title">{revision.title}</span>
 									<span className="d-block comment"><em>{revision.comment}</em></span>
 								</a>

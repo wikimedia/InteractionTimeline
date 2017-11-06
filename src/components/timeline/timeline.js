@@ -68,8 +68,6 @@ const revisions = new OrderedMap( [
 const getSide = ( user, users ) => {
 	let side;
 
-	users = users.slice( 0, 2 );
-
 	if ( user === users.first() ) {
 		side = 'left';
 	} else if ( user === users.last() ) {
@@ -106,9 +104,9 @@ export default () => {
 		);
 	} ).toArray();
 
-	const userDisplay = users.slice( 0, 2 ).map( ( user ) => {
+	const userDisplay = users.map( ( user ) => {
 		return (
-			<User key={user} user={user} />
+			<User key={user} user={user} side={getSide( user, users )} />
 		);
 	} ).toArray();
 
