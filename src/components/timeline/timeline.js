@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Set, Map } from 'immutable';
-import Wiki from 'app/entities/wiki';
 import RevisionContainer from './revision.container';
 
 const getSide = ( user, users ) => {
