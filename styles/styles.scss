@@ -93,6 +93,9 @@ $timeline-text-comment: (
 			.comment {
 				color: map-get($timeline-text-comment, "left");
 			}
+			&:hover {
+				background-color: lighten(map-get($timeline-bg, "left"), 5%);
+			}
 		}
 	}
 
@@ -102,6 +105,9 @@ $timeline-text-comment: (
 			background-color: map-get($timeline-bg, "right");
 			.comment {
 				color: map-get($timeline-text-comment, "right");
+			}
+			&:hover {
+				background-color: lighten(map-get($timeline-bg, "right"), 5%);
 			}
 		}
 	}
