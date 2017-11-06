@@ -83,7 +83,7 @@ export default () => {
 	let prev;
 
 	const edits = revisions.map( ( revision ) => {
-		const timestamp = moment( revision.timestamp );
+		const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 		let date;
 		let duration;
 
@@ -95,7 +95,7 @@ export default () => {
 
 		// If we are switching sides, but not the date, show the duraction.
 		if ( !date && getSide( prev.user, users ) !== side ) {
-			duration = moment.duration( moment( prev.timestamp ).diff( timestamp ) );
+			duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
 		}
 
 		// Set the previous state for

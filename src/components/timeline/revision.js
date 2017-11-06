@@ -11,7 +11,7 @@ const Revision = ( { side, revision, date, duration } ) => {
 		'm-0'
 	];
 
-	const timestamp = moment( revision.timestamp );
+	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 
 	switch ( side ) {
 		case 'right':
@@ -48,8 +48,8 @@ const Revision = ( { side, revision, date, duration } ) => {
 				<div className="col-md-6 col p-0">
 					<div className="wrapper row">
 						<div className="col mb-2 mt-2">
-							<div className="record row justify-content-end">
-								<div className="col-2 align-self-center mr-3">{timestamp.format( 'h:mma' )}</div>
+							<div className="record row justify-content-between">
+								<div className="col-2 mr-auto ml-auto align-self-center">{timestamp.format( 'h:mma' )}</div>
 								{/* @TODO Link to Revision. */}
 								<a href={'#' + revision.id} className="col-9 d-block content pt-2 pb-2">
 									<span className="d-block title">{revision.title}</span>
