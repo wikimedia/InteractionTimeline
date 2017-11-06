@@ -12,29 +12,27 @@ $timeline-bg: (
 	left: #5AAAFA,
 	right: #6EEDD8,
 );
-$timeline-text: (
-	left: $white,
-	right: $black,
-);
-$timeline-text-comment: (
-	left: $gray-200,
-	right: $gray-700,
-);
+$timeline-text: $black;
+$timeline-text-comment: $gray-700;
 
 .DateRangePickerInput {
 	@extend .rounded;
 }
 
 .select-users .Select-multi-value-wrapper {
+	.Select-value {
+		color: $timeline-text;
+		.Select-value-icon:hover {
+			color: $timeline-text;
+		}
+	}
 	// First in the list
 	> .Select-value {
 		border-color: darken(map-get($timeline-bg, "left"), 10%);
 		background-color: map-get($timeline-bg, "left");
-		color: map-get($timeline-text, "left");
 		.Select-value-icon {
 			border-color: darken(map-get($timeline-bg, "left"), 10%);
 			&:hover {
-				color: map-get($timeline-text, "left");
 				border-color: darken(map-get($timeline-bg, "left"), 10%);
 				background-color: lighten(map-get($timeline-bg, "left"), 10%);
 			}
@@ -43,11 +41,9 @@ $timeline-text-comment: (
 		& ~ .Select-value {
 			border-color: darken(map-get($timeline-bg, "right"), 10%);
 			background-color: map-get($timeline-bg, "right");
-			color: map-get($timeline-text, "right");
 			.Select-value-icon {
 				border-color: darken(map-get($timeline-bg, "right"), 10%);
 				&:hover {
-					color: map-get($timeline-text, "right");
 					border-color: darken(map-get($timeline-bg, "right"), 10%);
 					background-color: lighten(map-get($timeline-bg, "right"), 10%);
 				}
@@ -59,11 +55,11 @@ $timeline-text-comment: (
 .timeline .user {
 	&.left {
 		background-color: map-get($timeline-bg, "left");
-		color: map-get($timeline-text, "left");
+		color: $timeline-text;
 	}
 	&.right {
 		background-color: map-get($timeline-bg, "right");
-		color: map-get($timeline-text, "right");
+		color: $timeline-text;
 	}
 }
 
@@ -82,17 +78,20 @@ $timeline-text-comment: (
 		}
 	}
 
+	.content {
+		color: $timeline-text;
+		.comment {
+			color: $timeline-text-comment;
+		}
+	}
+
 	&.left {
 		.wrapper,
 		.record {
 			@extend .flex-row-reverse;
 		}
 		.content {
-			color: $white;
 			background-color: map-get($timeline-bg, "left");
-			.comment {
-				color: map-get($timeline-text-comment, "left");
-			}
 			&:hover {
 				background-color: lighten(map-get($timeline-bg, "left"), 5%);
 			}
@@ -101,11 +100,7 @@ $timeline-text-comment: (
 
 	&.right {
 		.content {
-			color: map-get($timeline-text, "right");
 			background-color: map-get($timeline-bg, "right");
-			.comment {
-				color: map-get($timeline-text-comment, "right");
-			}
 			&:hover {
 				background-color: lighten(map-get($timeline-bg, "right"), 5%);
 			}
