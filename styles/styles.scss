@@ -117,7 +117,6 @@ $timeline-text-comment: $gray-700;
 				display: block;
 				width: 1.5em;
 				height: 1.5em;
-				margin-left: ($timeline-width / 2) - 1;
 				-moz-border-radius: 0.75em;
 				-webkit-border-radius: 0.75em;
 				border-radius: 0.75em;
@@ -127,10 +126,11 @@ $timeline-text-comment: $gray-700;
 		&.right {
 			.wrapper {
 				border-left-width: $timeline-width;
-				margin-left:  -($timeline-width / 2);
 				margin-right: -($timeline-width / 2) - 1;
+				margin-left:  -($timeline-width / 2);
 				&:before {
 					background-color: map-get($timeline-bg, "right");
+					margin-left: ($timeline-width / 2) - 1;
 				}
 			}
 		}
