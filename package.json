@@ -4,6 +4,7 @@
     "postinstall": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint --color .",
+    "fix": "eslint --color --fix .",
     "test": "eslint --color ."
   },
   "config": {
