@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const User = ( { user, side } ) => {
-	let className = [
+	const className = [
 		'user',
 		side,
 		'rounded',
-		'col-lg-3',
-		'col-md-4',
-		'col',
+		'col-6',
 		'border',
 		'pt-2',
 		'pb-2'

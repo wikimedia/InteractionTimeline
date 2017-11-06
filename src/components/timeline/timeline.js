@@ -112,7 +112,7 @@ export default () => {
 
 	return (
 		<div className="timeline container">
-			<div className="row align-items-center justify-content-around mb-2 text-center">
+			<div className="row align-items-center justify-content-around mb-3 text-center">
 				{userDisplay}
 			</div>
 			{edits}
