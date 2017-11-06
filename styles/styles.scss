@@ -1,17 +1,64 @@
 $wm-blue: #006699;
 $wm-red: #990000;
 $wm-green: #339966;
-
-$primary: $wm_blue;
-
-$timeline-width: 0.25em;
-
+$primary: $wm-blue;
 
 @import '~bootstrap/scss/_functions';
 @import "~bootstrap/scss/_variables";
 @import "~bootstrap/scss/bootstrap";
 
+$timeline-width: 0.25em;
+$timeline-bg: (
+	left: #5AAAFA,
+	right: #6EEDD8,
+);
+$timeline-text: (
+	left: $white,
+	right: $black,
+);
+$timeline-text-comment: (
+	left: $gray-200,
+	right: $gray-700,
+);
+
 .revision {
+
+	.wrapper:before {
+		@extend .align-self-center;
+	}
+
+	a {
+		text-decoration: none;
+		color: $body-color;
+		&:hover {
+			text-decoration: none;
+			background-color: $gray-300;
+		}
+	}
+
+	&.left {
+		.wrapper,
+		.record {
+			@extend .flex-row-reverse;
+		}
+		.content {
+			color: $white;
+			background-color: map-get($timeline-bg, "left");
+			.comment {
+				color: map-get($timeline-text-comment, "left");
+			}
+		}
+	}
+
+	&.right {
+		.content {
+			color: map-get($timeline-text, "right");
+			background-color: map-get($timeline-bg, "right");
+			.comment {
+				color: map-get($timeline-text-comment, "right");
+			}
+		}
+	}
 
 	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
 		.wrapper {
@@ -27,7 +74,6 @@ $timeline-width: 0.25em;
 				-moz-border-radius: 0.75em;
 				-webkit-border-radius: 0.75em;
 				border-radius: 0.75em;
-				background-color: theme-color("primary");
 			}
 		}
 
@@ -35,6 +81,9 @@ $timeline-width: 0.25em;
 			.wrapper {
 				border-left-width: $timeline-width;
 				margin-left:  -($timeline-width / 2);
+				&:before {
+					background-color: map-get($timeline-bg, "right");
+				}
 			}
 		}
 
@@ -44,34 +93,10 @@ $timeline-width: 0.25em;
 				margin-right: -($timeline-width / 2);
 				margin-left: -1.5em;
 				&:before {
+					background-color: map-get($timeline-bg, "left");
 					margin-right: ($timeline-width / 2) - 1;
 				}
 			}
-		}
-	}
-
-	.wrapper:before {
-		@extend .align-self-center;
-	}
-
-	.content {
-		background-color: $border-color;
-	}
-
-	a {
-		text-decoration: none;
-		color: $body-color;
-		&:hover {
-			text-decoration: none;
-			background-color: $gray-300;
-		}
-	}
-
-
-	&.left {
-		.wrapper,
-		.record {
-			@extend .flex-row-reverse;
 		}
 	}
 }
