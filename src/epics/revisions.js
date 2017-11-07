@@ -6,17 +6,14 @@ import Revision from 'app/entities/revision';
 const buildUrl = ( state ) => {
 	const domain = state.wikis.get( state.query.wiki ).domain;
 	const users = state.query.user.join( '|' );
-	let url = 'https://' + domain + '/w/api.php?action=query&list=usercontribs&ucuser=' + users + '&uclimit=500&ucdir=older&format=json&origin=*';
+	let url = 'https://' + domain + '/w/api.php?action=query&list=usercontribs&ucuser=' + users + '&uclimit=500&ucdir=newer&format=json&origin=*';
 
-	// NOTE: since we are doing ucdir=older, ucstart and ucend need to be switched.
-	const ucend = state.query.startDate;
-	if ( ucend ) {
-		url += '&ucend=' + ucend;
+	if ( state.query.startDate ) {
+		url += '&ucstart=' + state.query.startDate;
 	}
 
-	const ucstart = state.query.endDate;
-	if ( ucstart ) {
-		url += '&ucstart=' + ucstart;
+	if ( state.query.endDate ) {
+		url += '&ucend=' + state.query.endDate;
 	}
 
 	return url;
