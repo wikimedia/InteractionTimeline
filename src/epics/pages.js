@@ -58,7 +58,7 @@ export const fetchPages = ( action$, store ) => (
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
 		// Ensure that all the necessary data is present.
 		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
-		.distinctUntilChanged( store.getState().query.user )
+		.distinctUntilChanged( () => store.getState().query.user )
 		.switchMap( () => Observable.from( store.getState().query.user.toArray() ) )
 		.filter( ( user ) => !store.getState().pages.has( user ) )
 		.flatMap( ( user ) => pageRequest( store.getState().wikis.get( store.getState().query.wiki ).domain, user ) )
