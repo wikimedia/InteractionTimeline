@@ -25,9 +25,8 @@ const buildUrl = ( state ) => {
 const fetchRevisions = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
-		.skipUntil( action$.ofType( 'WIKIS_SET' ) )
-		.filter( () => !!store.getState().query.wiki )
-		.filter( () => store.getState().query.user.size > 0 )
+		// Ensure that all the necessary data is present.
+		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
 		.switchMap( () => {
 			return Observable.ajax( {
 				url: buildUrl( store.getState() ),

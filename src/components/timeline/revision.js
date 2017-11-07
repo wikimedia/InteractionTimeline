@@ -14,7 +14,10 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 
 	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 
-	const url = 'https://' + wiki.domain + '/w/index.php?diff=prev&oldid=' + revision.id;
+	let url;
+	if ( wiki ) {
+		url = 'https://' + wiki.domain + '/w/index.php?diff=prev&oldid=' + revision.id;
+	}
 
 	switch ( side ) {
 		case 'right':
@@ -69,7 +72,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ).isRequired,
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
-	wiki: PropTypes.instanceOf( Wiki ).isRequired,
+	wiki: PropTypes.instanceOf( Wiki ),
 	date: PropTypes.instanceOf( moment ),
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func
@@ -78,7 +81,8 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	date: undefined,
-	duration: undefined
+	duration: undefined,
+	wiki: undefined
 };
 
 export default Revision;
