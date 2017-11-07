@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Form from './form';
-import Timeline from './timeline/timeline';
+import TimelineContainer from './timeline/timeline.container';
 
 export default () => (
 	<div className="container">
@@ -17,7 +17,7 @@ export default () => (
 		</div>
 		<div className="row">
 			<div className="col">
-				<Timeline />
+				<TimelineContainer />
 			</div>
 		</div>
 	</div>
