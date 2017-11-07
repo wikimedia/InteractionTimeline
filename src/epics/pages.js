@@ -24,6 +24,11 @@ const pageRequest = ( domain, user, cont ) => {
 		responseType: 'json'
 	} )
 		.flatMap( ( ajaxResponse ) => {
+			// User has no pages.
+			if ( !ajaxResponse.response.query ) {
+				return Observable.of( PagesActions.mergeUserPages( user, new Map() ) );
+			}
+
 			const pages =
 				new Map(
 					ajaxResponse.response.query.pages.map( ( data ) => (
@@ -53,9 +58,10 @@ export const fetchPages = ( action$, store ) => (
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
 		// Ensure that all the necessary data is present.
 		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
-		.flatMap( () => Observable.from( store.getState().query.user.toArray() ) )
+		.distinctUntilChanged( store.getState().query.user )
+		.switchMap( () => Observable.from( store.getState().query.user.toArray() ) )
 		.filter( ( user ) => !store.getState().pages.has( user ) )
-		.switchMap( ( user ) => pageRequest( store.getState().wikis.get( store.getState().query.wiki ).domain, user ) )
+		.flatMap( ( user ) => pageRequest( store.getState().wikis.get( store.getState().query.wiki ).domain, user ) )
 );
 
 export const fetchPagesContinue = ( action$, store ) => (

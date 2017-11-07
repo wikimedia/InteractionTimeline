@@ -11,7 +11,7 @@ export const getRevisions = createSelector(
 					return false;
 				}
 
-				return pages.get( user ).has( revision.id );
+				return pages.get( user ).has( revision.pageid );
 			} );
 
 			// If the page exists for all users, then it
