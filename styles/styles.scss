@@ -86,6 +86,7 @@ body {
 	}
 
 	.content {
+		word-wrap: break-word;
 		color: $timeline-text;
 		.comment {
 			color: $timeline-text-comment;
