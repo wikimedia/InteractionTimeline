@@ -14,6 +14,11 @@ const buildUrl = ( state ) => {
 		url += '&ucend=' + ucend;
 	}
 
+	const ucstart = state.query.endDate;
+	if ( ucstart ) {
+		url += '&ucstart=' + ucstart;
+	}
+
 	return url;
 };
 
