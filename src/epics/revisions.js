@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
 import * as RevisionsActions from 'app/actions/revisions';
-import RevisionEntity from 'app/entities/revision';
+import Revision from 'app/entities/revision';
 
 const buildUrl = ( state ) => {
 	const domain = state.wikis.get( state.query.wiki ).domain;
@@ -19,13 +19,9 @@ const buildUrl = ( state ) => {
 
 const fetchRevisions = ( action$, store ) => (
 	action$
+		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
 		.skipUntil( action$.ofType( 'WIKIS_SET' ) )
-		.filter( ( action ) => {
-			return [ 'QUERY_UPDATE', 'QUERY_SET_VALUE' ].includes( action.type );
-		} )
-		.filter( () => {
-			return store.getState().query.user.size > 0;
-		} )
+		.filter( () => store.getState().query.user.size > 0 )
 		.switchMap( () => {
 			return Observable.ajax( {
 				url: buildUrl( store.getState() ),
@@ -35,19 +31,17 @@ const fetchRevisions = ( action$, store ) => (
 				.map( ( ajaxResponse ) => {
 					const contribs = ajaxResponse.response.query.usercontribs;
 
-					let revisions = new OrderedMap();
-					for ( let data of contribs ) {
-						revisions = revisions.set(
-							data.revid,
-							new RevisionEntity( {
-								id: data.revid,
-								title: data.title,
-								user: data.user,
-								timestamp: data.timestamp,
-								comment: data.comment
-							} )
-						);
-					}
+					const revisions = new OrderedMap(
+						contribs.map( ( data ) => (
+							[
+								data.revid,
+								new Revision( {
+									id: data.revid,
+									...data
+								} )
+							]
+						) )
+					);
 
 					return RevisionsActions.setRevisions( revisions );
 				} )
