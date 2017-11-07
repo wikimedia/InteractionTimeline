@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
+import moment from 'moment';
 import * as RevisionsActions from 'app/actions/revisions';
 import Revision from 'app/entities/revision';
 
@@ -31,17 +32,18 @@ const fetchRevisions = ( action$, store ) => (
 				.map( ( ajaxResponse ) => {
 					const contribs = ajaxResponse.response.query.usercontribs;
 
-					const revisions = new OrderedMap(
-						contribs.map( ( data ) => (
-							[
-								data.revid,
-								new Revision( {
-									id: data.revid,
-									...data
-								} )
-							]
-						) )
-					);
+					const revisions =
+						new OrderedMap(
+							contribs.map( ( data ) => (
+								[
+									data.revid,
+									new Revision( {
+										id: data.revid,
+										...data
+									} )
+								]
+							) )
+						).sort( ( a, b ) => moment( a.timestamp ).diff( b.timestamp ) );
 
 					return RevisionsActions.setRevisions( revisions );
 				} )
