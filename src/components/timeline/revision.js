@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RevisionEntity from 'app/entities/revision';
 import moment from 'moment';
+import Wiki from 'app/entities/wiki';
 import TimelineDate from './date';
 
-const Revision = ( { side, revision, date, duration } ) => {
+const Revision = ( { side, revision, date, duration, wiki } ) => {
 	let classes = [
 		'revision',
 		'row',
@@ -12,6 +13,8 @@ const Revision = ( { side, revision, date, duration } ) => {
 	];
 
 	const timestamp = moment( revision.timestamp );
+
+	const url = 'https://' + wiki.domain + '/w/index.php?diff=prev&oldid=' + revision.id;
 
 	switch ( side ) {
 		case 'right':
@@ -50,8 +53,7 @@ const Revision = ( { side, revision, date, duration } ) => {
 						<div className="col mb-2 mt-2">
 							<div className="record row justify-content-end">
 								<div className="col-2 align-self-center mr-3">{timestamp.format( 'h:mma' )}</div>
-								{/* @TODO Link to Revision. */}
-								<a href={'#' + revision.id} className="col-9 d-block content pt-2 pb-2">
+								<a href={url} className="col-9 d-block content pt-2 pb-2">
 									<span className="d-block title">{revision.title}</span>
 									<span className="d-block text-muted comment"><em>{revision.comment}</em></span>
 								</a>
@@ -67,6 +69,7 @@ const Revision = ( { side, revision, date, duration } ) => {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ).isRequired,
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
+	wiki: PropTypes.instanceOf( Wiki ).isRequired,
 	date: PropTypes.instanceOf( moment ),
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func

@@ -14,9 +14,10 @@ const fetchAllWikis = ( action$ ) => (
 				responseType: 'json'
 			} )
 				.map( ( ajaxResponse ) => {
-					const wikis = Object.keys( ajaxResponse.response.sitematrix ).filter( ( key ) => {
-						return ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) || key === 'specials';
-					} )
+					const wikis = Object.keys( ajaxResponse.response.sitematrix )
+						.filter( ( key ) => {
+							return ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) || key === 'specials';
+						} )
 						.map( ( key ) => {
 							// Special is different for some reason.
 							if ( key === 'specials' ) {
@@ -40,6 +41,7 @@ const fetchAllWikis = ( action$ ) => (
 							]
 						), [] )
 						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() );
+
 					return WikiActions.setWikis( wikis );
 				} )
 				.catch( () => Observable.of( WikiActions.setWikis( new Map() ) ) )
