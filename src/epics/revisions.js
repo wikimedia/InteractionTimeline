@@ -54,9 +54,7 @@ const fetchRevisions = ( action$, store ) => (
 
 					return RevisionsActions.setRevisions( revisions );
 				} )
-				.catch( () => {
-					return Observable.of( RevisionsActions.setRevisions( new OrderedMap() ) );
-				} );
+				.catch( () => Observable.of( RevisionsActions.setRevisions( new OrderedMap() ) ) );
 		} )
 );
 
