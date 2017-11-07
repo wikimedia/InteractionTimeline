@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
-import { Set } from 'immutable';
+import { OrderedSet } from 'immutable';
 
 const getUsers = createSelector(
 	state => state.query.user,
-	( user = new Set() ) => user.toArray()
+	( user = new OrderedSet() ) => user.toArray()
 );
 
 export default getUsers;

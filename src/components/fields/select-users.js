@@ -124,15 +124,17 @@ class SelectUsers extends React.Component {
 
 	render() {
 		return (
-			<Select
-				{...this.props}
-				value={this.state.value}
-				multi
-				isLoading={this.state.loading}
-				options={this.state.options}
-				onInputChange={this.onInputChange}
-				onChange={this.onChange}
-			/>
+			<div className="select-users">
+				<Select
+					{...this.props}
+					value={this.state.value}
+					multi
+					isLoading={this.state.loading}
+					options={this.state.options}
+					onInputChange={this.onInputChange}
+					onChange={this.onChange}
+				/>
+			</div>
 		);
 	}
 }

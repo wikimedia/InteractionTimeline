@@ -12,9 +12,12 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		'm-0'
 	];
 
-	const timestamp = moment( revision.timestamp );
+	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 
-	const url = 'https://' + wiki.domain + '/w/index.php?diff=prev&oldid=' + revision.id;
+	let url;
+	if ( wiki ) {
+		url = 'https://' + wiki.domain + '/w/index.php?diff=prev&oldid=' + revision.id;
+	}
 
 	switch ( side ) {
 		case 'right':
@@ -48,14 +51,14 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		<div>
 			{displayDate}
 			<div className={classes.join( ' ' )}>
-				<div className="col-6 p-0">
+				<div className="col-md-6 col p-0">
 					<div className="wrapper row">
 						<div className="col mb-2 mt-2">
-							<div className="record row justify-content-end">
-								<div className="col-2 align-self-center mr-3">{timestamp.format( 'h:mma' )}</div>
-								<a href={url} className="col-9 d-block content pt-2 pb-2">
+							<div className="record row justify-content-between">
+								<div className="col-2 align-self-center">{timestamp.format( 'h:mma' )}</div>
+								<a href={url} className="col-9 d-block content rounded pt-2 pb-2">
 									<span className="d-block title">{revision.title}</span>
-									<span className="d-block text-muted comment"><em>{revision.comment}</em></span>
+									<span className="d-block comment"><em>{revision.comment}</em></span>
 								</a>
 							</div>
 						</div>
@@ -69,7 +72,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ).isRequired,
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
-	wiki: PropTypes.instanceOf( Wiki ).isRequired,
+	wiki: PropTypes.instanceOf( Wiki ),
 	date: PropTypes.instanceOf( moment ),
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func
@@ -78,7 +81,8 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	date: undefined,
-	duration: undefined
+	duration: undefined,
+	wiki: undefined
 };
 
 export default Revision;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Set, Map } from 'immutable';
 import RevisionContainer from './revision.container';
+import User from './user';
 
 const getSide = ( user, users ) => {
 	let side;
@@ -20,7 +21,7 @@ const Timeline = ( { revisions, users } ) => {
 	let prev;
 
 	const edits = revisions.map( ( revision ) => {
-		const timestamp = moment( revision.timestamp );
+		const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 		let date;
 		let duration;
 
@@ -32,7 +33,7 @@ const Timeline = ( { revisions, users } ) => {
 
 		// If we are switching sides, but not the date, show the duraction.
 		if ( !date && getSide( prev.user, users ) !== side ) {
-			duration = moment.duration( moment( prev.timestamp ).diff( timestamp ) );
+			duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
 		}
 
 		// Set the previous state for
@@ -43,8 +44,17 @@ const Timeline = ( { revisions, users } ) => {
 		);
 	} ).toArray();
 
+	const userDisplay = users.map( ( user ) => {
+		return (
+			<User key={user} user={user} side={getSide( user, users )} />
+		);
+	} ).toArray();
+
 	return (
 		<div className="timeline container">
+			<div className="row align-items-center justify-content-around mb-3 text-center">
+				{userDisplay}
+			</div>
 			{edits}
 		</div>
 	);
