@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
-import moment from 'moment';
 import * as RevisionsActions from 'app/actions/revisions';
 import Revision from 'app/entities/revision';
 
@@ -43,7 +42,10 @@ const fetchRevisions = ( action$, store ) => (
 									} )
 								]
 							) )
-						).sort( ( a, b ) => moment( a.timestamp ).diff( b.timestamp ) );
+						)
+							// Since the ids are all from the same wiki, they are in a
+							// guaranteed order from oldest to newest.
+							.sort( ( a, b ) => a.id - b.id );
 
 					return RevisionsActions.setRevisions( revisions );
 				} )
