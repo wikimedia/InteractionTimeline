@@ -9,9 +9,7 @@ export default () => (
 			<div className="col">
 				<h2><FormattedMessage id="app-title" /></h2>
 				<h6>
-					<FormattedMessage id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline">
-						<FormattedMessage id="app-feedback-link" />
-					</a>
+					<FormattedMessage id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><FormattedMessage id="app-feedback-link" /></a>
 				</h6>
 			</div>
 		</div>
