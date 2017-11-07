@@ -6,7 +6,7 @@ export const getRevisions = createSelector(
 	state => state.pages,
 	( users, revisions, pages ) => {
 		return revisions.filter( ( revision ) => {
-			const exists = users.map( ( user ) => {
+			const exists = users.filter( ( user ) => {
 				if ( !pages.has( user ) ) {
 					return false;
 				}
