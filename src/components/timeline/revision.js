@@ -6,6 +6,10 @@ import Wiki from 'app/entities/wiki';
 import TimelineDate from './date';
 
 const Revision = ( { side, revision, date, duration, wiki } ) => {
+	if ( !side ) {
+		return null;
+	}
+
 	let classes = [
 		'revision',
 		'row',
@@ -70,7 +74,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 };
 
 Revision.propTypes = {
-	side: PropTypes.oneOf( [ 'left', 'right' ] ).isRequired,
+	side: PropTypes.oneOf( [ 'left', 'right' ] ),
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
 	wiki: PropTypes.instanceOf( Wiki ),
 	date: PropTypes.instanceOf( moment ),
@@ -80,6 +84,7 @@ Revision.propTypes = {
 };
 
 Revision.defaultProps = {
+	side: undefined,
 	date: undefined,
 	duration: undefined,
 	wiki: undefined
