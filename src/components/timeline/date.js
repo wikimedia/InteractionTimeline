@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'material-design-icons/iconfont/material-icons.css';
 
-const TimelineDate = ( { icon, date } ) => (
-	<div className="row justify-content-center">
-		<div className="col-md-2 col-sm-6 col-10 pb-2 pt-2 border rounded text-center align-text-middle">
+const TimelineDate = ( { date } ) => (
+	<div className="row mt-2 mb-2">
+		<div className="col-10 pb-2 pt-2 border rounded text-center align-text-middle">
 			<div className="d-flex justify-content-center align-items-center">
-				<i className="mr-2 material-icons md-48">{icon}</i>
+				<i className="mr-2 material-icons md-48">today</i>
 				<span>{date}</span>
 			</div>
 		</div>
@@ -14,7 +14,6 @@ const TimelineDate = ( { icon, date } ) => (
 );
 
 TimelineDate.propTypes = {
-	icon: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired
 };
 
