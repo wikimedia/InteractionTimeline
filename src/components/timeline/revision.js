@@ -55,10 +55,10 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 
 	return (
 		<div className="row">
-			<div className="col-2">
+			<div className="col-xl-1 col-2">
 				{displayDate}
 			</div>
-			<div className="col-8">
+			<div className="col-xl-10 col-8">
 				<div>
 					{displayTimelapse}
 				</div>

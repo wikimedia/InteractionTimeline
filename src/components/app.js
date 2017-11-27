@@ -4,7 +4,7 @@ import Form from './form';
 import TimelineContainer from './timeline/timeline.container';
 
 export default () => (
-	<div className="container">
+	<div className="container-fluid">
 		<div className="row mb-3 align-items-baseline justify-content-between">
 			<h2 className="col-sm-auto">
 				<FormattedMessage id="app-title" />

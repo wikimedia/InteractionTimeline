@@ -23,9 +23,14 @@ body {
 	overflow-x: hidden;
 }
 
+.DateRangePicker{
+	@extend .d-block;
+}
+
 .DateRangePickerInput {
 	@extend .rounded;
 	@extend .d-flex;
+	@extend .justify-content-between;
 	@extend .align-items-center;
 }
 
@@ -171,6 +176,19 @@ body {
 					margin-right: ($timeline-width / 2) - 1;
 				}
 			}
+		}
+	}
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+	.timelapse {
+		margin-top: -15px;
+		margin-bottom: -15px;
+		position: relative;
+		z-index: 10;
+
+		.box {
+			background-color: $body-bg;
 		}
 	}
 }
