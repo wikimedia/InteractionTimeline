@@ -136,6 +136,9 @@ body {
 				background-color: lighten(map-get($timeline-bg, "right"), 5%);
 			}
 		}
+		.timestamp {
+			@extend .text-right;
+		}
 	}
 
 	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
