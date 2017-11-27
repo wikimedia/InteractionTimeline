@@ -24,6 +24,23 @@ body {
 
 .DateRangePickerInput {
 	@extend .rounded;
+	@extend .d-flex;
+	@extend .align-items-center;
+}
+
+.DateInput {
+	width: inherit;
+}
+
+.DateInput_input {
+	padding: 0 12px;
+	font-size: $font-size-base;
+	font-weight: $font-weight-light;
+	line-height: $line-height-base;
+}
+
+.DateRangePickerInput_clearDate {
+	@extend .align-self-center;
 }
 
 .select-users .Select-multi-value-wrapper {

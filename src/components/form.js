@@ -12,16 +12,22 @@ const Form = () => (
 				<SelectUsersContainer id="users" name="user" />
 			</div>
 		</div>
-		<div className="form-group row align-items-center">
-			<label className="col-sm-1 col col-form-label" htmlFor="wiki"><FormattedMessage id="field-label-wiki" /></label>
-			<div className="col">
-				<SelectWikiContainer id="wiki" name="wiki" />
+		<div className="row">
+			<div className="col-sm-6">
+				<div className="form-group row align-items-center">
+					<label className="col-sm-2 col col-form-label" htmlFor="wiki"><FormattedMessage id="field-label-wiki" /></label>
+					<div className="col">
+						<SelectWikiContainer id="wiki" name="wiki" />
+					</div>
+				</div>
 			</div>
-		</div>
-		<div className="form-group row align-items-center">
-			<label className="col-sm-1 col col-form-label"><FormattedMessage id="field-label-date-range" /></label>
-			<div className="col">
-				<DatePickerContainer />
+			<div className="col-sm-6">
+				<div className="form-group row align-items-center">
+					<label className="col-sm-3 col col-form-label"><FormattedMessage id="field-label-date-range" /></label>
+					<div className="col">
+						<DatePickerContainer anchorDirection="right" />
+					</div>
+				</div>
 			</div>
 		</div>
 	</form>
