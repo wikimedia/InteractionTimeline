@@ -7,6 +7,9 @@ export default ( state = new Map(), action ) => {
 			return action.pages;
 		case 'REVISIONS_SET':
 			const pages = action.revisions.reduce( ( reduction, revision ) => {
+				if ( reduction.has( revision.pageid ) ) {
+					return reduction.setIn( [ revision.pageid, 'editors', revision.user ], true );
+				}
 
 				return reduction.set( revision.pageid, new Page( {
 					id: revision.pageid,
