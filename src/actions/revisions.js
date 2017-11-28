@@ -4,3 +4,10 @@ export function setRevisions( revisions ) {
 		revisions
 	};
 }
+
+export function deleteRevisions( revisions ) {
+	return {
+		type: 'REVISIONS_DELETE',
+		revisions
+	};
+}

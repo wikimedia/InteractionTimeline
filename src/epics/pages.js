@@ -44,7 +44,7 @@ const fetchPages = ( action$, store ) => (
 
 						return Observable.of( page.setIn( [ 'editors', data.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
 					} );
-			} ).toArray();
+			} ).valueSeq().toArray();
 
 			return Observable.forkJoin( requests );
 		} )

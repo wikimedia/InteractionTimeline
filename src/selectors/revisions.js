@@ -1,11 +1,19 @@
 import { createSelector } from 'reselect';
+import { getLastRevision } from './last-revision';
 
 export const getRevisions = createSelector(
 	state => state.query.user,
 	state => state.revisions,
+	getLastRevision,
 	state => state.pages,
-	( users, revisions, pages ) => {
+	( users, revisions, last, pages ) => {
 		return revisions.filter( ( revision ) => {
+			// If the revision id is greater than the last id, this revision
+			// should not be displayed.
+			if ( revision.id > last.id ) {
+				return false;
+			}
+
 			const exists = users.filter( ( user ) => {
 				if ( !pages.has( revision.pageid ) ) {
 					return false;
