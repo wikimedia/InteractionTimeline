@@ -14,7 +14,9 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 	let classes = [
 		'revision',
 		'row',
-		'm-0'
+		'm-0',
+		'justify-content-end',
+		'align-items-center'
 	];
 
 	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
@@ -35,7 +37,8 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		case 'left':
 			classes = [
 				...classes,
-				'left'
+				'left',
+				'flex-row-reverse'
 			];
 			break;
 	}
@@ -48,9 +51,12 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 			<Date icon="today" date={date.format( 'l' )} />
 		);
 	} else if ( duration ) {
-		displayTimelapse = (
-			<Timelapse icon="timelapse" date={duration.humanize()} />
-		);
+		// Do not display if duration is greater than 24 hours.
+		if ( duration.asSeconds() < 86400 /* Seconds in 24 hours */ ) {
+			displayTimelapse = (
+				<Timelapse icon="timelapse" date={duration.humanize()} />
+			);
+		}
 	}
 
 	return (
@@ -59,16 +65,14 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 				{displayDate}
 			</div>
 			<div className="col-xl-10 col-8">
-				<div>
-					{displayTimelapse}
-				</div>
 				<div className={classes.join( ' ' )}>
-					<div className="col-md-6 col p-0">
+					{displayTimelapse}
+					<div className="col-md-6 col-12 p-0">
 						<div className="wrapper row">
-							<div className="col mb-2 mt-2">
+							<div className="col mb-1 mt-0">
 								<div className="record row justify-content-between">
-									<div className="col-3 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
-									<a href={url} className="col-9 d-block content rounded pt-1 pb-1">
+									<div className="col-xl-1 col-3 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
+									<a href={url} className="col d-block content rounded pt-1 pb-1">
 										<span className="d-block title">{revision.title}</span>
 										<span className="d-block comment"><em>{revision.comment}</em></span>
 									</a>
