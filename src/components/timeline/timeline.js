@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Set, Map } from 'immutable';
 import RevisionContainer from './revision.container';
 import User from './user';
+import Spinner from './spinner';
 
 const getSide = ( user, users ) => {
 	let side;
@@ -17,7 +18,7 @@ const getSide = ( user, users ) => {
 	return side;
 };
 
-const Timeline = ( { revisions, users } ) => {
+const Timeline = ( { revisions, users, status } ) => {
 	let prev;
 
 	const edits = revisions.map( ( revision ) => {
@@ -50,6 +51,8 @@ const Timeline = ( { revisions, users } ) => {
 		);
 	} ).toArray();
 
+	const spinner = ( status === 'fetching' ) ? ( <Spinner /> ) : undefined;
+
 	return (
 		<div className="timeline container">
 			<div className="row justify-content-center">
@@ -60,13 +63,15 @@ const Timeline = ( { revisions, users } ) => {
 				</div>
 			</div>
 			{edits}
+			{spinner}
 		</div>
 	);
 };
 
 Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
-	revisions: PropTypes.instanceOf( Map ).isRequired
+	revisions: PropTypes.instanceOf( Map ).isRequired,
+	status: PropTypes.oneOf( [ 'ready', 'fetching' ] ).isRequired
 };
 
 export default Timeline;

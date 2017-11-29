@@ -19,11 +19,23 @@ const buildUrl = ( state ) => {
 	return url;
 };
 
-const fetchRevisions = ( action$, store ) => (
+export const shouldFetchRevisions = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
-		// Ensure that all the necessary data is present.
 		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
+		.flatMap( () => Observable.of( RevisionsActions.fetchRevisions() ) )
+);
+
+export const hideLoader = ( action$, store ) => (
+	action$
+		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
+		.filter( () => !store.getState().query.wiki || !store.getState().query.user.size )
+		.flatMap( () => Observable.of( RevisionsActions.setStatusReady() ) )
+);
+
+export const fetchRevisions = ( action$, store ) => (
+	action$
+		.ofType( 'REVISIONS_FETCH' )
 		.switchMap( () => {
 			return Observable.ajax( {
 				url: buildUrl( store.getState() ),
@@ -54,5 +66,3 @@ const fetchRevisions = ( action$, store ) => (
 				.catch( () => Observable.of( RevisionsActions.setRevisions( new OrderedMap() ) ) );
 		} )
 );
-
-export default fetchRevisions;
