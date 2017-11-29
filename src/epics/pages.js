@@ -1,77 +1,61 @@
 import { Observable } from 'rxjs';
-import { Map } from 'immutable';
+import { Map, Set } from 'immutable';
 import * as PagesActions from 'app/actions/pages';
-import Page from 'app/entities/page';
 
-const buildUrl = ( domain, user, cont ) => {
-	let url = 'https://' + domain + '/w/api.php?action=query&generator=allrevisions&garvlimit=500&origin=*&format=json&formatversion=2';
-
-	if ( user ) {
-		url += '&garvuser=' + user;
-	}
-
-	if ( cont ) {
-		url += '&garvcontinue=' + cont;
-	}
-
-	return url;
+const buildUrl = ( domain, user, pageid ) => {
+	// The API only allows a single page lookup at a time.
+	return `https://${domain}/w/api.php?action=query&prop=revisions&pageids=${pageid}&rvuser=${user}&rvlimit=1&origin=*&formatversion=2&format=json`;
 };
 
-const pageRequest = ( domain, user, cont ) => {
-	return Observable.ajax( {
-		url: buildUrl( domain, user, cont ),
-		crossDomain: true,
-		responseType: 'json'
-	} )
-		.flatMap( ( ajaxResponse ) => {
-			// User has no pages.
-			if ( !ajaxResponse.response.query ) {
-				return Observable.of( PagesActions.mergeUserPages( user, new Map() ) );
-			}
-
-			const pages =
-				new Map(
-					ajaxResponse.response.query.pages.map( ( data ) => (
-						[
-							data.pageid,
-							new Page( {
-								id: data.pageid,
-								...data
-							} )
-						]
-					) )
-				);
-
-			if ( ajaxResponse.response.continue && ajaxResponse.response.continue.garvcontinue ) {
-				return Observable.concat(
-					Observable.of( PagesActions.mergeUserPages( user, pages ) ),
-					Observable.of( PagesActions.fetchUserPagesContinue( domain, user, ajaxResponse.response.continue.garvcontinue ) )
-				);
-			}
-
-			return Observable.of( PagesActions.mergeUserPages( user, pages ) );
-		} );
-};
-
-export const fetchPages = ( action$, store ) => (
+const fetchPages = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
+		.ofType( 'REVISIONS_SET' )
 		// Ensure that all the necessary data is present.
-		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
-		.distinctUntilChanged( () => store.getState().query.user )
-		.switchMap( () => Observable.from( store.getState().query.user.toArray() ) )
-		.filter( ( user ) => !store.getState().pages.has( user ) )
-		.flatMap( ( user ) => pageRequest( store.getState().wikis.get( store.getState().query.wiki ).domain, user ) )
+		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 )
+		// Get a list of all of the unique users.
+		.flatMap( () => {
+			const users = store.getState().pages.reduce( ( set, page ) => {
+				return set.concat( page.editors.keySeq() );
+			}, new Set() ).toArray();
+
+			return Observable.from( users );
+		} )
+		// Get all of the pages for each user.
+		.map( ( user ) => {
+			const pages = store.getState().pages.filter( ( page ) => !page.editors.has( user ) );
+
+			return { user, pages };
+		} )
+		// If the user is on all pages, there are no pages to deteremine.
+		.filter( ( data ) => !!data.pages.size )
+		.flatMap( ( data ) => {
+			const requests = data.pages.map( ( page ) => {
+				return Observable.ajax( {
+					url: buildUrl( store.getState().wikis.get( store.getState().query.wiki ).domain, data.user, page.id ),
+					crossDomain: true,
+					responseType: 'json'
+				} )
+					.flatMap( ( ajaxResponse ) => {
+						if ( ajaxResponse.response.query.pages.length === 0 ) {
+							return page;
+						}
+
+						const item = ajaxResponse.response.query.pages[ 0 ];
+
+						return Observable.of( page.setIn( [ 'editors', data.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
+					} );
+			} ).toArray();
+
+			return Observable.forkJoin( requests );
+		} )
+		.flatMap( ( data ) => {
+			const pages = data
+				.reduce( ( map, page ) => {
+					return map.set( page.id, page );
+				}, new Map() );
+
+			return Observable.of( PagesActions.updatePages( pages ) );
+		} )
 );
 
-export const fetchPagesContinue = ( action$, store ) => (
-	action$
-		.ofType( 'PAGES_FETCH_CONTINUE' )
-		// If all of the necessary values are not present, stop retrieving the pages.
-		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
-		// If the user is no longer in the query, stop retrieving the pages.
-		.filter( ( action ) => store.getState().query.user.has( action.user ) )
-		// If the wiki domain has changed, stop retrieving the pages.
-		.filter( ( action ) => store.getState().wikis.get( store.getState().query.wiki ).domain === action.domain )
-		.flatMap( ( action ) => pageRequest( action.domain, action.user, action.cont ) )
-);
+export default fetchPages;
