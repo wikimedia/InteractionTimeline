@@ -70,8 +70,8 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 						<div className="wrapper row">
 							<div className="col mb-1 mt-0">
 								<div className="record row justify-content-between">
-									<div className="col-xl-1 col-3 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
-									<a href={url} className="col d-block content rounded pt-1 pb-1">
+									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
+									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
 										<span className="d-block title">{revision.title}</span>
 										<span className="d-block comment"><em>{revision.comment}</em></span>
 									</a>
