@@ -54,7 +54,6 @@ const fetchPages = ( action$, store ) => (
 					return map.set( page.id, page );
 				}, new Map() );
 
-			// This is causing a loop! perhaps attach the user we are sending?
 			return Observable.of( PagesActions.updatePages( pages ) );
 		} )
 );
