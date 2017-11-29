@@ -183,15 +183,6 @@ body {
 	}
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
-	.timelapse {
-		margin-top: -15px;
-		margin-bottom: -15px;
-		position: relative;
-		z-index: 10;
-
-		.box {
-			background-color: $body-bg;
-		}
-	}
+.timelapse {
+	color: #dc3545;
 }

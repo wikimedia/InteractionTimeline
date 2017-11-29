@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import 'material-design-icons/iconfont/material-icons.css';
 
 const TimelineTimelapse = ( { date } ) => (
-	<div className="col-md-6 col-12 box text-center align-text-middle">
-		<div className="d-flex small justify-content-center align-items-center">
-			<i className="mr-2 material-icons">timelapse</i>
-			{/* @TODO Translate "between interactions" */}
-			<span>{date} between interactions</span>
-		</div>
+	<div className="col-md-6 small col-12 timelapse align-text-middle">
+	{/* @TODO Translate "between interactions" */}
+	<span>{date} between interactions</span>
 	</div>
 );
 

@@ -15,8 +15,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		'revision',
 		'row',
 		'm-0',
-		'justify-content-end',
-		'align-items-center'
+		'justify-content-end'
 	];
 
 	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
@@ -61,10 +60,10 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 
 	return (
 		<div className="row">
-			<div className="col-xl-1 col-2">
+			<div className="col-xl-1 col-sm-2 col-12">
 				{displayDate}
 			</div>
-			<div className="col-xl-10 col-8">
+			<div className="col-xl-10 col-sm-8 col-12">
 				<div className={classes.join( ' ' )}>
 					{displayTimelapse}
 					<div className="col-md-6 col-12 p-0">
