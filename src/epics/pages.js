@@ -9,7 +9,7 @@ const buildUrl = ( domain, user, pageid ) => {
 
 const fetchPages = ( action$, store ) => (
 	action$
-		.ofType( 'REVISIONS_SET' )
+		.filter( ( action ) => [ 'REVISIONS_ADD', 'REVISIONS_SET' ].includes( action.type ) )
 		// Ensure that all the necessary data is present.
 		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 )
 		// Get a list of all of the unique users.
@@ -44,7 +44,7 @@ const fetchPages = ( action$, store ) => (
 
 						return Observable.of( page.setIn( [ 'editors', data.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
 					} );
-			} ).valueSeq().toArray();
+			} ).toArray();
 
 			return Observable.forkJoin( requests );
 		} )

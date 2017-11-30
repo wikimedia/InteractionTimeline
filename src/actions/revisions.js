@@ -5,6 +5,13 @@ export function setRevisions( revisions ) {
 	};
 }
 
+export function addRevisions( revisions ) {
+	return {
+		type: 'REVISIONS_ADD',
+		revisions
+	};
+}
+
 export function deleteRevisions( revisions ) {
 	return {
 		type: 'REVISIONS_DELETE',

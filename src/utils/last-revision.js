@@ -7,9 +7,15 @@ export default ( revisions, users ) => {
 	}
 	// Get the last revision of each user and order by revision id.
 	return users.reduce( ( set, user ) => {
-		return set.add( revisions.filter( revision => revision.user === user ).last() );
+		const last = revisions.filter( revision => revision.user === user ).last();
+
+		if ( last ) {
+			return set.add( last );
+		}
+
+		return set;
 	}, new OrderedSet() )
-		.sort( ( a, b ) => a.id - b.id )
+		.sortBy( revision => revision.id )
 		// The first revision in the list is the last one that should be displayed.
 		.first();
 };

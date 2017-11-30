@@ -75,11 +75,8 @@ export const fetchRevisions = ( action$, store ) => (
 		} )
 		.flatMap( ( data ) => {
 			const revisions = new OrderedMap()
-				.merge( ...data )
-				// Since the ids are all from the same wiki, they are in a guaranteed
-				// order from oldest to newest.
-				.sortBy( ( revision ) => revision.id );
+				.merge( ...data );
 
-			return Observable.of( RevisionsActions.setRevisions( revisions ) );
+			return Observable.of( RevisionsActions.addRevisions( revisions ) );
 		} )
 );

@@ -42,7 +42,7 @@ const Timeline = ( { revisions, users } ) => {
 		return (
 			<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
 		);
-	} ).valueSeq().toArray();
+	} ).toArray();
 
 	const userDisplay = users.map( ( user ) => {
 		return (
