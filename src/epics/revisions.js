@@ -25,7 +25,7 @@ export const clearUserRevisions = ( action$, store ) => (
 		.flatMap( () => {
 			const users = store.getState().query.user;
 
-			const remove = store.getState().revisions.filter( revision => {
+			const remove = store.getState().revisions.list.filter( revision => {
 				return !users.includes( revision.user );
 			} );
 
@@ -55,33 +55,52 @@ export const hideLoader = ( action$, store ) => (
 export const fetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )
-		.switchMap( () => {
-			return Observable.ajax( {
-				url: buildUrl( store.getState() ),
-				crossDomain: true,
-				responseType: 'json'
-			} )
-				.map( ( ajaxResponse ) => {
-					const contribs = ajaxResponse.response.query.usercontribs;
+		.flatMap( () => {
+			const users = store.getState().query.user
+				.filter( user => !store.getState().revisions.list.find( revision => revision.user === user ) );
 
-					const revisions =
-						new OrderedMap(
-							contribs.map( ( data ) => (
-								[
-									data.revid,
-									new Revision( {
-										id: data.revid,
-										...data
-									} )
-								]
-							) )
-						)
-							// Since the ids are all from the same wiki, they are in a
-							// guaranteed order from oldest to newest.
-							.sort( ( a, b ) => a.id - b.id );
-
-					return RevisionsActions.setRevisions( revisions );
-				} )
-				.catch( () => Observable.of( RevisionsActions.setRevisions( new OrderedMap() ) ) );
+			return Observable.of( users );
 		} )
+		.filter( users => !!users.size )
+		// Get all of the pages for each user.
+		// @TODO We need to prevent re-requesting users we have already requested.
+		//       Perhaps use "continue" for this purpose? or rather, continue would
+		//       determine whether a request needs to take place or not.
+		//       Also need to cancel request for users we remove.
+		.switchMap( ( users ) => {
+			const requests = users
+				// Remove users who already have revisions.
+				.filter( user => !store.getState().revisions.list.find( revision => revision.user === user ) )
+				.map( user => (
+					Observable.ajax( {
+						url: buildUrl( store.getState().wikis.get( store.getState().query.wiki ).domain, user, store.getState().query ),
+						crossDomain: true,
+						responseType: 'json'
+					} )
+						.map( ( ajaxResponse ) => {
+							const contribs = ajaxResponse.response.query.usercontribs;
+
+							return new Map(
+								contribs.map( ( data ) => (
+									[
+										data.revid,
+										new Revision( {
+											id: data.revid,
+											...data
+										} )
+									]
+								) )
+							);
+						} )
+				) ).toArray();
+
+			return Observable.forkJoin( requests );
+		} )
+		.flatMap( ( data ) => {
+			const revisions = new OrderedMap()
+				.merge( ...data );
+
+			return Observable.of( RevisionsActions.addRevisions( revisions ) );
+		} )
+		.catch( () => Observable.of( RevisionsActions.setRevisions( new OrderedMap() ) ) )
 );
