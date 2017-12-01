@@ -29,6 +29,8 @@ const fetchPages = ( action$, store ) => (
 		// If the user is on all pages, there are no pages to deteremine.
 		.filter( ( data ) => !!data.pages.size )
 		.flatMap( ( data ) => {
+			// @TODO We need to cancel requests for users we don't care about anymore
+			//       i.e. they have been removed from the query.
 			const requests = data.pages.map( ( page ) => {
 				return Observable.ajax( {
 					url: buildUrl( store.getState().wikis.get( store.getState().query.wiki ).domain, data.user, page.id ),

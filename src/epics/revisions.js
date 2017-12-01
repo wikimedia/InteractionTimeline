@@ -35,16 +35,28 @@ export const clearUserRevisions = ( action$, store ) => (
 		.flatMap( data => Observable.of( RevisionsActions.deleteRevisions( data ) ) )
 );
 
+// @TODO After revisions are deleted, we should clean up the pages.
+//       Remove the editors from the store that are no longer in there.
+//       If there are no revisions left at all, delete all the page.
+
 export const fetchRevisions = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
 		// Ensure that all the necessary data is present.
 		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 )
+		.flatMap( () => {
+			const users = store.getState().query.user
+				.filter( user => !store.getState().revisions.find( revision => revision.user === user ) );
+
+			return Observable.of( users );
+		} )
+		.filter( users => !!users.size )
 		// Get all of the pages for each user.
 		// @TODO We need to prevent re-requesting users we have already requested.
+		//       Perhaps use "continue" for this purpose? or rather, continue would
+		//       determine whether a request needs to take place or not.
 		//       Also need to cancel request for users we remove.
-		.switchMap( () => {
-			const users = store.getState().query.user;
+		.switchMap( ( users ) => {
 			const requests = users
 				// Remove users who already have revisions.
 				.filter( user => !store.getState().revisions.find( revision => revision.user === user ) )
