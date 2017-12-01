@@ -5,6 +5,7 @@ import Timeline from './timeline';
 export default connect(
 	state => ( {
 		revisions: getRevisions( state ),
-		users: state.query.user
+		users: state.query.user,
+		status: state.revisions.status
 	} )
 )( Timeline );

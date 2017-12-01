@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 export const getRevisions = createSelector(
 	state => state.query.user,
-	state => state.revisions,
+	state => state.revisions.list,
 	state => state.pages,
 	( users, revisions, pages ) => {
 		return revisions.filter( ( revision ) => {
