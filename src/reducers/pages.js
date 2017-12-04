@@ -24,13 +24,12 @@ export default ( state = new Map(), action ) => {
 			return state.mergeDeep( pages );
 		case 'PAGES_UPDATE':
 			return state.mergeDeep( action.pages );
-		case 'QUERY_SET_VALUE':
-			switch ( action.key ) {
-				case 'wiki':
-					return new Map();
-				default:
-					return state;
-			}
+		case 'PAGES_DELETE':
+			return action.pages.reduce( ( map, page ) => {
+				return map.remove( page.id );
+			}, state );
+		case 'QUERY_WIKI_CHANGE':
+			return new Map();
 		default:
 			return state;
 	}

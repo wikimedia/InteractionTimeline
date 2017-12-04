@@ -2,9 +2,10 @@ import { OrderedSet } from 'immutable';
 
 export default ( revisions, users ) => {
 	// If there are no users, return the last revision.
-	if ( !users.size ) {
+	if ( users.isEmpty() ) {
 		return revisions.last();
 	}
+
 	// Get the last revision of each user and order by revision id.
 	return users.reduce( ( set, user ) => {
 		const last = revisions.filter( revision => revision.user === user ).last();

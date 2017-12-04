@@ -4,3 +4,10 @@ export function updatePages( pages ) {
 		pages
 	};
 }
+
+export function removePages( pages ) {
+	return {
+		type: 'PAGES_DELETE',
+		pages
+	};
+}

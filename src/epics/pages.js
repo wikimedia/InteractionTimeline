@@ -8,48 +8,70 @@ const buildUrl = ( domain, user, pageid ) => {
 	return `https://${domain}/w/api.php?action=query&prop=revisions&pageids=${pageid}&rvuser=${user}&rvlimit=1&origin=*&formatversion=2&format=json`;
 };
 
-const fetchPages = ( action$, store ) => (
+export const clearPages = ( action$, store ) => (
 	action$
-		.ofType( 'REVISIONS_SET' )
+		.filter( ( action ) => [ 'REVISIONS_DELETE', 'QUERY_USER_CHANGE' ].includes( action.type ) )
+		.flatMap( () => {
+			const pages = store.getState().pages.filter( page =>
+				!store.getState().revisions.list.filter( revision => revision.pageid === page.id ).isEmpty()
+			);
+
+			return Observable.of( PagesActions.removePages( pages ) );
+		} )
+);
+
+export const fetchPages = ( action$, store ) => (
+	action$
+		.ofType( 'REVISIONS_ADD' )
 		// Get a list of  all of the unique users.
 		.flatMap( () => {
-			const data = store.getState().pages.reduce( ( set, page ) => {
-				// Get all the users.
-				return set.concat( page.editors.keySeq() );
-			}, new Set() )
-				.map( ( user ) => {
-					const pages = store.getState().pages.filter( ( page ) => !page.editors.has( user ) );
-					return { user, pages };
-				} )
-				.filter( data => !!data.pages.size );
+			const users = store.getState().query.user;
+			const pageSet = store.getState().pages.reduce( ( set, page ) => {
+				const items = users.reduce( ( list, user ) => {
+					if ( page.editors.has( user ) ) {
+						return list;
+					}
+
+					// If the user is not one of the editors, add it to the list.
+					return list.add( {
+						page,
+						user
+					} );
+				}, new Set() );
+
+				return set.merge( items );
+			}, new Set() );
 
 			// If there are no pages to retrieve, then we are done.
-			if ( !data.size ) {
+			if ( !pageSet.size ) {
 				return Observable.of( RevisionsActions.setStatusReady() );
 			}
 
-			// @TODO We need to cancel requests for users we don't care about anymore
-			//       i.e. they have been removed from the query.
+			const wiki = store.getState().query.wiki;
 
-			return Observable.from( data.toArray() )
-				.flatMap( ( data ) => {
-					const requests = data.pages.map( ( page ) => {
-						return Observable.ajax( {
-							url: buildUrl( store.getState().wikis.get( store.getState().query.wiki ).domain, data.user, page.id ),
-							crossDomain: true,
-							responseType: 'json'
-						} )
-							.flatMap( ( ajaxResponse ) => {
-								if ( ajaxResponse.response.query.pages.length === 0 ) {
-									return page;
-								}
-								const item = ajaxResponse.response.query.pages[ 0 ];
-								return Observable.of( page.setIn( [ 'editors', data.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
-							} );
-					} ).toArray();
-
-					return Observable.forkJoin( requests );
+			const requests = pageSet.map( ( data ) => {
+				return Observable.ajax( {
+					url: buildUrl( store.getState().wikis.get( wiki ).domain, data.user, data.page.id ),
+					crossDomain: true,
+					responseType: 'json'
 				} )
+					.flatMap( ( ajaxResponse ) => {
+						if ( ajaxResponse.response.query.pages.length === 0 ) {
+							return Observable.of( data.page );
+						}
+
+						const item = ajaxResponse.response.query.pages[ 0 ];
+						return Observable.of( data.page.setIn( [ 'editors', data.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
+					} )
+					// If the page was deleted, cancel the request.
+					.takeUntil( action$.ofType( 'PAGES_DELETE' ).filter( action => !action.pages.filter( page => page.id === data.page.id ).isEmpty() ) )
+					// If the user is no longer in the query, cancel the request.
+					.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( action => !action.users.includes( data.user ) ) )
+					// If the wiki changes, cancel the request.
+					.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( action => action.wiki !== wiki ) );
+			} );
+
+			return Observable.forkJoin( requests.toArray() )
 				.flatMap( ( data ) => {
 					const pages = data
 						.reduce( ( map, page ) => {
@@ -63,5 +85,3 @@ const fetchPages = ( action$, store ) => (
 				} );
 		} )
 );
-
-export default fetchPages;

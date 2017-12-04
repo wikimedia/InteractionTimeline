@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { OrderedMap } from 'immutable';
 import { getLastRevision } from './last-revision';
 
 export const getRevisions = createSelector(
@@ -7,6 +8,10 @@ export const getRevisions = createSelector(
 	getLastRevision,
 	state => state.pages,
 	( users, revisions, last, pages ) => {
+		if ( !last ) {
+			return new OrderedMap();
+		}
+
 		return revisions.filter( ( revision ) => {
 			// If the revision id is greater than the last id, this revision
 			// should not be displayed.

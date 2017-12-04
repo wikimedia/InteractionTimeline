@@ -71,7 +71,7 @@ const Timeline = ( { revisions, users, status } ) => {
 Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
-	status: PropTypes.oneOf( [ 'ready', 'fetching' ] ).isRequired
+	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching' ] ).isRequired
 };
 
 export default Timeline;
