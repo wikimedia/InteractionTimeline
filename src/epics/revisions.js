@@ -30,7 +30,7 @@ export const revisionsReady = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
 		// Determine if the query is ready or not.
-		.flatMap( () => Observable.of( !!store.getState().query.wiki && store.getState().wikis.size > 0 && store.getState().query.user.size > 0 ) )
+		.flatMap( () => Observable.of( !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() ) )
 		// Wait until the status has changed.
 		.distinctUntilChanged()
 		.map( ( ready ) => {
@@ -42,15 +42,17 @@ export const revisionsReady = ( action$, store ) => (
 //       Perhaps it would even be best to just pass along the user name(s) to
 //       be fetched.
 export const shouldFetchRevisions = ( action$, store ) => (
-	action$.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET', 'REVISIONS_READY' ].includes( action.type ) )
+	action$.filter( ( action ) => [
+		'QUERY_WIKI_CHANGE',
+		'QUERY_USER_CHANGE',
+		'QUERY_START_DATE_CHANGE',
+		'QUERY_END_DATE_CHANGE',
+		'REVISIONS_READY'
+	].includes( action.type ) )
 		.filter( () => store.getState().revisions.status === 'ready' )
-		// @TODO We need to prevent re-requesting users we have already requested.
-		//       Perhaps use "continue" for this purpose? or rather, continue would
-		//       determine whether a request needs to take place or not.
-		//       Also need to cancel request for users we remove.
 		.flatMap( () => {
 			const users = store.getState().query.user
-				.filter( user => !store.getState().revisions.list.find( revision => revision.user === user ) );
+				.filter( user => !store.getState().revisions.cont.keySeq().includes( user ) );
 
 			return Observable.of( users );
 		} )

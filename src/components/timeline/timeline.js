@@ -33,7 +33,7 @@ const Timeline = ( { revisions, users, status } ) => {
 		const side = getSide( revision.user, users );
 
 		// If we are switching sides, but not the date, show the duraction.
-		if ( !date && getSide( prev.user, users ) !== side ) {
+		if ( !date && prev && prev.user !== revision.user ) {
 			duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
 		}
 

@@ -8,7 +8,7 @@ import * as QueryActions from 'app/actions/query';
 export const wikiSwitch = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
-		.filter( () => !!store.getState().query.wiki && store.getState().wikis.size > 0 )
+		.filter( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() )
 		.flatMap( () => Observable.of( store.getState().query.wiki ) )
 		.distinctUntilChanged()
 		.flatMap( ( wiki ) => Observable.of( QueryActions.wikiChange( wiki ) ) )

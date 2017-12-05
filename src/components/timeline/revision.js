@@ -7,10 +7,6 @@ import Date from './date';
 import Timelapse from './timelapse';
 
 const Revision = ( { side, revision, date, duration, wiki } ) => {
-	if ( !side ) {
-		return null;
-	}
-
 	let classes = [
 		'revision',
 		'row',

@@ -15,10 +15,12 @@ export default ( state = new OrderedMap(), action ) => {
 		case 'REVISIONS_SET':
 			return action.revisions.sortBy( revision => revision.id );
 		case 'QUERY_WIKI_CHANGE':
+		case 'QUERY_START_DATE_CHANGE':
+		case 'QUERY_END_DATE_CHANGE':
 			return new OrderedMap();
 		case 'QUERY_USER_CHANGE':
 			return state.filter( revision => {
-				return !action.users.includes( revision.user );
+				return action.users.includes( revision.user );
 			} );
 		default:
 			return state;
