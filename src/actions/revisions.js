@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 export function fetchRevisions( users ) {
 	return {
 		type: 'REVISIONS_FETCH',
@@ -30,10 +32,11 @@ export function setRevisions( revisions ) {
 	};
 }
 
-export function addRevisions( revisions ) {
+export function addRevisions( revisions, pages = new Map() ) {
 	return {
 		type: 'REVISIONS_ADD',
-		revisions
+		revisions,
+		pages
 	};
 }
 
