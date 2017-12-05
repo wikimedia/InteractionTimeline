@@ -28,11 +28,12 @@ const builPageUrl = ( domain, user, pageid ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ 'QUERY_UPDATE', 'QUERY_SET_VALUE', 'WIKIS_SET' ].includes( action.type ) )
+		.filter( ( action ) => [ 'QUERY_WIKI_CHANGE', 'QUERY_USER_CHANGE' ].includes( action.type ) )
 		// Determine if the query is ready or not.
-		.flatMap( () => Observable.of( !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() ) )
+		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() )
 		// Wait until the status has changed.
-		.distinctUntilChanged()
+		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
+		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
 		.map( ( ready ) => {
 			return ready ? RevisionsActions.setStatusReady() : RevisionsActions.setStatusNotReady();
 		} )
