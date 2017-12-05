@@ -1,6 +1,9 @@
 import { OrderedSet } from 'immutable';
 
-export default ( revisions, users ) => {
+export default ( revisions, users, cont ) => {
+	// Remove any users who are already done.
+	users = users.filter( user => cont.get( user ) !== false );
+
 	// If there are no users, return the last revision.
 	if ( users.isEmpty() ) {
 		return revisions.last();

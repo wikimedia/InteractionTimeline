@@ -4,7 +4,7 @@ import * as RevisionsActions from 'app/actions/revisions';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
 
-const buildRevisionUrl = ( domain, user, startDate, endDate ) => {
+const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
 	// get all of the results. To prevent this, we'll request one user at a time.
 	let url = `https://${domain}/w/api.php?action=query&list=usercontribs&ucuser=${encodeURIComponent( user )}&ucdir=newer&format=json&origin=*&formatversion=2`;
@@ -15,6 +15,10 @@ const buildRevisionUrl = ( domain, user, startDate, endDate ) => {
 
 	if ( endDate ) {
 		url += '&ucend=' + endDate;
+	}
+
+	if ( cont ) {
+		url += '&uccontinue=' + cont;
 	}
 
 	return url;
@@ -39,9 +43,6 @@ export const revisionsReady = ( action$, store ) => (
 		} )
 );
 
-// @TODO Use the "continue" to determine if the user should be fetched.
-//       Perhaps it would even be best to just pass along the user name(s) to
-//       be fetched.
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
 		'QUERY_WIKI_CHANGE',
@@ -70,18 +71,20 @@ export const fetchRevisions = ( action$, store ) => (
 					// Set the variables so the request can be canceled if the state
 					// changes.
 					const wiki = store.getState().query.wiki;
+					const domain = store.getState().wikis.get( wiki ).domain;
 					const startDate = store.getState().query.startDate;
 					const endDate = store.getState().query.endDate;
+					const cont = store.getState().revisions.cont.get( user );
 
 					return Observable.ajax( {
-						url: buildRevisionUrl( store.getState().wikis.get( wiki ).domain, user, startDate, endDate ),
+						url: buildRevisionUrl( domain, user, startDate, endDate, cont ),
 						crossDomain: true,
 						responseType: 'json'
 					} )
 						.map( ( ajaxResponse ) => {
-							const contribs = ajaxResponse.response.query.usercontribs;
+							const contribs = ajaxResponse.response.query ? ajaxResponse.response.query.usercontribs : [];
 
-							return new OrderedMap(
+							const revisions = new OrderedMap(
 								contribs.map( ( data ) => (
 									[
 										data.revid,
@@ -92,6 +95,13 @@ export const fetchRevisions = ( action$, store ) => (
 									]
 								) )
 							);
+
+							return {
+								revisions,
+								cont: new Map( {
+									[ user ]: ajaxResponse.response.continue ? ajaxResponse.response.continue.uccontinue : false
+								} )
+							};
 						} )
 						// If the query is no longer valid, cancel the request.
 						.takeUntil( action$.ofType( 'REVISIONS_NOT_READY' ) )
@@ -108,8 +118,12 @@ export const fetchRevisions = ( action$, store ) => (
 			return Observable.forkJoin( requests.toArray() );
 		} )
 		.flatMap( ( data ) => {
-			const revisions = new OrderedMap()
-				.merge( ...data );
+			const revisions = data.reduce( ( map, item ) => {
+				return map.merge( item.revisions );
+			}, new OrderedMap() );
+			const cont = data.reduce( ( map, item ) => {
+				return map.merge( item.cont );
+			}, new Map() );
 
 			// After getting all of the revisions, update the pages.
 			const pages = revisions.reduce( ( reduction, revision ) => {
@@ -148,7 +162,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 			// If there are no pages to retrieve, then we are done.
 			if ( !pageSet.size ) {
-				return Observable.of( RevisionsActions.addRevisions( revisions, pages ) );
+				return Observable.of( RevisionsActions.addRevisions( revisions, pages, cont ) );
 			}
 
 			const wiki = store.getState().query.wiki;
@@ -182,7 +196,7 @@ export const fetchRevisions = ( action$, store ) => (
 							return map.set( page.id, page );
 						}, pages );
 
-					return Observable.of( RevisionsActions.addRevisions( revisions, pageMap ) );
+					return Observable.of( RevisionsActions.addRevisions( revisions, pageMap, cont ) );
 				} );
 		} )
 		.catch( ( error ) => {

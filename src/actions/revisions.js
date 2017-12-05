@@ -32,11 +32,12 @@ export function setRevisions( revisions ) {
 	};
 }
 
-export function addRevisions( revisions, pages = new Map() ) {
+export function addRevisions( revisions, pages = new Map(), cont = new Map() ) {
 	return {
 		type: 'REVISIONS_ADD',
 		revisions,
-		pages
+		pages,
+		cont
 	};
 }
 

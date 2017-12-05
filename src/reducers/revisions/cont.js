@@ -10,6 +10,8 @@ export default ( state = new Map(), action ) => {
 
 				return set.set( user, null );
 			}, state );
+		case 'REVISIONS_ADD':
+			return state.merge( action.cont );
 		case 'QUERY_USER_CHANGE':
 			return state.filter( ( cont, user ) => {
 				return action.users.includes( user );
