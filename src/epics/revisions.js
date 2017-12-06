@@ -1,6 +1,8 @@
 import { Observable } from 'rxjs';
 import { Map, OrderedMap, Set } from 'immutable';
 import * as RevisionsActions from 'app/actions/revisions';
+import getRevisions from 'app/utils/revisions';
+import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
 
@@ -51,7 +53,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 		'QUERY_END_DATE_CHANGE',
 		'REVISIONS_READY'
 	].includes( action.type ) )
-		.filter( () => store.getState().revisions.status === 'ready' )
+		.filter( () => store.getState().revisions.status !== 'notready' )
 		.flatMap( () => {
 			const users = store.getState().query.user
 				.filter( user => !store.getState().revisions.cont.keySeq().includes( user ) );
@@ -62,11 +64,51 @@ export const shouldFetchRevisions = ( action$, store ) => (
 		.flatMap( ( users ) => Observable.of( RevisionsActions.fetchRevisions( users ) ) )
 );
 
+export const revisionStatus = ( action$, store ) => (
+	action$.ofType( 'REVISIONS_ADD' )
+		.map( ( action ) => {
+			const cont = store.getState().revisions.cont;
+
+			if ( cont.filter( c => c !== false ).isEmpty() ) {
+				return RevisionsActions.setStatusDone();
+			}
+
+			if ( action.revisions.isEmpty() ) {
+				return RevisionsActions.setStatusReady();
+			}
+
+			const users = store.getState().query.user;
+			const revisions = store.getState().revisions.list;
+			const pages = store.getState().pages;
+			const last = getLastRevision( revisions, users, cont );
+
+			if ( !last ) {
+				return RevisionsActions.setStatusReady();
+			}
+
+			if ( !getRevisions( users, revisions, last, pages ).isEmpty() ) {
+				return RevisionsActions.setStatusReady();
+			}
+
+			return RevisionsActions.fetchRevisions( new Set( [ last.user ] ) );
+		} )
+);
+
 export const fetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )
 		.flatMap( ( action ) => {
-			const requests = action.users
+			// Remove any users who have a false continue.
+			const users = action.users.filter( ( user ) => {
+				return store.getState().revisions.cont.get( user ) !== false;
+			} );
+
+			// If the set of users is empty, no need to attempt a request.
+			if ( users.isEmpty() ) {
+				return Observable.of( [] );
+			}
+
+			const requests = users
 				.map( user => {
 					// Set the variables so the request can be canceled if the state
 					// changes.
@@ -118,6 +160,11 @@ export const fetchRevisions = ( action$, store ) => (
 			return Observable.forkJoin( requests.toArray() );
 		} )
 		.flatMap( ( data ) => {
+
+			if ( data.length === 0 ) {
+				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+			}
+
 			const revisions = data.reduce( ( map, item ) => {
 				return map.merge( item.revisions );
 			}, new OrderedMap() );

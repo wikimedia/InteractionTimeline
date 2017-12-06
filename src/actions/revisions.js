@@ -25,6 +25,12 @@ export function setStatusFetching() {
 	};
 }
 
+export function setStatusDone() {
+	return {
+		type: 'REVISIONS_DONE'
+	};
+}
+
 export function setRevisions( revisions ) {
 	return {
 		type: 'REVISIONS_SET',

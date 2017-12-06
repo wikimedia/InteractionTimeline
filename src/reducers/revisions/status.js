@@ -2,7 +2,6 @@ export default ( state = 'notready', action ) => {
 	switch ( action.type ) {
 		case 'REVISIONS_FETCH':
 			return 'fetching';
-		case 'REVISIONS_ADD':
 		case 'REVISIONS_READY':
 			return 'ready';
 		case 'QUERY_WIKI_CHANGE':
@@ -19,6 +18,8 @@ export default ( state = 'notready', action ) => {
 			return state;
 		case 'REVISIONS_NOT_READY':
 			return 'notready';
+		case 'REVISIONS_DONE':
+			return 'done';
 		default:
 			return state;
 	}

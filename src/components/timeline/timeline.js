@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Set, Map } from 'immutable';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import RevisionContainer from './revision.container';
 import User from './user';
@@ -14,13 +14,16 @@ class Timeline extends React.Component {
 		const doc = this.container.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
 
+		this.invokeFetch = new Subject();
+
 		// Create the infinite scroll.
 		this.infinite = Observable.merge(
-			Observable.fromEvent( win, 'scoll' ),
-			Observable.fromEvent( win, 'resize' )
+			Observable.fromEvent( win, 'scroll' ),
+			Observable.fromEvent( win, 'resize' ),
+			this.invokeFetch
 		)
 			.filter( () => !this.props.revisions.isEmpty() )
-			.takeWhile( () => this.props.status !== 'done' )
+			.filter( () => this.props.status !== 'done' )
 			.debounceTime( 250 )
 			.filter( () => this.isBottomVisable( this.container ) )
 			.subscribe( () => {
@@ -28,10 +31,10 @@ class Timeline extends React.Component {
 			} );
 	}
 
-	componentDidUpdate( prevProps ) {
-		// If the number of revisions has changed, get another page if necessary.
-		if ( this.infinite && prevProps.revisions.size !== this.props.revisions.size ) {
-			this.infinite.next();
+	componentDidUpdate() {
+		// Attemt to get more revisions if necessary.
+		if ( this.invokeFetch ) {
+			this.invokeFetch.next();
 		}
 	}
 
@@ -92,7 +95,22 @@ class Timeline extends React.Component {
 			);
 		} ).toArray();
 
-		const spinner = ( this.props.status === 'fetching' ) ? ( <Spinner /> ) : undefined;
+		let status;
+		switch ( this.props.status ) {
+			case 'fetching':
+				status = (
+					<Spinner />
+				);
+				break;
+			case 'done':
+				if ( this.props.revisions.isEmpty() ) {
+					// @TODO Make more comprehensive status messages.
+					status = (
+						<h3 className="text-center">No Results</h3>
+					);
+				}
+				break;
+		}
 
 		return (
 			<div className="timeline container-fluid">
@@ -106,7 +124,7 @@ class Timeline extends React.Component {
 				<div className="edits" ref={( container ) => { this.container = container; }}>
 					{edits}
 				</div>
-				{spinner}
+				{status}
 			</div>
 		);
 	}
@@ -115,7 +133,7 @@ class Timeline extends React.Component {
 Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
-	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching' ] ).isRequired,
+	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done' ] ).isRequired,
 	fetchList: PropTypes.func.isRequired
 };
 
