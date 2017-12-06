@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import RevisionContainer from './revision.container';
 import User from './user';
-import Spinner from './spinner';
+import Status from './status';
 
 class Timeline extends React.Component {
 
@@ -95,21 +95,17 @@ class Timeline extends React.Component {
 			);
 		} ).toArray();
 
-		let status;
-		switch ( this.props.status ) {
-			case 'fetching':
-				status = (
-					<Spinner />
-				);
-				break;
-			case 'done':
-				if ( this.props.revisions.isEmpty() ) {
-					// @TODO Make more comprehensive status messages.
-					status = (
-						<h3 className="text-center">No Results</h3>
-					);
-				}
-				break;
+		let status = this.props.status;
+
+		if ( this.props.status === 'done' && this.props.revisions.isEmpty() ) {
+			status = 'noresults';
+		} else if ( this.props.status === 'notready' ) {
+			if ( this.props.wiki && this.props.users.isEmpty() ) {
+				status = 'nousers';
+			}
+			if ( !this.props.wiki && !this.props.users.isEmpty() ) {
+				status = 'nowiki';
+			}
 		}
 
 		return (
@@ -124,7 +120,7 @@ class Timeline extends React.Component {
 				<div className="edits" ref={( container ) => { this.container = container; }}>
 					{edits}
 				</div>
-				{status}
+				<Status status={status} />
 			</div>
 		);
 	}
@@ -134,7 +130,12 @@ Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
 	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done' ] ).isRequired,
-	fetchList: PropTypes.func.isRequired
+	fetchList: PropTypes.func.isRequired,
+	wiki: PropTypes.string
+};
+
+Timeline.defaultProps = {
+	wiki: undefined
 };
 
 export default Timeline;
