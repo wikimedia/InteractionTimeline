@@ -15,7 +15,7 @@ const Alert = ( { type, children } ) => {
 		<div className="row justify-content-center">
 			<div className="col-xl-10 col-sm-8 pl-0 pr-0">
 				<div className={`alert alert-${color}`} role="alert">
-					<div className="d-flex align-items-center">
+					<div className="d-flex align-items-top">
 						<div>
 							<i className="mr-2 material-icons md-48">{icon}</i>
 						</div>

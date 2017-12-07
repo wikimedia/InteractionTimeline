@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import RevisionContainer from './revision.container';
 import User from './user';
-import Status from './status';
+import StatusContainer from './status.container';
 
 class Timeline extends React.Component {
 
@@ -22,9 +22,12 @@ class Timeline extends React.Component {
 			Observable.fromEvent( win, 'resize' ),
 			this.invokeFetch
 		)
-			.filter( () => !this.props.revisions.isEmpty() )
 			.filter( () => this.props.status !== 'done' )
+			.filter( () => !this.props.revisions.isEmpty() )
 			.debounceTime( 250 )
+			// After the debounce time, these may no longer be true.
+			.filter( () => this.props.status !== 'done' )
+			.filter( () => !this.props.revisions.isEmpty() )
 			.filter( () => this.isBottomVisable( this.container ) )
 			.subscribe( () => {
 				return this.props.fetchList( new Set( [ this.props.revisions.last().user ] ) );
@@ -95,19 +98,6 @@ class Timeline extends React.Component {
 			);
 		} ).toArray();
 
-		let status = this.props.status;
-
-		if ( this.props.status === 'done' && this.props.revisions.isEmpty() ) {
-			status = 'noresults';
-		} else if ( this.props.status === 'notready' ) {
-			if ( this.props.wiki && this.props.users.isEmpty() ) {
-				status = 'nousers';
-			}
-			if ( !this.props.wiki && !this.props.users.isEmpty() ) {
-				status = 'nowiki';
-			}
-		}
-
 		return (
 			<div className="timeline container-fluid">
 				<div className="row justify-content-center">
@@ -120,7 +110,7 @@ class Timeline extends React.Component {
 				<div className="edits" ref={( container ) => { this.container = container; }}>
 					{edits}
 				</div>
-				<Status status={status} />
+				<StatusContainer />
 			</div>
 		);
 	}
@@ -129,13 +119,8 @@ class Timeline extends React.Component {
 Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
-	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done' ] ).isRequired,
-	fetchList: PropTypes.func.isRequired,
-	wiki: PropTypes.string
-};
-
-Timeline.defaultProps = {
-	wiki: undefined
+	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
+	fetchList: PropTypes.func.isRequired
 };
 
 export default Timeline;

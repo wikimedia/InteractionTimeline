@@ -24,6 +24,8 @@ export default ( state = new Map(), action ) => {
 			return state.set( action.user, action.cont );
 		case 'REVISIONS_CONTINUE_DELETE':
 			return state.remove( action.user );
+		case 'REVISIONS_ERROR':
+			return state.filter( cont => cont !== null );
 		default:
 			return state;
 	}

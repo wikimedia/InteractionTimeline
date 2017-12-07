@@ -68,3 +68,16 @@ export function deleteRevisionsContinue( user ) {
 		user
 	};
 }
+
+export function throwError( error ) {
+	return {
+		type: 'REVISIONS_ERROR',
+		error
+	};
+}
+
+export function clearError() {
+	return {
+		type: 'REVISIONS_ERROR_CLEAR'
+	};
+}

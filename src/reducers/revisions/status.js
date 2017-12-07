@@ -20,6 +20,8 @@ export default ( state = 'notready', action ) => {
 			return 'notready';
 		case 'REVISIONS_DONE':
 			return 'done';
+		case 'REVISIONS_ERROR':
+			return 'error';
 		default:
 			return state;
 	}

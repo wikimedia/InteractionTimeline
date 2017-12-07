@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Alert from './alert';
 import Spinner from './spinner';
+import ErrorMessageContainer from './error-message.container';
 
 const Status = ( { status } ) => {
 	switch ( status ) {
@@ -34,6 +35,8 @@ const Status = ( { status } ) => {
 					No Results
 				</Alert>
 			);
+		case 'error':
+			return <ErrorMessageContainer />;
 		default:
 			return null;
 	}
