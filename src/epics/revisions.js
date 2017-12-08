@@ -6,7 +6,7 @@ import Revision from 'app/entities/revision';
 const buildUrl = ( state ) => {
 	const domain = state.wikis.get( state.query.wiki ).domain;
 	const users = state.query.user.join( '|' );
-	let url = 'https://' + domain + '/w/api.php?action=query&list=usercontribs&ucuser=' + users + '&uclimit=500&ucdir=newer&format=json&origin=*';
+	let url = 'https://' + domain + '/w/api.php?action=query&list=usercontribs&ucuser=' + users + '&uclimit=500&ucdir=newer&format=json&formatversion=2&origin=*';
 
 	if ( state.query.startDate ) {
 		url += '&ucstart=' + state.query.startDate;
