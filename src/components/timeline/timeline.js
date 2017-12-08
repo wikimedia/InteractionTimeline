@@ -24,12 +24,18 @@ class Timeline extends React.Component {
 		)
 			.filter( () => this.props.status !== 'done' )
 			.filter( () => !this.props.revisions.isEmpty() )
-			.debounceTime( 250 )
-			// After the debounce time, these may no longer be true.
-			.filter( () => this.props.status !== 'done' )
-			.filter( () => !this.props.revisions.isEmpty() )
 			.filter( () => this.isBottomVisable( this.container ) )
+			.debounceTime( 250 )
 			.subscribe( () => {
+				// The debounce delays the immisions so the props may not be the same.
+				if ( this.props.status === 'done' ) {
+					return;
+				}
+
+				if ( this.props.revisions.isEmpty() ) {
+					return;
+				}
+
 				return this.props.fetchList( new Set( [ this.props.revisions.last().user ] ) );
 			} );
 	}
@@ -61,7 +67,7 @@ class Timeline extends React.Component {
 		const doc = element.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
 		const rect = element.getBoundingClientRect();
-		const offset = 100;
+		const offset = 300;
 		return ( rect.bottom - offset ) <= ( win.innerHeight || doc.documentElement.clientHeight );
 	}
 

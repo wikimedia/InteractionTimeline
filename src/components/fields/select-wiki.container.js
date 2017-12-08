@@ -11,7 +11,7 @@ export default connect(
 		options: WikiSelectors.getWikiOptions( state )
 	} ),
 	dispatch => ( {
-		onChange: value => dispatch( QueryActions.setQueryValue( 'wiki', value ? value.value : null ) ),
+		onChange: value => dispatch( QueryActions.wikiChange( value ? value.value : undefined ) ),
 		fetchOptions: () => dispatch( WikiActions.fetchWikiList() )
 	} ),
 )( SelectWiki );

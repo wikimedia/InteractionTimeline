@@ -5,6 +5,7 @@ import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
+import * as QueryActions from 'app/actions/query';
 
 const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
@@ -34,7 +35,7 @@ const builPageUrl = ( domain, user, pageid ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ 'QUERY_WIKI_CHANGE', 'QUERY_USER_CHANGE', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
+		.filter( ( action ) => [ ...QueryActions.EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
 		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() )
 		// Wait until the status has changed.
@@ -47,10 +48,8 @@ export const revisionsReady = ( action$, store ) => (
 
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
-		'QUERY_WIKI_CHANGE',
-		'QUERY_USER_CHANGE',
-		'QUERY_START_DATE_CHANGE',
-		'QUERY_END_DATE_CHANGE',
+		...QueryActions.EVENTS,
+		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )
 		.filter( () => store.getState().revisions.status !== 'notready' )
@@ -105,7 +104,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 			// If the set of users is empty, no need to attempt a request.
 			if ( users.isEmpty() ) {
-				return Observable.of( [] );
+				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
 			}
 
 			const requests = users

@@ -9,6 +9,6 @@ export default connect(
 		value: getUsers( state )
 	} ),
 	dispatch => ( {
-		onChange: value => dispatch( QueryActions.setQueryValue( 'user', new OrderedSet( value ) ) )
+		onChange: value => dispatch( QueryActions.userChange( new OrderedSet( value ) ) )
 	} ),
 )( SelectUsers );
