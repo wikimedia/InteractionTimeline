@@ -38,7 +38,7 @@ class SelectUsers extends React.Component {
 
 				// Query for the users.
 				return Observable.ajax( {
-					url: 'https://meta.wikimedia.org/w/api.php?action=query&format=json&list=globalallusers&origin=*&agufrom=' + encodeURIComponent( input ),
+					url: 'https://meta.wikimedia.org/w/api.php?action=query&format=json&list=globalallusers&origin=*&agufrom=' + encodeURIComponent( this.ucFirst( input ) ),
 					crossDomain: true
 				} )
 					.map( ( ajaxResponse ) => {
@@ -126,6 +126,14 @@ class SelectUsers extends React.Component {
 		}
 
 		return usernames.map( this.getOptionFromUsername );
+	}
+
+	ucFirst( str ) {
+		if ( str.length > 0 ) {
+			str = str.charAt( 0 ).toUpperCase() + str.substr( 1 );
+		}
+
+		return str;
 	}
 
 	render() {

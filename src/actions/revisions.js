@@ -19,22 +19,9 @@ export function setStatusNotReady() {
 	};
 }
 
-export function setStatusFetching() {
-	return {
-		type: 'REVISIONS_FETCHING'
-	};
-}
-
 export function setStatusDone() {
 	return {
 		type: 'REVISIONS_DONE'
-	};
-}
-
-export function setRevisions( revisions ) {
-	return {
-		type: 'REVISIONS_SET',
-		revisions
 	};
 }
 
@@ -44,28 +31,6 @@ export function addRevisions( revisions, pages = new Map(), cont = new Map() ) {
 		revisions,
 		pages,
 		cont
-	};
-}
-
-export function deleteRevisions( revisions ) {
-	return {
-		type: 'REVISIONS_DELETE',
-		revisions
-	};
-}
-
-export function setRevisionsContinue( user, cont ) {
-	return {
-		type: 'REVISIONS_CONTINUE_SET',
-		user,
-		cont
-	};
-}
-
-export function deleteRevisionsContinue( user ) {
-	return {
-		type: 'REVISIONS_CONTINUE_DELETE',
-		user
 	};
 }
 

@@ -29,7 +29,7 @@ const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 
 const builPageUrl = ( domain, user, pageid ) => {
 	// The API only allows a single page lookup at a time.
-	return `https://${domain}/w/api.php?action=query&prop=revisions&pageids=${pageid}&rvuser=${user}&rvlimit=1&origin=*&formatversion=2&format=json`;
+	return `https://${domain}/w/api.php?action=query&prop=revisions&pageids=${pageid}&rvuser=${encodeURIComponent( user )}&rvlimit=1&origin=*&formatversion=2&format=json`;
 };
 
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)

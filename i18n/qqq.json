@@ -4,5 +4,6 @@
 	"app-feedback-link": "Provinding a Link for users to leave feedback.",
 	"field-label-users": "Label for the 'Users' field",
 	"field-label-wiki": "Label for the 'Wiki' field",
-	"field-label-date-range": "Label for the 'Date Range' field"
+	"field-label-date-range": "Label for the 'Date Range' field",
+	"revision-edit-summary-removed": "Message when the edit summary was removed"
 }
