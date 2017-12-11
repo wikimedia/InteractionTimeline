@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
 import moment from 'moment';
 import Wiki from 'app/entities/wiki';
 import Date from './date';
 import Timelapse from './timelapse';
-import { FormattedMessage } from 'react-intl';
 
 const Revision = ( { side, revision, date, duration, wiki } ) => {
 	let classes = [
