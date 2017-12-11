@@ -29,6 +29,7 @@
 		"react/jsx-indent": [
 			"error",
 			"tab"
-		]
+		],
+		"no-shadow": ["error"]
   }
 }

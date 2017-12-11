@@ -25,7 +25,10 @@ $timeline-bg: (
 $timeline-text: $black;
 $timeline-text-comment: $gray-700;
 
-html,
+html {
+	height: 100%;
+}
+
 body {
 	min-width: 100%;
 	min-height: 100%;
