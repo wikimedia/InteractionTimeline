@@ -6,5 +6,6 @@ export default class Revision extends Record( {
 	title: undefined,
 	user: undefined,
 	timestamp: undefined,
-	comment: undefined
+	comment: undefined,
+	commenthidden: false
 }, 'Revision' ) {}

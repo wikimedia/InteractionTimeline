@@ -5,6 +5,7 @@ import moment from 'moment';
 import Wiki from 'app/entities/wiki';
 import Date from './date';
 import Timelapse from './timelapse';
+import { FormattedMessage } from 'react-intl';
 
 const Revision = ( { side, revision, date, duration, wiki } ) => {
 	let classes = [
@@ -13,8 +14,6 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		'm-0',
 		'justify-content-end'
 	];
-
-	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
 
 	let url;
 	if ( wiki ) {
@@ -54,6 +53,9 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		}
 	}
 
+	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
+	const revisionComment = revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : revision.comment;
+
 	return (
 		<div className="row">
 			<div className="col-xl-1 col-sm-2 col-12">
@@ -69,7 +71,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
 									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
 										<span className="d-block title">{revision.title}</span>
-										<span className="d-block comment"><em>{revision.comment}</em></span>
+										<span className="d-block comment"><em>{revisionComment}</em></span>
 									</a>
 								</div>
 							</div>
