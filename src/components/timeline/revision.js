@@ -8,10 +8,6 @@ import Timelapse from './timelapse';
 import { FormattedMessage } from 'react-intl';
 
 const Revision = ( { side, revision, date, duration, wiki } ) => {
-	if ( !side ) {
-		return null;
-	}
-
 	let classes = [
 		'revision',
 		'row',

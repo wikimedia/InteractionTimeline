@@ -1,23 +1,14 @@
 import { createSelector } from 'reselect';
+import getRevisionList from 'app/utils/revisions';
+import { getLastRevision } from './last-revision';
 
 export const getRevisions = createSelector(
 	state => state.query.user,
 	state => state.revisions.list,
+	getLastRevision,
 	state => state.pages,
-	( users, revisions, pages ) => {
-		return revisions.filter( ( revision ) => {
-			const exists = users.filter( ( user ) => {
-				if ( !pages.has( revision.pageid ) ) {
-					return false;
-				}
-
-				return pages.get( revision.pageid ).editors.get( user, false );
-			} );
-
-			// If the page exists for all users, then it
-			// should be included.
-			return exists.size === users.size;
-		} );
+	( users, revisions, last, pages ) => {
+		return getRevisionList( users, revisions, last, pages );
 	}
 );
 
