@@ -2,15 +2,8 @@ import { Map } from 'immutable';
 
 export default ( state = new Map(), action ) => {
 	switch ( action.type ) {
-		case 'PAGES_SET':
-			return action.pages;
 		case 'REVISIONS_ADD':
-		case 'PAGES_UPDATE':
 			return state.mergeDeep( action.pages );
-		case 'PAGES_DELETE':
-			return action.pages.reduce( ( map, page ) => {
-				return map.remove( page.id );
-			}, state );
 		case 'QUERY_USER_CHANGE':
 
 			return state.reduce( ( map, page ) => {
