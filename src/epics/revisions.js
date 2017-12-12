@@ -37,7 +37,7 @@ export const revisionsReady = ( action$, store ) => (
 	action$
 		.filter( ( action ) => [ ...QueryActions.EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
-		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() )
+		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && store.getState().query.user.count() >= 2 )
 		// Wait until the status has changed.
 		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
 		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
@@ -59,7 +59,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 
 			return Observable.of( users );
 		} )
-		.filter( users => !!users.size )
+		.filter( users => !users.isEmpty() )
 		.flatMap( ( users ) => Observable.of( RevisionsActions.fetchRevisions( users ) ) )
 );
 

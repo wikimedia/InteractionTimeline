@@ -16,19 +16,24 @@ class Timeline extends React.Component {
 
 		this.invokeFetch = new Subject();
 
+		const badStatus = [
+			'done',
+			'notready'
+		];
+
 		// Create the infinite scroll.
 		this.infinite = Observable.merge(
 			Observable.fromEvent( win, 'scroll' ),
 			Observable.fromEvent( win, 'resize' ),
 			this.invokeFetch
 		)
-			.filter( () => this.props.status !== 'done' )
+			.filter( () => !badStatus.includes( this.props.status ) )
 			.filter( () => !this.props.revisions.isEmpty() )
 			.filter( () => this.isBottomVisable( this.container ) )
 			.debounceTime( 250 )
 			.subscribe( () => {
 				// The debounce delays the immisions so the props may not be the same.
-				if ( this.props.status === 'done' ) {
+				if ( badStatus.includes( this.props.status ) ) {
 					return;
 				}
 
@@ -73,36 +78,40 @@ class Timeline extends React.Component {
 
 	render() {
 		let prev;
+		let edits;
+		let userDisplay;
 
-		const edits = this.props.revisions.map( ( revision ) => {
-			const timestamp = moment( revision.timestamp, moment.ISO_8601 );
-			let date;
-			let duration;
+		if ( this.props.status !== 'notready' ) {
+			edits = this.props.revisions.map( ( revision ) => {
+				const timestamp = moment( revision.timestamp, moment.ISO_8601 );
+				let date;
+				let duration;
 
-			if ( !prev || !timestamp.isSame( prev.timestamp, 'day' ) ) {
-				date = timestamp;
-			}
+				if ( !prev || !timestamp.isSame( prev.timestamp, 'day' ) ) {
+					date = timestamp;
+				}
 
-			const side = this.getSide( revision.user, this.props.users );
+				const side = this.getSide( revision.user, this.props.users );
 
-			// If we are switching sides, but not the date, show the duraction.
-			if ( !date && prev && prev.user !== revision.user ) {
-				duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
-			}
+				// If we are switching sides, but not the date, show the duraction.
+				if ( !date && prev && prev.user !== revision.user ) {
+					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
+				}
 
-			// Set the previous state for
-			prev = revision;
+				// Set the previous state for
+				prev = revision;
 
-			return (
-				<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
-			);
-		} ).toArray();
+				return (
+					<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
+				);
+			} ).toArray();
 
-		const userDisplay = this.props.users.map( ( user ) => {
-			return (
-				<User key={user} user={user} side={this.getSide( user, this.props.users )} />
-			);
-		} ).toArray();
+			userDisplay = this.props.users.map( ( user ) => {
+				return (
+					<User key={user} user={user} side={this.getSide( user, this.props.users )} />
+				);
+			} ).toArray();
+		}
 
 		return (
 			<div className="timeline container-fluid">

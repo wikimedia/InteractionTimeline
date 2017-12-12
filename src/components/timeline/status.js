@@ -12,7 +12,7 @@ const Status = ( { status } ) => {
 			// @TODO Translate
 			return (
 				<Alert type="info">
-					Please provide a user and wiki to begin.
+					Please provide two users and wiki to begin.
 				</Alert>
 			);
 		case 'nowiki':
@@ -26,7 +26,7 @@ const Status = ( { status } ) => {
 			// @TODO Translate
 			return (
 				<Alert type="info">
-					Please provide a user to begin.
+					Please provide two users to begin.
 				</Alert>
 			);
 		case 'noresults':
