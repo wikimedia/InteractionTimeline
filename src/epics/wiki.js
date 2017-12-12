@@ -34,7 +34,6 @@ const fetchAllWikis = ( action$ ) => (
 								...data.site.map( ( item ) => (
 									new Wiki( {
 										id: item.dbname,
-										name: item.sitename,
 										domain: new URL( item.url ).hostname
 									} )
 								) )
