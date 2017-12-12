@@ -6,10 +6,8 @@ const Alert = ( { type, children } ) => {
 	let icon = type;
 	let color = type;
 
-	switch ( type ) {
-		case 'error':
-			color = 'danger';
-			break;
+	if ( type === 'error' ) {
+		color = 'danger';
 	}
 
 	return (
