@@ -6,7 +6,7 @@ export const getWikiOptions = createSelector(
 	( wikis = new Map() ) => {
 		return wikis.map( ( wiki ) => ( {
 			value: wiki.id,
-			label: `${wiki.name} (${wiki.domain})`
+			label: `${wiki.domain}`
 		} ) ).toArray();
 	}
 );

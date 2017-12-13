@@ -34,13 +34,13 @@ const fetchAllWikis = ( action$ ) => (
 								...data.site.map( ( item ) => (
 									new Wiki( {
 										id: item.dbname,
-										name: item.sitename,
 										domain: new URL( item.url ).hostname
 									} )
 								) )
 							]
 						), [] )
-						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() );
+						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() )
+						.sort( ( a, b ) => a.domain > b.domain );
 
 					return WikiActions.setWikis( wikis );
 				} )
