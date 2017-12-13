@@ -7,7 +7,8 @@
 > they can confidently make a decision about how to best resolve a user conduct
 > dispute.
 
-<https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline>
+Project documentation: <https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline><br>
+Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 
 ## Contributing
 To run the Interaction Timeline locally execute:
