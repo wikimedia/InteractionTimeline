@@ -39,7 +39,8 @@ const fetchAllWikis = ( action$ ) => (
 								) )
 							]
 						), [] )
-						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() );
+						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() )
+						.sort( ( a, b ) => a.domain > b.domain );
 
 					return WikiActions.setWikis( wikis );
 				} )

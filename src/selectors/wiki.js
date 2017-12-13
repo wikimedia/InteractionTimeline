@@ -7,9 +7,7 @@ export const getWikiOptions = createSelector(
 		return wikis.map( ( wiki ) => ( {
 			value: wiki.id,
 			label: `${wiki.domain}`
-		} ) )
-			.toArray()
-			.sort( ( a, b ) => a.label > b.label );
+		} ) ).toArray();
 	}
 );
 
