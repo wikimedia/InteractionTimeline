@@ -33,3 +33,16 @@ export function addRevisions( revisions, pages = new Map(), cont = new Map() ) {
 		cont
 	};
 }
+
+export function throwError( error ) {
+	return {
+		type: 'REVISIONS_ERROR',
+		error
+	};
+}
+
+export function clearError() {
+	return {
+		type: 'REVISIONS_ERROR_CLEAR'
+	};
+}

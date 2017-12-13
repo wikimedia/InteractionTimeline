@@ -7,7 +7,8 @@ export default connect(
 	state => ( {
 		revisions: getRevisions( state ),
 		users: state.query.user,
-		status: state.revisions.status
+		status: state.revisions.status,
+		wiki: state.query.wiki
 	} ),
 	dispatch => ( {
 		fetchList: users => dispatch( RevisionActions.fetchRevisions( users ) )

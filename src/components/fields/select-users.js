@@ -27,6 +27,7 @@ class SelectUsers extends React.Component {
 		// Text Change Handler.
 		this.textChange
 			.distinctUntilChanged()
+			.filter( input => !!input )
 			.debounceTime( 250 )
 			.switchMap( ( input ) => {
 				// Set the loading state.
@@ -72,6 +73,11 @@ class SelectUsers extends React.Component {
 	}
 
 	onInputChange( input ) {
+		// Don't allow more than 2 users.
+		if ( this.props.value.length === 2 ) {
+			return '';
+		}
+
 		this.textChange.next( input );
 		return input;
 	}
@@ -141,6 +147,7 @@ class SelectUsers extends React.Component {
 					options={this.state.options}
 					onInputChange={this.onInputChange}
 					onChange={this.onChange}
+					openOnClick={this.props.value < 2}
 				/>
 			</div>
 		);

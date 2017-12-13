@@ -10,14 +10,14 @@ export default ( state = new Query(), action ) => {
 			}
 
 			return query;
-		case 'QUERY_SET_VALUE':
-			let value = action.value;
-
-			if ( action.key === 'user' ) {
-				value = value.slice( 0, 2 );
-			}
-
-			return state.set( action.key, value );
+		case 'QUERY_USER_CHANGE':
+			return state.set( 'user', action.users );
+		case 'QUERY_WIKI_CHANGE':
+			return state.set( 'wiki', action.wiki );
+		case 'QUERY_START_DATE_CHANGE':
+			return state.set( 'startDate', action.startDate );
+		case 'QUERY_END_DATE_CHANGE':
+			return state.set( 'endDate', action.endDate );
 		default:
 			return state;
 	}

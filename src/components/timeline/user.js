@@ -15,7 +15,7 @@ const User = ( { user, side } ) => {
 	return (
 		<div className={className.join( ' ' )}>
 			<div className="d-flex justify-content-center align-items-center">
-				<i className="mr-2 material-icons md-48">person</i>
+				<i className="mr-2 material-icons">person</i>
 				<span>{user}</span>
 			</div>
 		</div>

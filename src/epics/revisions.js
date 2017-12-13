@@ -1,10 +1,11 @@
-import { Observable } from 'rxjs';
+import { Observable, AjaxError } from 'rxjs';
 import { Map, OrderedMap, Set } from 'immutable';
 import * as RevisionsActions from 'app/actions/revisions';
 import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
+import * as QueryActions from 'app/actions/query';
 
 const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
@@ -34,9 +35,9 @@ const builPageUrl = ( domain, user, pageid ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ 'QUERY_WIKI_CHANGE', 'QUERY_USER_CHANGE' ].includes( action.type ) )
+		.filter( ( action ) => [ ...QueryActions.EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
-		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && !store.getState().query.user.isEmpty() )
+		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && store.getState().query.user.count() >= 2 )
 		// Wait until the status has changed.
 		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
 		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
@@ -47,10 +48,8 @@ export const revisionsReady = ( action$, store ) => (
 
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
-		'QUERY_WIKI_CHANGE',
-		'QUERY_USER_CHANGE',
-		'QUERY_START_DATE_CHANGE',
-		'QUERY_END_DATE_CHANGE',
+		...QueryActions.EVENTS,
+		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )
 		.filter( () => store.getState().revisions.status !== 'notready' )
@@ -60,7 +59,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 
 			return Observable.of( users );
 		} )
-		.filter( users => !!users.size )
+		.filter( users => !users.isEmpty() )
 		.flatMap( ( users ) => Observable.of( RevisionsActions.fetchRevisions( users ) ) )
 );
 
@@ -105,7 +104,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 			// If the set of users is empty, no need to attempt a request.
 			if ( users.isEmpty() ) {
-				return Observable.of( [] );
+				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
 			}
 
 			const requests = users
@@ -124,6 +123,14 @@ export const fetchRevisions = ( action$, store ) => (
 						responseType: 'json'
 					} )
 						.map( ( ajaxResponse ) => {
+							if ( ajaxResponse.response.error ) {
+								throw new AjaxError(
+									ajaxResponse.response.error.info,
+									ajaxResponse.xhr,
+									ajaxResponse.request
+								);
+							}
+
 							const contribs = ajaxResponse.response.query ? ajaxResponse.response.query.usercontribs : [];
 
 							const revisions = new OrderedMap(
@@ -157,98 +164,101 @@ export const fetchRevisions = ( action$, store ) => (
 						.takeUntil( action$.ofType( 'QUERY_END_DATE_CHANGE' ).filter( a => a.endDate !== endDate ) );
 				} );
 
-			return Observable.forkJoin( requests.toArray() );
-		} )
-		.flatMap( ( data ) => {
+			return Observable.forkJoin( requests.toArray() )
+				.flatMap( ( data ) => {
 
-			if ( data.length === 0 ) {
-				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
-			}
-
-			const revisions = data.reduce( ( map, item ) => {
-				return map.merge( item.revisions );
-			}, new OrderedMap() );
-			const cont = data.reduce( ( map, item ) => {
-				return map.merge( item.cont );
-			}, new Map() );
-
-			// After getting all of the revisions, update the pages.
-			const pages = revisions.reduce( ( reduction, revision ) => {
-				if ( reduction.has( revision.pageid ) ) {
-					return reduction.setIn( [ revision.pageid, 'editors', revision.user ], true );
-				}
-
-				return reduction.set( revision.pageid, new Page( {
-					id: revision.pageid,
-					title: revision.title,
-					editors: new Map( {
-						[ revision.user ]: true
-					} )
-				} ) );
-			}, store.getState().pages )
-				// If the page is the same as what is already in the store,
-				// remove it from the map.
-				.filter( page => store.getState().pages.get( page.id ) !== page );
-
-			const users = store.getState().query.user;
-			const pageSet = pages.reduce( ( set, page ) => {
-				const items = users.reduce( ( list, user ) => {
-					if ( page.editors.has( user ) ) {
-						return list;
+					if ( data.length === 0 ) {
+						return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
 					}
 
-					// If the user is not one of the editors, add it to the list.
-					return list.add( {
-						page,
-						user
-					} );
-				}, new Set() );
+					const revisions = data.reduce( ( map, item ) => {
+						return map.merge( item.revisions );
+					}, new OrderedMap() );
+					const cont = data.reduce( ( map, item ) => {
+						return map.merge( item.cont );
+					}, new Map() );
 
-				return set.merge( items );
-			}, new Set() );
-
-			// If there are no pages to retrieve, then we are done.
-			if ( !pageSet.size ) {
-				return Observable.of( RevisionsActions.addRevisions( revisions, pages, cont ) );
-			}
-
-			const wiki = store.getState().query.wiki;
-
-			const requests = pageSet.map( ( userPage ) => {
-				return Observable.ajax( {
-					url: builPageUrl( store.getState().wikis.get( wiki ).domain, userPage.user, userPage.page.id ),
-					crossDomain: true,
-					responseType: 'json'
-				} )
-					.flatMap( ( ajaxResponse ) => {
-						if ( ajaxResponse.response.query.pages.length === 0 ) {
-							return Observable.of( data.page );
+					// After getting all of the revisions, update the pages.
+					const pages = revisions.reduce( ( reduction, revision ) => {
+						if ( reduction.has( revision.pageid ) ) {
+							return reduction.setIn( [ revision.pageid, 'editors', revision.user ], true );
 						}
 
-						const item = ajaxResponse.response.query.pages[ 0 ];
-						return Observable.of( userPage.page.setIn( [ 'editors', userPage.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
-					} )
-					// If the page was deleted, cancel the request.
-					.takeUntil( action$.ofType( 'PAGES_DELETE' ).filter( action => !action.pages.filter( page => page.id === data.page.id ).isEmpty() ) )
-					// If the user is no longer in the query, cancel the request.
-					.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( action => !action.users.includes( data.user ) ) )
-					// If the wiki changes, cancel the request.
-					.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( action => action.wiki !== wiki ) );
-			} );
+						return reduction.set( revision.pageid, new Page( {
+							id: revision.pageid,
+							title: revision.title,
+							editors: new Map( {
+								[ revision.user ]: true
+							} )
+						} ) );
+					}, store.getState().pages )
+						// If the page is the same as what is already in the store,
+						// remove it from the map.
+						.filter( page => store.getState().pages.get( page.id ) !== page );
 
-			return Observable.forkJoin( requests.toArray() )
-				.flatMap( ( pageResponses ) => {
-					const pageMap = pageResponses
-						.reduce( ( map, page ) => {
-							return map.set( page.id, page );
-						}, pages );
+					const pageSet = pages.reduce( ( set, page ) => {
+						const items = users.reduce( ( list, user ) => {
+							if ( page.editors.has( user ) ) {
+								return list;
+							}
 
-					return Observable.of( RevisionsActions.addRevisions( revisions, pageMap, cont ) );
-				} );
-		} )
-		.catch( ( error ) => {
-			// @TODO Display errors to the users.
-			console.error( error ); // eslint-disable-line no-console
-			return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+							// If the user is not one of the editors, add it to the list.
+							return list.add( {
+								page,
+								user
+							} );
+						}, new Set() );
+
+						return set.merge( items );
+					}, new Set() );
+
+					// If there are no pages to retrieve, then we are done.
+					if ( !pageSet.size ) {
+						return Observable.of( RevisionsActions.addRevisions( revisions, pages, cont ) );
+					}
+
+					const wiki = store.getState().query.wiki;
+
+					const pageRequests = pageSet.map( ( userPage ) => {
+						return Observable.ajax( {
+							url: builPageUrl( store.getState().wikis.get( wiki ).domain, userPage.user, userPage.page.id ),
+							crossDomain: true,
+							responseType: 'json'
+						} )
+							.flatMap( ( ajaxResponse ) => {
+								if ( ajaxResponse.response.error ) {
+									throw new AjaxError(
+										ajaxResponse.response.error.info,
+										ajaxResponse.xhr,
+										ajaxResponse.request
+									);
+								}
+
+								if ( ajaxResponse.response.query.pages.length === 0 ) {
+									return Observable.of( data.page );
+								}
+
+								const item = ajaxResponse.response.query.pages[ 0 ];
+								return Observable.of( userPage.page.setIn( [ 'editors', userPage.user ], typeof item.revisions !== 'undefined' && item.revisions.length > 0 ) );
+							} )
+							// If the page was deleted, cancel the request.
+							.takeUntil( action$.ofType( 'PAGES_DELETE' ).filter( a => !a.pages.filter( page => page.id === data.page.id ).isEmpty() ) )
+							// If the user is no longer in the query, cancel the request.
+							.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( a => !a.users.includes( data.user ) ) )
+							// If the wiki changes, cancel the request.
+							.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) );
+					} );
+
+					return Observable.forkJoin( pageRequests.toArray() )
+						.flatMap( ( pageResponses ) => {
+							const pageMap = pageResponses
+								.reduce( ( map, page ) => {
+									return map.set( page.id, page );
+								}, pages );
+
+							return Observable.of( RevisionsActions.addRevisions( revisions, pageMap, cont ) );
+						} );
+				} )
+				.catch( ( error ) => Observable.of( RevisionsActions.throwError( error ) ) );
 		} )
 );

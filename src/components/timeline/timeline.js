@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import RevisionContainer from './revision.container';
 import User from './user';
-import Spinner from './spinner';
+import StatusContainer from './status.container';
 
 class Timeline extends React.Component {
 
@@ -16,17 +16,31 @@ class Timeline extends React.Component {
 
 		this.invokeFetch = new Subject();
 
+		const badStatus = [
+			'done',
+			'notready'
+		];
+
 		// Create the infinite scroll.
 		this.infinite = Observable.merge(
 			Observable.fromEvent( win, 'scroll' ),
 			Observable.fromEvent( win, 'resize' ),
 			this.invokeFetch
 		)
+			.filter( () => !badStatus.includes( this.props.status ) )
 			.filter( () => !this.props.revisions.isEmpty() )
-			.filter( () => this.props.status !== 'done' )
-			.debounceTime( 250 )
 			.filter( () => this.isBottomVisable( this.container ) )
+			.debounceTime( 250 )
 			.subscribe( () => {
+				// The debounce delays the immisions so the props may not be the same.
+				if ( badStatus.includes( this.props.status ) ) {
+					return;
+				}
+
+				if ( this.props.revisions.isEmpty() ) {
+					return;
+				}
+
 				return this.props.fetchList( new Set( [ this.props.revisions.last().user ] ) );
 			} );
 	}
@@ -58,58 +72,45 @@ class Timeline extends React.Component {
 		const doc = element.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
 		const rect = element.getBoundingClientRect();
-		const offset = 100;
+		const offset = 300;
 		return ( rect.bottom - offset ) <= ( win.innerHeight || doc.documentElement.clientHeight );
 	}
 
 	render() {
 		let prev;
+		let edits;
+		let userDisplay;
 
-		const edits = this.props.revisions.map( ( revision ) => {
-			const timestamp = moment( revision.timestamp, moment.ISO_8601 );
-			let date;
-			let duration;
+		if ( this.props.status !== 'notready' ) {
+			edits = this.props.revisions.map( ( revision ) => {
+				const timestamp = moment( revision.timestamp, moment.ISO_8601 );
+				let date;
+				let duration;
 
-			if ( !prev || !timestamp.isSame( prev.timestamp, 'day' ) ) {
-				date = timestamp;
-			}
-
-			const side = this.getSide( revision.user, this.props.users );
-
-			// If we are switching sides, but not the date, show the duraction.
-			if ( !date && prev && prev.user !== revision.user ) {
-				duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
-			}
-
-			// Set the previous state for
-			prev = revision;
-
-			return (
-				<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
-			);
-		} ).toArray();
-
-		const userDisplay = this.props.users.map( ( user ) => {
-			return (
-				<User key={user} user={user} side={this.getSide( user, this.props.users )} />
-			);
-		} ).toArray();
-
-		let status;
-		switch ( this.props.status ) {
-			case 'fetching':
-				status = (
-					<Spinner />
-				);
-				break;
-			case 'done':
-				if ( this.props.revisions.isEmpty() ) {
-					// @TODO Make more comprehensive status messages.
-					status = (
-						<h3 className="text-center">No Results</h3>
-					);
+				if ( !prev || !timestamp.isSame( prev.timestamp, 'day' ) ) {
+					date = timestamp;
 				}
-				break;
+
+				const side = this.getSide( revision.user, this.props.users );
+
+				// If we are switching sides, but not the date, show the duraction.
+				if ( !date && prev && prev.user !== revision.user ) {
+					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
+				}
+
+				// Set the previous state for
+				prev = revision;
+
+				return (
+					<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
+				);
+			} ).toArray();
+
+			userDisplay = this.props.users.map( ( user ) => {
+				return (
+					<User key={user} user={user} side={this.getSide( user, this.props.users )} />
+				);
+			} ).toArray();
 		}
 
 		return (
@@ -124,7 +125,7 @@ class Timeline extends React.Component {
 				<div className="edits" ref={( container ) => { this.container = container; }}>
 					{edits}
 				</div>
-				{status}
+				<StatusContainer />
 			</div>
 		);
 	}
@@ -133,7 +134,7 @@ class Timeline extends React.Component {
 Timeline.propTypes = {
 	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
-	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done' ] ).isRequired,
+	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	fetchList: PropTypes.func.isRequired
 };
 

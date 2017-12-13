@@ -35,6 +35,22 @@ body {
 	overflow-x: hidden;
 }
 
+.error {
+	min-height: 100%;
+	min-height: 100vh;
+}
+
+.alert-danger {
+	word-break: break-all;
+}
+
+.material-icons{
+	&.md-18 { font-size: 18px; }
+	&.md-24 { font-size: 24px; }
+	&.md-36 { font-size: 36px; }
+	&.md-48 { font-size: 48px; }
+}
+
 .DateRangePicker{
 	@extend .d-block;
 }

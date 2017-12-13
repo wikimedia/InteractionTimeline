@@ -21,7 +21,7 @@ const config = {
 		path: path.resolve( __dirname, 'html' ),
 		publicPath: process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/'
 	},
-	devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
+	devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
 	resolve: {
 		alias: {
 			app: path.resolve( './src' ),
