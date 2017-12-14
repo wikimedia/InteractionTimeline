@@ -1,8 +1,17 @@
 /* eslint-env browser */
 import { Observable } from 'rxjs';
-import { Map } from 'immutable';
+import { OrderedMap } from 'immutable';
 import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
+
+const initialWikisList = [
+	{
+		id: 'testwiki',
+		domain: 'test.wikipedia.org',
+		code: 'test',
+		type: 'wiki'
+	}
+];
 
 const fetchAllWikis = ( action$ ) => (
 	action$.ofType( 'WIKI_LIST_FETCH' )
@@ -25,16 +34,15 @@ const fetchAllWikis = ( action$ ) => (
 							[
 								...state,
 								...data.site.map( ( item ) => (
-									new Wiki( {
+									{
 										id: item.dbname,
 										domain: new URL( item.url ).hostname,
 										type: item.code,
 										code: data.code
-									} )
+									}
 								) )
 							]
-						), [] )
-						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() )
+						), initialWikisList )
 						.sort( ( a, b ) => {
 							if ( a.code === b.code ) {
 								if ( a.type === 'wiktionary' && b.type !== 'wiki' ) {
@@ -49,11 +57,14 @@ const fetchAllWikis = ( action$ ) => (
 							}
 
 							return ( a.code > b.code ) ? 1 : -1;
-						} );
+						} )
+						.reduce( ( state, data ) => (
+							state.set( data.id, new Wiki( { ...data } ) ) ), new OrderedMap()
+						);
 
 					return WikiActions.setWikis( wikis );
 				} )
-				.catch( () => Observable.of( WikiActions.setWikis( new Map() ) ) )
+				.catch( () => Observable.of( WikiActions.setWikis( new OrderedMap() ) ) )
 		) )
 );
 
