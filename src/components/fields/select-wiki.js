@@ -11,7 +11,12 @@ class SelectWiki extends React.Component {
 
 	render() {
 		return (
-			<Select {...this.props} />
+
+			<Select
+				{...this.props}
+				matchPos="start"
+				matchProp="label"
+			/>
 		);
 	}
 }

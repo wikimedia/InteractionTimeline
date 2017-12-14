@@ -16,16 +16,9 @@ const fetchAllWikis = ( action$ ) => (
 				.map( ( ajaxResponse ) => {
 					const wikis = Object.keys( ajaxResponse.response.sitematrix )
 						.filter( ( key ) => {
-							return ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) || key === 'specials';
+							return ( !isNaN( parseFloat( key ) ) && isFinite( key ) );
 						} )
 						.map( ( key ) => {
-							// Special is different for some reason.
-							if ( key === 'specials' ) {
-								return {
-									site: ajaxResponse.response.sitematrix[ key ]
-								};
-							}
-
 							return ajaxResponse.response.sitematrix[ key ];
 						} )
 						.reduce( ( state, data ) => (
@@ -34,13 +27,29 @@ const fetchAllWikis = ( action$ ) => (
 								...data.site.map( ( item ) => (
 									new Wiki( {
 										id: item.dbname,
-										domain: new URL( item.url ).hostname
+										domain: new URL( item.url ).hostname,
+										type: item.code,
+										code: data.code
 									} )
 								) )
 							]
 						), [] )
 						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() )
-						.sort( ( a, b ) => a.domain > b.domain );
+						.sort( ( a, b ) => {
+							if ( a.code === b.code ) {
+								if ( a.type === 'wiktionary' && b.type !== 'wiki' ) {
+									return -1;
+								}
+
+								if ( b.type === 'wiktionary' && a.type !== 'wiki' ) {
+									return 1;
+								}
+
+								return ( a.type > b.type ) ? 1 : -1;
+							}
+
+							return ( a.code > b.code ) ? 1 : -1;
+						} );
 
 					return WikiActions.setWikis( wikis );
 				} )
