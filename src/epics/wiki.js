@@ -3,15 +3,7 @@ import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
 import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
-
-const initialWikisList = [
-	{
-		id: 'testwiki',
-		domain: 'test.wikipedia.org',
-		code: 'test',
-		type: 'wiki'
-	}
-];
+import specialWikisList from 'app/utils/specialWikisList';
 
 const fetchAllWikis = ( action$ ) => (
 	action$.ofType( 'WIKI_LIST_FETCH' )
@@ -42,7 +34,7 @@ const fetchAllWikis = ( action$ ) => (
 									}
 								) )
 							]
-						), initialWikisList )
+						), specialWikisList )
 						.sort( ( a, b ) => {
 							if ( a.code === b.code ) {
 								if ( a.type === 'wiktionary' && b.type !== 'wiki' ) {
