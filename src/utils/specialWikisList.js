@@ -1,38 +1,40 @@
-export default specialWikisList = [
+const specialWikisList = [
 	{
 		id: 'testwiki',
 		domain: 'test.wikipedia.org',
 		code: 'test',
-		type: 'wiki'
+		family: 'wiki'
 	},
 	{
 		id: 'commonswiki',
 		domain: 'commons.wikimedia.org',
 		code: 'commons',
-		type: 'wiki'
+		family: 'wiki'
 	},
 	{
 		id: 'metawiki',
 		domain: 'meta.wikimedia.org',
 		code: 'meta',
-		type: 'wiki'
+		family: 'wiki'
 	},
 	{
 		id: 'wikidatawiki',
-		domain: 'www.wikidata.org',
+		domain: 'wikidata.org',
 		code: 'wikidata',
-		type: 'wiki'
+		family: 'wiki'
 	},
 	{
 		id: 'specieswiki',
 		domain: 'species.wikimedia.org',
 		code: 'species',
-		type: 'wiki'
+		family: 'wiki'
 	},
 	{
 		id: 'sourceswiki',
 		domain: 'wikisource.org',
 		code: 'sources',
-		type: 'wiki'
+		family: 'wiki'
 	}
-]
+];
+
+export default specialWikisList;

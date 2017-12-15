@@ -29,7 +29,7 @@ const fetchAllWikis = ( action$ ) => (
 									{
 										id: item.dbname,
 										domain: new URL( item.url ).hostname,
-										type: item.code,
+										family: item.code,
 										code: data.code
 									}
 								) )
@@ -37,15 +37,15 @@ const fetchAllWikis = ( action$ ) => (
 						), specialWikisList )
 						.sort( ( a, b ) => {
 							if ( a.code === b.code ) {
-								if ( a.type === 'wiktionary' && b.type !== 'wiki' ) {
+								if ( a.family === 'wiktionary' && b.family !== 'wiki' ) {
 									return -1;
 								}
 
-								if ( b.type === 'wiktionary' && a.type !== 'wiki' ) {
+								if ( b.family === 'wiktionary' && a.family !== 'wiki' ) {
 									return 1;
 								}
 
-								return ( a.type > b.type ) ? 1 : -1;
+								return ( a.family > b.family ) ? 1 : -1;
 							}
 
 							return ( a.code > b.code ) ? 1 : -1;
