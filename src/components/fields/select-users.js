@@ -37,6 +37,8 @@ class SelectUsers extends React.Component {
 					loading: true
 				} );
 
+				// if the search input is in the form of an ip, add the value
+				// as an option to the dropdown. Otherwise, query globalusers
 				if ( isIPAddress( input ) ) {
 					return Observable.of( [ { label: input, value: input } ] );
 				} else {
