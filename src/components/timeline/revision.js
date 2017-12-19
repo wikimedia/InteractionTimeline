@@ -42,7 +42,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 
 	if ( date ) {
 		displayDate = (
-			<Date icon="today" date={date.format( 'l' )} />
+			<Date icon="today" date={date.format( 'YYYY-MM-DD' )} />
 		);
 	} else if ( duration ) {
 		// Do not display if duration is greater than 24 hours.

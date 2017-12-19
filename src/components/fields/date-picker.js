@@ -69,6 +69,7 @@ class DatePicker extends React.Component {
 				onFocusChange={this.onFocusChange}
 				isOutsideRange={this.isOutsideRange}
 				initialVisibleMonth={this.initialVisibleMonth}
+				displayFormat="YYYY-MM-DD"
 				showClearDates
 				{...props}
 			/>
