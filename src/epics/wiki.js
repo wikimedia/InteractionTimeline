@@ -37,6 +37,8 @@ const fetchAllWikis = ( action$ ) => (
 						), specialWikisList )
 						.sort( ( a, b ) => {
 							if ( a.code === b.code ) {
+								// sorting wikis alphabetically by their 'code/family' with the exception of wiktionary
+								// we want them right after wikipedias (wiki) in the second position.
 								if ( a.family === 'wiktionary' && b.family !== 'wiki' ) {
 									return -1;
 								}
