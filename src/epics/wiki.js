@@ -1,8 +1,9 @@
 /* eslint-env browser */
 import { Observable } from 'rxjs';
-import { Map } from 'immutable';
+import { OrderedMap } from 'immutable';
 import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
+import specialWikisList from 'app/utils/specialWikisList';
 
 const fetchAllWikis = ( action$ ) => (
 	action$.ofType( 'WIKI_LIST_FETCH' )
@@ -16,35 +17,48 @@ const fetchAllWikis = ( action$ ) => (
 				.map( ( ajaxResponse ) => {
 					const wikis = Object.keys( ajaxResponse.response.sitematrix )
 						.filter( ( key ) => {
-							return ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) || key === 'specials';
+							return ( !isNaN( parseFloat( key ) ) && isFinite( key ) );
 						} )
 						.map( ( key ) => {
-							// Special is different for some reason.
-							if ( key === 'specials' ) {
-								return {
-									site: ajaxResponse.response.sitematrix[ key ]
-								};
-							}
-
 							return ajaxResponse.response.sitematrix[ key ];
 						} )
 						.reduce( ( state, data ) => (
 							[
 								...state,
 								...data.site.map( ( item ) => (
-									new Wiki( {
+									{
 										id: item.dbname,
-										domain: new URL( item.url ).hostname
-									} )
+										domain: new URL( item.url ).hostname,
+										family: item.code,
+										code: data.code
+									}
 								) )
 							]
-						), [] )
-						.reduce( ( state, data ) => ( state.set( data.id, data ) ), new Map() )
-						.sort( ( a, b ) => a.domain > b.domain );
+						), specialWikisList )
+						.sort( ( a, b ) => {
+							if ( a.code === b.code ) {
+								// sorting wikis alphabetically by their 'code/family' with the exception of wiktionary
+								// we want them right after wikipedias (wiki) in the second position.
+								if ( a.family === 'wiktionary' && b.family !== 'wiki' ) {
+									return -1;
+								}
+
+								if ( b.family === 'wiktionary' && a.family !== 'wiki' ) {
+									return 1;
+								}
+
+								return ( a.family > b.family ) ? 1 : -1;
+							}
+
+							return ( a.code > b.code ) ? 1 : -1;
+						} )
+						.reduce( ( state, data ) => (
+							state.set( data.id, new Wiki( { ...data } ) ) ), new OrderedMap()
+						);
 
 					return WikiActions.setWikis( wikis );
 				} )
-				.catch( () => Observable.of( WikiActions.setWikis( new Map() ) ) )
+				.catch( () => Observable.of( WikiActions.setWikis( new OrderedMap() ) ) )
 		) )
 );
 
