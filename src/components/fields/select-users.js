@@ -6,6 +6,7 @@ import 'rxjs/add/observable/dom/ajax';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 import 'react-select/dist/react-select.css';
+import { isIPAddress } from 'app/utils/ip-validator';
 
 class SelectUsers extends React.Component {
 
@@ -36,22 +37,29 @@ class SelectUsers extends React.Component {
 					loading: true
 				} );
 
-				// Query for the users.
-				return Observable.ajax( {
-					url: 'https://meta.wikimedia.org/w/api.php?action=query&format=json&list=globalallusers&origin=*&agufrom=' + encodeURIComponent( this.ucFirst( input ) ),
-					crossDomain: true
-				} )
-					.map( ( ajaxResponse ) => {
-						return ajaxResponse.response.query.globalallusers.map( ( user ) => {
-							return {
-								label: user.name,
-								value: user.name
-							};
-						} );
+				// if the search input is in the form of an ip, add the value
+				// as an option to the dropdown. Otherwise, query globalusers
+				if ( isIPAddress( input ) ) {
+					return Observable.of( [ { label: input, value: input } ] );
+				} else {
+					// Query for the users.
+					return Observable.ajax( {
+						url: 'https://meta.wikimedia.org/w/api.php?action=query&format=json&list=globalallusers&origin=*&agufrom=' + encodeURIComponent( this.ucFirst( input ) ),
+						crossDomain: true
 					} )
-					.catch( () => {
-						return [];
-					} );
+						.map( ( ajaxResponse ) => {
+							return ajaxResponse.response.query.globalallusers.map( ( user ) => {
+								return {
+									label: user.name,
+									value: user.name
+								};
+							} );
+						} )
+						.catch( () => {
+							return [];
+						} );
+				}
+
 			} )
 			.subscribe( ( options ) => {
 				// Set the internal state.
