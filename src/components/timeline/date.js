@@ -6,7 +6,6 @@ const TimelineDate = ( { date } ) => (
 	<div className="row mb-1">
 		<div className="col-10 pb-2 pt-2 border rounded text-center align-text-middle">
 			<div className="d-flex justify-content-center align-items-center">
-				<i className="mr-2 material-icons">today</i>
 				<span>{date}</span>
 			</div>
 		</div>
