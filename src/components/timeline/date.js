@@ -5,7 +5,7 @@ import 'material-design-icons/iconfont/material-icons.css';
 const TimelineDate = ( { date } ) => (
 	<div className="row mb-1">
 		<div className="col-10 pb-2 pt-2 border rounded text-center align-text-middle">
-			<div className="d-flex justify-content-center align-items-center">
+			<div className="d-flex justify-content-center align-items-center text-nowrap">
 				<span>{date}</span>
 			</div>
 		</div>
