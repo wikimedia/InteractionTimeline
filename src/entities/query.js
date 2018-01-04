@@ -1,4 +1,5 @@
 import { OrderedSet, Record } from 'immutable';
+import { isIPv6Address } from 'app/utils/ip-validator';
 
 export default class Query extends Record( {
 	wiki: undefined,
@@ -13,11 +14,15 @@ export default class Query extends Record( {
 		if ( data.user ) {
 			if ( Array.isArray( data.user ) ) {
 				user = new OrderedSet( data.user );
-			} else if ( typeof data.user === 'string' || data.user instanceof String ) {
-				user = new OrderedSet( [ data.user ] );
 			} else {
-				user = data.user;
+				user = new OrderedSet( [ data.user ] );
 			}
+
+			// we need to uppercase IPv6 addresses to match
+			// what's returned by the the usercontribs api endpoint
+			user = user.map( ( value ) => {
+				return isIPv6Address( value ) ? value.toUpperCase() : value;
+			} );
 		}
 
 		super( {
