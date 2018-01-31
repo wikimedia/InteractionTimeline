@@ -1,7 +1,9 @@
 language: node_js
 node_js: 6
 branches:
-    only:
-        - master
+  only:
+    - master
 notifications:
   irc: "chat.freenode.net#wikimedia-anti-harassment-tools"
+before_install: 
+  - cd client
