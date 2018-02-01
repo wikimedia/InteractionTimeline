@@ -1,3 +1,5 @@
 node_modules
 /client/html
 /server/vendor
+/html/*
+!/html/api/

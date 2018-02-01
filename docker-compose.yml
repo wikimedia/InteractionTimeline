@@ -7,8 +7,7 @@ services:
     command: lighttpd -D -f /etc/lighttpd/lighttpd.conf
     volumes:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
-      - ./client:/var/www/client:cached
-      - ./server:/var/www/server:cached
+      - ./:/var/www:cached
   build:
     image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
     working_dir: /code/client/

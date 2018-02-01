@@ -18,7 +18,7 @@ const config = {
 	entry: './index.js',
 	output: {
 		filename: 'scripts/[name].js',
-		path: path.resolve( __dirname, 'html' ),
+		path: path.resolve( __dirname, '../html' ),
 		publicPath: process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/'
 	},
 	devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
@@ -80,7 +80,9 @@ const config = {
 	},
 	plugins: [
 		extractSass,
-		new CleanWebpackPlugin( [ './html' ] ),
+		new CleanWebpackPlugin( [ './html' ], {
+			exclude:  ['api'],
+		} ),
 		new webpack.DefinePlugin( {
 			APP_ENV: JSON.stringify( process.env.APP_ENV ),
 			// @see https://facebook.github.io/react/docs/optimizing-performance.html#webpack
