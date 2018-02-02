@@ -1,0 +1,5 @@
+#!/bin/sh
+composer install -d /var/www/server &&
+mkdir -p /var/www/html/api &&
+ln -sf ../../server/public/index.php /var/www/html/api/index.php &&
+lighttpd -D -f /etc/lighttpd/lighttpd.conf

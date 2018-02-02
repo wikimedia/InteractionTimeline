@@ -2,22 +2,19 @@ version: '3'
 services:
   web:
     image: docker-registry.tools.wmflabs.org/toollabs-php-web
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
     ports:
       - 8888:80
-    command: lighttpd -D -f /etc/lighttpd/lighttpd.conf
+    command:
+      - ./var/www/bin/start
     volumes:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
-      - ./client:/var/www/client:cached
-      - ./server:/var/www/server:cached
-  build:
+      - ./:/var/www:cached
+  watch:
     image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
     working_dir: /code/client/
     command:
       - ./bin/watch
     volumes:
-      - ./:/code
-  composer:
-    image: composer/composer:php5
-    command: install
-    volumes:
-    - ./server:/app
+      - ./:/code:cached
