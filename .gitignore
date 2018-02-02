@@ -1,4 +1,3 @@
-node_modules
-/client/html
+/client/node_modules
 /server/vendor
 /html
