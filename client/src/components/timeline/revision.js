@@ -7,12 +7,11 @@ import Wiki from 'app/entities/wiki';
 import Date from './date';
 import Timelapse from './timelapse';
 
-// eslint-disable-next-line no-useless-escape
-const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^\*]+)\*\/)?(.+)?/;
+const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
 
 // Append section name to the page title if it is included in the edit summary
 const getDisplayTitle = ( title, comment ) => {
-	const matches = REGEX_EDIT_SUMMARY_PARTS.exec( comment );
+	const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
 
 	if ( matches[ 1 ] ) {
 		return title + ' § ' + matches[ 1 ].trim();
@@ -23,7 +22,7 @@ const getDisplayTitle = ( title, comment ) => {
 
 // Return edit summary without the section name if present
 const getDisplayComment = ( comment ) => {
-	let matches = REGEX_EDIT_SUMMARY_PARTS.exec( comment );
+	const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
 
 	// return edit summary without section name or empty
 	if ( matches[ 2 ] ) {
