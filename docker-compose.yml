@@ -16,7 +16,10 @@ services:
     volumes:
       - ./:/code
   composer:
-    image: composer/composer:php5
-    command: install
+    image: docker-registry.tools.wmflabs.org/toollabs-php-web
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+    command: composer install
+    working_dir: /app/server/
     volumes:
-    - ./server:/app
+    - ./:/app:cached
