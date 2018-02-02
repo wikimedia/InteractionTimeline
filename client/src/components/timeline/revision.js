@@ -7,6 +7,31 @@ import Wiki from 'app/entities/wiki';
 import Date from './date';
 import Timelapse from './timelapse';
 
+const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
+
+// Append section name to the page title if it is included in the edit summary
+const getDisplayTitle = ( title, comment ) => {
+	const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
+
+	if ( matches[ 1 ] ) {
+		return title + ' § ' + matches[ 1 ].trim();
+	}
+
+	return title;
+};
+
+// Return edit summary without the section name if present
+const getDisplayComment = ( comment ) => {
+	const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
+
+	// return edit summary without section name or empty
+	if ( matches[ 2 ] ) {
+		return matches[ 2 ].trim();
+	} else {
+		return '';
+	}
+};
+
 const Revision = ( { side, revision, date, duration, wiki } ) => {
 	let classes = [
 		'revision',
@@ -54,7 +79,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 	}
 
 	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
-	const revisionComment = revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : revision.comment;
+	const revisionComment = revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : getDisplayComment( revision.comment );
 
 	return (
 		<div className="row">
@@ -70,8 +95,8 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 								<div className="record row justify-content-between">
 									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
 									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
-										<span className="d-block title">{revision.title}</span>
-										<span className="d-block comment"><em>{revisionComment}</em></span>
+										<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
+										<span className="d-block comment"><em>{ revisionComment }</em></span>
 									</a>
 								</div>
 							</div>
