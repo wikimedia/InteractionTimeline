@@ -14,7 +14,7 @@ services:
     command:
       - ./bin/watch
     volumes:
-      - ./:/code
+      - ./:/code:cached
   composer:
     image: docker-registry.tools.wmflabs.org/toollabs-php-web
     environment:
