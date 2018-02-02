@@ -1,8 +1,8 @@
 {
-    "require": {
-        "slim/slim": "^3.0"
-    },
-		"scripts": {
-			"post-install-cmd": "./bin/build"
-		}
+	"require": {
+		"slim/slim": "^3.0"
+	},
+	"scripts": {
+		"post-install-cmd": "./bin/build"
+	}
 }

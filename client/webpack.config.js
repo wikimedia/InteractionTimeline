@@ -81,7 +81,7 @@ const config = {
 	plugins: [
 		extractSass,
 		new CleanWebpackPlugin( [ './html' ], {
-			exclude:  ['api'],
+			exclude: [ 'api' ]
 		} ),
 		new webpack.DefinePlugin( {
 			APP_ENV: JSON.stringify( process.env.APP_ENV ),
