@@ -1,2 +1,0 @@
-mkdir -p ../html/api;
-ln -sf ../../server/public/index.php ../html/api/index.php;
