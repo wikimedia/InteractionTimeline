@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs';
+import Diff from 'app/entities/diff';
 import * as RevisionActions from 'app/actions/revisions';
 
 const buildDiffUrl = ( domain, id ) => {
 	// The API only allows a single page lookup at a time.
-	return `https://${domain}/w/api.php?action=compare&fromrev=${id}&torelative=prev&formatversion=2&format=json&origin=*&prop=diff`;
+	return `https://${domain}/w/api.php?action=compare&fromrev=${id}&torelative=prev&formatversion=2&format=json&origin=*&prop=diff|user`;
 };
 
 export const fetchDiff = ( action$, store ) => (
@@ -24,10 +25,15 @@ export const fetchDiff = ( action$, store ) => (
 				.flatMap( ( ajaxResponse ) => {
 					// Merge the response with what is currently in the store
 					// which may be different from what we started with.
-					let diff = store.getState().revisions.list.get( action.id ).meta.diff;
-					diff = diff.setIn( [ 'meta', 'status' ], 'done' );
-					return Observable.of( RevisionActions.setDiff( action.id, diff.merge( ajaxResponse.response.compare ) ) );
+					const meta = store.getState().revisions.list.get( action.id ).meta.diff.meta;
+					const diff = new Diff( {
+						...ajaxResponse.response.compare,
+						meta: meta.set( 'status', 'done' )
+					} );
+					return Observable.of( RevisionActions.setDiff( action.id, diff ) );
 				} );
+
+			// @TODO Add error states and cancelation.
 
 			return Observable.concat(
 				Observable.of( RevisionActions.setDiffStatus( action.id, 'fetching' ) ),

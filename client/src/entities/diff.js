@@ -3,6 +3,10 @@ import DiffMeta from './diff-meta';
 
 export default class Diff extends Record( {
 	body: undefined,
+	fromuser: undefined,
+	// fromuserid: undefined,
+	touser: undefined,
+	// touserid: undefined,
 	meta: new DiffMeta()
 }, 'Diff' ) {}
 

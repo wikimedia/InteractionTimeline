@@ -15,7 +15,7 @@ const Diff = ( { diff } ) => {
 	return (
 		<div className="row">
 			<div className="col-12">
-				<table dangerouslySetInnerHTML={{ __html: diff.body }} />
+				<table className="table" dangerouslySetInnerHTML={{ __html: diff.body }} />
 			</div>
 		</div>
 	);
