@@ -22,6 +22,12 @@ export default ( state = new OrderedMap(), action ) => {
 			return state.filter( revision => {
 				return action.users.includes( revision.user );
 			} );
+		case 'REVISIONS_DIFF_SET':
+			return state.setIn( [ action.id, 'meta', 'diff' ], action.diff );
+		case 'REVISIONS_DIFF_SHOW_SET':
+			return state.setIn( [ action.id, 'meta', 'diff', 'meta', 'show' ], action.show );
+		case 'REVISIONS_DIFF_STATUS_SET':
+			return state.setIn( [ action.id, 'meta', 'diff', 'meta', 'status' ], action.status );
 		default:
 			return state;
 	}
