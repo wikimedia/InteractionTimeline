@@ -112,13 +112,25 @@ body {
 }
 
 .timeline .user {
+	text-decoration: none;
+	color: $body-color;
+	&:hover {
+		text-decoration: none;
+		background-color: $gray-300;
+	}
 	&.left {
 		background-color: map-get($timeline-bg, "left");
 		color: $timeline-text;
+		&:hover {
+			background-color: lighten(map-get($timeline-bg, "left"), 5%);
+		}
 	}
 	&.right {
 		background-color: map-get($timeline-bg, "right");
 		color: $timeline-text;
+		&:hover {
+			background-color: lighten(map-get($timeline-bg, "right"), 5%);
+		}
 	}
 }
 
@@ -215,4 +227,42 @@ body {
 
 .timelapse {
 	color: #dc3545;
+}
+
+.diff {
+	&.left {
+		border-color: map-get($timeline-bg, "left") !important;
+	}
+	&.right {
+		border-color: map-get($timeline-bg, "right") !important;
+	}
+
+	.content {
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+	.table {
+		margin-bottom: 0;
+	}
+	.table th,
+	.table td {
+		border: none;
+	}
+	.diff-lineno {
+		@extend .col-6;
+		font-weight: $font-weight-bold;
+	}
+	.diff-context,
+	.diff-deletedline,
+	.diff-addedline {
+		@extend .rounded;
+		@extend .border;
+		border-left-width: 4px !important;
+	}
+	.diff-deletedline {
+		border-color: #ffe49c !important;
+	}
+	.diff-addedline {
+		border-color: #a3d3ff !important;
+	}
 }

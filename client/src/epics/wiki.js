@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
 import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
-import specialWikisList from 'app/utils/specialWikisList';
+import specialWikisList from 'app/utils/special-wikis-list';
 
 const fetchAllWikis = ( action$ ) => (
 	action$.ofType( 'WIKI_LIST_FETCH' )

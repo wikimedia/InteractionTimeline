@@ -107,12 +107,12 @@ class Revision extends React.Component {
 				<div className="col-xl-1 col-sm-2 col-12">
 					{displayDate}
 				</div>
-				<div className="col-xl-10 col-sm-8 col-12">
+				<div className="col-xl-10 col-sm-8 col-12 mb-1">
 					<div className={classes.join( ' ' )}>
 						{displayTimelapse}
 						<div className="col-md-6 col-12 p-0">
 							<div className="wrapper row">
-								<div className="col mb-1 mt-0">
+								<div className="col mt-0">
 									<div className="record row justify-content-between">
 										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
 										<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1" onClick={this.handleClick}>
@@ -124,7 +124,7 @@ class Revision extends React.Component {
 							</div>
 						</div>
 					</div>
-					<Diff diff={this.props.revision.meta.diff} />
+					<Diff diff={this.props.revision.meta.diff} side={this.props.side} />
 				</div>
 			</div>
 		);
