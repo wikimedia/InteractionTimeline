@@ -112,11 +112,12 @@ body {
 }
 
 .timeline .user {
+	background-color: $gray-300;
 	text-decoration: none;
 	color: $body-color;
 	&:hover {
 		text-decoration: none;
-		background-color: $gray-300;
+		background-color: $gray-200;
 	}
 	&.left {
 		background-color: map-get($timeline-bg, "left");
@@ -198,29 +199,25 @@ body {
 				border-radius: 0.75em;
 			}
 		}
+	}
 
-		&.right {
-			.wrapper {
-				border-left-width: $timeline-width;
-				margin-right: -($timeline-width / 2) - 1;
-				margin-left:  -($timeline-width / 2);
-				&:before {
-					background-color: map-get($timeline-bg, "right");
-					margin-left: ($timeline-width / 2) - 1;
-				}
-			}
+	&.right .wrapper {
+		border-left-width: $timeline-width;
+		margin-right: -($timeline-width / 2) - 1;
+		margin-left:  -($timeline-width / 2);
+		&:before {
+			background-color: map-get($timeline-bg, "right");
+			margin-left: ($timeline-width / 2) - 1;
 		}
+	}
 
-		&.left {
-			.wrapper {
-				border-right-width: $timeline-width;
-				margin-right: -($timeline-width / 2);
-				margin-left: -($timeline-width / 2) - 1;
-				&:before {
-					background-color: map-get($timeline-bg, "left");
-					margin-right: ($timeline-width / 2) - 1;
-				}
-			}
+	&.left .wrapper {
+		border-right-width: $timeline-width;
+		margin-right: -($timeline-width / 2);
+		margin-left: -($timeline-width / 2) - 1;
+		&:before {
+			background-color: map-get($timeline-bg, "left");
+			margin-right: ($timeline-width / 2) - 1;
 		}
 	}
 }
@@ -236,6 +233,10 @@ body {
 	&.right {
 		border-color: map-get($timeline-bg, "right") !important;
 	}
+	&.wrapper {
+		margin-left: -($timeline-width / 2) - 1;
+		margin-right: -($timeline-width / 2) - 1;
+	}
 
 	.content {
 		max-height: 500px;
@@ -247,6 +248,18 @@ body {
 	.table th,
 	.table td {
 		border: none;
+	}
+	.diff-empty {
+		width: 50%;
+	}
+	.diff-content,
+	.diff-context,
+	.diff-addedline,
+	.diff-deletedline {
+		width: 48%;
+	}
+	.diff-marker {
+		width: 2%;
 	}
 	.diff-lineno {
 		@extend .col-6;

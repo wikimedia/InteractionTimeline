@@ -4,16 +4,17 @@ import DiffMeta from './diff-meta';
 export default class Diff extends Record( {
 	body: undefined,
 	fromuser: undefined,
-	// fromuserid: undefined,
+	fromrevid: undefined,
 	touser: undefined,
-	// touserid: undefined,
+	torevid: undefined,
 	meta: new DiffMeta()
-}, 'Diff' ) {}
+}, 'Diff' ) {
+	constructor( data = {} ) {
+		data = {
+			...data,
+			meta: new DiffMeta( data.meta )
+		};
 
-// Query
-
-// Edit
-// https://test.wikipedia.org/w/api.php?action=compare&fromrev=338496&torelative=prev&formatversion=2
-
-// New Page
-// https://test.wikipedia.org/w/api.php?action=compare&fromrev=338495&torelative=prev&formatversion=2
+		super( data );
+	}
+}

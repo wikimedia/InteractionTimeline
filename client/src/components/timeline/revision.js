@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
 import moment from 'moment';
-import Wiki from 'app/entities/wiki';
 import Date from './date';
-import Diff from './diff';
+import Diff from './diff/diff';
 import Timelapse from './timelapse';
 
 const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
@@ -60,12 +59,6 @@ class Revision extends React.Component {
 			'justify-content-end'
 		];
 
-		let url;
-		if ( this.props.wiki ) {
-			// @TODO Change this to an anchored link on the timeline (with the diff opened).
-			url = `https://${this.props.wiki.domain}/w/index.php?diff=prev&oldid=${this.props.revision.id}`;
-		}
-
 		switch ( this.props.side ) {
 			case 'right':
 				classes = [
@@ -99,23 +92,47 @@ class Revision extends React.Component {
 			}
 		}
 
-		const timestamp = moment( this.props.revision.timestamp, moment.ISO_8601 );
 		const revisionComment = this.props.revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : this.getDisplayComment( this.props.revision.comment );
+
+		let linkClassName = [
+			'col-xxl-11',
+			'col-xl-10',
+			'col-8',
+			'd-block',
+			'content',
+			'pt-1'
+		];
+
+		if ( this.props.revision.meta.diff.meta.show ) {
+			linkClassName = [
+				...linkClassName,
+				'rounded-top',
+				'pb-2'
+			];
+		} else {
+			linkClassName = [
+				...linkClassName,
+				'rounded',
+				'mb-1',
+				'pb-1'
+			];
+		}
 
 		return (
 			<div className="row">
 				<div className="col-xl-1 col-sm-2 col-12">
 					{displayDate}
 				</div>
-				<div className="col-xl-10 col-sm-8 col-12 mb-1">
+				<div className="col-xl-10 col-sm-8 col-12">
 					<div className={classes.join( ' ' )}>
 						{displayTimelapse}
 						<div className="col-md-6 col-12 p-0">
-							<div className="wrapper row">
+							<div className="row wrapper">
 								<div className="col mt-0">
 									<div className="record row justify-content-between">
-										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
-										<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1" onClick={this.handleClick}>
+										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'h:mma' )}</div>
+										{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
+										<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
 											<span className="d-block title">{this.getDisplayTitle( this.props.revision.title, this.props.revision.comment )}</span>
 											<span className="d-block comment"><em>{ revisionComment }</em></span>
 										</a>
@@ -134,12 +151,13 @@ class Revision extends React.Component {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ),
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
-	wiki: PropTypes.instanceOf( Wiki ),
 	date: PropTypes.instanceOf( moment ),
+	timestamp: PropTypes.instanceOf( moment ).isRequired,
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func,
 		asSeconds: PropTypes.func
 	} ),
+	url: PropTypes.string,
 	toggleDiff: PropTypes.func.isRequired
 };
 
@@ -147,7 +165,7 @@ Revision.defaultProps = {
 	side: undefined,
 	date: undefined,
 	duration: undefined,
-	wiki: undefined
+	url: undefined
 };
 
 export default Revision;

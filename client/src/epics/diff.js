@@ -4,7 +4,7 @@ import * as RevisionActions from 'app/actions/revisions';
 
 const buildDiffUrl = ( domain, id ) => {
 	// The API only allows a single page lookup at a time.
-	return `https://${domain}/w/api.php?action=compare&fromrev=${id}&torelative=prev&formatversion=2&format=json&origin=*&prop=diff|user`;
+	return `https://${domain}/w/api.php?action=compare&fromrev=${id}&torelative=prev&formatversion=2&format=json&origin=*&prop=diff|user|ids`;
 };
 
 export const fetchDiff = ( action$, store ) => (

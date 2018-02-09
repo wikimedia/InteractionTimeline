@@ -1,38 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Wiki from 'app/entities/wiki';
+import Header from './header';
 
 const User = ( { user, side, wiki } ) => {
 	if ( !user ) {
 		return (
-			<div className="col-6 d-block" />
+			<Header />
 		);
 	}
 
-	let className = [
-		'user',
-		'rounded',
-		'col-6',
-		'border',
-		'pt-2',
-		'pb-2',
-		'd-block'
-	];
-
-	if ( side ) {
-		className = [
-			...className,
-			side
-		];
-	}
-
 	return (
-		<a href={`https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`} className={className.join( ' ' )}>
-			<div className="d-flex justify-content-center align-items-center">
-				<i className="mr-2 material-icons">person</i>
-				<span>{user}</span>
-			</div>
-		</a>
+		<Header href={`https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`} className="rounded border" side={side}>
+			<i className="mr-2 material-icons">person</i>
+			<span>{user}</span>
+		</Header>
 	);
 };
 

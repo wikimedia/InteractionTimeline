@@ -10,4 +10,13 @@ export default class Revision extends Record( {
 	comment: undefined,
 	commenthidden: false,
 	meta: new RevisionMeta()
-}, 'Revision' ) {}
+}, 'Revision' ) {
+	constructor( data = {} ) {
+		data = {
+			...data,
+			meta: new RevisionMeta( data.meta )
+		};
+
+		super( data );
+	}
+}
