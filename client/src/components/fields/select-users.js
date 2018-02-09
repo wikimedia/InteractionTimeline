@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'react-select/dist/react-select.css';
 import { isIPAddress } from 'app/utils/ip-validator';
 
-class SelectUsers extends React.Component {
+class SelectUsers extends React.PureComponent {
 
 	constructor( props ) {
 		super( props );
@@ -78,6 +78,10 @@ class SelectUsers extends React.Component {
 			...this.state,
 			value: this.getOptionsFromUsernames( nextProps.value )
 		} );
+	}
+
+	componentWillUnmount() {
+		this.textChange.unsubscribe();
 	}
 
 	onInputChange( input ) {

@@ -8,7 +8,7 @@ import RevisionContainer from './revision.container';
 import UserContainer from './user.container';
 import StatusContainer from './status.container';
 
-class Timeline extends React.Component {
+class Timeline extends React.PureComponent {
 
 	componentDidMount() {
 		const doc = this.container.ownerDocument;

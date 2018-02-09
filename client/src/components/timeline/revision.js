@@ -9,7 +9,7 @@ import Timelapse from './timelapse';
 
 const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
 
-class Revision extends React.Component {
+class Revision extends React.PureComponent {
 
 	constructor() {
 		super();
