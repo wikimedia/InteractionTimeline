@@ -8,7 +8,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'react-select/dist/react-select.css';
 import { isIPAddress } from 'app/utils/ip-validator';
 
-class SelectUsers extends React.PureComponent {
+class SelectUsers extends React.Component {
 
 	constructor( props ) {
 		super( props );

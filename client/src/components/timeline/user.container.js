@@ -6,8 +6,8 @@ import User from './user';
 const getSide = makeGetSide();
 
 export default connect(
-	( state, ownProps ) => ( {
+	( state, props ) => ( {
 		wiki: WikiSelectors.getWiki( state ),
-		side: getSide( state, ownProps )
+		side: getSide( state, props )
 	} ),
 )( User );

@@ -14,7 +14,9 @@ const Header = ( { children, href, className, side } ) => {
 		'col-6',
 		'pt-2',
 		'pb-2',
-		'd-block'
+		'd-flex',
+		'justify-content-center',
+		'align-items-center'
 	];
 
 	if ( side ) {
@@ -28,9 +30,7 @@ const Header = ( { children, href, className, side } ) => {
 
 	return (
 		<Tag href={href} className={className.join( ' ' )}>
-			<div className="d-flex justify-content-center align-items-center">
-				{children}
-			</div>
+			{children}
 		</Tag>
 	);
 };

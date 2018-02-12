@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
-class SelectWiki extends React.PureComponent {
+class SelectWiki extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchOptions();

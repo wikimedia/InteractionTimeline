@@ -9,10 +9,10 @@ const getRevisionUrl = makeGetRevisionUrl();
 const getTimestamp = makeGetTimestamp();
 
 export default connect(
-	( state, ownProps ) => ( {
-		side: getSide( state, ownProps ),
-		url: getRevisionUrl( state, ownProps ),
-		timestamp: getTimestamp( state, ownProps )
+	( state, props ) => ( {
+		side: getSide( state, props ),
+		url: getRevisionUrl( state, props ),
+		timestamp: getTimestamp( state, props )
 	} ),
 	dispatch => ( {
 		toggleDiff: revision => dispatch( RevisionActions.toggleDiff( revision ) )

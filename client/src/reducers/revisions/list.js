@@ -7,11 +7,18 @@ export default ( state = new OrderedMap(), action ) => {
 				return map.remove( revision.id );
 			}, state );
 		case 'REVISIONS_ADD':
+		case 'REVISIONS_SINGLE_ADD':
 			return state
 				.merge( action.revisions )
 				// Since the ids are all from the same wiki, they are in a guaranteed
 				// order from oldest to newest.
 				.sortBy( revision => revision.id );
+		case 'REVISIONS_SINGLE_STATUS_SET':
+			if ( state.has( action.id ) ) {
+				return state.setIn( [ action.id, 'meta', 'status' ], action.status );
+			}
+
+			return state;
 		case 'REVISIONS_SET':
 			return action.revisions.sortBy( revision => revision.id );
 		case 'QUERY_WIKI_CHANGE':

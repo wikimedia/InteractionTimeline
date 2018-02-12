@@ -93,6 +93,61 @@ export const revisionStatus = ( action$, store ) => (
 		} )
 );
 
+export const fetchRevision = ( action$, store ) => (
+	action$
+		.ofType( 'REVISIONS_SINGLE_FETCH' )
+		.flatMap( action => {
+			const wiki = store.getState().query.wiki;
+			const domain = store.getState().wikis.get( wiki ).domain;
+
+			// @TODO Catch the Error.
+			// @TODO Add a takeUntil.
+			const request = Observable.ajax( {
+				url: `https://${domain}/w/api.php?action=query&format=json&prop=revisions&revids=${action.id}&formatversion=2&origin=*`,
+				crossDomain: true,
+				responseType: 'json'
+			} )
+				.flatMap( ajaxResponse => {
+					if ( ajaxResponse.response.error ) {
+						throw new AjaxError(
+							ajaxResponse.response.error.info,
+							ajaxResponse.xhr,
+							ajaxResponse.request
+						);
+					}
+					if ( !ajaxResponse.response.query || !ajaxResponse.response.query.pages || !ajaxResponse.response.query.pages[ 0 ] ) {
+						throw new AjaxError(
+							'Bad Response',
+							ajaxResponse.xhr,
+							ajaxResponse.request
+						);
+					}
+
+					const data = ajaxResponse.response.query.pages[ 0 ];
+
+					return Observable.of( RevisionsActions.addRevision( new Revision( {
+						id: data.revisions[ 0 ].revid,
+						...data,
+						...data.revisions[ 0 ]
+					} ) ) );
+				} );
+
+			// The revision is not in the store, so we'll add it with the current
+			// status.
+			const revision = new Revision( {
+				id: action.id,
+				meta: {
+					status: 'fetching'
+				}
+			} );
+
+			return Observable.concat(
+				Observable.of( RevisionsActions.addRevision( revision ) ),
+				request
+			);
+		} )
+);
+
 export const fetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )

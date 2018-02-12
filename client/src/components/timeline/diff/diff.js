@@ -22,10 +22,14 @@ const Diff = ( { diff, side } ) => {
 	];
 
 	if ( diff.meta.status === 'fetching' ) {
+		classNames = [
+			...classNames,
+			'pt-3'
+		];
 		return (
 			<div className={classNames.join( ' ' )}>
 				<div className="col-12">
-					<div className="row">
+					<div className="row align-items-center justify-content-center">
 						<Spinner />
 					</div>
 				</div>

@@ -6,8 +6,8 @@ const getFromRevision = makeGetFromRevision();
 const getToRevision = makeGetToRevision();
 
 export default connect(
-	( state, ownProps ) => ( {
-		from: getFromRevision( state, ownProps ),
-		to: getToRevision( state, ownProps )
+	( state, props ) => ( {
+		from: getFromRevision( state, props ),
+		to: getToRevision( state, props )
 	} )
 )( Header );
