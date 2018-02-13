@@ -40,9 +40,14 @@ export const fetchDiff = ( action$, store ) => (
 					} );
 					return Observable.of( RevisionActions.setDiff( action.id, diff ) );
 				} )
+				// If the user is no longer in the query, ensure that the revision still
+				// exits, if it doesn't, cancel the request.
+				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( () => !store.getState().revisions.list.has( action.id ) ) )
+				// If the wiki changes, cancel the request.
+				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
+				// If the revision was deleted, cancel the request.
+				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.id ) ) )
 				.catch( ( error ) => Observable.of( RevisionActions.throwDiffError( action.id, error ) ) );
-
-			// @TODO Add error states and cancelation.
 
 			return Observable.concat(
 				Observable.of( RevisionActions.setDiffStatus( action.id, 'fetching' ) ),

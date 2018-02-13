@@ -100,7 +100,6 @@ export const fetchRevision = ( action$, store ) => (
 			const wiki = store.getState().query.wiki;
 			const domain = store.getState().wikis.get( wiki ).domain;
 
-			// @TODO Catch the Error.
 			// @TODO Add a takeUntil.
 			const request = Observable.ajax( {
 				url: `https://${domain}/w/api.php?action=query&format=json&prop=revisions&revids=${action.id}&formatversion=2&origin=*`,
@@ -135,6 +134,10 @@ export const fetchRevision = ( action$, store ) => (
 						...data.revisions[ 0 ]
 					} ) ) );
 				} )
+				// If the wiki changes, cancel the request.
+				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
+				// If the revision was deleted, cancel the request.
+				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.id ) ) )
 				.catch( ( error ) => Observable.of( RevisionsActions.throwRevisionError( action.id, error ) ) );
 
 			// The revision is not in the store, so we'll add it with the current
