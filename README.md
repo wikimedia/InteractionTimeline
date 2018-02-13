@@ -11,11 +11,22 @@ Project documentation: <https://meta.wikimedia.org/wiki/Community_health_initiat
 Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 
 ## Contributing
-To run the Interaction Timeline locally execute:
+*Dev access to Toolforge is required.*
+
+- Configure the api to connect to toolforge replica db(s) by configuring your login information into the new `.env` file 
+```
+cp ./server/.env.example ./server/.env
+```
+- Copy your toolforge ssh private key into the project as `id_rsa`. This file is part of .gitignore and will not be added to the repo
+```
+cp /path/to/your/priv/key ./etc/ssh/id_rsa`
+```
+
+- Run the Interaction Timeline locally execute:
 ```
 docker-compose up
 ```
-The app should be accessible at <http://127.0.0.1:8888>.
+The app should be accessible at <http://127.0.0.1:8888> and <http://127.0.0.1:8888/api/hello>
 
 ## Deploy
 Interaction Timeline is hosted on [Toolfoge](https://tools.wmflabs.org)

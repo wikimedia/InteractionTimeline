@@ -1,15 +1,13 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+require __DIR__ . '/../vendor/autoload.php';
 
-require __DIR__ . '/../../server/vendor/autoload.php';
+$settings = require __DIR__ . '/../src/settings.php';
 
-$app = new \Slim\App;
-$app->get('/hello[/{name}]', function (Request $request, Response $response, array $args) {
-	$name = $args['name'] ?: 'world';
-	$response->getBody()->write("Hello, $name");
+$app = new \Slim\App( $settings );
 
-	return $response;
-});
+require __DIR__ . '/../src/dependencies.php';
+
+require __DIR__ . '/../src/routes.php';
+
 $app->run();
