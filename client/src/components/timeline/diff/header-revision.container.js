@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import * as RevisionActions from 'app/actions/revisions';
+import { fetchRevision } from 'app/actions/revisions';
 import { makeGetRevisionUrl, makeGetTimestamp } from 'app/selectors/revisions';
 import makeGetSide from 'app/selectors/side';
-import Revision from './revision';
+import HeaderRevision from './header-revision';
 
 const getSide = makeGetSide();
 const getRevisionUrl = makeGetRevisionUrl();
@@ -15,6 +15,6 @@ export default connect(
 		timestamp: getTimestamp( state, props )
 	} ),
 	dispatch => ( {
-		toggleDiff: revision => dispatch( RevisionActions.toggleDiff( revision ) )
+		fetchRevision: id => dispatch( fetchRevision( id ) )
 	} ),
-)( Revision );
+)( HeaderRevision );

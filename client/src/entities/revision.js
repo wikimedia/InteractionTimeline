@@ -1,4 +1,5 @@
 import { Record } from 'immutable';
+import RevisionMeta from './revision-meta';
 
 export default class Revision extends Record( {
 	id: undefined,
@@ -7,5 +8,15 @@ export default class Revision extends Record( {
 	user: undefined,
 	timestamp: undefined,
 	comment: undefined,
-	commenthidden: false
-}, 'Revision' ) {}
+	commenthidden: false,
+	meta: new RevisionMeta()
+}, 'Revision' ) {
+	constructor( data = {} ) {
+		data = {
+			...data,
+			meta: new RevisionMeta( data.meta )
+		};
+
+		super( data );
+	}
+}

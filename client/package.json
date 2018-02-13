@@ -31,7 +31,7 @@
     "moment": "^2.19.1",
     "node-sass": "^4.5.3",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-dates": "^15.0.0",
     "react-dom": "^16.0.0",
@@ -52,6 +52,7 @@
     "spinkit": "^1.2.5",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
+    "webfontloader": "^1.6.28",
     "webpack": "^3.8.1"
   },
   "devDependencies": {

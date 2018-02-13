@@ -1,4 +1,4 @@
-const specialWikisList = [
+export default [
 	{
 		id: 'testwiki',
 		domain: 'test.wikipedia.org',
@@ -36,5 +36,3 @@ const specialWikisList = [
 		family: 'wiki'
 	}
 ];
-
-export default specialWikisList;
