@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, AjaxError } from 'rxjs';
 import Diff from 'app/entities/diff';
 import * as RevisionActions from 'app/actions/revisions';
 
@@ -23,6 +23,14 @@ export const fetchDiff = ( action$, store ) => (
 				responseType: 'json'
 			} )
 				.flatMap( ( ajaxResponse ) => {
+					if ( ajaxResponse.response.error ) {
+						throw new AjaxError(
+							ajaxResponse.response.error.info,
+							ajaxResponse.xhr,
+							ajaxResponse.request
+						);
+					}
+
 					// Merge the response with what is currently in the store
 					// which may be different from what we started with.
 					const meta = store.getState().revisions.list.get( action.id ).meta.diff.meta;
@@ -31,7 +39,8 @@ export const fetchDiff = ( action$, store ) => (
 						meta: meta.set( 'status', 'done' )
 					} );
 					return Observable.of( RevisionActions.setDiff( action.id, diff ) );
-				} );
+				} )
+				.catch( ( error ) => Observable.of( RevisionActions.throwDiffError( action.id, error ) ) );
 
 			// @TODO Add error states and cancelation.
 

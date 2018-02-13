@@ -38,6 +38,16 @@ class HeaderRevision extends React.PureComponent {
 			);
 		}
 
+		if ( this.props.revision.meta.status === 'error' ) {
+			// @TODO Translate.
+			return (
+				<Header href={this.props.url} className="text-center error">
+					Error<br />
+					{this.props.revision.meta.error.message}
+				</Header>
+			);
+		}
+
 		return (
 			<Header href={this.props.url} side={this.props.side} className="text-center">
 				{this.props.revision.user}<br />

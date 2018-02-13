@@ -69,6 +69,22 @@ export function throwError( error ) {
 	};
 }
 
+export function throwRevisionError( id, error ) {
+	return {
+		type: 'REVISIONS_SINGLE_ERROR',
+		id,
+		error
+	};
+}
+
+export function throwDiffError( id, error ) {
+	return {
+		type: 'REVISIONS_DIFF_ERROR',
+		id,
+		error
+	};
+}
+
 export function clearError() {
 	return {
 		type: 'REVISIONS_ERROR_CLEAR'
@@ -83,13 +99,17 @@ export function setDiff( id, diff ) {
 	};
 }
 
-export function toggleDiff( revision ) {
+export function setDiffShow( id, diff, show ) {
 	return {
 		type: 'REVISIONS_DIFF_SHOW_SET',
-		id: revision.id,
-		show: !revision.meta.diff.meta.show,
-		status: revision.meta.diff.meta.status
+		id,
+		show,
+		status: diff.meta.status
 	};
+}
+
+export function toggleDiff( revision ) {
+	return setDiffShow( revision.id, revision.meta.diff, !revision.meta.diff.meta.show );
 }
 
 export function setDiffStatus( id, status ) {

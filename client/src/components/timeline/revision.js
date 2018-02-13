@@ -141,7 +141,7 @@ class Revision extends React.Component {
 							</div>
 						</div>
 					</div>
-					<Diff diff={this.props.revision.meta.diff} side={this.props.side} />
+					<Diff id={this.props.revision.id} diff={this.props.revision.meta.diff} side={this.props.side} />
 				</div>
 			</div>
 		);

@@ -133,6 +133,14 @@ body {
 			background-color: lighten(map-get($timeline-bg, "right"), 5%);
 		}
 	}
+	&.error {
+		min-height: inherit;
+		background-color: theme-color("danger");
+		color: $white;
+		&:hover {
+			background-color: lighten(theme-color("danger"), 5%);
+		}
+	}
 }
 
 .revision {

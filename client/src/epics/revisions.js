@@ -115,7 +115,11 @@ export const fetchRevision = ( action$, store ) => (
 							ajaxResponse.request
 						);
 					}
-					if ( !ajaxResponse.response.query || !ajaxResponse.response.query.pages || !ajaxResponse.response.query.pages[ 0 ] ) {
+					if (
+						!ajaxResponse.response.query ||
+						!ajaxResponse.response.query.pages ||
+						!ajaxResponse.response.query.pages[ 0 ] ||
+						!ajaxResponse.response.query.pages[ 0 ].revisions ) {
 						throw new AjaxError(
 							'Bad Response',
 							ajaxResponse.xhr,
@@ -130,7 +134,8 @@ export const fetchRevision = ( action$, store ) => (
 						...data,
 						...data.revisions[ 0 ]
 					} ) ) );
-				} );
+				} )
+				.catch( ( error ) => Observable.of( RevisionsActions.throwRevisionError( action.id, error ) ) );
 
 			// The revision is not in the store, so we'll add it with the current
 			// status.

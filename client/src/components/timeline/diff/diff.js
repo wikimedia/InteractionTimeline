@@ -2,14 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RevisionDiff from 'app/entities/diff';
 import Spinner from 'app/components/timeline/spinner';
+import ErrorMessageContainer from './error-message.container';
 import HeaderContainer from './header.container';
 
-const Diff = ( { diff, side } ) => {
+const StatusWrapper = ( { children, className } ) => (
+	<div className={className}>
+		<div className="col-12">
+			<div className="row align-items-center justify-content-center">
+				{children}
+			</div>
+		</div>
+	</div>
+);
+
+StatusWrapper.propTypes = {
+	className: PropTypes.string,
+	children: PropTypes.element
+};
+
+StatusWrapper.defaultProps = {
+	className: '',
+	children: undefined
+};
+
+const Diff = ( { id, diff, side } ) => {
 	if ( !diff.meta.show ) {
 		return null;
 	}
 
-	let classNames = [
+	let className = [
 		'diff',
 		'row',
 		'wrapper',
@@ -22,23 +43,31 @@ const Diff = ( { diff, side } ) => {
 	];
 
 	if ( diff.meta.status === 'fetching' ) {
-		classNames = [
-			...classNames,
+		className = [
+			...className,
 			'pt-3'
 		];
 		return (
-			<div className={classNames.join( ' ' )}>
-				<div className="col-12">
-					<div className="row align-items-center justify-content-center">
-						<Spinner />
-					</div>
-				</div>
-			</div>
+			<StatusWrapper className={className.join( ' ' )}>
+				<Spinner />
+			</StatusWrapper>
+		);
+	}
+
+	if ( diff.meta.status === 'error' ) {
+		className = [
+			...className,
+			'pt-3'
+		];
+		return (
+			<StatusWrapper className={className.join( ' ' )}>
+				<ErrorMessageContainer id={id} diff={diff} error={diff.meta.error} />
+			</StatusWrapper>
 		);
 	}
 
 	return (
-		<div className={classNames.join( ' ' )}>
+		<div className={className.join( ' ' )}>
 			<div className="col-12">
 				<div className="row">
 					<HeaderContainer diff={diff} />
@@ -62,6 +91,7 @@ const Diff = ( { diff, side } ) => {
 };
 
 Diff.propTypes = {
+	id: PropTypes.number.isRequired,
 	diff: PropTypes.instanceOf( RevisionDiff ).isRequired,
 	side: PropTypes.string.isRequired
 };
