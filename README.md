@@ -15,7 +15,7 @@ Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 
 - Configure the api to connect to toolforge replica db(s) by configuring your login information into the new `.env` file 
 ```
-cp ./server/.env.example ./server/.env
+cp ./server/.env.dist ./server/.env
 ```
 - Copy your toolforge ssh private key into the project as `id_rsa`. This file is part of .gitignore and will not be added to the repo
 ```
