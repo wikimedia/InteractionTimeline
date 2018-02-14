@@ -101,7 +101,7 @@ class Timeline extends React.PureComponent {
 
 		return (
 			<div className="timeline container-fluid">
-				<div className="row justify-content-center">
+				<div className="row no-gutters sticky-top justify-content-center">
 					<div className="col-xl-10 col-sm-8">
 						<div className="row align-items-center justify-content-around mb-3 text-center">
 							{userDisplay}
