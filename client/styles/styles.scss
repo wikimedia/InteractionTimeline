@@ -246,6 +246,11 @@ body {
 		margin-right: -($timeline-width / 2) - 1;
 	}
 
+	.close-container {
+		margin-left: $border-width;
+		margin-top: -$border-width;
+	}
+
 	.content {
 		max-height: 500px;
 		overflow-y: scroll;

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import * as RevisionsActions from 'app/actions/revisions';
-import ErrorMessage from 'app/components/timeline/error-message';
+import Diff from './diff';
 
 export default connect(
 	undefined,
 	( dispatch, props ) => ( {
-		clearError: () => {
+		closeDiff: () => {
 			return dispatch( RevisionsActions.setDiffShow( props.id, props.diff, false ) );
 		}
 	} )
-)( ErrorMessage );
+)( Diff );

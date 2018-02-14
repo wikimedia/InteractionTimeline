@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
 import moment from 'moment';
 import Date from './date';
-import Diff from './diff/diff';
+import DiffContainer from './diff/diff.container';
 import Timelapse from './timelapse';
 
 const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
@@ -141,7 +141,7 @@ class Revision extends React.Component {
 							</div>
 						</div>
 					</div>
-					<Diff id={this.props.revision.id} diff={this.props.revision.meta.diff} side={this.props.side} />
+					<DiffContainer id={this.props.revision.id} diff={this.props.revision.meta.diff} side={this.props.side} />
 				</div>
 			</div>
 		);
