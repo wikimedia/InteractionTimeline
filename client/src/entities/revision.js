@@ -9,6 +9,7 @@ export default class Revision extends Record( {
 	timestamp: undefined,
 	comment: undefined,
 	commenthidden: false,
+	suppressed: false,
 	meta: new RevisionMeta()
 }, 'Revision' ) {
 	constructor( data = {} ) {
