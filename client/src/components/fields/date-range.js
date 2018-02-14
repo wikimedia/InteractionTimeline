@@ -48,7 +48,7 @@ class DateRange extends React.Component {
 	render() {
 		return (
 			<div className="form-group row align-items-center">
-				<label className="col-sm-2 col col-form-label" htmlFor="input-start-date">Start Date</label>
+				<label className="col-form-label" htmlFor="input-start-date">Start Date</label>
 				<div className="col">
 					<DatePicker
 						value={this.props.startDate}
@@ -57,7 +57,7 @@ class DateRange extends React.Component {
 						isValidDate={this.isValidStartDate}
 					/>
 				</div>
-				<label className="col-sm-2 col col-form-label" htmlFor="input-end-date">End Date</label>
+				<label className="col-form-label" htmlFor="input-end-date">End Date</label>
 				<div className="col">
 					<DatePicker
 						value={this.props.endDate}
