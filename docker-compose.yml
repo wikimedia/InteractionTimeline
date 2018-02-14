@@ -11,6 +11,8 @@ services:
     volumes:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
       - ./:/var/www:cached
+    links:
+      - enwiki-db-replica
   watch:
     image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
     working_dir: /code/client/
@@ -18,3 +20,9 @@ services:
       - ./bin/watch
     volumes:
       - ./:/code:cached
+  enwiki-db-replica:
+    build:
+      context: .
+      dockerfile: Dockerfile-replica-db
+    env_file:
+      - ./server/.env

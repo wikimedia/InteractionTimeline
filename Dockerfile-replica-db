@@ -1,0 +1,13 @@
+FROM alpine:3.6
+
+RUN apk add --update openssh-client
+
+COPY ./etc/ssh/id_rsa /root/.ssh/id_rsa
+COPY ./etc/ssh/config /root/.ssh/
+
+CMD ssh -o StrictHostKeyChecking=no -N \
+	$TOOLFORGE_USER@$TOOLFORGE_HOST	-L \
+	0.0.0.0:4711:$TOOLFORGE_MYSQL:3306
+
+EXPOSE 4711
+
