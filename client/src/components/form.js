@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import SelectUsersContainer from 'app/components/fields/select-users.container';
 import SelectWikiContainer from 'app/components/fields/select-wiki.container';
-import DatePickerContainer from 'app/components/fields/date-picker.container';
+import DateRangeContainer from 'app/components/fields/date-range.container';
 
 const Form = () => (
 	<form>
@@ -22,12 +22,7 @@ const Form = () => (
 				</div>
 			</div>
 			<div className="col-sm-6">
-				<div className="form-group row align-items-center">
-					<label className="col-sm-3 col col-form-label"><FormattedMessage id="field-label-date-range" /></label>
-					<div className="col">
-						<DatePickerContainer anchorDirection="right" />
-					</div>
-				</div>
+				<DateRangeContainer />
 			</div>
 		</div>
 	</form>

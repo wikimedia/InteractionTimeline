@@ -1,92 +1,66 @@
-import 'react-dates/initialize';
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { DateRangePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
 
 class DatePicker extends React.Component {
 
 	constructor( props ) {
 		super( props );
 
-		// Determine the end of day.
-		this.eod = moment().endOf( 'day' );
-
-		// UI state can be maintained within the component.
-		this.state = {
-			focus: null
-		};
-
 		// Binding
-		this.initialVisibleMonth = this.initialVisibleMonth.bind( this );
-		this.onFocusChange = this.onFocusChange.bind( this );
-		this.onDateChange = this.onDateChange.bind( this );
-		this.isOutsideRange = this.isOutsideRange.bind( this );
+		this.onChange = this.onChange.bind( this );
 	}
 
-	onFocusChange( focus ) {
-		this.setState( {
-			...this.state,
-			focus: focus
-		} );
-	}
-
-	onDateChange( { startDate, endDate } ) {
-		if ( this.props.startDate !== startDate ) {
-			this.props.onStartDateChange( startDate );
+	onChange( date ) {
+		// Ensure that the date is a valid date object or an empty string.
+		if ( date instanceof moment || !date ) {
+			// Ensure that the date has actually changed.
+			if ( this.props.value !== date ) {
+				// If the date is a moment object and the component was provided a
+				// function to validate the date, ensure the date is valid before
+				// passing it upstream.
+				if ( date instanceof moment && this.props.isValidDate ) {
+					if ( this.props.isValidDate( date ) ) {
+						return this.props.onChange( date );
+					}
+				} else {
+					this.props.onChange( date );
+				}
+			}
 		}
-		if ( this.props.endDate !== endDate ) {
-			this.props.onEndDateChange( endDate );
-		}
-
-		this.setState( {
-			...this.state,
-			focus: null
-		} );
-	}
-
-	isOutsideRange( date ) {
-		return date.diff( this.eod ) > 0;
-	}
-
-	initialVisibleMonth() {
-		return moment().subtract( 1, 'month' );
 	}
 
 	render() {
-		const props = {
-			...this.props
-		};
-
-		delete props.onStartDateChange;
-		delete props.onEndDateChange;
-
 		return (
-			<DateRangePicker
-				onDatesChange={this.onDateChange}
-				focusedInput={this.state.focus}
-				onFocusChange={this.onFocusChange}
-				isOutsideRange={this.isOutsideRange}
-				initialVisibleMonth={this.initialVisibleMonth}
-				displayFormat="YYYY-MM-DD"
-				showClearDates
-				{...props}
+			<Datetime
+				value={this.props.value}
+				dateFormat="YYYY-MM-DD"
+				onChange={this.onChange}
+				isValidDate={this.props.isValidDate}
+				inputProps={{
+					placeholder: 'YYYY-MM-DD',
+					id: this.props.id
+				}}
+				timeFormat={false}
+				closeOnSelect
 			/>
 		);
 	}
 }
 
 DatePicker.propTypes = {
-	startDate: PropTypes.instanceOf( moment ),
-	endDate: PropTypes.instanceOf( moment ),
-	onStartDateChange: PropTypes.func.isRequired,
-	onEndDateChange: PropTypes.func.isRequired
+	value: PropTypes.instanceOf( moment ),
+	id: PropTypes.string,
+	onChange: PropTypes.func.isRequired,
+	isValidDate: PropTypes.func
 };
 
 DatePicker.defaultProps = {
-	startDate: undefined,
-	endDate: undefined
+	value: undefined,
+	id: undefined,
+	isValidDate: undefined
 };
 
 export default DatePicker;

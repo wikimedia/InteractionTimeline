@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import * as QueryActions from 'app/actions/query';
 import * as DateSelectors from 'app/selectors/date';
-import DatePicker from './date-picker';
+import DateRange from './date-range';
 
 export default connect(
 	state => ( {
@@ -12,4 +12,4 @@ export default connect(
 		onStartDateChange: value => dispatch( QueryActions.startDateChange( value ? value.utc().unix().toString() : undefined ) ),
 		onEndDateChange: value => dispatch( QueryActions.endDateChange( value ? value.utc().unix().toString() : undefined ) )
 	} ),
-)( DatePicker );
+)( DateRange );
