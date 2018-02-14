@@ -99,17 +99,16 @@ export function setDiff( id, diff ) {
 	};
 }
 
-export function setDiffShow( id, diff, show ) {
+export function setDiffShow( revision, show ) {
 	return {
 		type: 'REVISIONS_DIFF_SHOW_SET',
-		id,
-		show,
-		status: diff.meta.status
+		revision,
+		show
 	};
 }
 
 export function toggleDiff( revision ) {
-	return setDiffShow( revision.id, revision.meta.diff, !revision.meta.diff.meta.show );
+	return setDiffShow( revision, !revision.meta.diff.meta.show );
 }
 
 export function setDiffStatus( id, status ) {

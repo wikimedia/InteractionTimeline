@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RevisionDiff from 'app/entities/diff';
+import Revision from 'app/entities/revision';
 import Spinner from 'app/components/timeline/spinner';
 import ErrorMessage from 'app/components/timeline/error-message';
 import HeaderContainer from './header.container';
 
 const StatusWrapper = ( { children, className, closeDiff } ) => (
 	<div className={className}>
-		<div className="col-12">
-			<div className="row align-items-center justify-content-center pt-3">
+		<div className="col-12 pt-3">
+			<div className="row align-items-center justify-content-center">
 				{children}
 			</div>
 		</div>
@@ -48,7 +48,9 @@ CloseButton.defaultProps = {
 	closeDiff: undefined
 };
 
-const Diff = ( { id, diff, side, closeDiff } ) => {
+const Diff = ( { revision, side, closeDiff } ) => {
+	const diff = revision.meta.diff;
+
 	if ( !diff.meta.show ) {
 		return null;
 	}
@@ -70,6 +72,22 @@ const Diff = ( { id, diff, side, closeDiff } ) => {
 			...className,
 			'rounded-left'
 		];
+	}
+
+	if ( revision.suppressed ) {
+		// @TODO Translate
+		return (
+			<div className={className.join( ' ' )}>
+				<div className="col-12 pt-2">
+					<div className="row align-items-center justify-content-center">
+						<div className="col text-center">
+							You cannot view this diff because one or both of the revisions has been suppressed.
+						</div>
+					</div>
+				</div>
+				<CloseButton closeDiff={closeDiff} />
+			</div>
+		);
 	}
 
 	if ( diff.meta.status === 'fetching' ) {
@@ -114,8 +132,7 @@ const Diff = ( { id, diff, side, closeDiff } ) => {
 };
 
 Diff.propTypes = {
-	id: PropTypes.number.isRequired,
-	diff: PropTypes.instanceOf( RevisionDiff ).isRequired,
+	revision: PropTypes.instanceOf( Revision ).isRequired,
 	side: PropTypes.string.isRequired,
 	closeDiff: PropTypes.func
 };
