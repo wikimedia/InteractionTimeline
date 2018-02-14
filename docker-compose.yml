@@ -24,6 +24,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-replica-db
-    restart: always
     env_file:
       - ./server/.env
