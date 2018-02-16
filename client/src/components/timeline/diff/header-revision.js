@@ -51,7 +51,7 @@ class HeaderRevision extends React.PureComponent {
 		return (
 			<Header href={this.props.url} side={this.props.side} className="text-center">
 				{this.props.revision.user}<br />
-				{this.props.timestamp.format( 'YYYY-MM-DD' )} &mdash; {this.props.timestamp.format( 'h:mma' )}
+				{this.props.timestamp.format( 'YYYY-MM-DD' )} &mdash; {this.props.timestamp.format( 'HH:mm' )}
 			</Header>
 		);
 	}

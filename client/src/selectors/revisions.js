@@ -28,7 +28,7 @@ export const makeGetTimestamp = () => (
 				return;
 			}
 
-			return moment( timestamp, moment.ISO_8601 );
+			return moment( timestamp, moment.ISO_8601 ).utc();
 		}
 	)
 );
