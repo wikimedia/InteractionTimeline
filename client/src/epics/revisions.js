@@ -1,6 +1,15 @@
 import { Observable, AjaxError } from 'rxjs';
 import { Map, OrderedMap, Set } from 'immutable';
-import { setStatusReady, setStatusNotReady } from 'app/actions/revisions';
+import {
+	setStatusReady,
+	setStatusDone,
+	setStatusNotReady,
+	fetchRevisions,
+	addRevision,
+	addRevisions,
+	throwError,
+	throwRevisionError
+} from 'app/actions/revisions';
 import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
@@ -60,7 +69,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 			return Observable.of( users );
 		} )
 		.filter( users => !users.isEmpty() )
-		.flatMap( ( users ) => Observable.of( RevisionsActions.fetchRevisions( users ) ) )
+		.flatMap( ( users ) => Observable.of( fetchRevisions( users ) ) )
 );
 
 export const revisionStatus = ( action$, store ) => (
@@ -69,11 +78,11 @@ export const revisionStatus = ( action$, store ) => (
 			const cont = store.getState().revisions.cont;
 
 			if ( cont.filter( c => c !== false ).isEmpty() ) {
-				return RevisionsActions.setStatusDone();
+				return setStatusDone();
 			}
 
 			if ( action.revisions.isEmpty() ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
 			const users = store.getState().query.user;
@@ -82,14 +91,14 @@ export const revisionStatus = ( action$, store ) => (
 			const last = getLastRevision( revisions, users, cont );
 
 			if ( !last ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
 			if ( !getRevisions( users, revisions, last, pages ).isEmpty() ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
-			return RevisionsActions.fetchRevisions( new Set( [ last.user ] ) );
+			return fetchRevisions( new Set( [ last.user ] ) );
 		} )
 );
 
@@ -128,7 +137,7 @@ export const fetchRevision = ( action$, store ) => (
 
 					const data = ajaxResponse.response.query.pages[ 0 ];
 
-					return Observable.of( RevisionsActions.addRevision( new Revision( {
+					return Observable.of( addRevision( new Revision( {
 						id: data.revisions[ 0 ].revid,
 						...data,
 						...data.revisions[ 0 ]
@@ -138,7 +147,7 @@ export const fetchRevision = ( action$, store ) => (
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
 				// If the revision was deleted, cancel the request.
 				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.id ) ) )
-				.catch( ( error ) => Observable.of( RevisionsActions.throwRevisionError( action.id, error ) ) );
+				.catch( ( error ) => Observable.of( throwRevisionError( action.id, error ) ) );
 
 			// The revision is not in the store, so we'll add it with the current
 			// status.
@@ -150,13 +159,13 @@ export const fetchRevision = ( action$, store ) => (
 			} );
 
 			return Observable.concat(
-				Observable.of( RevisionsActions.addRevision( revision ) ),
+				Observable.of( addRevision( revision ) ),
 				request
 			);
 		} )
 );
 
-export const fetchRevisions = ( action$, store ) => (
+export const doFetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )
 		.flatMap( ( action ) => {
@@ -167,7 +176,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 			// If the set of users is empty, no need to attempt a request.
 			if ( users.isEmpty() ) {
-				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+				return Observable.of( addRevisions( new OrderedMap() ) );
 			}
 
 			const requests = users
@@ -231,7 +240,7 @@ export const fetchRevisions = ( action$, store ) => (
 				.flatMap( ( data ) => {
 
 					if ( data.length === 0 ) {
-						return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+						return Observable.of( addRevisions( new OrderedMap() ) );
 					}
 
 					const revisions = data.reduce( ( map, item ) => {
@@ -277,7 +286,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 					// If there are no pages to retrieve, then we are done.
 					if ( !pageSet.size ) {
-						return Observable.of( RevisionsActions.addRevisions( revisions, pages, cont ) );
+						return Observable.of( addRevisions( revisions, pages, cont ) );
 					}
 
 					const wiki = store.getState().query.wiki;
@@ -319,9 +328,9 @@ export const fetchRevisions = ( action$, store ) => (
 									return map.set( page.id, page );
 								}, pages );
 
-							return Observable.of( RevisionsActions.addRevisions( revisions, pageMap, cont ) );
+							return Observable.of( addRevisions( revisions, pageMap, cont ) );
 						} );
 				} )
-				.catch( ( error ) => Observable.of( RevisionsActions.throwError( error ) ) );
+				.catch( ( error ) => Observable.of( throwError( error ) ) );
 		} )
 );

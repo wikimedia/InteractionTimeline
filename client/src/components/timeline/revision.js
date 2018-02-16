@@ -57,7 +57,6 @@ class Revision extends React.Component {
 			'row',
 			'm-0',
 			'justify-content-end',
-			'h-100'
 		];
 
 		switch ( this.props.side ) {
@@ -116,6 +115,13 @@ class Revision extends React.Component {
 				'rounded',
 				'mb-1',
 				'pb-1'
+			];
+		}
+
+		if ( this.props.revision.meta.diff.meta.show === false ) {
+			classes = [
+				...classes,
+				'h-100'
 			];
 		}
 
