@@ -83,7 +83,7 @@ class Timeline extends React.Component {
 
 		if ( this.props.status !== 'notready' ) {
 			edits = this.props.revisions.map( ( revision ) => {
-				const timestamp = moment( revision.timestamp, moment.ISO_8601 );
+				const timestamp = moment( revision.timestamp, moment.ISO_8601 ).utc();
 				let date;
 				let duration;
 
@@ -95,7 +95,7 @@ class Timeline extends React.Component {
 
 				// If we are switching sides, but not the date, show the duraction.
 				if ( !date && prev && prev.user !== revision.user ) {
-					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).diff( timestamp ) );
+					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).utc().diff( timestamp ) );
 				}
 
 				// Set the previous state for

@@ -78,7 +78,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		}
 	}
 
-	const timestamp = moment( revision.timestamp, moment.ISO_8601 );
+	const timestamp = moment( revision.timestamp, moment.ISO_8601 ).utc();
 	const revisionComment = revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : getDisplayComment( revision.comment );
 
 	return (
@@ -93,7 +93,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 						<div className="wrapper row">
 							<div className="col mb-1 mt-0">
 								<div className="record row justify-content-between">
-									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
+									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'HH:mm' )}</div>
 									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
 										<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
 										<span className="d-block comment"><em>{ revisionComment }</em></span>
