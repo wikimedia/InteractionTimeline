@@ -37,7 +37,8 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 		'revision',
 		'row',
 		'm-0',
-		'justify-content-end'
+		'justify-content-end',
+		'h-100'
 	];
 
 	let url;
@@ -90,9 +91,9 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 				<div className={classes.join( ' ' )}>
 					{displayTimelapse}
 					<div className="col-md-6 col-12 p-0">
-						<div className="wrapper row">
+						<div className="wrapper h-100 row">
 							<div className="col mb-1 mt-0">
-								<div className="record row justify-content-between">
+								<div className="record row h-100 align-items-center justify-content-between">
 									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'h:mma' )}</div>
 									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
 										<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
