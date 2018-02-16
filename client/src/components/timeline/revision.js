@@ -56,7 +56,8 @@ class Revision extends React.Component {
 			'revision',
 			'row',
 			'm-0',
-			'justify-content-end'
+			'justify-content-end',
+			'h-100'
 		];
 
 		switch ( this.props.side ) {
@@ -127,9 +128,9 @@ class Revision extends React.Component {
 					<div className={classes.join( ' ' )}>
 						{displayTimelapse}
 						<div className="col-md-6 col-12 p-0">
-							<div className="row wrapper">
-								<div className="col mt-0">
-									<div className="record row justify-content-between">
+							<div className="wrapper h-100 row">
+								<div className="col mb-1 mt-0">
+									<div className="record row h-100 align-items-center justify-content-between">
 										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'h:mma' )}</div>
 										{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
 										<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
