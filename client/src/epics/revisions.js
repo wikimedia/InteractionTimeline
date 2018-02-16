@@ -1,6 +1,6 @@
 import { Observable, AjaxError } from 'rxjs';
 import { Map, OrderedMap, Set } from 'immutable';
-import * as RevisionsActions from 'app/actions/revisions';
+import { setStatusReady, setStatusNotReady } from 'app/actions/revisions';
 import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
@@ -42,7 +42,7 @@ export const revisionsReady = ( action$, store ) => (
 		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
 		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
 		.map( ( ready ) => {
-			return ready ? RevisionsActions.setStatusReady() : RevisionsActions.setStatusNotReady();
+			return ready ? setStatusReady() : setStatusNotReady();
 		} )
 );
 

@@ -1,6 +1,6 @@
 import { Observable, AjaxError } from 'rxjs';
 import Diff from 'app/entities/diff';
-import * as RevisionActions from 'app/actions/revisions';
+import { setDiff, setDiffStatus, throwDiffError } from 'app/actions/diff';
 
 const buildDiffUrl = ( domain, id ) => {
 	// The API only allows a single page lookup at a time.
@@ -39,7 +39,7 @@ export const fetchDiff = ( action$, store ) => (
 						...ajaxResponse.response.compare,
 						meta: meta.set( 'status', 'done' )
 					} );
-					return Observable.of( RevisionActions.setDiff( action.revision.id, diff ) );
+					return Observable.of( setDiff( action.revision.id, diff ) );
 				} )
 				// If the user is no longer in the query, ensure that the revision still
 				// exits, if it doesn't, cancel the request.
@@ -48,10 +48,10 @@ export const fetchDiff = ( action$, store ) => (
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
 				// If the revision was deleted, cancel the request.
 				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.revision.id ) ) )
-				.catch( ( error ) => Observable.of( RevisionActions.throwDiffError( action.revision.id, error ) ) );
+				.catch( ( error ) => Observable.of( throwDiffError( action.revision.id, error ) ) );
 
 			return Observable.concat(
-				Observable.of( RevisionActions.setDiffStatus( action.revision.id, 'fetching' ) ),
+				Observable.of( setDiffStatus( action.revision.id, 'fetching' ) ),
 				request
 			);
 		} )
