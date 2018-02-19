@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import { Set, Map } from 'immutable';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
-import RevisionContainer from './revision.container';
-import User from './user';
+import UserListContainer from './user-list.container';
+import DateRevisions from './date-revisions';
 import StatusContainer from './status.container';
 
 class Timeline extends React.Component {
@@ -56,18 +55,6 @@ class Timeline extends React.Component {
 		this.infinite.unsubscribe();
 	}
 
-	getSide( user, users ) {
-		let side;
-
-		if ( user === users.first() ) {
-			side = 'left';
-		} else if ( user === users.last() ) {
-			side = 'right';
-		}
-
-		return side;
-	}
-
 	isBottomVisable( element ) {
 		const doc = element.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
@@ -77,53 +64,17 @@ class Timeline extends React.Component {
 	}
 
 	render() {
-		let prev;
-		let edits;
-		let userDisplay;
-
-		if ( this.props.status !== 'notready' ) {
-			edits = this.props.revisions.map( ( revision ) => {
-				const timestamp = moment( revision.timestamp, moment.ISO_8601 ).utc();
-				let date;
-				let duration;
-
-				if ( !prev || !timestamp.isSame( prev.timestamp, 'day' ) ) {
-					date = timestamp;
-				}
-
-				const side = this.getSide( revision.user, this.props.users );
-
-				// If we are switching sides, but not the date, show the duraction.
-				if ( !date && prev && prev.user !== revision.user ) {
-					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).utc().diff( timestamp ) );
-				}
-
-				// Set the previous state for
-				prev = revision;
-
-				return (
-					<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
-				);
-			} ).toArray();
-
-			userDisplay = this.props.users.map( ( user ) => {
-				return (
-					<User key={user} user={user} side={this.getSide( user, this.props.users )} />
-				);
-			} ).toArray();
-		}
-
 		return (
 			<div className="timeline container-fluid">
 				<div className="row justify-content-center">
 					<div className="col-xl-10 col-sm-8">
 						<div className="row align-items-center justify-content-around mb-3 text-center">
-							{userDisplay}
+							{this.props.status !== 'notready' ? <UserListContainer /> : null}
 						</div>
 					</div>
 				</div>
 				<div className="edits" ref={( container ) => { this.container = container; }}>
-					{edits}
+					{this.props.status !== 'notready' ? <DateRevisions revisions={this.props.revisions} /> : null}
 				</div>
 				<StatusContainer />
 			</div>
@@ -132,7 +83,6 @@ class Timeline extends React.Component {
 }
 
 Timeline.propTypes = {
-	users: PropTypes.instanceOf( Set ).isRequired,
 	revisions: PropTypes.instanceOf( Map ).isRequired,
 	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	fetchList: PropTypes.func.isRequired

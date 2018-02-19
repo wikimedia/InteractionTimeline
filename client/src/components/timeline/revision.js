@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
 import moment from 'moment';
 import Wiki from 'app/entities/wiki';
-import Date from './date';
 import Timelapse from './timelapse';
 
 const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
@@ -32,13 +31,12 @@ const getDisplayComment = ( comment ) => {
 	}
 };
 
-const Revision = ( { side, revision, date, duration, wiki } ) => {
+const Revision = ( { side, revision, duration, wiki } ) => {
 	let classes = [
 		'revision',
 		'row',
 		'm-0',
-		'justify-content-end',
-		'h-100'
+		'justify-content-end'
 	];
 
 	let url;
@@ -63,44 +61,29 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 			break;
 	}
 
-	let displayDate;
 	let displayTimelapse;
 
-	if ( date ) {
-		displayDate = (
-			<Date icon="today" date={date.format( 'YYYY-MM-DD' )} />
+	if ( duration ) {
+		displayTimelapse = (
+			<Timelapse icon="timelapse" date={duration.humanize()} />
 		);
-	} else if ( duration ) {
-		// Do not display if duration is greater than 24 hours.
-		if ( duration.asSeconds() < 86400 /* Seconds in 24 hours */ ) {
-			displayTimelapse = (
-				<Timelapse icon="timelapse" date={duration.humanize()} />
-			);
-		}
 	}
 
 	const timestamp = moment( revision.timestamp, moment.ISO_8601 ).utc();
 	const revisionComment = revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : getDisplayComment( revision.comment );
 
 	return (
-		<div className="row">
-			<div className="col-xl-1 col-sm-2 col-12">
-				{displayDate}
-			</div>
-			<div className="col-xl-10 col-sm-8 col-12">
-				<div className={classes.join( ' ' )}>
-					{displayTimelapse}
-					<div className="col-md-6 col-12 p-0">
-						<div className="wrapper h-100 row">
-							<div className="col mb-1 mt-0">
-								<div className="record row h-100 align-items-center justify-content-between">
-									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'HH:mm' )}</div>
-									<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
-										<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
-										<span className="d-block comment"><em>{ revisionComment }</em></span>
-									</a>
-								</div>
-							</div>
+		<div className={classes.join( ' ' )}>
+			{displayTimelapse}
+			<div className="col-md-6 col-12 p-0">
+				<div className="wrapper h-100 row">
+					<div className="col mb-1 mt-0">
+						<div className="record row h-100 align-items-center justify-content-between">
+							<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'HH:mm' )}</div>
+							<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
+								<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
+								<span className="d-block comment"><em>{ revisionComment }</em></span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -113,7 +96,6 @@ Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ),
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
 	wiki: PropTypes.instanceOf( Wiki ),
-	date: PropTypes.instanceOf( moment ),
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func
 	} )
@@ -121,7 +103,6 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	side: undefined,
-	date: undefined,
 	duration: undefined,
 	wiki: undefined
 };
