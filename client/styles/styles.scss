@@ -215,7 +215,7 @@ body {
 		margin-left:  -($timeline-width / 2);
 		&:before {
 			background-color: map-get($timeline-bg, "right");
-			margin-left: $timeline-width - 1;
+			margin-left: -0.85rem;
 		}
 	}
 
@@ -225,7 +225,7 @@ body {
 		margin-left: -($timeline-width / 2) - 1;
 		&:before {
 			background-color: map-get($timeline-bg, "left");
-			margin-left: $timeline-width - 1;
+			margin-right: -0.85rem;
 		}
 	}
 }
