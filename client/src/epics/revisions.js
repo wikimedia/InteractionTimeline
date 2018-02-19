@@ -14,7 +14,7 @@ import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
-import * as QueryActions from 'app/actions/query';
+import { EVENTS as QUERY_EVENTS } from 'app/actions/query';
 
 const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
@@ -44,7 +44,7 @@ const builPageUrl = ( domain, user, pageid ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ ...QueryActions.EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
+		.filter( ( action ) => [ ...QUERY_EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
 		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && store.getState().query.user.count() >= 2 )
 		// Wait until the status has changed.
@@ -57,7 +57,7 @@ export const revisionsReady = ( action$, store ) => (
 
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
-		...QueryActions.EVENTS,
+		...QUERY_EVENTS,
 		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )

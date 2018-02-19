@@ -56,3 +56,5 @@ export const fetchDiff = ( action$, store ) => (
 			);
 		} )
 );
+
+export default fetchDiff;

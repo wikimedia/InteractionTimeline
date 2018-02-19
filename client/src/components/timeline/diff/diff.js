@@ -121,7 +121,9 @@ const Diff = ( { revision, side, closeDiff } ) => {
 								<col className="diff-marker" />
 								<col className="diff-content" />
 							</colgroup>
-							<tbody dangerouslySetInnerHTML={{ __html: diff.body }} />
+							<tbody
+								dangerouslySetInnerHTML={{ __html: diff.body }} // eslint-disable-line react/no-danger
+							/>
 						</table>
 					</div>
 				</div>

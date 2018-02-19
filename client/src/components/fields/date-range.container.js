@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import * as QueryActions from 'app/actions/query';
-import * as DateSelectors from 'app/selectors/date';
+import { startDateChange, endDateChange } from 'app/actions/query';
+import { getStartDate, getEndDate } from 'app/selectors/date';
 import DateRange from './date-range';
 
 export default connect(
 	state => ( {
-		startDate: DateSelectors.getStartDate( state ),
-		endDate: DateSelectors.getEndDate( state )
+		startDate: getStartDate( state ),
+		endDate: getEndDate( state )
 	} ),
 	dispatch => ( {
-		onStartDateChange: value => dispatch( QueryActions.startDateChange( value ? value.utc().unix().toString() : undefined ) ),
-		onEndDateChange: value => dispatch( QueryActions.endDateChange( value ? value.utc().unix().toString() : undefined ) )
+		onStartDateChange: value => dispatch( startDateChange( value ? value.utc().unix().toString() : undefined ) ),
+		onEndDateChange: value => dispatch( endDateChange( value ? value.utc().unix().toString() : undefined ) )
 	} ),
 )( DateRange );

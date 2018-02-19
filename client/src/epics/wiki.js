@@ -2,7 +2,7 @@
 import { Observable } from 'rxjs';
 import { OrderedMap } from 'immutable';
 import Wiki from 'app/entities/wiki';
-import * as WikiActions from 'app/actions/wiki';
+import { setWikis } from 'app/actions/wiki';
 import specialWikisList from 'app/utils/special-wikis-list';
 
 const fetchAllWikis = ( action$ ) => (
@@ -56,9 +56,9 @@ const fetchAllWikis = ( action$ ) => (
 							state.set( data.id, new Wiki( { ...data } ) ) ), new OrderedMap()
 						);
 
-					return WikiActions.setWikis( wikis );
+					return setWikis( wikis );
 				} )
-				.catch( () => Observable.of( WikiActions.setWikis( new OrderedMap() ) ) )
+				.catch( () => Observable.of( setWikis( new OrderedMap() ) ) )
 		) )
 );
 
