@@ -65,18 +65,22 @@ class Timeline extends React.Component {
 
 	render() {
 		return (
-			<div className="timeline container-fluid">
-				<div className="row justify-content-center">
-					<div className="col-xl-10 col-sm-8">
-						<div className="row align-items-center justify-content-around mb-3 text-center">
-							{this.props.status !== 'notready' ? <UserListContainer /> : null}
+			<div className="row timeline">
+				<div className="col ml-3 mr-3">
+					<div className="row pr-1 pl-1 justify-content-center">
+						<div className="col-xl-10 col-sm-8">
+							<div className="row align-items-center justify-content-around mb-3 text-center">
+								{this.props.status !== 'notready' ? <UserListContainer /> : null}
+							</div>
 						</div>
 					</div>
+					<div className="row edits" ref={( container ) => { this.container = container; }}>
+						<div className="col">
+							{this.props.status !== 'notready' ? <DateRevisions revisions={this.props.revisions} /> : null}
+						</div>
+					</div>
+					<StatusContainer />
 				</div>
-				<div className="edits" ref={( container ) => { this.container = container; }}>
-					{this.props.status !== 'notready' ? <DateRevisions revisions={this.props.revisions} /> : null}
-				</div>
-				<StatusContainer />
 			</div>
 		);
 	}
