@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Set, Map } from 'immutable';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
-import RevisionContainer from './revision.container';
+import RevisionContainer from './revision/revision.container';
 import User from './user';
 import StatusContainer from './status.container';
 
