@@ -5,7 +5,7 @@ import Timeline from './timeline';
 
 export default connect(
 	state => ( {
-		revisions: getRevisions( state ),
+		empty: getRevisions( state ).isEmpty(),
 		status: state.revisions.status
 	} ),
 	dispatch => ( {
