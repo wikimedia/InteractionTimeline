@@ -99,6 +99,13 @@ body {
 	}
 }
 
+.date-revisions {
+	background-color: $gray-100;
+	.day {
+		background-color: $body-bg;
+	}
+}
+
 .revision {
 
 	.wrapper:before {
