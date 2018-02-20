@@ -2,10 +2,6 @@ import { OrderedMap } from 'immutable';
 
 export default ( state = new OrderedMap(), action ) => {
 	switch ( action.type ) {
-		case 'REVISIONS_DELETE':
-			return action.revisions.reduce( ( map, revision ) => {
-				return map.remove( revision.id );
-			}, state );
 		case 'REVISIONS_ADD':
 		case 'REVISIONS_SINGLE_ADD':
 			return state

@@ -143,8 +143,6 @@ export const fetchRevision = ( action$, store ) => (
 				} )
 				// If the wiki changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
-				// If the revision was deleted, cancel the request.
-				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.id ) ) )
 				.catch( ( error ) => Observable.of( throwRevisionError( action.id, error ) ) );
 
 			// The revision is not in the store, so we'll add it with the current

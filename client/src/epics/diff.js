@@ -46,8 +46,6 @@ export const fetchDiff = ( action$, store ) => (
 				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( () => !store.getState().revisions.list.has( action.revision.id ) ) )
 				// If the wiki changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
-				// If the revision was deleted, cancel the request.
-				.takeUntil( action$.ofType( 'REVISIONS_DELETE' ).filter( a => a.revisions.has( action.revision.id ) ) )
 				.catch( ( error ) => Observable.of( throwDiffError( action.revision.id, error ) ) );
 
 			return Observable.concat(
