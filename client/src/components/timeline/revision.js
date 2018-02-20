@@ -139,8 +139,15 @@ class Revision extends React.Component {
 										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'HH:mm' )}</div>
 										{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
 										<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
-											<span className="d-block title">{this.getDisplayTitle( this.props.revision.title, this.props.revision.comment )}</span>
-											<span className="d-block comment"><em>{ revisionComment }</em></span>
+											<div className="row align-items-end">
+												<div className="col">
+													<span className="d-block title">{this.getDisplayTitle( this.props.revision.title, this.props.revision.comment )}</span>
+													<span className="d-block comment"><em>{ revisionComment }</em></span>
+												</div>
+												<div className="col-auto">
+													<small><strong>{this.props.revision.minor ? 'm' : ''}</strong> ({this.props.revision.sizediff > 0 ? '+' : ''}{this.props.revision.sizediff})</small>
+												</div>
+											</div>
 										</a>
 									</div>
 								</div>
