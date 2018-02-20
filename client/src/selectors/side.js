@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import userSide from 'app/utils/user-side';
 
 const makeGetSide = () => (
 	createSelector(
@@ -13,7 +12,17 @@ const makeGetSide = () => (
 				return props.revision.user;
 			}
 		},
-		( users, user ) => userSide( user, users )
+		( users, user ) => {
+			let side;
+
+			if ( user === users.first() ) {
+				side = 'left';
+			} else if ( user === users.last() ) {
+				side = 'right';
+			}
+
+			return side;
+		}
 	)
 );
 
