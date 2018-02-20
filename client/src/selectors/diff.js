@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import Revision from 'app/entities/revision';
-import Diff from 'app/entities/diff';
 
 const getRevision = ( revisions, id ) => {
 	if ( !id ) {
