@@ -81,8 +81,15 @@ const Revision = ( { side, revision, duration, wiki } ) => {
 						<div className="record row h-100 align-items-center justify-content-between">
 							<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{timestamp.format( 'HH:mm' )}</div>
 							<a href={url} className="col-xxl-11 col-xl-10 col-8 d-block content rounded pt-1 pb-1">
-								<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
-								<span className="d-block comment"><em>{ revisionComment }</em></span>
+								<div className="row align-items-end">
+									<div className="col">
+										<span className="d-block title">{getDisplayTitle( revision.title, revision.comment )}</span>
+										<span className="d-block comment"><em>{ revisionComment }</em></span>
+									</div>
+									<div className="col-auto">
+										<small><strong>{revision.minor ? 'm' : ''}</strong> ({revision.sizediff > 0 ? '+' : ''}{revision.sizediff})</small>
+									</div>
+								</div>
 							</a>
 						</div>
 					</div>
