@@ -10,7 +10,7 @@ import * as QueryActions from 'app/actions/query';
 const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
 	// get all of the results. To prevent this, we'll request one user at a time.
-	let url = `https://${domain}/w/api.php?action=query&list=usercontribs&ucuser=${encodeURIComponent( user )}&ucdir=newer&format=json&origin=*&formatversion=2`;
+	let url = `https://${domain}/w/api.php?action=query&list=usercontribs&ucuser=${encodeURIComponent( user )}&ucdir=newer&format=json&origin=*&formatversion=2&ucprop=ids|title|timestamp|comment|flags|sizediff`;
 
 	if ( startDate ) {
 		url += '&ucstart=' + startDate;
