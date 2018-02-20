@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
+import DiffEntity from 'app/entities/diff';
 import moment from 'moment';
 import Date from './date';
 import DiffContainer from './diff/diff.container';
@@ -48,7 +49,7 @@ class Revision extends React.Component {
 
 		e.preventDefault();
 
-		this.props.toggleDiff( this.props.revision );
+		this.props.toggleDiff( this.props.diff, this.props.revision.suppressed );
 	}
 
 	render() {
@@ -103,7 +104,7 @@ class Revision extends React.Component {
 			'pt-1'
 		];
 
-		if ( this.props.revision.meta.diff.meta.show ) {
+		if ( this.props.diff.meta.show ) {
 			linkClassName = [
 				...linkClassName,
 				'rounded-top',
@@ -146,7 +147,7 @@ class Revision extends React.Component {
 							</div>
 						</div>
 					</div>
-					<DiffContainer revision={this.props.revision} side={this.props.side} />
+					<DiffContainer diff={this.props.diff} revision={this.props.revision} side={this.props.side} />
 				</div>
 			</div>
 		);
@@ -163,6 +164,7 @@ Revision.propTypes = {
 		asSeconds: PropTypes.func
 	} ),
 	url: PropTypes.string,
+	diff: PropTypes.instanceOf( DiffEntity ).isRequired,
 	toggleDiff: PropTypes.func.isRequired
 };
 

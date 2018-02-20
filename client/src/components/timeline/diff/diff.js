@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Revision from 'app/entities/revision';
+import DiffEntity from 'app/entities/diff';
 import Spinner from 'app/components/timeline/spinner';
 import ErrorMessage from 'app/components/timeline/error-message';
 import HeaderContainer from './header.container';
@@ -48,9 +49,7 @@ CloseButton.defaultProps = {
 	closeDiff: undefined
 };
 
-const Diff = ( { revision, side, closeDiff } ) => {
-	const diff = revision.meta.diff;
-
+const Diff = ( { revision, diff, side, closeDiff } ) => {
 	if ( !diff.meta.show ) {
 		return null;
 	}
@@ -135,6 +134,7 @@ const Diff = ( { revision, side, closeDiff } ) => {
 
 Diff.propTypes = {
 	revision: PropTypes.instanceOf( Revision ).isRequired,
+	diff: PropTypes.instanceOf( DiffEntity ).isRequired,
 	side: PropTypes.string.isRequired,
 	closeDiff: PropTypes.func
 };

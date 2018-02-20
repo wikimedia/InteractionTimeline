@@ -6,7 +6,7 @@ export default connect(
 	undefined,
 	( dispatch, props ) => ( {
 		closeDiff: () => {
-			return dispatch( setDiffShow( props.revision, false ) );
+			return dispatch( setDiffShow( props.diff, false ) );
 		}
 	} )
 )( Diff );

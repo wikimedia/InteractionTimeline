@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import Revision from 'app/entities/revision';
+import Diff from 'app/entities/diff';
 
 const getRevision = ( revisions, id ) => {
 	if ( !id ) {
@@ -27,5 +28,15 @@ export const makeGetToRevision = () => (
 		state => state.revisions.list,
 		( _, props ) => props.diff.torevid,
 		getRevision
+	)
+);
+
+export const makeGetDiff = () => (
+	createSelector(
+		state => state.diffs,
+		( _, props ) => props.revision,
+		( diffs, revision ) => (
+			diffs.get( revision.id )
+		)
 	)
 );

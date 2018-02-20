@@ -1,35 +1,35 @@
-export function throwDiffError( id, error ) {
+export function throwDiffError( diff, error ) {
 	return {
-		type: 'REVISIONS_DIFF_ERROR',
-		id,
+		type: 'DIFFS_THROW_ERROR',
+		diff,
 		error
 	};
 }
 
-export function setDiff( id, diff ) {
+export function setDiff( diff ) {
 	return {
-		type: 'REVISIONS_DIFF_SET',
-		id,
+		type: 'DIFFS_SET',
 		diff
 	};
 }
 
-export function setDiffShow( revision, show ) {
+export function setDiffShow( diff, show, suppressed = false ) {
 	return {
-		type: 'REVISIONS_DIFF_SHOW_SET',
-		revision,
-		show
+		type: 'DIFFS_SHOW_SET',
+		diff,
+		show,
+		suppressed
 	};
 }
 
-export function toggleDiff( revision ) {
-	return setDiffShow( revision, !revision.meta.diff.meta.show );
+export function toggleDiff( diff, suppressed = false ) {
+	return setDiffShow( diff, !diff.meta.show, suppressed );
 }
 
-export function setDiffStatus( id, status ) {
+export function setDiffStatus( diff, status ) {
 	return {
-		type: 'REVISIONS_DIFF_STATUS_SET',
-		id,
+		type: 'DIFFS_STATUS_SET',
+		diff,
 		status
 	};
 }

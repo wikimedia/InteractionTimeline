@@ -8,10 +8,10 @@ const buildDiffUrl = ( domain, id ) => {
 };
 
 export const fetchDiff = ( action$, store ) => (
-	action$.ofType( 'REVISIONS_DIFF_SHOW_SET' )
+	action$.ofType( 'DIFFS_SHOW_SET' )
 		.filter( action => action.show === true )
-		.filter( action => !action.revision.suppressed )
-		.filter( action => action.revision.meta.diff.meta.status === 'ready' )
+		.filter( action => action.suppressed === false )
+		.filter( action => action.diff.meta.status === 'ready' )
 		.flatMap( action => {
 			// Set the variables so the request can be canceled if the state
 			// changes.
@@ -19,7 +19,7 @@ export const fetchDiff = ( action$, store ) => (
 			const domain = store.getState().wikis.get( wiki ).domain;
 
 			const request = Observable.ajax( {
-				url: buildDiffUrl( domain, action.revision.id ),
+				url: buildDiffUrl( domain, action.diff.torevid ),
 				crossDomain: true,
 				responseType: 'json'
 			} )
@@ -34,22 +34,23 @@ export const fetchDiff = ( action$, store ) => (
 
 					// Merge the response with what is currently in the store
 					// which may be different from what we started with.
-					const meta = store.getState().revisions.list.get( action.revision.id ).meta.diff.meta;
+					const meta = store.getState().diffs.get( action.diff.torevid ).meta;
 					const diff = new Diff( {
 						...ajaxResponse.response.compare,
 						meta: meta.set( 'status', 'done' )
 					} );
-					return Observable.of( setDiff( action.revision.id, diff ) );
+					return Observable.of( setDiff( diff ) );
 				} )
 				// If the user is no longer in the query, ensure that the revision still
 				// exits, if it doesn't, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( () => !store.getState().revisions.list.has( action.revision.id ) ) )
+				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( () => !store.getState().revisions.list.has( action.diff.torevid ) ) )
+				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( () => !store.getState().diffs.has( action.diff.torevid ) ) )
 				// If the wiki changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
-				.catch( ( error ) => Observable.of( throwDiffError( action.revision.id, error ) ) );
+				.catch( ( error ) => Observable.of( throwDiffError( action.diff, error ) ) );
 
 			return Observable.concat(
-				Observable.of( setDiffStatus( action.revision.id, 'fetching' ) ),
+				Observable.of( setDiffStatus( action.diff, 'fetching' ) ),
 				request
 			);
 		} )

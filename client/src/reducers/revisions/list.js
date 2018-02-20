@@ -25,31 +25,16 @@ export default ( state = new OrderedMap(), action ) => {
 			return state.filter( revision => {
 				return action.users.includes( revision.user );
 			} );
-		case 'REVISIONS_DIFF_SET':
-			return state.setIn( [ action.id, 'meta', 'diff' ], action.diff );
-		case 'REVISIONS_DIFF_SHOW_SET':
-			if ( action.show === false && action.revision.meta.diff.meta.status === 'error' ) {
-				// If user is hiding the diff, remove the error. This way the request
-				// will be executed the next time the user requests the diff.
-				state = state.set( action.revision.id,
-					action.revision.setIn( [ 'meta', 'diff', 'meta', 'status' ], 'ready' )
-						.setIn( [ 'meta', 'diff', 'meta', 'error' ], undefined )
-				);
-			} else if ( action.show === false && action.revision.meta.diff.fromrevid ) {
+		case 'DIFFS_SHOW_SET':
+			if ( action.show === false && action.diff.fromrevid && state.has( action.diff.fromrevid ) ) {
 				// If the diff was without error, ensure that the from revision is not in
 				// error, if it is, remove it.
-				if ( state.get( action.revision.meta.diff.fromrevid ).meta.status === 'error' ) {
-					state = state.remove( action.revision.meta.diff.fromrevid );
+				if ( state.get( action.diff.fromrevid ).meta.status === 'error' ) {
+					state = state.remove( action.diff.fromrevid );
 				}
 			}
 
-			return state.setIn( [ action.revision.id, 'meta', 'diff', 'meta', 'show' ], action.show );
-		case 'REVISIONS_DIFF_STATUS_SET':
-			return state.setIn( [ action.id, 'meta', 'diff', 'meta', 'status' ], action.status );
-		case 'REVISIONS_DIFF_ERROR':
-			return state
-				.setIn( [ action.id, 'meta', 'diff', 'meta', 'status' ], 'error' )
-				.setIn( [ action.id, 'meta', 'diff', 'meta', 'error' ], action.error );
+			return state;
 		case 'REVISIONS_SINGLE_ERROR':
 			return state
 				.setIn( [ action.id, 'meta', 'status' ], 'error' )
