@@ -102,7 +102,7 @@ const Revision = ( { side, revision, date, duration, wiki } ) => {
 												<span className="d-block comment"><em>{ revisionComment }</em></span>
 											</div>
 											<div className="col-auto">
-												<small>{revision.minor ? 'm' : ''}({revision.sizediff > 0 ? '+' : ''}{revision.sizediff})</small>
+												<small>{revision.minor ? 'm' : ''} ({revision.sizediff > 0 ? '+' : ''}{revision.sizediff})</small>
 											</div>
 										</div>
 									</a>
