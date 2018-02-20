@@ -123,25 +123,23 @@ export const fetchRevision = ( action$, store ) => (
 							ajaxResponse.request
 						);
 					}
-					if (
-						!ajaxResponse.response.query ||
-						!ajaxResponse.response.query.pages ||
-						!ajaxResponse.response.query.pages[ 0 ] ||
-						!ajaxResponse.response.query.pages[ 0 ].revisions ) {
+
+					try {
+						// The response may not exist, if so, an error will be thrown.
+						const data = ajaxResponse.response.query.pages[ 0 ];
+
+						return Observable.of( addRevision( new Revision( {
+							id: data.revisions[ 0 ].revid,
+							...data,
+							...data.revisions[ 0 ]
+						} ) ) );
+					} catch ( e ) {
 						throw new AjaxError(
 							'Bad Response',
 							ajaxResponse.xhr,
 							ajaxResponse.request
 						);
 					}
-
-					const data = ajaxResponse.response.query.pages[ 0 ];
-
-					return Observable.of( addRevision( new Revision( {
-						id: data.revisions[ 0 ].revid,
-						...data,
-						...data.revisions[ 0 ]
-					} ) ) );
 				} )
 				// If the wiki changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
