@@ -11,7 +11,7 @@ const User = ( { user, side, wiki } ) => {
 	}
 
 	return (
-		<Header href={`https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`} className="rounded border" side={side}>
+		<Header href={`https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`} className="rounded" side={side}>
 			<i className="mr-2 material-icons">person</i>
 			<span>{user}</span>
 		</Header>
