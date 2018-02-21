@@ -7,6 +7,34 @@ export function fetchRevisions( users ) {
 	};
 }
 
+export function fetchRevision( id ) {
+	return {
+		type: 'REVISIONS_SINGLE_FETCH',
+		id
+	};
+}
+
+export function setRevisionStatus( id, status ) {
+	return {
+		type: 'REVISIONS_SINGLE_STATUS_SET',
+		id,
+		status
+	};
+}
+
+export function addRevision( revision ) {
+	return {
+		type: 'REVISIONS_SINGLE_ADD',
+		// We only use the array syntax or the id will be converted to a string.
+		revisions: new Map( [
+			[
+				revision.id,
+				revision
+			]
+		] )
+	};
+}
+
 export function setStatusReady() {
 	return {
 		type: 'REVISIONS_READY'
@@ -37,6 +65,14 @@ export function addRevisions( revisions, pages = new Map(), cont = new Map() ) {
 export function throwError( error ) {
 	return {
 		type: 'REVISIONS_ERROR',
+		error
+	};
+}
+
+export function throwRevisionError( id, error ) {
+	return {
+		type: 'REVISIONS_SINGLE_ERROR',
+		id,
 		error
 	};
 }
