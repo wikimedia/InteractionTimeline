@@ -5,41 +5,57 @@ import Spinner from './spinner';
 import ErrorMessageContainer from './error-message.container';
 
 const Status = ( { status } ) => {
+	let message;
+
 	switch ( status ) {
 		case 'fetching':
-			return <Spinner />;
+			message = <Spinner />;
+			break;
 		case 'notready':
 			// @TODO Translate
-			return (
+			message = (
 				<Alert type="info">
 					Please provide two users and wiki to begin.
 				</Alert>
 			);
+			break;
 		case 'nowiki':
 			// @TODO Translate
-			return (
+			message = (
 				<Alert type="info">
 					Please provide a wiki to begin.
 				</Alert>
 			);
+			break;
 		case 'nousers':
 			// @TODO Translate
-			return (
+			message = (
 				<Alert type="info">
 					Please provide two users to begin.
 				</Alert>
 			);
+			break;
 		case 'noresults':
-			return (
+			message = (
 				<Alert type="warning">
 					No Results
 				</Alert>
 			);
+			break;
 		case 'error':
-			return <ErrorMessageContainer />;
+			message = <ErrorMessageContainer />;
+			break;
 		default:
 			return null;
 	}
+
+	return (
+		<div className="row justify-content-center">
+			<div className="col-xl-10 col-sm-8 pl-0 pr-0">
+				{message}
+			</div>
+		</div>
+	);
 };
 
 Status.propTypes = {

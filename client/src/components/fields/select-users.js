@@ -80,6 +80,10 @@ class SelectUsers extends React.Component {
 		} );
 	}
 
+	componentWillUnmount() {
+		this.textChange.unsubscribe();
+	}
+
 	onInputChange( input ) {
 		// Don't allow more than 2 users.
 		if ( this.props.value.length === 2 ) {

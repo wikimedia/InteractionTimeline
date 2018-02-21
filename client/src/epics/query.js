@@ -2,10 +2,10 @@ import { Observable } from 'rxjs';
 import qs from 'querystring';
 import { replace, LOCATION_CHANGE } from 'react-router-redux';
 import getQueryFromLocation from 'app/utils/location-query';
-import * as QueryActions from 'app/actions/query';
+import { EVENTS as QUERY_EVENTS, updateQuery } from 'app/actions/query';
 
 export const pushQueryToLocation = ( action$, store ) => (
-	action$.filter( ( action ) => QueryActions.EVENTS.includes( action.type ) )
+	action$.filter( ( action ) => QUERY_EVENTS.includes( action.type ) )
 		// If there are no users and no search query, no action needs to be taken.
 		.filter( () => !getQueryFromLocation( store.getState().router.location ).equals( store.getState().query ) )
 		.flatMap( () => {
@@ -41,5 +41,5 @@ export const pushLocationToQuery = ( action$, store ) => (
 	action$.ofType( LOCATION_CHANGE )
 		// If there are no users and no search query, no action needs to be taken.
 		.filter( () => !getQueryFromLocation( store.getState().router.location ).equals( store.getState().query ) )
-		.flatMap( () => Observable.of( QueryActions.updateQuery( getQueryFromLocation( store.getState().router.location ) ) ) )
+		.flatMap( () => Observable.of( updateQuery( getQueryFromLocation( store.getState().router.location ) ) ) )
 );
