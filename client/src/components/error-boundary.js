@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'material-design-icons/iconfont/material-icons.css';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.PureComponent {
 
 	constructor( props ) {
 		super( props );

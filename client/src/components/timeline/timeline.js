@@ -5,10 +5,10 @@ import { Set, Map } from 'immutable';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import RevisionContainer from './revision/revision.container';
-import User from './user';
+import UserContainer from './user.container';
 import StatusContainer from './status.container';
 
-class Timeline extends React.Component {
+class Timeline extends React.PureComponent {
 
 	componentDidMount() {
 		const doc = this.container.ownerDocument;
@@ -56,18 +56,6 @@ class Timeline extends React.Component {
 		this.infinite.unsubscribe();
 	}
 
-	getSide( user, users ) {
-		let side;
-
-		if ( user === users.first() ) {
-			side = 'left';
-		} else if ( user === users.last() ) {
-			side = 'right';
-		}
-
-		return side;
-	}
-
 	isBottomVisable( element ) {
 		const doc = element.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
@@ -91,8 +79,6 @@ class Timeline extends React.Component {
 					date = timestamp;
 				}
 
-				const side = this.getSide( revision.user, this.props.users );
-
 				// If we are switching sides, but not the date, show the duraction.
 				if ( !date && prev && prev.user !== revision.user ) {
 					duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).utc().diff( timestamp ) );
@@ -102,20 +88,20 @@ class Timeline extends React.Component {
 				prev = revision;
 
 				return (
-					<RevisionContainer key={revision.id} side={side} date={date} duration={duration} revision={revision} />
+					<RevisionContainer key={revision.id} date={date} duration={duration} revision={revision} />
 				);
 			} ).toArray();
 
 			userDisplay = this.props.users.map( ( user ) => {
 				return (
-					<User key={user} user={user} side={this.getSide( user, this.props.users )} />
+					<UserContainer key={user} user={user} />
 				);
 			} ).toArray();
 		}
 
 		return (
 			<div className="timeline container-fluid">
-				<div className="row justify-content-center">
+				<div className="row no-gutters sticky-top justify-content-center">
 					<div className="col-xl-10 col-sm-8">
 						<div className="row align-items-center justify-content-around mb-3 text-center">
 							{userDisplay}
