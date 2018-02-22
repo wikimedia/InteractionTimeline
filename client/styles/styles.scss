@@ -261,6 +261,7 @@ body {
 	.table th,
 	.table td {
 		border: none;
+		word-wrap: break-word;
 	}
 	.diff-empty {
 		width: 50%;
