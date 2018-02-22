@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { OrderedMap } from 'immutable';
-import RevisionContainer from './revision.container';
+import RevisionContainer from './revision/revision.container';
 
 const RevisionList = ( { revisions } ) => {
 	const first = revisions.first();

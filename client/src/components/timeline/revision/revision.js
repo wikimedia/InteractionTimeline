@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import RevisionEntity from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
+import DiffContainer from 'app/components/timeline/diff/diff.container';
 import moment from 'moment';
-import DiffContainer from './diff/diff.container';
 import Timelapse from './timelapse';
-
-const REGEX_EDIT_SUMMARY_PARTS = /(?:\/\*([^*]+)\*\/)?(.+)?/;
+import ByteChange from './byte-change';
+import Title from './title';
+import Comment from './comment';
 
 class Revision extends React.Component {
 
@@ -17,32 +17,9 @@ class Revision extends React.Component {
 		this.handleClick = this.handleClick.bind( this );
 	}
 
-	// Append section name to the page title if it is included in the edit summary
-	getDisplayTitle( title, comment ) {
-		const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
-
-		if ( matches[ 1 ] ) {
-			return title + ' § ' + matches[ 1 ].trim();
-		}
-
-		return title;
-	}
-
-	// Return edit summary without the section name if present
-	getDisplayComment( comment ) {
-		const matches = comment.match( REGEX_EDIT_SUMMARY_PARTS );
-
-		// return edit summary without section name or empty
-		if ( matches[ 2 ] ) {
-			return matches[ 2 ].trim();
-		} else {
-			return '';
-		}
-	}
-
 	handleClick( e ) {
 		// Detect if user is attempting to open in a new window.
-		if ( e.shiftKey || e.ctrlKey || e.metaKey ) {
+		if ( e.shiftKey || e.ctrlKey || e.metaKey || e.button === 1 ) {
 			return;
 		}
 
@@ -84,8 +61,6 @@ class Revision extends React.Component {
 			);
 		}
 
-		const revisionComment = this.props.revision.commenthidden ? <del><FormattedMessage id="revision-edit-summary-removed" /></del> : this.getDisplayComment( this.props.revision.comment );
-
 		let linkClassName = [
 			'col-xxl-11',
 			'col-xl-10',
@@ -119,14 +94,19 @@ class Revision extends React.Component {
 							<div className="col mt-0">
 								<div className="record row h-100 align-items-center justify-content-between">
 									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'HH:mm' )}</div>
+									{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
 									<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
 										<div className="row align-items-end">
 											<div className="col">
-												<span className="d-block title">{this.getDisplayTitle( this.props.revision.title, this.props.revision.comment )}</span>
-												<span className="d-block comment"><em>{ revisionComment }</em></span>
+												<span className="d-block title">
+													<Title title={this.props.revision.title} comment={this.props.revision.comment} />
+												</span>
+												<span className="d-block comment">
+													<Comment comment={this.props.revision.comment} commenthidden={this.props.revision.commenthidden} />
+												</span>
 											</div>
 											<div className="col-auto">
-												<small><strong>{this.props.revision.minor ? 'm' : ''}</strong> ({this.props.revision.sizediff > 0 ? '+' : ''}{this.props.revision.sizediff})</small>
+												<ByteChange sizediff={this.props.revision.sizediff} minor={this.props.revision.minor} />
 											</div>
 										</div>
 									</a>

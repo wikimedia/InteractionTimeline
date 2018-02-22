@@ -5,11 +5,11 @@ import DateRevisionsContainer from './date-revisions.container';
 import StatusContainer from './status.container';
 
 const Users = () => (
-	<div className="row">
+	<div className="row sticky-top">
 		<div className="col ml-3 mr-3">
 			<div className="row users pr-1 pl-1 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
-					<div className="row align-items-center justify-content-around text-center">
+					<div className="row  align-items-center justify-content-around text-center">
 						<UserListContainer />
 					</div>
 				</div>
