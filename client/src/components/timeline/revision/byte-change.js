@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ByteChange = ( { sizediff, minor } ) => {
 	let size = '(' + ( sizediff > 0 ? '+' : '' ) + sizediff + ')';
 
-	if ( sizediff > 500 || sizediff < 500 ) {
+	if ( sizediff > 500 || sizediff < -500 ) {
 		size = <strong>{size}</strong>;
 	}
 
