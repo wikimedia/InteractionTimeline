@@ -43,7 +43,7 @@ class Revision extends React.Component {
 
 	handleClick( e ) {
 		// Detect if user is attempting to open in a new window.
-		if ( e.shiftKey || e.ctrlKey || e.metaKey ) {
+		if ( e.shiftKey || e.ctrlKey || e.metaKey || e.button === 1 ) {
 			return;
 		}
 
