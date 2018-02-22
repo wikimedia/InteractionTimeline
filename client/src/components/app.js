@@ -10,12 +10,16 @@ export default () => (
 			<div className="row justify-content-center">
 				<div className="col-xl-10 col-sm-8">
 					<div className="row mb-3 align-items-baseline justify-content-between">
-						<h2 className="col-sm-auto">
-							<FormattedMessage id="app-title" />
-						</h2>
-						<h6 className="col-sm-auto">
-							<FormattedMessage id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><FormattedMessage id="app-feedback-link" /></a>
-						</h6>
+						<div className="col-sm-auto">
+							<h2><FormattedMessage id="app-title" /></h2>
+							{/* @TODO Translate */}
+							<h6>Chronologic history for two users on pages where they have both made edits.</h6>
+						</div>
+						<div className="col-sm-auto">
+							<h6>
+								<FormattedMessage id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><FormattedMessage id="app-feedback-link" /></a>
+							</h6>
+						</div>
 					</div>
 					<div className="row mb-3">
 						<div className="col">
