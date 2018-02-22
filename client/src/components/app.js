@@ -6,10 +6,10 @@ import ErrorBoundary from './error-boundary';
 
 export default () => (
 	<ErrorBoundary>
-		<div className="container-fluid">
-			<div className="row justify-content-center">
+		<div className="container-fluid app d-flex flex-column">
+			<header className="row border-bottom pt-2 pb-2 mb-3 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
-					<div className="row mb-3 align-items-baseline justify-content-between">
+					<div className="row align-items-baseline justify-content-between">
 						<div className="col-sm-auto">
 							<h2><FormattedMessage id="app-title" /></h2>
 							{/* @TODO Translate */}
@@ -21,6 +21,10 @@ export default () => (
 							</h6>
 						</div>
 					</div>
+				</div>
+			</header>
+			<div className="row justify-content-center">
+				<div className="col-xl-10 col-sm-8">
 					<div className="row mb-3">
 						<div className="col">
 							<Form />
@@ -28,11 +32,23 @@ export default () => (
 					</div>
 				</div>
 			</div>
-			<div className="row">
+			<div className="row mb-3">
 				<div className="col">
 					<TimelineContainer />
 				</div>
 			</div>
+			<footer className="row mt-auto border-top pt-2 pb-2 justify-content-center">
+				<div className="col-xl-10 col-sm-8">
+					<div className="row align-items-baseline justify-content-between">
+						<div className="col-sm-auto">
+							Testing...
+						</div>
+						<div className="col-sm-auto">
+							Another...
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</ErrorBoundary>
 );
