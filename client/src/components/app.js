@@ -41,10 +41,13 @@ export default () => (
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
 						<div className="col-sm-auto">
-							Testing...
+							<h6>Made by the Wikimedia Foundation&apos;s <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/The_Team">Anti-Harassment Tools team</a>.</h6>
+							<h6>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> - View on <a href="https://github.com/wikimedia/InteractionTimeline">GitHub</a> - <a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a> - <a href="https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment,InteractionTimeline&title=Interaction%20Timeline%20bug%20report:%20&assign=TBolliger&description=Please%20be%20descriptive%20and%20include%20screenshots%20and%20links%20if%20possible.%20Thank%20you!%20">Report a bug</a></h6>
 						</div>
-						<div className="col-sm-auto">
-							Another...
+						<div className="col-sm-auto align-self-center">
+							<a href="https://tools.wmflabs.org/">
+								<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt="Powered by Wikimedia Toolforge" />
+							</a>
 						</div>
 					</div>
 				</div>
