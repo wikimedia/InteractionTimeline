@@ -18,19 +18,41 @@ const Users = () => (
 	</div>
 );
 
-const Status = () => (
-	<div className="row mt-3 mb-3">
-		<div className="col ml-3 mr-3">
-			<StatusContainer />
+const Status = ( { empty } ) => {
+	let className = [
+		'status',
+		'row'
+	];
+
+	if ( !empty ) {
+		className = [
+			...className,
+			'has-content'
+		];
+	}
+
+	return (
+		<div className={className.join( ' ' )}>
+			<div className="col">
+				<div className="row mt-3 mb-3">
+					<div className="col ml-3 mr-3">
+						<StatusContainer />
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-);
+	);
+};
+
+Status.propTypes = {
+	empty: PropTypes.bool.isRequired
+};
 
 const Timeline = ( { status, empty } ) => {
 	if ( status === 'notready' ) {
 		return (
 			<div className="timeline">
-				<Status />
+				<Status empty={empty} />
 			</div>
 		);
 	}
@@ -39,7 +61,7 @@ const Timeline = ( { status, empty } ) => {
 		return (
 			<div className="timeline">
 				<Users />
-				<Status />
+				<Status empty={empty} />
 			</div>
 		);
 	}
@@ -48,7 +70,7 @@ const Timeline = ( { status, empty } ) => {
 		<div className="timeline">
 			<Users />
 			<DateRevisionsContainer />
-			<Status />
+			<Status empty={empty} />
 		</div>
 	);
 };

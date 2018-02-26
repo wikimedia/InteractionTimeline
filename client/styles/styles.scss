@@ -133,11 +133,13 @@ footer {
 	}
 }
 
-.date-revisions {
+.date-revisions,
+.status.has-content {
 	background-color: $gray-100;
-	.day {
-		background-color: $body-bg;
-	}
+}
+
+.date-revisions .day {
+	background-color: $body-bg;
 }
 
 .revision {
