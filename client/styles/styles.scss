@@ -18,6 +18,7 @@ $container-max-widths: map-merge($container-max-widths, (
 
 @import "~bootstrap/scss/bootstrap";
 
+$header-footer-bg: #f6f6f6;
 $timeline-width: 0.25rem;
 $timeline-bg: (
 	left: #5AAAFA,
@@ -34,6 +35,17 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
+}
+
+
+header,
+footer {
+	background-color: $header-footer-bg;
+}
+
+#root,
+.app {
+	min-height: 100vh;
 }
 
 .error {
