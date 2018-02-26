@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { toggleDiff } from 'app/actions/diff';
 import { makeGetDiff, makeGetDiffUrl } from 'app/selectors/diff';
-import { makeGetRevisionUrl, makeGetTimestamp } from 'app/selectors/revisions';
+import { makeGetTimestamp } from 'app/selectors/revisions';
 import makeGetSide from 'app/selectors/side';
 import Revision from './revision';
 
