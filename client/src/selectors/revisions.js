@@ -43,12 +43,19 @@ export const makeGetRevisionUrl = () => (
 
 			return;
 		},
-		( wiki, id ) => {
-			if ( !wiki ) {
+		( _, props ) => {
+			if ( props.revision ) {
+				return props.revision.title;
+			}
+
+			return;
+		},
+		( wiki, id, title ) => {
+			if ( !wiki || !id || !title ) {
 				return;
 			}
 
-			return `https://${wiki.domain}/w/index.php?diff=prev&oldid=${id}`;
+			return `https://${wiki.domain}/wiki/${title.replace( / /g, '_' )}?oldid=${id}`;
 		}
 	)
 );
