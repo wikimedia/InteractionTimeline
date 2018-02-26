@@ -2,113 +2,72 @@
 
 namespace App\Dao;
 
+use App\Service\ConnectionService;
 use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 abstract class AbstractDao {
+	/**
+	 * @var \Doctrine\DBAL\Connection
+	 */
+	protected $conn;
 
 	/**
-	 * @var NullLogger
+	 * @var
 	 */
 	protected $logger;
 
 	/**
-	 * @var array
+	 * @param ConnectionService $connManager
+	 * @param LoggerInterface $logger
 	 */
-	protected $config;
-
-	/**
-	 * @var array [dsn => pdo]
-	 */
-	protected $connections = [];
-
-	/**
-	 * AbstractDao constructor.
-	 *
-	 * @param array $config
-	 * @param LoggerInterface|null $logger
-	 */
-	public function __construct( $config, LoggerInterface $logger = null ) {
-		$this->logger = $logger ?: new NullLogger();
-		$this->config = $config;
+	public function __construct( ConnectionService $connManager, LoggerInterface $logger ) {
+		$this->conn = $connManager->getConnection();
+		$this->logger = $logger;
 	}
 
 	/**
-	 * @param string $projectName
-	 * @return \PDO
+	 * @param QueryBuilder $qb
+	 * @param string $key
+	 * @param string $sortDir
+	 * @param string $continue
+	 * @param int $fetchMode
+	 * @return array [ results, continue ]
+	 * @throws \Exception
 	 */
-	public function getDb( $projectName ) {
-		$dsn = $this->buildDsn( $projectName );
-
-		if ( isset( $this->connections[$dsn] ) ) {
-			$pdo = $this->connections[$dsn];
-		} else {
-			$pdo = $this->connect( $dsn );
-			$this->connections[$dsn] = $pdo;
+	public function paginate( QueryBuilder $qb, $key, $sortDir, $continue, $fetchMode = \PDO::FETCH_ASSOC ) {
+		if ( $continue ) {
+			$indexKey = base64_decode( $continue );
+			$sortDir = ( $sortDir == 'asc' ) ? '>=' : '<=';
+			$qb->andWhere( $key . ' ' . $sortDir . ' :indexKey' )
+				->setParameter( ':indexKey', $indexKey );
 		}
 
-		return $pdo;
-	}
+		$this->logger->debug( $qb->getSQL(), $qb->getParameters() );
 
-	/**
-	 * @param string $dsn
-	 * @return \PDO
-	 */
-	protected function connect( $dsn ) {
-		// TODO: try/catch
-		$pdo = new \PDO( $dsn, $this->config['user'], $this->config['pass'] );
-		$pdo->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
-		$pdo->setAttribute( \PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC );
+		$limit = $qb->getMaxResults();
+		$qb->setMaxResults( $limit + 1 );
 
-		return $pdo;
-	}
+		$stmt = $qb->execute();
+		$results = $stmt->fetchAll( $fetchMode );
 
-	/**
-	 * @param string $projectName
-	 * @return string
-	 */
-	private function buildDsn( $projectName ) {
-		$host = $projectName . '.' . $this->config['cluster'];
-		$dbname = $this->getDBName( $projectName );
-		$port = $this->config['port'];
-		$dsn = 'mysql:host='. $host . ';dbname=' . $dbname . ';port=' . $port;
+		// if we have limit + 1, create continue token and remove extra row
+		if ( count( $results ) > $limit ) {
+			$lastRow = array_pop( $results );
+			switch ( $fetchMode ) {
+				case \PDO::FETCH_ASSOC:
+					$continue = base64_encode( $lastRow[$key] );
+					break;
+				case \PDO::FETCH_COLUMN:
+					$continue = base64_encode( $lastRow );
+					break;
+				default:
+					throw new \Exception( 'unsupported fetch mode for paginating data' );
+			}
+		} else {
+			$continue = null;
+		}
 
-		return $dsn;
-	}
-
-	/**
-	 * @param string $projectName
-	 * @return string
-	 */
-	private function getDBName( $projectName ) {
-		return $projectName . '_p';
-	}
-
-	/**
-	 * @param string $sql
-	 * @param null $params
-	 * @return array
-	 */
-	protected function fetchAll( $sql, $params = null ) {
-		$this->logger->debug( $sql, $params );
-
-		$stmt = $this->db->prepare( $sql, $params );
-		$stmt->execute();
-
-		return $stmt->fetchAll();
-	}
-
-	/**
-	 * @param string $sql
-	 * @param null $params
-	 * @return mixed
-	 */
-	protected function fetch( $sql, $params = null ) {
-		$this->logger->debug( $sql, $params );
-
-		$stmt = $this->db->prepare( $sql, $params );
-		$stmt->execute();
-
-		return $stmt->fetch();
+		return [ $results, $continue ];
 	}
 }
