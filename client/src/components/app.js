@@ -32,7 +32,7 @@ export default () => (
 					</div>
 				</div>
 			</div>
-			<div className="row mb-3">
+			<div className="row">
 				<div className="col">
 					<TimelineContainer />
 				</div>

@@ -9,9 +9,7 @@ export const getRevisions = createSelector(
 	state => state.revisions.list,
 	getLastRevision,
 	state => state.pages,
-	( users, revisions, last, pages ) => {
-		return getRevisionList( users, revisions, last, pages );
-	}
+	getRevisionList
 );
 
 export const makeGetTimestamp = () => (
