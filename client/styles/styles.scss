@@ -64,30 +64,8 @@ footer {
 	&.md-48 { font-size: 48px; }
 }
 
-.DateRangePicker{
-	@extend .d-block;
-}
-
-.DateRangePickerInput {
-	@extend .rounded;
-	@extend .d-flex;
-	@extend .justify-content-between;
-	@extend .align-items-center;
-}
-
-.DateInput {
-	width: inherit;
-}
-
-.DateInput_input {
-	padding: 0 12px;
-	font-size: $font-size-base;
-	font-weight: $font-weight-light;
-	line-height: $line-height-base;
-}
-
-.DateRangePickerInput_clearDate {
-	@extend .align-self-center;
+.date {
+	background-color: $gray-200;
 }
 
 .select-users .Select-multi-value-wrapper {
@@ -153,6 +131,15 @@ footer {
 			background-color: lighten(theme-color("danger"), 5%);
 		}
 	}
+}
+
+.date-revisions,
+.status.has-content {
+	background-color: $gray-100;
+}
+
+.date-revisions .day {
+	background-color: $body-bg;
 }
 
 .revision {

@@ -4,7 +4,6 @@ import RevisionEntity from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
 import DiffContainer from 'app/components/timeline/diff/diff.container';
 import moment from 'moment';
-import Date from './date';
 import Timelapse from './timelapse';
 import ByteChange from './byte-change';
 import Title from './title';
@@ -54,20 +53,12 @@ class Revision extends React.Component {
 				break;
 		}
 
-		let displayDate;
 		let displayTimelapse;
 
-		if ( this.props.date ) {
-			displayDate = (
-				<Date icon="today" date={this.props.date.format( 'YYYY-MM-DD' )} />
+		if ( this.props.duration ) {
+			displayTimelapse = (
+				<Timelapse icon="timelapse" date={this.props.duration.humanize()} />
 			);
-		} else if ( this.props.duration ) {
-			// Do not display if duration is greater than 24 hours.
-			if ( this.props.duration.asSeconds() < 86400 /* Seconds in 24 hours */ ) {
-				displayTimelapse = (
-					<Timelapse icon="timelapse" date={this.props.duration.humanize()} />
-				);
-			}
 		}
 
 		let linkClassName = [
@@ -92,50 +83,40 @@ class Revision extends React.Component {
 				'mb-1',
 				'pb-1'
 			];
-
-			classes = [
-				...classes,
-				'h-100'
-			];
 		}
 
 		return (
-			<div className="row">
-				<div className="col-xl-1 col-sm-2 col-12">
-					{displayDate}
-				</div>
-				<div className="col-xl-10 col-sm-8 col-12">
-					<div className={classes.join( ' ' )}>
-						{displayTimelapse}
-						<div className="col-md-6 col-12 p-0">
-							<div className="wrapper h-100 row">
-								<div className="col mt-0">
-									<div className="record row h-100 align-items-center justify-content-between">
-										<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'HH:mm' )}</div>
-										{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
-										<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
-											<div className="row align-items-end">
-												<div className="col">
-													<span className="d-block title">
-														<Title title={this.props.revision.title} comment={this.props.revision.comment} />
-													</span>
-													<span className="d-block comment">
-														<Comment comment={this.props.revision.comment} commenthidden={this.props.revision.commenthidden} />
-													</span>
-												</div>
-												<div className="col-auto">
-													<ByteChange sizediff={this.props.revision.sizediff} minor={this.props.revision.minor} />
-												</div>
+			<React.Fragment>
+				<div className={classes.join( ' ' )}>
+					{displayTimelapse}
+					<div className="col-md-6 col-12 p-0">
+						<div className="wrapper h-100 row">
+							<div className="col mt-0">
+								<div className="record row h-100 align-items-center justify-content-between">
+									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'HH:mm' )}</div>
+									{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
+									<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
+										<div className="row align-items-end">
+											<div className="col">
+												<span className="d-block title">
+													<Title title={this.props.revision.title} comment={this.props.revision.comment} />
+												</span>
+												<span className="d-block comment">
+													<Comment comment={this.props.revision.comment} commenthidden={this.props.revision.commenthidden} />
+												</span>
 											</div>
-										</a>
-									</div>
+											<div className="col-auto">
+												<ByteChange sizediff={this.props.revision.sizediff} minor={this.props.revision.minor} />
+											</div>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					<DiffContainer diff={this.props.diff} revision={this.props.revision} side={this.props.side} />
 				</div>
-			</div>
+				<DiffContainer diff={this.props.diff} revision={this.props.revision} side={this.props.side} />
+			</React.Fragment>
 		);
 	}
 }
@@ -143,7 +124,6 @@ class Revision extends React.Component {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ),
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
-	date: PropTypes.instanceOf( moment ),
 	timestamp: PropTypes.instanceOf( moment ).isRequired,
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func,
@@ -156,7 +136,6 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	side: undefined,
-	date: undefined,
 	duration: undefined,
 	url: undefined
 };
