@@ -35,7 +35,9 @@ abstract class AbstractDao {
 	 * @return array [ results, continue ]
 	 * @throws \Exception
 	 */
-	public function paginate( QueryBuilder $qb, $key, $sortDir, $continue, $fetchMode = \PDO::FETCH_ASSOC ) {
+	public function paginate(
+		QueryBuilder $qb, $key, $sortDir, $continue, $fetchMode = \PDO::FETCH_ASSOC
+	) {
 		if ( $continue ) {
 			$indexKey = base64_decode( $continue );
 			$sortDir = ( $sortDir == 'asc' ) ? '>=' : '<=';

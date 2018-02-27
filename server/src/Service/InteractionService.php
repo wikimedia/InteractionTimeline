@@ -19,20 +19,62 @@ class InteractionService {
 	}
 
 	/**
-	 * @param array $users
-	 * @param null $startDate
-	 * @param null $endDate
+	 * @param string[] $users
+	 * @param int|null $startDate
+	 * @param int|null $endDate
 	 * @param int $limit
-	 * @param null $continue
+	 * @param string|null $continue
 	 * @return array
 	 */
-	public function getInteraction( $users, $startDate = null, $endDate = null, $limit = 50, $continue = null ) {
+	public function getInteraction(
+		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+	) {
 		$this->validateLimit( $limit );
 
-		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages( $users,  $startDate, $endDate, $limit, $continue );
-		$interaction = $this->revisionDao->getRevisionInteractionDetails( $revisionIds );
+		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
+				$users,  $startDate, $endDate, $limit, $continue
+		);
 
-		return [ $interaction, $continue ];
+		$revisions = $this->revisionDao->getRevisionDetails( $revisionIds );
+		$revisions = $this->parseAndMapRevisions( $revisions );
+
+		return [ $revisions, $continue ];
+	}
+
+	/**
+	 * @param int[] $revisions
+	 * @return array
+	 */
+	private function parseAndMapRevisions( $revisions ) {
+		$interaction = [];
+		foreach ( $revisions as $revision ) {
+			$revision = [
+				'id' => $revision['rev_id'],
+				'pageid' => $revision['rev_page'],
+				'title' => $this->buildTitle( $revision['page_namespace'], $revision['page_title'] ),
+				'user' => $revision['rev_user_text'],
+				'timestamp' => strtotime( $revision['rev_timestamp'] ),
+				'minor' => !!$revision['rev_minor_edit'],
+				'sizediff' => $revision['sizediff'],
+				'comment' => $revision['rev_comment'],
+				'commenthidden' => !!$revision['rev_deleted'],
+				'suppressed' => !!$revision['rev_deleted'],
+			];
+
+			$interaction[] = $revision;
+		}
+
+		return $interaction;
+	}
+
+	/**
+	 * @param int $ns
+	 * @param string $title
+	 * @return string
+	 */
+	private function buildTitle( $ns, $title ) {
+		// TODO: fix this
+		return str_replace( '_', ' ', $title );
 	}
 
 	/**

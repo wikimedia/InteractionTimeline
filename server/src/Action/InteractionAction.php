@@ -35,7 +35,8 @@ class InteractionAction {
 		$limit = $request->getQueryParam( 'limit', 50 );
 		$continue = $request->getQueryParam( 'continue', null );
 
-		list( $interaction, $continue ) = $this->service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
+		list( $interaction, $continue ) =
+			$this->service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
 
 		if ( $continue ) {
 			$ret['continue'] = $continue;

@@ -25,7 +25,9 @@ class ConnectionManagerMiddleware {
 	 * @param callable $next
 	 * @return ResponseInterface
 	 */
-	public function __invoke( ServerRequestInterface $request, ResponseInterface $response, callable $next ) {
+	public function __invoke(
+		ServerRequestInterface $request, ResponseInterface $response, callable $next
+	) {
 		$projectName = $request->getAttribute( 'route' )->getArgument( 'project' );
 		$this->connService->connect( $projectName );
 

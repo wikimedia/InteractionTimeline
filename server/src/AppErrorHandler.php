@@ -13,6 +13,9 @@ class AppErrorHandler {
 	 */
 	private $logger;
 
+	/**
+	 * @param LoggerInterface $logger
+	 */
 	public function __construct( LoggerInterface $logger ) {
 		$this->logger = $logger;
 	}
@@ -23,7 +26,9 @@ class AppErrorHandler {
 	 * @param \Exception $e
 	 * @return ResponseInterface $response
 	 */
-	public function __invoke( ServerRequestInterface $request, ResponseInterface $response, \Exception $e ) {
+	public function __invoke(
+		ServerRequestInterface $request, ResponseInterface $response, \Exception $e
+	) {
 		$errorCode = $e->getCode() ?: 400;
 		$message = $e->getMessage();
 

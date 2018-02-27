@@ -7,14 +7,16 @@ use Doctrine\DBAL\Connection;
 class RevisionDao extends AbstractDao {
 
 	/**
-	 * @param $users
+	 * @param string[] $users
 	 * @param null $startDate
 	 * @param null $endDate
 	 * @param int $limit
 	 * @param null $continue
 	 * @return array
 	 */
-	public function getUserRevisionsInCommonPages( $users, $startDate = null, $endDate = null, $limit = 50, $continue = null ) {
+	public function getUserRevisionsInCommonPages(
+		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+	) {
 		// build subquery to find common pages between users
 		$subQuery = $this->conn->createQueryBuilder();
 		$subQuery->select( 'rev_page' )
@@ -51,50 +53,30 @@ class RevisionDao extends AbstractDao {
 	 * @param int[] $revIds
 	 * @return array
 	 */
-	public function getRevisionInteractionDetails( $revIds ) {
+	public function getRevisionDetails( $revIds ) {
 		$query = $this->conn->createQueryBuilder();
 		$fields = [
-			'rev_id',
-			'rev_page',
+			'r.rev_id',
+			'r.rev_page',
+			'page_namespace',
 			'page_title',
-			'rev_user_text',
-			'rev_timestamp',
-			'rev_minor_edit',
-			'rev_len',
-			'rev_comment',
-			'rev_deleted'
+			'r.rev_user_text',
+			'r.rev_timestamp',
+			'r.rev_minor_edit',
+			'r.rev_len',
+			'r.rev_len - IFNULL(r2.rev_len, 0) as sizediff',
+			'r.rev_comment',
+			'r.rev_deleted'
 		];
 		$query->select( $fields )
 			->from( 'revision_userindex', 'r' )
-			->join( 'r', 'page', 'p', 'rev_page = page_id' )
-			->where( 'rev_id in (:rev_ids)' )
-			->orderBy( 'rev_timestamp', 'asc' )
+			->join( 'r', 'page', 'p', 'r.rev_page = page_id' )
+			->leftJoin( 'r', 'revision_userindex', 'r2', 'r.rev_parent_id = r2.rev_id' )
+			->where( 'r.rev_id in (:rev_ids)' )
+			->orderBy( 'r.rev_timestamp', 'asc' )
 			->setParameter( ':rev_ids', $revIds, Connection::PARAM_STR_ARRAY );
 
 		$stmt = $query->execute();
-		$interaction = [];
-		while ( $row = $stmt->fetch() ) {
-			$revision = [
-				'id' => $row['rev_id'],
-				'pageid' => $row['rev_page'],
-				'title' => $row['page_title'], // TODO: this has to be built
-				'user' => $row['rev_user_text'],
-				'timestamp' => strtotime( $row['rev_timestamp'] ),
-				'minor' => $row['rev_minor_edit'],
-				'sizediff' => 0, // TODO,
-				'comment' => $row['rev_comment'],
-				'commenthidden' => false, // TODO
-				'suppressed' => $row['rev_deleted'],
-			];
-
-			$interaction[] = $revision;
-		}
-
-		return $interaction;
-	}
-	/**
-	 * @param array $revIds
-	 */
-	public function getRevisionSizeDiff( $revIds ) {
+		return $stmt->fetchAll( \PDO::FETCH_ASSOC );
 	}
 }
