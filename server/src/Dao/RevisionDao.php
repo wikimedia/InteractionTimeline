@@ -31,7 +31,7 @@ class RevisionDao extends AbstractDao {
 			->from( 'revision_userindex', 'r' )
 			->where( 'rev_user_text in (:users)' )
 			->andWhere( $query->expr()->in( 'rev_page', $subQuery->getSQL() ) )
-			->orderBy( 'rev_timestamp', 'asc' )
+			->orderBy( 'rev_id', 'asc' )
 			->setMaxResults( $limit )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY );
 
