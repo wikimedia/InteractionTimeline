@@ -49,15 +49,16 @@ class InteractionService {
 		$interaction = [];
 		foreach ( $revisions as $revision ) {
 			$revision = [
-				'id' => $revision['rev_id'],
-				'pageid' => $revision['rev_page'],
-				'title' => $this->buildTitle( $revision['page_namespace'], $revision['page_title'] ),
+				'rev_id' => (int)$revision['rev_id'],
+				'page_id' => (int)$revision['rev_page'],
+				'page_title' => $revision['page_title'],
+				'page_namespace' => (int)$revision['page_namespace'],
 				'user' => $revision['rev_user_text'],
 				'timestamp' => strtotime( $revision['rev_timestamp'] ),
 				'minor' => !!$revision['rev_minor_edit'],
-				'sizediff' => $revision['sizediff'],
+				'size_diff' => (int)$revision['sizediff'],
 				'comment' => $revision['rev_comment'],
-				'commenthidden' => !!$revision['rev_deleted'],
+				'comment_hidden' => !!$revision['rev_deleted'],
 				'suppressed' => !!$revision['rev_deleted'],
 			];
 
@@ -65,16 +66,6 @@ class InteractionService {
 		}
 
 		return $interaction;
-	}
-
-	/**
-	 * @param int $ns
-	 * @param string $title
-	 * @return string
-	 */
-	private function buildTitle( $ns, $title ) {
-		// TODO: fix this
-		return str_replace( '_', ' ', $title );
 	}
 
 	/**

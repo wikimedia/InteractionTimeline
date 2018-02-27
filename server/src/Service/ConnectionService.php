@@ -5,7 +5,7 @@ namespace App\Service;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 
-class ConnectionService {
+class ConnectionService implements ConnectionServiceInterface {
 
 	/**
 	 * @var array
@@ -39,7 +39,6 @@ class ConnectionService {
 	/**
 	 * @param string $wiki
 	 * @return Connection
-	 * @throws \Exception
 	 */
 	public function connect( $wiki ) {
 		if ( isset( $this->conn ) ) {

@@ -2,7 +2,7 @@
 
 namespace App\Dao;
 
-use App\Service\ConnectionService;
+use App\Service\ConnectionServiceInterface;
 use Psr\Log\LoggerInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 
@@ -18,11 +18,13 @@ abstract class AbstractDao {
 	protected $logger;
 
 	/**
-	 * @param ConnectionService $connManager
+	 * @param ConnectionServiceInterface $connectionService
 	 * @param LoggerInterface $logger
 	 */
-	public function __construct( ConnectionService $connManager, LoggerInterface $logger ) {
-		$this->conn = $connManager->getConnection();
+	public function __construct(
+		ConnectionServiceInterface $connectionService, LoggerInterface $logger
+	) {
+		$this->conn = $connectionService->getConnection();
 		$this->logger = $logger;
 	}
 
