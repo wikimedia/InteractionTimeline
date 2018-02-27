@@ -54,19 +54,15 @@ class BackToTopButton extends React.PureComponent {
 	}
 
 	render() {
-		let className = [
+		const visibility = this.state.show ? 'visible' : 'invisible';
+
+		const className = [
 			'btn',
 			'btn-link',
 			'back-top',
-			'text-muted'
+			'text-muted',
+			visibility
 		];
-
-		if ( !this.state.show ) {
-			className = [
-				...className,
-				'invisible'
-			];
-		}
 
 		return (
 			<button className={className.join( ' ' )} ref={( element ) => { this.button = element; }} onClick={this.handleClick}>
