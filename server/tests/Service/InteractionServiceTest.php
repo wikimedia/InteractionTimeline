@@ -1,29 +1,56 @@
 <?php
 
+use App\Service\InteractionService;
 use PHPUnit\Framework\TestCase;
 
 class InteractionServiceTest extends TestCase {
 
-	public function setUp() {
+	public function testSimpleInteraction() {
+		$revisionDao = $this->createMock( \App\Dao\RevisionDao::class );
+
+		$revisionDao->expects( $this->once() )
+			->method( 'getUserRevisionsInCommonPages' )
+			->willReturn( [ [ 1 ], 'test-continue' ] );
+
+		$revisionDao->expects( $this->once() )
+			->method( 'getRevisionDetails' )
+			->with( $this->equalto( [ 1 ] ) )
+			->willReturn( [ $this->getRevisionDetails() ] );
+
+		$service = new InteractionService( $revisionDao );
+		list( $interaction, $continue ) = $service->getInteraction( [] );
+
+		$this->assertEquals( 'test-continue', $continue );
+		$this->assertEquals( [ $this->getSimpleInteractionResponse() ], $interaction );
 	}
 
-	public function xtestGetInteraction() {
-		$service = $this->getMockBuilder( App\Service\InteractionService::class )
-			->disableOriginalConstructor()
-			->setMethods( [ 'getEditedPages' ] )
-			->getMock();
-
-		$userPages = [
-			[ 'user-A', [ 1, 2, 3, 5, 6 ] ],
-			[ 'user-B', [ 3, 4, 6 ] ],
+	private function getSimpleInteractionResponse() {
+		return [
+			'rev_id' => 1,
+			'page_id' => 1,
+			'page_title' => 'title 1',
+			'page_namespace' => 1,
+			'user' => 'user 1',
+			'timestamp' => strtotime( '20180222000000' ),
+			'minor' => true,
+			'size_diff' => 100,
+			'comment' => 'comment 1',
+			'comment_hidden' => false,
+			'suppressed' => false
 		];
-
-		$service->expects( $this->any() )
-			->method( 'getEditedPages' )
-			->will( $this->returnValueMap( $userPages ) );
-
-		$users = [ 'user-A', 'user-B' ];
-		$interaction = $service->getInteraction( $users, 'enwiki' );
-		$this->assertEquals( [ 3,6 ], $interaction );
+	}
+	private function getRevisionDetails() {
+		return [
+				'rev_id' => '1',
+				'rev_page' => '1',
+				'page_title' => 'title 1',
+				'page_namespace' => '1',
+				'rev_user_text' => 'user 1',
+				'rev_timestamp' => '20180222000000',
+				'rev_minor_edit' => 1,
+				'sizediff' => 100,
+				'rev_comment' => 'comment 1',
+				'rev_deleted' => 0,
+		];
 	}
 }
