@@ -5,7 +5,7 @@ import Wiki from 'app/entities/wiki';
 import * as WikiActions from 'app/actions/wiki';
 import specialWikisList from 'app/utils/specialWikisList';
 
-const fetchAllWikis = ( action$ ) => (
+export const fetchAllWikis = ( action$ ) => (
 	action$.ofType( 'WIKI_LIST_FETCH' )
 		.first()
 		.flatMap( () => (
@@ -62,4 +62,20 @@ const fetchAllWikis = ( action$ ) => (
 		) )
 );
 
-export default fetchAllWikis;
+// export const fetchWikiNamespaces = ( action$, store ) => (
+// 	action$.filter( action => [ 'QUERY_UPDATE', 'QUERY_WIKI_CHANGE' ].includes( action.type ) )
+// 		.map( action => {
+// 			switch ( action.type ) {
+// 				case 'QUERY_UPDATE':
+// 					return action.query.wiki;
+// 				case 'QUERY_WIKI_CHANGE':
+// 					return action.wiki;
+// 				default:
+// 					return;
+// 			}
+// 		} )
+// 		.filter( wiki => !!wiki )
+// 		.filter( ( id ) => store.getState().wiki.get( id ) )
+// 		.filter( store.getState().wikis.get( wiki ).namespaces.isEmpty() )
+// 		.distinctUntilChanged()
+// );
