@@ -48,6 +48,11 @@ footer {
 	min-height: 100vh;
 }
 
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+}
+
 .error {
 	min-height: 100%;
 	min-height: 100vh;
@@ -294,4 +299,8 @@ footer {
 
 .sk-three-bounce {
 	margin: 0;
+}
+
+.back-top {
+	transition: visibility 0s, opacity 0.5s linear;
 }
