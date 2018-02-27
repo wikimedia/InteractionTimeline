@@ -12,6 +12,10 @@ export default ( users, revisions, last, pages ) => {
 			return false;
 		}
 
+		if ( !users.includes( revision.user ) ) {
+			return false;
+		}
+
 		const exists = users.filter( ( user ) => {
 			if ( !pages.has( revision.pageid ) ) {
 				return false;

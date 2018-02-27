@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as RevisionsActions from 'app/actions/revisions';
+import { clearError } from 'app/actions/revisions';
 import ErrorMessage from './error-message';
 
 export default connect(
@@ -7,6 +7,6 @@ export default connect(
 		error: state.revisions.error
 	} ),
 	dispatch => ( {
-		clearError: () => dispatch( RevisionsActions.clearError() )
+		clearError: () => dispatch( clearError() )
 	} )
 )( ErrorMessage );

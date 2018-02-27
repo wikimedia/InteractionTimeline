@@ -80,8 +80,9 @@ const config = {
 	},
 	plugins: [
 		extractSass,
-		new CleanWebpackPlugin( [ './html' ], {
-			exclude: [ 'api' ]
+		new CleanWebpackPlugin( [ '../html' ], {
+			exclude: [ 'api' ],
+			allowExternal: true
 		} ),
 		new webpack.DefinePlugin( {
 			APP_ENV: JSON.stringify( process.env.APP_ENV ),

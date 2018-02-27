@@ -9,7 +9,7 @@ class DateRange extends React.Component {
 		super( props );
 
 		// Determine the end of day.
-		this.eod = moment().endOf( 'day' );
+		this.eod = moment().utc().endOf( 'day' );
 
 		// Binding
 		this.isValidDate = this.isValidDate.bind( this );

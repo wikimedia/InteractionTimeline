@@ -1,16 +1,25 @@
 import { Observable, AjaxError } from 'rxjs';
 import { Map, OrderedMap, Set } from 'immutable';
-import * as RevisionsActions from 'app/actions/revisions';
+import {
+	setStatusReady,
+	setStatusDone,
+	setStatusNotReady,
+	fetchRevisions,
+	addRevision,
+	addRevisions,
+	throwError,
+	throwRevisionError
+} from 'app/actions/revisions';
 import getRevisions from 'app/utils/revisions';
 import getLastRevision from 'app/utils/last-revision';
 import Revision from 'app/entities/revision';
 import Page from 'app/entities/page';
-import * as QueryActions from 'app/actions/query';
+import { EVENTS as QUERY_EVENTS } from 'app/actions/query';
 
 const buildRevisionUrl = ( domain, user, startDate, endDate, cont ) => {
 	// The API always orderes by "user,timestamp". This means the oldest user could
 	// get all of the results. To prevent this, we'll request one user at a time.
-	let url = `https://${domain}/w/api.php?action=query&list=usercontribs&ucuser=${encodeURIComponent( user )}&ucdir=newer&format=json&origin=*&formatversion=2`;
+	let url = `https://${domain}/w/api.php?action=query&list=usercontribs&ucuser=${encodeURIComponent( user )}&ucdir=newer&format=json&origin=*&formatversion=2&ucprop=ids|title|timestamp|comment|flags|sizediff`;
 
 	if ( startDate ) {
 		url += '&ucstart=' + startDate;
@@ -35,20 +44,20 @@ const builPageUrl = ( domain, user, pageid ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ ...QueryActions.EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
+		.filter( ( action ) => [ ...QUERY_EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
 		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && store.getState().query.user.count() >= 2 )
 		// Wait until the status has changed.
 		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
 		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
 		.map( ( ready ) => {
-			return ready ? RevisionsActions.setStatusReady() : RevisionsActions.setStatusNotReady();
+			return ready ? setStatusReady() : setStatusNotReady();
 		} )
 );
 
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
-		...QueryActions.EVENTS,
+		...QUERY_EVENTS,
 		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )
@@ -60,7 +69,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 			return Observable.of( users );
 		} )
 		.filter( users => !users.isEmpty() )
-		.flatMap( ( users ) => Observable.of( RevisionsActions.fetchRevisions( users ) ) )
+		.flatMap( ( users ) => Observable.of( fetchRevisions( users ) ) )
 );
 
 export const revisionStatus = ( action$, store ) => (
@@ -69,11 +78,11 @@ export const revisionStatus = ( action$, store ) => (
 			const cont = store.getState().revisions.cont;
 
 			if ( cont.filter( c => c !== false ).isEmpty() ) {
-				return RevisionsActions.setStatusDone();
+				return setStatusDone();
 			}
 
 			if ( action.revisions.isEmpty() ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
 			const users = store.getState().query.user;
@@ -82,18 +91,77 @@ export const revisionStatus = ( action$, store ) => (
 			const last = getLastRevision( revisions, users, cont );
 
 			if ( !last ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
 			if ( !getRevisions( users, revisions, last, pages ).isEmpty() ) {
-				return RevisionsActions.setStatusReady();
+				return setStatusReady();
 			}
 
-			return RevisionsActions.fetchRevisions( new Set( [ last.user ] ) );
+			return fetchRevisions( new Set( [ last.user ] ) );
 		} )
 );
 
-export const fetchRevisions = ( action$, store ) => (
+export const fetchRevision = ( action$, store ) => (
+	action$
+		.ofType( 'REVISIONS_SINGLE_FETCH' )
+		.flatMap( action => {
+			const wiki = store.getState().query.wiki;
+			const domain = store.getState().wikis.get( wiki ).domain;
+
+			// @TODO Add a takeUntil.
+			const request = Observable.ajax( {
+				url: `https://${domain}/w/api.php?action=query&format=json&prop=revisions&revids=${action.id}&formatversion=2&origin=*`,
+				crossDomain: true,
+				responseType: 'json'
+			} )
+				.flatMap( ajaxResponse => {
+					if ( ajaxResponse.response.error ) {
+						throw new AjaxError(
+							ajaxResponse.response.error.info,
+							ajaxResponse.xhr,
+							ajaxResponse.request
+						);
+					}
+
+					try {
+						// The response may not exist, if so, an error will be thrown.
+						const data = ajaxResponse.response.query.pages[ 0 ];
+
+						return Observable.of( addRevision( new Revision( {
+							id: data.revisions[ 0 ].revid,
+							...data,
+							...data.revisions[ 0 ]
+						} ) ) );
+					} catch ( e ) {
+						throw new AjaxError(
+							'Bad Response',
+							ajaxResponse.xhr,
+							ajaxResponse.request
+						);
+					}
+				} )
+				// If the wiki changes, cancel the request.
+				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
+				.catch( ( error ) => Observable.of( throwRevisionError( action.id, error ) ) );
+
+			// The revision is not in the store, so we'll add it with the current
+			// status.
+			const revision = new Revision( {
+				id: action.id,
+				meta: {
+					status: 'fetching'
+				}
+			} );
+
+			return Observable.concat(
+				Observable.of( addRevision( revision ) ),
+				request
+			);
+		} )
+);
+
+export const doFetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )
 		.flatMap( ( action ) => {
@@ -104,7 +172,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 			// If the set of users is empty, no need to attempt a request.
 			if ( users.isEmpty() ) {
-				return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+				return Observable.of( addRevisions( new OrderedMap() ) );
 			}
 
 			const requests = users
@@ -168,7 +236,7 @@ export const fetchRevisions = ( action$, store ) => (
 				.flatMap( ( data ) => {
 
 					if ( data.length === 0 ) {
-						return Observable.of( RevisionsActions.addRevisions( new OrderedMap() ) );
+						return Observable.of( addRevisions( new OrderedMap() ) );
 					}
 
 					const revisions = data.reduce( ( map, item ) => {
@@ -214,7 +282,7 @@ export const fetchRevisions = ( action$, store ) => (
 
 					// If there are no pages to retrieve, then we are done.
 					if ( !pageSet.size ) {
-						return Observable.of( RevisionsActions.addRevisions( revisions, pages, cont ) );
+						return Observable.of( addRevisions( revisions, pages, cont ) );
 					}
 
 					const wiki = store.getState().query.wiki;
@@ -256,9 +324,9 @@ export const fetchRevisions = ( action$, store ) => (
 									return map.set( page.id, page );
 								}, pages );
 
-							return Observable.of( RevisionsActions.addRevisions( revisions, pageMap, cont ) );
+							return Observable.of( addRevisions( revisions, pageMap, cont ) );
 						} );
 				} )
-				.catch( ( error ) => Observable.of( RevisionsActions.throwError( error ) ) );
+				.catch( ( error ) => Observable.of( throwError( error ) ) );
 		} )
 );

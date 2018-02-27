@@ -17,4 +17,4 @@ branches:
   only:
     - master
 notifications:
-  irc: "chat.freenode.net#wikimedia-anti-harassment-tools"
+  irc: "chat.freenode.net#wikimedia-commtech"
