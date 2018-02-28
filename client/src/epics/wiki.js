@@ -1,8 +1,10 @@
 /* eslint-env browser */
 import { Observable } from 'rxjs';
-import { OrderedMap } from 'immutable';
+import { OrderedMap, Map } from 'immutable';
 import Wiki from 'app/entities/wiki';
-import { setWikis } from 'app/actions/wiki';
+import WikiNamespace from 'app/entities/wiki-namespace';
+import { setWikis, setWikiNamespaces } from 'app/actions/wiki';
+
 import specialWikisList from 'app/utils/special-wikis-list';
 
 export const fetchAllWikis = ( action$ ) => (
@@ -62,20 +64,38 @@ export const fetchAllWikis = ( action$ ) => (
 		) )
 );
 
-// export const fetchWikiNamespaces = ( action$, store ) => (
-// 	action$.filter( action => [ 'QUERY_UPDATE', 'QUERY_WIKI_CHANGE' ].includes( action.type ) )
-// 		.map( action => {
-// 			switch ( action.type ) {
-// 				case 'QUERY_UPDATE':
-// 					return action.query.wiki;
-// 				case 'QUERY_WIKI_CHANGE':
-// 					return action.wiki;
-// 				default:
-// 					return;
-// 			}
-// 		} )
-// 		.filter( wiki => !!wiki )
-// 		.filter( ( id ) => store.getState().wiki.get( id ) )
-// 		.filter( store.getState().wikis.get( wiki ).namespaces.isEmpty() )
-// 		.distinctUntilChanged()
-// );
+export const fetchWikiNamespaces = ( action$, store ) => (
+	action$.filter( action => [ 'QUERY_UPDATE', 'QUERY_WIKI_CHANGE', 'WIKIS_SET' ].includes( action.type ) )
+		.map( action => {
+			switch ( action.type ) {
+				case 'QUERY_UPDATE':
+					return action.query.wiki;
+				case 'QUERY_WIKI_CHANGE':
+					return action.wiki;
+				case 'WIKIS_SET':
+					return store.getState().query.wiki;
+				default:
+					return;
+			}
+		} )
+		.filter( id => !!id )
+		.filter( id => store.getState().wikis.has( id ) && store.getState().wikis.get( id ).namespaces.isEmpty() )
+		.distinctUntilChanged()
+		.flatMap( id => {
+			const domain = store.getState().wikis.get( id ).domain;
+
+			return Observable.ajax( {
+				url: `https://${domain}/w/api.php?action=query&format=json&meta=siteinfo&formatversion=2&origin=*&siprop=namespaces`,
+				crossDomain: true,
+				responseType: 'json'
+			} )
+				.flatMap( ( ajaxResponse ) => {
+					const namespaces = Object.values( ajaxResponse.response.query.namespaces ).reduce( ( map, data ) => {
+						return map.set( data.id, new WikiNamespace( data ) );
+					}, new Map() );
+
+					return Observable.of( setWikiNamespaces( id, namespaces ) );
+				} )
+				.catch( () => Observable.of( setWikiNamespaces( id, new Map() ) ) );
+		} )
+);
