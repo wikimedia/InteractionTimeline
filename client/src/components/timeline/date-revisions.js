@@ -12,25 +12,19 @@ class DateRevisions extends React.Component {
 		const win = doc.defaultView || doc.parentWindow;
 
 		this.invokeFetch = new Subject();
-
-		const badStatus = [
-			'done',
-			'notready'
-		];
-
 		// Create the infinite scroll.
 		this.infinite = Observable.merge(
 			Observable.fromEvent( win, 'scroll' ),
 			Observable.fromEvent( win, 'resize' ),
 			this.invokeFetch
 		)
-			.filter( () => !badStatus.includes( this.props.status ) )
+			.filter( () => this.props.status === 'ready' )
 			.filter( () => !this.props.revisions.isEmpty() )
 			.filter( () => this.isBottomVisable( this.container ) )
 			.debounceTime( 250 )
 			.subscribe( () => {
 				// The debounce delays the immisions so the props may not be the same.
-				if ( badStatus.includes( this.props.status ) ) {
+				if ( this.props.status !== 'ready' ) {
 					return;
 				}
 

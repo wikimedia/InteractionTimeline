@@ -5,6 +5,7 @@ import {
 	setStatusReady,
 	setStatusDone,
 	setStatusNotReady,
+	setStatusFetching,
 	fetchRevisions,
 	addRevision,
 	addRevisions,
@@ -58,7 +59,7 @@ export const shouldFetchRevisions = ( action$, store ) => (
 		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )
-		.filter( () => store.getState().revisions.status !== 'ready' )
+		.filter( () => store.getState().revisions.status === 'ready' )
 		.filter( () => store.getState().revisions.cont !== false )
 		.filter( () => store.getState().revisions.list.isEmpty() )
 		.flatMap( () => Observable.of( fetchRevisions() ) )
@@ -126,9 +127,9 @@ export const fetchRevision = ( action$, store ) => (
 export const doFetchRevisions = ( action$, store ) => (
 	action$
 		.ofType( 'REVISIONS_FETCH' )
+		.filter( () => store.getState().revisions.status === 'ready' )
 		.filter( () => store.getState().revisions.cont !== false )
 		.flatMap( () => {
-
 			// Set the variables so the request can be canceled if the state
 			// changes.
 			const wiki = store.getState().query.wiki;
@@ -137,7 +138,7 @@ export const doFetchRevisions = ( action$, store ) => (
 			const endDate = store.getState().query.endDate;
 			const cont = store.getState().revisions.cont;
 
-			return Observable.ajax( {
+			const request = Observable.ajax( {
 				url: buildRevisionUrl( wiki, users, startDate, endDate, cont ),
 				crossDomain: true,
 				responseType: 'json'
@@ -158,6 +159,7 @@ export const doFetchRevisions = ( action$, store ) => (
 									...data,
 									id: data.rev_id,
 									pageId: data.page_id,
+									pageNamespace: data.page_namespace,
 									title: data.page_title,
 									sizeDiff: data.size_diff,
 									commentHidden: data.comment_hidden,
@@ -182,5 +184,10 @@ export const doFetchRevisions = ( action$, store ) => (
 				// If the end date changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_END_DATE_CHANGE' ).filter( a => a.endDate !== endDate ) )
 				.catch( ( error ) => Observable.of( throwError( error ) ) );
+
+			return Observable.concat(
+				Observable.of( setStatusFetching() ),
+				request
+			);
 		} )
 );

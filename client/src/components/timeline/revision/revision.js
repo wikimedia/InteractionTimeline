@@ -84,8 +84,6 @@ class Revision extends React.Component {
 			];
 		}
 
-		console.log( this.props.revision.timestamp );
-
 		return (
 			<React.Fragment>
 				<div className={classes.join( ' ' )}>

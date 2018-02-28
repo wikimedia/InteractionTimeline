@@ -34,6 +34,12 @@ export function addRevision( revision ) {
 	};
 }
 
+export function setStatusFetching() {
+	return {
+		type: 'REVISIONS_FETCHING'
+	};
+}
+
 export function setStatusReady() {
 	return {
 		type: 'REVISIONS_READY'

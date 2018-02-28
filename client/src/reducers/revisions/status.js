@@ -1,6 +1,6 @@
 export default ( state = 'notready', action ) => {
 	switch ( action.type ) {
-		case 'REVISIONS_FETCH':
+		case 'REVISIONS_FETCHING':
 			return 'fetching';
 		case 'REVISIONS_READY':
 			return 'ready';

@@ -4,6 +4,7 @@ import RevisionMeta from './revision-meta';
 export default class Revision extends Record( {
 	id: undefined,
 	pageId: undefined,
+	pageNamespace: undefined,
 	title: undefined,
 	user: undefined,
 	timestamp: undefined,
