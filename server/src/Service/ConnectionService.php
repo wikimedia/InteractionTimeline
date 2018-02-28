@@ -41,9 +41,7 @@ class ConnectionService implements ConnectionServiceInterface {
 	 * @return Connection
 	 */
 	public function connect( $wiki ) {
-		if ( isset( $this->conn ) ) {
-			$conn = $this->conn;
-		} else {
+		if ( !isset( $this->conn ) ) {
 			$config = [
 				'dbname' => $this->getDBName( $wiki ),
 				'user' => $this->config['user'],
