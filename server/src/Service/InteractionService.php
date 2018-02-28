@@ -29,17 +29,17 @@ class InteractionService {
 	public function getInteraction(
 		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
 	) {
-		$this->validateUsers($users);
-		$this->validateLimit($limit);
+		$this->validateUsers( $users );
+		$this->validateLimit( $limit );
 
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
 				$users,  $startDate, $endDate, $limit, $continue
 		);
 
 		$revisions = [];
-		if ($revisionIds) {
-			$revisions = $this->revisionDao->getRevisionDetails($revisionIds);
-			$revisions = $this->parseAndMapRevisions($revisions);
+		if ( $revisionIds ) {
+			$revisions = $this->revisionDao->getRevisionDetails( $revisionIds );
+			$revisions = $this->parseAndMapRevisions( $revisions );
 		}
 
 		return [ $revisions, $continue ];
@@ -87,7 +87,7 @@ class InteractionService {
 	 * @throws InvalidArgumentException
 	 */
 	private function validateUsers( $users ) {
-		if (count($users) < 2) {
+		if ( count( $users ) < 2 ) {
 			throw new \InvalidArgumentException( 'at least 2 users should be provided' );
 		}
 	}

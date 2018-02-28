@@ -18,7 +18,7 @@ class InteractionServiceTest extends TestCase {
 			->willReturn( [ $this->getRevisionDetails() ] );
 
 		$service = new InteractionService( $revisionDao );
-		$users = ['user-1', 'user-2'];
+		$users = [ 'user-1', 'user-2' ];
 		list( $interaction, $continue ) = $service->getInteraction( $users );
 
 		$this->assertEquals( 'test-continue', $continue );
@@ -31,18 +31,18 @@ class InteractionServiceTest extends TestCase {
 	public function testInteractionWithInvalidParams(
 		$users, $startDate, $endDate, $limit, $continue
 	) {
-		$revisionDao = $this->createMock(\App\Dao\RevisionDao::class);
+		$revisionDao = $this->createMock( \App\Dao\RevisionDao::class );
 
 		$service = new InteractionService( $revisionDao );
 
-		$this->expectException(\InvalidArgumentException::class);
-		$service->getInteraction($users, $startDate, $endDate,$limit, $continue);
+		$this->expectException( \InvalidArgumentException::class );
+		$service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
 	}
 
 	public function providerInvalidParams() {
 		return [
-			[['a', 'b'], null, null, 'invalid-limit', null],
-			[[], null, null, 100, null],
+			[ [ 'a', 'b' ], null, null, 'invalid-limit', null ],
+			[ [], null, null, 100, null ],
 		];
 	}
 
