@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Set, Map } from 'immutable';
+import { Map } from 'immutable';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/observable/fromEvent';
 import DateList from './date-list';
@@ -38,7 +38,7 @@ class DateRevisions extends React.Component {
 					return;
 				}
 
-				return this.props.fetchList( new Set( [ this.props.revisions.last().user ] ) );
+				return this.props.fetchList();
 			} );
 	}
 

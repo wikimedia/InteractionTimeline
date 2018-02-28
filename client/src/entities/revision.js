@@ -3,14 +3,14 @@ import RevisionMeta from './revision-meta';
 
 export default class Revision extends Record( {
 	id: undefined,
-	pageid: undefined,
+	pageId: undefined,
 	title: undefined,
 	user: undefined,
 	timestamp: undefined,
 	minor: false,
-	sizediff: 0,
+	sizeDiff: 0,
 	comment: undefined,
-	commenthidden: false,
+	commentHidden: false,
 	suppressed: false,
 	meta: new RevisionMeta()
 }, 'Revision' ) {

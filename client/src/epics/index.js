@@ -4,7 +4,6 @@ import { fetchAllWikis, fetchWikiNamespaces } from './wiki';
 import {
 	shouldFetchRevisions,
 	revisionsReady,
-	revisionStatus,
 	fetchRevision,
 	doFetchRevisions
 } from './revisions';
@@ -17,7 +16,6 @@ export default combineEpics(
 	fetchWikiNamespaces,
 	shouldFetchRevisions,
 	revisionsReady,
-	revisionStatus,
 	fetchRevision,
 	doFetchRevisions,
 	fetchDiff

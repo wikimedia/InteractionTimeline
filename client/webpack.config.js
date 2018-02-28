@@ -9,6 +9,8 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const CleanWebpackPlugin = require( 'clean-webpack-plugin' );
 const ScriptExtHtmlWebpackPlugin = require( 'script-ext-html-webpack-plugin' );
 
+const publicPath = process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/';
+
 const extractSass = new ExtractTextPlugin( {
 	filename: 'styles/[name].css',
 	disable: process.env.NODE_ENV !== 'production'
@@ -19,7 +21,7 @@ const config = {
 	output: {
 		filename: 'scripts/[name].js',
 		path: path.resolve( __dirname, '../html' ),
-		publicPath: process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/'
+		publicPath
 	},
 	devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
 	resolve: {
@@ -87,9 +89,8 @@ const config = {
 		new webpack.DefinePlugin( {
 			APP_ENV: JSON.stringify( process.env.APP_ENV ),
 			// @see https://facebook.github.io/react/docs/optimizing-performance.html#webpack
-			'process.env': {
-				NODE_ENV: JSON.stringify( process.env.NODE_ENV )
-			}
+			'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV ),
+			'process.env.PUBLIC_PATH': JSON.stringify( publicPath )
 		} ),
 		new HtmlWebpackPlugin( {
 			title: 'Interaction Timeline',

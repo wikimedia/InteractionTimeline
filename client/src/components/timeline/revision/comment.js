@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import REGEX_EDIT_SUMMARY_PARTS from './edit-summary-parts';
 
-const Comment = ( { comment, commenthidden } ) => {
-	if ( commenthidden ) {
+const Comment = ( { comment, commentHidden } ) => {
+	if ( commentHidden ) {
 		return (
 			<em>
 				<del>
@@ -30,7 +30,7 @@ const Comment = ( { comment, commenthidden } ) => {
 
 Comment.propTypes = {
 	comment: PropTypes.string.isRequired,
-	commenthidden: PropTypes.bool.isRequired
+	commentHidden: PropTypes.bool.isRequired
 };
 
 export default Comment;

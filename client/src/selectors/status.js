@@ -1,11 +1,10 @@
 import { createSelector } from 'reselect';
-import { getRevisions } from './revisions';
 
 export const getStatus = createSelector(
 	state => state.revisions.status,
 	state => state.query.user,
 	state => state.query.wiki,
-	state => getRevisions( state ),
+	state => state.revisions.list,
 	( status, users, wiki, revisions ) => {
 		if ( status === 'done' && revisions.isEmpty() ) {
 			return 'noresults';
