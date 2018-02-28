@@ -31,7 +31,6 @@ class InteractionAction {
 		$users = $this->parseUsers( $request->getQueryParam( 'user', null ) );
 		$startDate = $request->getQueryParam( 'start_date', null );
 		$endDate = $request->getQueryParam( 'end_date', null );
-		// TODO: default limit can be a config
 		$limit = $request->getQueryParam( 'limit', 50 );
 		$continue = $request->getQueryParam( 'continue', null );
 
