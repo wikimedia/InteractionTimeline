@@ -18,6 +18,14 @@ $container-max-widths: map-merge($container-max-widths, (
 
 @import "~bootstrap/scss/bootstrap";
 
+// Bootstrap v4.0.0 Safari Fix... remove @supports
+.sticky-top {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
 $header-footer-bg: #f6f6f6;
 $timeline-width: 0.25rem;
 $timeline-bg: (
@@ -111,6 +119,10 @@ footer {
 			}
 		}
 	}
+}
+
+.Select-menu-outer {
+	z-index: 1000;
 }
 
 .timeline .user {
