@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Subject } from 'rxjs';
 import createIntersectionObservable from 'app/utils/intersection';
+import { Tooltip } from 'reactstrap';
 /* global Element */
 
 class BackToTopButton extends React.PureComponent {
@@ -9,15 +10,17 @@ class BackToTopButton extends React.PureComponent {
 		super( props );
 
 		this.state = {
-			show: false
+			show: false,
+			tooltipOpen: false
 		};
 
 		this.showButton = new Subject();
 		this.handleClick = this.handleClick.bind( this );
+		this.showTooltip = this.showTooltip.bind( this );
+		this.hideTooltip = this.hideTooltip.bind( this );
 	}
 
 	componentDidUpdate( prevProps ) {
-
 		if ( prevProps.stickyHeader === this.props.stickyHeader ) {
 			return;
 		}
@@ -35,6 +38,20 @@ class BackToTopButton extends React.PureComponent {
 
 	componentWillUnmount() {
 		this.showButton.unsubscribe();
+	}
+
+	showTooltip() {
+		this.setState( {
+			...this.state,
+			tooltipOpen: true
+		} );
+	}
+
+	hideTooltip() {
+		this.setState( {
+			...this.state,
+			tooltipOpen: false
+		} );
 	}
 
 	handleClick() {
@@ -65,10 +82,16 @@ class BackToTopButton extends React.PureComponent {
 		];
 
 		return (
-			<button className={className.join( ' ' )} ref={( element ) => { this.button = element; }} onClick={this.handleClick}>
-				{/* @TODO Translate */}
-				<i className="material-icons align-middle">vertical_align_top</i> <span className="sr-only">Back to Top</span>
-			</button>
+			<div ref={( element ) => { this.container = element; }}>
+				<button className={className.join( ' ' )} ref={( element ) => { this.button = element; }} onClick={this.handleClick} onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>
+					{/* @TODO Translate */}
+					<i className="material-icons align-middle">vertical_align_top</i> <span className="sr-only">Back to Top</span>
+				</button>
+				<Tooltip placement="bottom" target={() => this.button} isOpen={this.state.tooltipOpen} container={this.container} autohide={false}>
+					{/* @TODO Translate */}
+          Back to Top
+				</Tooltip>
+			</div>
 		);
 	}
 }
