@@ -3,19 +3,30 @@ import PropTypes from 'prop-types';
 import UserListContainer from './user-list.container';
 import DateRevisionsContainer from './date-revisions.container';
 import StatusContainer from './status.container';
+import BackToTopButton from './back-top';
 
 const Users = () => (
-	<div className="row sticky-top">
-		<div className="col ml-3 mr-3">
-			<div className="row users pr-1 pl-1 justify-content-center">
-				<div className="col-xl-10 col-sm-8">
-					<div className="row  align-items-center justify-content-around text-center">
-						<UserListContainer />
+	<React.Fragment>
+		<div ref={( element ) => { this.stickyHeader = element; }} />
+		<div className="row sticky-top">
+			<div className="col ml-3 mr-3">
+				<div className="row">
+					<div className="col-10 offset-1">
+						<div className="row users pr-1 pl-1 justify-content-center">
+							<div className="col">
+								<div className="row align-items-center justify-content-around text-center">
+									<UserListContainer />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="col-1 text-center">
+						<BackToTopButton stickyHeader={this.stickyHeader} />
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</React.Fragment>
 );
 
 const Status = ( { empty } ) => {

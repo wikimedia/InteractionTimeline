@@ -18,6 +18,14 @@ $container-max-widths: map-merge($container-max-widths, (
 
 @import "~bootstrap/scss/bootstrap";
 
+// Bootstrap v4.0.0 Safari Fix... remove @supports
+.sticky-top {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
 $header-footer-bg: #f6f6f6;
 $timeline-width: 0.25rem;
 $timeline-bg: (
@@ -46,6 +54,18 @@ footer {
 #root,
 .app {
 	min-height: 100vh;
+}
+
+.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s linear 300ms, opacity 300ms;
 }
 
 .error {
@@ -99,6 +119,10 @@ footer {
 			}
 		}
 	}
+}
+
+.Select-menu-outer {
+	z-index: 1000;
 }
 
 .timeline .user {
@@ -256,10 +280,12 @@ footer {
 	}
 	.table {
 		margin-bottom: 0;
+		table-layout: fixed;
 	}
 	.table th,
 	.table td {
 		border: none;
+		word-wrap: break-word;
 	}
 	.diff-empty {
 		width: 50%;
@@ -271,6 +297,9 @@ footer {
 		width: 48%;
 	}
 	.diff-marker {
+		@extend .p-0;
+		@extend .text-center;
+		@extend .align-middle;
 		width: 2%;
 	}
 	.diff-lineno {

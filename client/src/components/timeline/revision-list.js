@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { OrderedMap } from 'immutable';
+import Revision from 'app/entities/revision';
 import RevisionContainer from './revision/revision.container';
 
-const RevisionList = ( { revisions } ) => {
-	const first = revisions.first();
-	let prev;
+const RevisionList = ( { revisions, last } ) => {
+	let prev = last;
 
 	return revisions.map( ( revision ) => {
 		let duration;
 
-		// If we are switching sides, but not the date, show the duraction.
-		if ( revision !== first && prev && prev.user !== revision.user ) {
+		// If we are switching sides, show the duraction.
+		if ( prev && prev.user !== revision.user ) {
 			duration = moment.duration( prev.timestamp.diff( revision.timestamp ) );
 		}
 
@@ -26,7 +26,12 @@ const RevisionList = ( { revisions } ) => {
 };
 
 RevisionList.propTypes = {
-	revisions: PropTypes.instanceOf( OrderedMap ).isRequired
+	revisions: PropTypes.instanceOf( OrderedMap ).isRequired,
+	last: PropTypes.instanceOf( Revision )
+};
+
+RevisionList.defaultProps = {
+	last: undefined
 };
 
 export default RevisionList;

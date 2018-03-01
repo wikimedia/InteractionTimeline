@@ -9,6 +9,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { IntlProvider } from 'react-intl';
 import WebFont from 'webfontloader';
+import 'intersection-observer'; // Pollyfill
 import i18n from './i18n.dir';
 import App from './src/components/app';
 import reducer from './src/reducers/index';
