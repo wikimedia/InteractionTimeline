@@ -20,6 +20,9 @@ class ConnectionManagerMiddleware {
 	}
 
 	/**
+	 * Reads the project name Ex. enwiki from the route
+	 * and creates a connection to the corresponding HOST/DB
+	 *
 	 * @param ServerRequestInterface $request
 	 * @param ResponseInterface $response
 	 * @param callable $next

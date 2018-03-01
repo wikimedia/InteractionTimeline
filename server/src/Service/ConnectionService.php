@@ -51,11 +51,10 @@ class ConnectionService implements ConnectionServiceInterface {
 				'driver' => $this->config['driver']
 			];
 
-			$conn = DriverManager::getConnection( $config );
-			$this->conn = $conn;
+			$this->conn = DriverManager::getConnection( $config );
 		}
 
-		return $conn;
+		return $this->conn;
 	}
 
 	/**
