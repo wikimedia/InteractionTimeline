@@ -55,7 +55,7 @@ class InteractionService {
 			$revision = [
 				'rev_id' => (int)$revision['rev_id'],
 				'page_id' => (int)$revision['rev_page'],
-				'page_title' => $revision['page_title'],
+				'page_title' => $this->buildTitle( $revision['page_title'] ),
 				'page_namespace' => (int)$revision['page_namespace'],
 				'user' => $revision['rev_user_text'],
 				'timestamp' => strtotime( $revision['rev_timestamp'] ),
@@ -70,6 +70,14 @@ class InteractionService {
 		}
 
 		return $interaction;
+	}
+
+	/**
+	 * @param string $title
+	 * @return string mixed
+	 */
+	private function buildTitle( $title ) {
+		return str_replace( '_', ' ', $title );
 	}
 
 	/**
