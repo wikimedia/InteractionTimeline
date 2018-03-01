@@ -98,7 +98,7 @@ class Revision extends React.Component {
 										<div className="row align-items-end">
 											<div className="col">
 												<span className="d-block title">
-													<Title title={this.props.revision.title} comment={this.props.revision.comment} />
+													<Title title={this.props.title} comment={this.props.revision.comment} />
 												</span>
 												<span className="d-block comment">
 													<Comment comment={this.props.revision.comment} commentHidden={this.props.revision.commentHidden} />
@@ -127,6 +127,7 @@ Revision.propTypes = {
 		humanize: PropTypes.func,
 		asSeconds: PropTypes.func
 	} ),
+	title: PropTypes.string,
 	url: PropTypes.string,
 	diff: PropTypes.instanceOf( DiffEntity ).isRequired,
 	toggleDiff: PropTypes.func.isRequired
@@ -134,6 +135,7 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	side: undefined,
+	title: undefined,
 	duration: undefined,
 	url: undefined
 };

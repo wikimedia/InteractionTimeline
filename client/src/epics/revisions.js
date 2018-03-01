@@ -17,7 +17,7 @@ import { EVENTS as QUERY_EVENTS } from 'app/actions/query';
 
 const buildRevisionUrl = ( wiki, users, startDate, endDate, cont ) => {
 	users = users.map( user => {
-		return encodeURIComponent( user.replace( / /g, '_' ) );
+		return encodeURIComponent( user );
 	} );
 
 	// @TODO Add the domain/path?
@@ -92,9 +92,14 @@ export const fetchRevision = ( action$, store ) => (
 						const data = ajaxResponse.response.query.pages[ 0 ];
 
 						return Observable.of( addRevision( new Revision( {
-							id: data.revisions[ 0 ].revid,
 							...data,
-							...data.revisions[ 0 ]
+							...data.revisions[ 0 ],
+							id: data.revisions[ 0 ].revid,
+							pageId: data.pageid,
+							timestamp: moment( data.revisions[ 0 ].timestamp, moment.ISO_8601 ).utc(),
+							meta: {
+								interaction: false
+							}
 						} ) ) );
 					} catch ( e ) {
 						throw new AjaxError(
@@ -113,6 +118,7 @@ export const fetchRevision = ( action$, store ) => (
 			const revision = new Revision( {
 				id: action.id,
 				meta: {
+					interaction: false,
 					status: 'fetching'
 				}
 			} );

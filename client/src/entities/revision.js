@@ -1,4 +1,5 @@
 import { Record } from 'immutable';
+import moment from 'moment';
 import RevisionMeta from './revision-meta';
 
 export default class Revision extends Record( {
@@ -7,7 +8,7 @@ export default class Revision extends Record( {
 	pageNamespace: undefined,
 	title: undefined,
 	user: undefined,
-	timestamp: undefined,
+	timestamp: moment(),
 	minor: false,
 	sizeDiff: 0,
 	comment: undefined,
