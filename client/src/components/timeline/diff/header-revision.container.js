@@ -10,7 +10,7 @@ const getRevisionUrl = makeGetRevisionUrl();
 export default connect(
 	( state, props ) => ( {
 		side: getSide( state, props ),
-		url: getRevisionUrl( state, props ),
+		url: getRevisionUrl( state, props )
 	} ),
 	dispatch => ( {
 		fetchRevision: id => dispatch( fetchRevision( id ) )
