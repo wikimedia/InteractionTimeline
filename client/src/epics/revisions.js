@@ -182,7 +182,7 @@ export const doFetchRevisions = ( action$, store ) => (
 				// If the query is no longer valid, cancel the request.
 				.takeUntil( action$.ofType( 'REVISIONS_NOT_READY' ) )
 				// If the user is no longer in the query, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ) )
+				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( a => a.users !== users ) )
 				// If the wiki changes, cancel the request.
 				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
 				// If the start date changes, cancel the request.
