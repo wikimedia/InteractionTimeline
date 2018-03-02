@@ -65,4 +65,11 @@ export const makeGetRevisionUrl = () => {
 	);
 };
 
-export default makeGetRevisionUrl;
+export const getTimelineRevisions = createSelector(
+	state => state.revisions.list,
+	( revisions ) => (
+		revisions
+			.filter( revision => revision.meta.interaction )
+			.groupBy( revision => revision.timestamp.clone().startOf( 'day' ) )
+	)
+);

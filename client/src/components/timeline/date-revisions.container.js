@@ -4,7 +4,7 @@ import DateRevisions from './date-revisions';
 
 export default connect(
 	state => ( {
-		revisions: state.revisions.list,
+		empty: state.revisions.list.isEmpty(),
 		status: state.revisions.status
 	} ),
 	dispatch => ( {

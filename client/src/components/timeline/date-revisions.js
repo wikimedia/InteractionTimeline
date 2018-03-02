@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Map } from 'immutable';
 import { Subject, Observable } from 'rxjs';
 import createIntersectionObservable from 'app/utils/intersection';
-import DateList from './date-list';
+import DateListContainer from './date-list.container';
 
 class DateRevisions extends React.Component {
 	constructor( props ) {
@@ -33,7 +32,7 @@ class DateRevisions extends React.Component {
 			this.invokeFetch
 		)
 			.filter( () => this.props.status === 'ready' )
-			.filter( () => !this.props.revisions.isEmpty() )
+			.filter( () => !this.props.empty )
 			.debounceTime( 250 )
 			.subscribe( () => {
 				// The debounce delays the immisions so the props may not be the same.
@@ -41,7 +40,7 @@ class DateRevisions extends React.Component {
 					return;
 				}
 
-				if ( this.props.revisions.isEmpty() ) {
+				if ( this.props.empty ) {
 					return;
 				}
 
@@ -62,7 +61,7 @@ class DateRevisions extends React.Component {
 		return (
 			<div className="row date-revisions">
 				<div className="col ml-3 mr-3 pt-3">
-					<DateList revisions={this.props.revisions} />
+					<DateListContainer />
 					<div ref={( element ) => { this.bottom = element; }} />
 				</div>
 			</div>
@@ -71,7 +70,7 @@ class DateRevisions extends React.Component {
 }
 
 DateRevisions.propTypes = {
-	revisions: PropTypes.instanceOf( Map ).isRequired,
+	empty: PropTypes.bool.isRequired,
 	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	fetchList: PropTypes.func.isRequired
 };
