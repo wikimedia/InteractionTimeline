@@ -7,6 +7,7 @@ return [
 	'settings' => [
 		// slim
 		'displayErrorDetails' => getenv( 'DEBUG' ),
+		'determineRouteBeforeAppMiddleware' => true,
 
 		// db
 		'db' => [
@@ -14,6 +15,7 @@ return [
 			'user' => getenv( 'DB_USER' ),
 			'pass' => getenv( 'DB_PASS' ),
 			'port' => getenv( 'DB_PORT' ),
+			'driver' => getenv( 'DB_DRIVER' ),
 		],
 
 		// monolog settings

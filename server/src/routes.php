@@ -1,4 +1,6 @@
 <?php
 
-$app->get( '/hello', App\Action\HelloAction::class )
-	->setName( 'hello' );
+$app->group( '/{project}', function (){
+	$this->get( '/interaction', App\Action\InteractionAction::class )
+		->setName( 'interaction' );
+} );
