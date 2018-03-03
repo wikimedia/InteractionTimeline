@@ -1,0 +1,23 @@
+{
+		"app-beta-warning": "Warning users that this feature is in beta",
+		"app-description": "Description of the App",
+		"app-feedback-link": "Provinding a Link for users to leave feedback.",
+		"app-title": "The Title of the App",
+		"back-top": "Link to take the user back to the top of the page.",
+		"between-interactions": "Suffix to time between. ex: 13 minutes 'between interacitons'",
+		"error": "Error message title.",
+		"error-message-request-url": "In an error message, the title of the Request URL.",
+		"error-supressed-diff": "Error message to display when diff cannot be viewed because it is supressed.",
+		"info-no-users": "Ask the user to provide the required number of users.",
+		"info-no-wiki": "Ask the user to provide the required wiki.",
+		"info-required-fields": "Lists the fields required to execute query",
+		"field-label-end-date": "Label for the 'End Date' field",
+		"field-label-start-date": "Label for the 'Start Date' field",
+		"field-label-users": "Label for the 'Users' field",
+		"field-label-wiki": "Label for the 'Wiki' field",
+		"field-select-placeholder": "Select field placeholder, displayed when there's no value",
+		"field-select-no-results": "Select field placeholder displayed when there are no matching search results",
+		"field-select-search-prompt": "Select field label to prompt for search input",
+		"revision-edit-summary-removed": "Message when the edit summary was removed",
+		"warning-no-results": "A warning that displays when there are no results"
+}

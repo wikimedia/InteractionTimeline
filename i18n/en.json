@@ -1,0 +1,23 @@
+{
+		"app-beta-warning": "This feature is in early testing.",
+		"app-description": "Chronologic history for two users on pages where they have both made edits.",
+		"app-feedback-link": "Learn more & leave feedback!",
+		"app-title": "Interaction Timeline",
+		"back-top": "Back to Top",
+		"between-interactions": "$1 between interactions",
+		"error": "Error",
+		"error-message-request-url": "Request URL",
+		"error-supressed-diff": "You cannot view this diff because one or both of the revisions has been suppressed.",
+		"info-no-users": "Please provide two users to begin.",
+		"info-no-wiki": "Please provide a wiki to begin.",
+		"info-required-fields": "Please provide two users and wiki to begin.",
+		"field-label-end-date": "End Date",
+		"field-label-start-date": "Start Date",
+		"field-label-users": "Users",
+		"field-label-wiki": "Wiki",
+		"field-select-placeholder": "Select...",
+		"field-select-no-results": "No results found",
+		"field-select-search-prompt": "Type to search",
+		"revision-edit-summary-removed": "edit summary removed",
+		"warning-no-results": "No Results"
+}

@@ -75,6 +75,16 @@ const config = {
 						}
 					}
 				]
+			},
+			// jQuery.i18n requres jQuery in the global scope.
+			{
+				test: require.resolve( 'jquery' ),
+				use: [
+					{
+						loader: 'expose-loader',
+						options: 'jQuery'
+					}
+				]
 			}
 		]
 	},

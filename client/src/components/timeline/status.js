@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Message from 'app/components/i18n/message';
 import Alert from './alert';
 import Spinner from './spinner';
 import ErrorMessageContainer from './error-message.container';
@@ -12,33 +13,30 @@ const Status = ( { status } ) => {
 			message = <Spinner />;
 			break;
 		case 'notready':
-			// @TODO Translate
 			message = (
 				<Alert type="info">
-					Please provide two users and wiki to begin.
+					<Message id="info-required-fields" />
 				</Alert>
 			);
 			break;
 		case 'nowiki':
-			// @TODO Translate
 			message = (
 				<Alert type="info">
-					Please provide a wiki to begin.
+					<Message id="info-no-wiki" />
 				</Alert>
 			);
 			break;
 		case 'nousers':
-			// @TODO Translate
 			message = (
 				<Alert type="info">
-					Please provide two users to begin.
+					<Message id="info-no-users" />
 				</Alert>
 			);
 			break;
 		case 'noresults':
 			message = (
 				<Alert type="warning">
-					No Results
+					<Message id="warning-no-resutls" />
 				</Alert>
 			);
 			break;

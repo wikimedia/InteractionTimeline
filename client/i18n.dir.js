@@ -1,4 +1,4 @@
 module.exports = {
-	path: './i18n',
+	path: '../i18n',
 	filter: /\.json$/
 };

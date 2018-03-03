@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Message from 'app/components/i18n/message';
 import 'material-design-icons/iconfont/material-icons.css';
 
 class ErrorBoundary extends React.PureComponent {
@@ -34,7 +35,7 @@ class ErrorBoundary extends React.PureComponent {
 				<div className="error d-flex align-items-center justify-content-center">
 					<div className="container text-center">
 						<i className="text-danger material-icons md-48">error_outline</i>
-						<h1>Error</h1>
+						<h1><Message id="error" /></h1>
 						<p>{this.state.error.message}</p>
 						<p>
 							<a href={`https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment&title=Interaction%20Timeline%20Fatal%20Error%3A%20${encodeURIComponent( this.state.error.message )}&assign=TBolliger&description=Error%20Message%3A%0A%3E%20${encodeURIComponent( this.state.error.message )}%0A%0AReproduction%20Steps%3A%0A`}>

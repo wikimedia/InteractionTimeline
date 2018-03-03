@@ -7,10 +7,11 @@ import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { IntlProvider } from 'react-intl';
 import WebFont from 'webfontloader';
 import 'intersection-observer'; // Pollyfill
+import moment from 'moment';
 import i18n from './i18n.dir';
+import IntlProvider from './src/components/i18n/intl-provider';
 import App from './src/components/app';
 import reducer from './src/reducers/index';
 import epic from './src/epics/index';
@@ -31,14 +32,18 @@ function main() {
 	// Setup i18n data.
 	const fileNames = Object.keys( i18n );
 	const locale = navigator.language.split( '-' )[ 0 ];
-	const messages = {};
 
 	// Create a messages object.
-	fileNames.forEach( ( name ) => {
-		messages[ name.replace( /.json$/g, '' ) ] = {
+	const messages = fileNames.reduce( ( m, name ) => {
+		m[ name.replace( /.json$/g, '' ) ] = {
 			...i18n[ name ].src
 		};
-	} );
+
+		return m;
+	}, {} );
+
+	// Set the language globally for moment.
+	moment.locale( navigator.language );
 
 	// Create a history of your choosing (we're using a browser history in this case)
 	const history = createHistory();
@@ -55,7 +60,7 @@ function main() {
 	ReactDOM.render(
 		<Provider store={store}>
 			<ConnectedRouter history={history}>
-				<IntlProvider locale={locale} key={locale} messages={messages[ locale ]}>
+				<IntlProvider locale={locale} messages={messages}>
 					<App />
 				</IntlProvider>
 			</ConnectedRouter>

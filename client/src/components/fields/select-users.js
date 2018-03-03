@@ -6,6 +6,7 @@ import 'rxjs/add/observable/dom/ajax';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 import 'react-select/dist/react-select.css';
+import Message from 'app/components/i18n/message';
 import { isIPAddress } from 'app/utils/ip-validator';
 
 class SelectUsers extends React.Component {
@@ -153,6 +154,9 @@ class SelectUsers extends React.Component {
 			<div className="select-users">
 				<Select
 					{...this.props}
+					placeholder={<Message id="field-select-placeholder" />}
+					noResultsText={<Message id="field-select-no-results" />}
+					searchPromptText={<Message id="field-select-search-prompt" />}
 					value={this.state.value}
 					multi
 					isLoading={this.state.loading}

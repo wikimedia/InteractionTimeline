@@ -19,6 +19,12 @@
 			"error",
 			"never"
 		],
+		"react/jsx-no-literals": [
+			"warn",
+			{
+				"noStrings": false
+			}
+		],
     "react/jsx-filename-extension": [
       "error",
       {

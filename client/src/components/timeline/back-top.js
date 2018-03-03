@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Subject } from 'rxjs';
+import Message from 'app/components/i18n/message';
 import createIntersectionObservable from 'app/utils/intersection';
 import { Tooltip } from 'reactstrap';
+import 'material-design-icons/iconfont/material-icons.css';
 /* global Element */
 
 class BackToTopButton extends React.PureComponent {
@@ -84,12 +86,10 @@ class BackToTopButton extends React.PureComponent {
 		return (
 			<div ref={( element ) => { this.container = element; }}>
 				<button className={className.join( ' ' )} ref={( element ) => { this.button = element; }} onClick={this.handleClick} onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>
-					{/* @TODO Translate */}
-					<i className="material-icons align-middle">vertical_align_top</i> <span className="sr-only">Back to Top</span>
+					<i className="material-icons align-middle">vertical_align_top</i> <span className="sr-only"><Message id="back-top" /></span>
 				</button>
 				<Tooltip placement="bottom" target={() => this.button} isOpen={this.state.tooltipOpen} container={this.container} autohide={false}>
-					{/* @TODO Translate */}
-          Back to Top
+					<Message id="back-top" />
 				</Tooltip>
 			</div>
 		);
