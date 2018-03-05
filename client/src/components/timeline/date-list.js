@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import { OrderedMap } from 'immutable';
 import Date from './date';
 import RevisionList from './revision-list';
@@ -8,7 +7,7 @@ import RevisionList from './revision-list';
 const DateList = ( { revisions } ) => {
 	let prev;
 
-	return revisions.groupBy( revision => moment( revision.timestamp, moment.ISO_8601 ).utc().startOf( 'day' ) ).map( ( list, date ) => {
+	return revisions.map( ( list, date ) => {
 		let last = prev ? prev.last() : undefined;
 
 		prev = list;

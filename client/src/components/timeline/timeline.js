@@ -45,7 +45,7 @@ const Status = ( { empty } ) => {
 	return (
 		<div className={className.join( ' ' )}>
 			<div className="col">
-				<div className="row mt-3 mb-3">
+				<div className="row wrapper mt-3 mb-3">
 					<div className="col ml-3 mr-3">
 						<StatusContainer />
 					</div>

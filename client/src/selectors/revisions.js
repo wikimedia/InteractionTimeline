@@ -1,46 +1,9 @@
 import { createSelector } from 'reselect';
-import moment from 'moment';
-import getRevisionList from 'app/utils/revisions';
-import { getLastRevision } from './last-revision';
 import { getWiki } from './wiki';
 
-export const getRevisions = createSelector(
-	state => state.query.user,
-	state => state.revisions.list,
-	getLastRevision,
-	state => state.pages,
-	getRevisionList
-);
-
-export const makeGetTimestamp = () => (
-	createSelector(
-		( _, props ) => {
-			if ( !props.revision ) {
-				return;
-			}
-
-			return props.revision.timestamp;
-		},
-		( timestamp ) => {
-			if ( !timestamp ) {
-				return;
-			}
-
-			return moment( timestamp, moment.ISO_8601 ).utc();
-		}
-	)
-);
-
-export const makeGetRevisionUrl = () => (
+export const makeGetTitle = () => (
 	createSelector(
 		state => getWiki( state ),
-		( _, props ) => {
-			if ( props.revision ) {
-				return props.revision.id;
-			}
-
-			return;
-		},
 		( _, props ) => {
 			if ( props.revision ) {
 				return props.revision.title;
@@ -48,14 +11,65 @@ export const makeGetRevisionUrl = () => (
 
 			return;
 		},
-		( wiki, id, title ) => {
+		( _, props ) => {
+			if ( props.revision ) {
+				return props.revision.pageNamespace;
+			}
+
+			return;
+		},
+		( wiki, title, namespace ) => {
+			if ( !title ) {
+				return '';
+			}
+
+			if ( typeof namespace === 'undefined' ) {
+				return title;
+			}
+
+			if ( namespace === 0 ) {
+				return title;
+			}
+
+			if ( !wiki.namespaces.has( namespace ) ) {
+				return title;
+			}
+
+			const name = wiki.namespaces.get( namespace ).name;
+
+			return `${name}:${title}`;
+		}
+	)
+);
+
+export const makeGetRevisionUrl = () => {
+	const getTitle = makeGetTitle();
+
+	return createSelector(
+		getWiki,
+		getTitle,
+		( _, props ) => {
+			if ( props.revision ) {
+				return props.revision.id;
+			}
+
+			return;
+		},
+		( wiki, title, id ) => {
 			if ( !wiki || !id || !title ) {
 				return;
 			}
 
 			return `https://${wiki.domain}/wiki/${title.replace( / /g, '_' )}?oldid=${id}`;
 		}
+	);
+};
+
+export const getTimelineRevisions = createSelector(
+	state => state.revisions.list,
+	( revisions ) => (
+		revisions
+			.filter( revision => revision.meta.interaction )
+			.groupBy( revision => revision.timestamp.clone().startOf( 'day' ) )
 	)
 );
-
-export default getRevisions;
