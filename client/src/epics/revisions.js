@@ -109,7 +109,6 @@ export const fetchRevision = ( action$, store ) => (
 			const wiki = store.getState().query.wiki;
 			const domain = store.getState().wikis.get( wiki ).domain;
 
-			// @TODO Add a takeUntil.
 			const request = Observable.ajax( {
 				url: `https://${domain}/w/api.php?action=query&format=json&prop=revisions&revids=${action.id}&formatversion=2&origin=*`,
 				crossDomain: true,
