@@ -20,8 +20,7 @@ const buildRevisionUrl = ( wiki, users, startDate, endDate, cont ) => {
 		return encodeURIComponent( user );
 	} );
 
-	// @TODO Add the domain/path?
-	let url = `${process.env.PUBLIC_PATH}api/enwiki/interaction?wiki=${wiki}&user=${users.join( '|' )}`;
+	let url = `${process.env.PUBLIC_PATH}api/${wiki}/interaction?user=${users.join( '|' )}`;
 
 	if ( startDate ) {
 		url += '&start_date=' + startDate;
@@ -135,7 +134,9 @@ export const doFetchRevisions = ( action$, store ) => (
 		.ofType( 'REVISIONS_FETCH' )
 		.filter( () => store.getState().revisions.status === 'ready' )
 		.filter( () => store.getState().revisions.cont !== false )
-		.flatMap( () => {
+		// If a new fetch is recieved, cancel the old one. We should be careful
+		// to not invoke multiple identical requests.
+		.switchMap( () => {
 			// Set the variables so the request can be canceled if the state
 			// changes.
 			const wiki = store.getState().query.wiki;
@@ -181,14 +182,6 @@ export const doFetchRevisions = ( action$, store ) => (
 				} )
 				// If the query is no longer valid, cancel the request.
 				.takeUntil( action$.ofType( 'REVISIONS_NOT_READY' ) )
-				// If the user is no longer in the query, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_USER_CHANGE' ).filter( a => a.users !== users ) )
-				// If the wiki changes, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_WIKI_CHANGE' ).filter( a => a.wiki !== wiki ) )
-				// If the start date changes, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_START_DATE_CHANGE' ).filter( a => a.startDate !== startDate ) )
-				// If the end date changes, cancel the request.
-				.takeUntil( action$.ofType( 'QUERY_END_DATE_CHANGE' ).filter( a => a.endDate !== endDate ) )
 				.catch( ( error ) => Observable.of( throwError( error ) ) );
 
 			return Observable.concat(

@@ -31,6 +31,7 @@ class DateRevisions extends React.Component {
 			intersection,
 			this.invokeFetch
 		)
+			.filter( isBottomVisable => isBottomVisable )
 			.filter( () => this.props.status === 'ready' )
 			.filter( () => !this.props.empty )
 			.debounceTime( 250 )
