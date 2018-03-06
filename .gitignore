@@ -1,5 +1,6 @@
 /client/node_modules
 /server/vendor
+/server/cache
 /html
 .env
 /etc/ssh/id_rsa

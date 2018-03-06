@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 
@@ -9,6 +10,11 @@ class ConnectionService implements ConnectionServiceInterface {
 
 	/**
 	 * @var array
+	 */
+	private $params;
+
+	/**
+	 * @var Configuration
 	 */
 	private $config;
 
@@ -18,9 +24,11 @@ class ConnectionService implements ConnectionServiceInterface {
 	private $conn;
 
 	/**
-	 * @param array $config
+	 * @param array $params
+	 * @param Configuration $config
 	 */
-	public function __construct( $config ) {
+	public function __construct( $params, Configuration $config ) {
+		$this->params = $params;
 		$this->config = $config;
 	}
 
@@ -42,16 +50,16 @@ class ConnectionService implements ConnectionServiceInterface {
 	 */
 	public function connect( $wiki ) {
 		if ( !isset( $this->conn ) ) {
-			$config = [
+			$params = [
 				'dbname' => $this->getDBName( $wiki ),
-				'user' => $this->config['user'],
-				'password' => $this->config['pass'],
+				'user' => $this->params['user'],
+				'password' => $this->params['pass'],
 				'host' => $this->getHost( $wiki ),
-				'port' => $this->config['port'],
-				'driver' => $this->config['driver']
+				'port' => $this->params['port'],
+				'driver' => $this->params['driver']
 			];
 
-			$this->conn = DriverManager::getConnection( $config );
+			$this->conn = DriverManager::getConnection( $params, $this->config );
 		}
 
 		return $this->conn;
@@ -62,7 +70,7 @@ class ConnectionService implements ConnectionServiceInterface {
 	 * @return string
 	 */
 	private function getHost( $wiki ) {
-		return $wiki . '.' . $this->config['cluster'];
+		return $wiki . '.' . $this->params['cluster'];
 	}
 
 	/**
