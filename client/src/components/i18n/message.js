@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import jQuery from 'jquery';
 
 // @see https://github.com/yahoo/react-intl/blob/v2.4.0/src/components/message.js
-const Message = ( { id, placeholders } ) => {
+const Message = ( { id, placeholders = [] } ) => {
 	if ( !placeholders.length ) {
 		return jQuery.i18n( id );
 	}

@@ -14,6 +14,7 @@
 		"info-no-users": "Ask the user to provide the required number of users.",
 		"info-no-wiki": "Ask the user to provide the required wiki.",
 		"info-required-fields": "Lists the fields required to execute query",
+		"licensed-under": "Label for the liscense: Licensed under GNU GPLv3",
 		"field-label-end-date": "Label for the 'End Date' field",
 		"field-label-start-date": "Label for the 'Start Date' field",
 		"field-label-users": "Label for the 'Users' field",
@@ -21,6 +22,12 @@
 		"field-select-placeholder": "Select field placeholder, displayed when there's no value",
 		"field-select-no-results": "Select field placeholder displayed when there are no matching search results",
 		"field-select-search-prompt": "Select field label to prompt for search input",
+		"made-by": "Footer message that tells the user who made the too: Made by the Wikimedia Foundation's {made-by-team}.",
+		"made-by-team": "The name of the team, linked to the team page, that created teh tool.",
+		"powered-by": "Alt text for the Powered by Wikimedia Toolforge Image",
+		"privacy-policy": "Link to privacy polciy.",
+		"report-bug": "Report a bug link.",
 		"revision-edit-summary-removed": "Message when the edit summary was removed",
+		"view-source-code-on": "Where to view the source code: View on GitHub",
 		"warning-no-results": "A warning that displays when there are no results"
 }

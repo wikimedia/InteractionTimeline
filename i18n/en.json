@@ -14,6 +14,7 @@
 		"info-no-users": "Please provide two users to begin.",
 		"info-no-wiki": "Please provide a wiki to begin.",
 		"info-required-fields": "Please provide two users and wiki to begin.",
+		"licensed-under": "Licensed under $1",
 		"field-label-end-date": "End Date",
 		"field-label-start-date": "Start Date",
 		"field-label-users": "Users",
@@ -21,6 +22,12 @@
 		"field-select-placeholder": "Select...",
 		"field-select-no-results": "No results found",
 		"field-select-search-prompt": "Type to search",
+		"made-by": "Made by the Wikimedia Foundation's $1.",
+		"made-by-team": "Anti-Harassment Tools team",
+		"privacy-policy": "Privacy policy",
+		"powered-by": "Powered by Wikimedia Toolforge",
+		"report-bug": "Report a bug",
 		"revision-edit-summary-removed": "edit summary removed",
+		"view-source-code-on": "View on $1",
 		"warning-no-results": "No Results"
 }
