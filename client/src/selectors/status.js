@@ -9,9 +9,11 @@ export const getStatus = createSelector(
 		if ( status === 'done' && revisions.isEmpty() ) {
 			return 'noresults';
 		} else if ( status === 'notready' ) {
-			if ( wiki && users.count() >= 2 ) {
+			if ( wiki && users.count() < 2 ) {
 				return 'nousers';
-			} else if ( !wiki && !users.isEmpty() ) {
+			}
+
+			if ( !wiki && users.count() >= 2 ) {
 				return 'nowiki';
 			}
 		}

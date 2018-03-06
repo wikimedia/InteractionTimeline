@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import RevisionEntity from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
 import DiffContainer from 'app/components/timeline/diff/diff.container';
+import Link from 'app/components/link';
 import Timelapse from './timelapse';
 import ByteChange from './byte-change';
 import Title from './title';
@@ -23,6 +24,11 @@ class Revision extends React.Component {
 		}
 
 		e.preventDefault();
+
+		// If there is no url, then a diff cannot be retreived.
+		if ( !this.props.url ) {
+			return;
+		}
 
 		this.props.toggleDiff( this.props.diff, this.props.revision.suppressed );
 	}
@@ -93,8 +99,7 @@ class Revision extends React.Component {
 							<div className="col mt-0">
 								<div className="record row h-100 align-items-center justify-content-between">
 									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.revision.timestamp.format( 'HH:mm' )}</div>
-									{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
-									<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
+									<Link href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
 										<div className="row align-items-end">
 											<div className="col">
 												<span className="d-block title">
@@ -108,7 +113,7 @@ class Revision extends React.Component {
 												<ByteChange sizeDiff={this.props.revision.sizeDiff} minor={this.props.revision.minor} />
 											</div>
 										</div>
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'app/components/link';
 
 const Header = ( { children, href, className, side } ) => {
 	if ( !children ) {
@@ -26,12 +27,10 @@ const Header = ( { children, href, className, side } ) => {
 		];
 	}
 
-	const Tag = href ? 'a' : 'div';
-
 	return (
-		<Tag href={href} className={className.join( ' ' )}>
+		<Link href={href} className={className.join( ' ' )}>
 			{children}
-		</Tag>
+		</Link>
 	);
 };
 

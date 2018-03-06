@@ -17,14 +17,11 @@ export default ( state = new OrderedMap(), action ) => {
 			return state;
 		case 'REVISIONS_SET':
 			return action.revisions.sortBy( revision => revision.id );
+		case 'QUERY_USER_CHANGE':
 		case 'QUERY_WIKI_CHANGE':
 		case 'QUERY_START_DATE_CHANGE':
 		case 'QUERY_END_DATE_CHANGE':
 			return new OrderedMap();
-		case 'QUERY_USER_CHANGE':
-			return state.filter( revision => {
-				return action.users.includes( revision.user );
-			} );
 		case 'DIFFS_SHOW_SET':
 			if ( action.show === false && action.diff.fromrevid && state.has( action.diff.fromrevid ) ) {
 				// If the diff was without error, ensure that the from revision is not in

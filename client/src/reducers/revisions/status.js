@@ -11,7 +11,7 @@ export default ( state = 'notready', action ) => {
 
 			return state;
 		case 'QUERY_USER_CHANGE':
-			if ( action.users.count() >= 2 ) {
+			if ( action.users.count() < 2 ) {
 				return 'notready';
 			}
 

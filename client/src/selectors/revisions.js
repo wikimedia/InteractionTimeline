@@ -31,6 +31,10 @@ export const makeGetTitle = () => (
 				return title;
 			}
 
+			if ( !wiki ) {
+				return title;
+			}
+
 			if ( !wiki.namespaces.has( namespace ) ) {
 				return title;
 			}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import createIntersectionObservable from 'app/utils/intersection';
 import DateListContainer from './date-list.container';
 
@@ -9,7 +9,6 @@ class DateRevisions extends React.Component {
 		super( props );
 
 		this.invokeFetch = new Subject();
-		this.isBottomVisable = false;
 	}
 
 	componentDidMount() {
@@ -18,19 +17,9 @@ class DateRevisions extends React.Component {
 			rootMargin: '0px 0px 20% 0px'
 		};
 
-		const intersection = createIntersectionObservable( this.bottom, options )
-			.map( entry => entry.isIntersecting );
-
-		// Set a property for use when the component is updated.
-		intersection.subscribe( isBottomVisable => {
-			this.isBottomVisable = isBottomVisable;
-		} );
-
 		// Create the infinite scroll.
-		this.infinite = Observable.merge(
-			intersection,
-			this.invokeFetch
-		)
+		this.infinite = createIntersectionObservable( this.bottom, options )
+			.map( entry => entry.isIntersecting )
 			.filter( isBottomVisable => isBottomVisable )
 			.filter( () => this.props.status === 'ready' )
 			.filter( () => !this.props.empty )
@@ -47,11 +36,6 @@ class DateRevisions extends React.Component {
 
 				return this.props.fetchList();
 			} );
-	}
-
-	componentDidUpdate() {
-		// Attemt to get more revisions if necessary.
-		this.invokeFetch.next( this.isBottomVisable );
 	}
 
 	componentWillUnmount() {
