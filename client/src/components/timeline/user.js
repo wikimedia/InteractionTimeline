@@ -10,8 +10,13 @@ const User = ( { user, side, wiki } ) => {
 		);
 	}
 
+	let href;
+	if ( wiki ) {
+		href = `https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`;
+	}
+
 	return (
-		<Header href={`https://${wiki.domain}/wiki/User:${user.replace( / /g, '_' )}`} className="rounded" side={side}>
+		<Header href={href} className="rounded" side={side}>
 			<i className="mr-2 material-icons">person</i>
 			<span>{user}</span>
 		</Header>
@@ -21,12 +26,13 @@ const User = ( { user, side, wiki } ) => {
 User.propTypes = {
 	user: PropTypes.string,
 	side: PropTypes.string,
-	wiki: PropTypes.instanceOf( Wiki ).isRequired
+	wiki: PropTypes.instanceOf( Wiki )
 };
 
 User.defaultProps = {
 	user: undefined,
-	side: undefined
+	side: undefined,
+	wiki: undefined
 };
 
 export default User;

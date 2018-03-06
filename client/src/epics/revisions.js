@@ -40,9 +40,9 @@ const buildRevisionUrl = ( wiki, users, startDate, endDate, cont ) => {
 // Dispatch an action when the query changes from ready to not ready (or vice-versa)
 export const revisionsReady = ( action$, store ) => (
 	action$
-		.filter( ( action ) => [ ...QUERY_EVENTS, 'WIKIS_SET', 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
+		.filter( ( action ) => [ ...QUERY_EVENTS, 'REVISIONS_ERROR_CLEAR' ].includes( action.type ) )
 		// Determine if the query is ready or not.
-		.map( () => !!store.getState().query.wiki && !store.getState().wikis.isEmpty() && store.getState().query.user.count() >= 2 )
+		.map( () => !!store.getState().query.wiki && store.getState().query.user.count() >= 2 )
 		// Wait until the status has changed.
 		.filter( ready => !( ready && store.getState().revisions.status === 'ready' ) )
 		.filter( ready => !( !ready && store.getState().revisions.status === 'notready' ) )
@@ -55,7 +55,6 @@ export const revisionsReady = ( action$, store ) => (
 export const shouldFetchRevisions = ( action$, store ) => (
 	action$.filter( ( action ) => [
 		...QUERY_EVENTS,
-		'WIKIS_SET',
 		'REVISIONS_READY'
 	].includes( action.type ) )
 		.filter( () => store.getState().revisions.status === 'ready' )

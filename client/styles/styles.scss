@@ -129,21 +129,21 @@ footer {
 	background-color: $gray-300;
 	text-decoration: none;
 	color: $body-color;
-	&:hover {
+	&a:hover {
 		text-decoration: none;
 		background-color: $gray-200;
 	}
 	&.left {
 		background-color: map-get($timeline-bg, "left");
 		color: $timeline-text;
-		&:hover {
+		&a:hover {
 			background-color: lighten(map-get($timeline-bg, "left"), 5%);
 		}
 	}
 	&.right {
 		background-color: map-get($timeline-bg, "right");
 		color: $timeline-text;
-		&:hover {
+		&a:hover {
 			background-color: lighten(map-get($timeline-bg, "right"), 5%);
 		}
 	}
@@ -151,7 +151,7 @@ footer {
 		min-height: inherit;
 		background-color: theme-color("danger");
 		color: $white;
-		&:hover {
+		&a:hover {
 			background-color: lighten(theme-color("danger"), 5%);
 		}
 	}
@@ -200,7 +200,7 @@ footer {
 		}
 		.content {
 			background-color: map-get($timeline-bg, "left");
-			&:hover {
+			&a:hover {
 				background-color: lighten(map-get($timeline-bg, "left"), 5%);
 			}
 		}
@@ -209,7 +209,7 @@ footer {
 	&.right {
 		.content {
 			background-color: map-get($timeline-bg, "right");
-			&:hover {
+			&a:hover {
 				background-color: lighten(map-get($timeline-bg, "right"), 5%);
 			}
 		}
