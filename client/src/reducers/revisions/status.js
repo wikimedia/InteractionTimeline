@@ -1,6 +1,6 @@
 export default ( state = 'notready', action ) => {
 	switch ( action.type ) {
-		case 'REVISIONS_FETCH':
+		case 'REVISIONS_FETCHING':
 			return 'fetching';
 		case 'REVISIONS_READY':
 			return 'ready';
@@ -22,6 +22,8 @@ export default ( state = 'notready', action ) => {
 			return 'done';
 		case 'REVISIONS_ERROR':
 			return 'error';
+		case 'REVISIONS_ADD':
+			return action.cont === false ? 'done' : 'ready';
 		default:
 			return state;
 	}

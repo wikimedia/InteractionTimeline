@@ -9,12 +9,11 @@ const RevisionList = ( { revisions, last } ) => {
 	let prev = last;
 
 	return revisions.map( ( revision ) => {
-		const timestamp = moment( revision.timestamp, moment.ISO_8601 ).utc();
 		let duration;
 
 		// If we are switching sides, show the duraction.
 		if ( prev && prev.user !== revision.user ) {
-			duration = moment.duration( moment( prev.timestamp, moment.ISO_8601 ).utc().diff( timestamp ) );
+			duration = moment.duration( prev.timestamp.diff( revision.timestamp ) );
 		}
 
 		// Set the previous state for

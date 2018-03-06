@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Set, Map } from 'immutable';
 import { Subject, Observable } from 'rxjs';
 import createIntersectionObservable from 'app/utils/intersection';
-import DateList from './date-list';
+import DateListContainer from './date-list.container';
 
 class DateRevisions extends React.Component {
 	constructor( props ) {
@@ -14,10 +13,6 @@ class DateRevisions extends React.Component {
 	}
 
 	componentDidMount() {
-		const badStatus = [
-			'done',
-			'notready'
-		];
 
 		const options = {
 			rootMargin: '0px 0px 20% 0px'
@@ -37,20 +32,20 @@ class DateRevisions extends React.Component {
 			this.invokeFetch
 		)
 			.filter( isBottomVisable => isBottomVisable )
-			.filter( () => !badStatus.includes( this.props.status ) )
-			.filter( () => !this.props.revisions.isEmpty() )
+			.filter( () => this.props.status === 'ready' )
+			.filter( () => !this.props.empty )
 			.debounceTime( 250 )
 			.subscribe( () => {
 				// The debounce delays the immisions so the props may not be the same.
-				if ( badStatus.includes( this.props.status ) ) {
+				if ( this.props.status !== 'ready' ) {
 					return;
 				}
 
-				if ( this.props.revisions.isEmpty() ) {
+				if ( this.props.empty ) {
 					return;
 				}
 
-				return this.props.fetchList( new Set( [ this.props.revisions.last().user ] ) );
+				return this.props.fetchList();
 			} );
 	}
 
@@ -67,7 +62,7 @@ class DateRevisions extends React.Component {
 		return (
 			<div className="row date-revisions">
 				<div className="col ml-3 mr-3 pt-3">
-					<DateList revisions={this.props.revisions} />
+					<DateListContainer />
 					<div ref={( element ) => { this.bottom = element; }} />
 				</div>
 			</div>
@@ -76,7 +71,7 @@ class DateRevisions extends React.Component {
 }
 
 DateRevisions.propTypes = {
-	revisions: PropTypes.instanceOf( Map ).isRequired,
+	empty: PropTypes.bool.isRequired,
 	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	fetchList: PropTypes.func.isRequired
 };

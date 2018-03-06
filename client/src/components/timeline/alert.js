@@ -12,11 +12,11 @@ const Alert = ( { type, children } ) => {
 
 	return (
 		<div className={`alert alert-${color}`} role="alert">
-			<div className="d-flex align-items-top">
-				<div>
+			<div className="row align-items-top">
+				<div className="col-auto pr-0">
 					<i className="mr-2 material-icons">{icon}</i>
 				</div>
-				<div>
+				<div className="col">
 					{children}
 				</div>
 			</div>

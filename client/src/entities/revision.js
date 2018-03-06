@@ -1,16 +1,18 @@
 import { Record } from 'immutable';
+import moment from 'moment';
 import RevisionMeta from './revision-meta';
 
 export default class Revision extends Record( {
 	id: undefined,
-	pageid: undefined,
+	pageId: undefined,
+	pageNamespace: undefined,
 	title: undefined,
 	user: undefined,
-	timestamp: undefined,
+	timestamp: moment(),
 	minor: false,
-	sizediff: 0,
+	sizeDiff: 0,
 	comment: undefined,
-	commenthidden: false,
+	commentHidden: false,
 	suppressed: false,
 	meta: new RevisionMeta()
 }, 'Revision' ) {

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ByteChange = ( { sizediff, minor } ) => {
-	let size = '(' + ( sizediff > 0 ? '+' : '' ) + sizediff + ')';
+const ByteChange = ( { sizeDiff, minor } ) => {
+	let size = '(' + ( sizeDiff > 0 ? '+' : '' ) + sizeDiff + ')';
 
-	if ( sizediff > 500 || sizediff < -500 ) {
+	if ( sizeDiff > 500 || sizeDiff < -500 ) {
 		size = <strong>{size}</strong>;
 	}
 
@@ -20,7 +20,7 @@ const ByteChange = ( { sizediff, minor } ) => {
 };
 
 ByteChange.propTypes = {
-	sizediff: PropTypes.number.isRequired,
+	sizeDiff: PropTypes.number.isRequired,
 	minor: PropTypes.bool.isRequired
 };
 

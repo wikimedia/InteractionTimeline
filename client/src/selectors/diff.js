@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import Revision from 'app/entities/revision';
+import { makeGetTitle } from './revisions';
 import { getWiki } from './wiki';
 
 const getRevision = ( revisions, id ) => {
@@ -41,9 +42,12 @@ export const makeGetDiff = () => (
 	)
 );
 
-export const makeGetDiffUrl = () => (
-	createSelector(
-		state => getWiki( state ),
+export const makeGetDiffUrl = () => {
+	const getTitle = makeGetTitle();
+
+	return createSelector(
+		getWiki,
+		getTitle,
 		( _, props ) => {
 			if ( props.revision ) {
 				return props.revision.id;
@@ -51,19 +55,12 @@ export const makeGetDiffUrl = () => (
 
 			return;
 		},
-		( _, props ) => {
-			if ( props.revision ) {
-				return props.revision.title;
-			}
-
-			return;
-		},
-		( wiki, id, title ) => {
+		( wiki, title, id ) => {
 			if ( !wiki || !id || !title ) {
 				return;
 			}
 
 			return `https://${wiki.domain}/wiki/${title.replace( / /g, '_' )}?diff=prev&oldid=${id}`;
 		}
-	)
-);
+	);
+};
