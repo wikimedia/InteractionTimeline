@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RevisionEntity from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
 import DiffContainer from 'app/components/timeline/diff/diff.container';
-import moment from 'moment';
+import Link from 'app/components/link';
 import Timelapse from './timelapse';
 import ByteChange from './byte-change';
 import Title from './title';
@@ -24,6 +24,11 @@ class Revision extends React.Component {
 		}
 
 		e.preventDefault();
+
+		// If there is no url, then a diff cannot be retreived.
+		if ( !this.props.url ) {
+			return;
+		}
 
 		this.props.toggleDiff( this.props.diff, this.props.revision.suppressed );
 	}
@@ -93,23 +98,22 @@ class Revision extends React.Component {
 						<div className="wrapper h-100 row">
 							<div className="col mt-0">
 								<div className="record row h-100 align-items-center justify-content-between">
-									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.timestamp.format( 'HH:mm' )}</div>
-									{/* @TODO Change this to an anchored link on the timeline (with the diff opened). */}
-									<a href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
+									<div className="col-xxl-1 col-xl-2 col-4 align-self-center timestamp">{this.props.revision.timestamp.format( 'HH:mm' )}</div>
+									<Link href={this.props.url} className={linkClassName.join( ' ' )} onClick={this.handleClick}>
 										<div className="row align-items-end">
 											<div className="col">
 												<span className="d-block title">
-													<Title title={this.props.revision.title} comment={this.props.revision.comment} />
+													<Title title={this.props.title} comment={this.props.revision.comment} />
 												</span>
 												<span className="d-block comment">
-													<Comment comment={this.props.revision.comment} commenthidden={this.props.revision.commenthidden} />
+													<Comment comment={this.props.revision.comment} commentHidden={this.props.revision.commentHidden} />
 												</span>
 											</div>
 											<div className="col-auto">
-												<ByteChange sizediff={this.props.revision.sizediff} minor={this.props.revision.minor} />
+												<ByteChange sizeDiff={this.props.revision.sizeDiff} minor={this.props.revision.minor} />
 											</div>
 										</div>
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>
@@ -124,11 +128,11 @@ class Revision extends React.Component {
 Revision.propTypes = {
 	side: PropTypes.oneOf( [ 'left', 'right' ] ),
 	revision: PropTypes.instanceOf( RevisionEntity ).isRequired,
-	timestamp: PropTypes.instanceOf( moment ).isRequired,
 	duration: PropTypes.shape( {
 		humanize: PropTypes.func,
 		asSeconds: PropTypes.func
 	} ),
+	title: PropTypes.string,
 	url: PropTypes.string,
 	diff: PropTypes.instanceOf( DiffEntity ).isRequired,
 	toggleDiff: PropTypes.func.isRequired
@@ -136,6 +140,7 @@ Revision.propTypes = {
 
 Revision.defaultProps = {
 	side: undefined,
+	title: undefined,
 	duration: undefined,
 	url: undefined
 };

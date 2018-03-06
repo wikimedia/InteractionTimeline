@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
-import getRevisions from 'app/selectors/revisions';
 import { fetchRevisions } from 'app/actions/revisions';
 import DateRevisions from './date-revisions';
 
 export default connect(
 	state => ( {
-		revisions: getRevisions( state ),
+		empty: state.revisions.list.isEmpty(),
 		status: state.revisions.status
 	} ),
 	dispatch => ( {
-		fetchList: users => dispatch( fetchRevisions( users ) )
+		fetchList: () => dispatch( fetchRevisions() )
 	} ),
 )( DateRevisions );

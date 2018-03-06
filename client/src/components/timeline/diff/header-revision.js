@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import Message from 'app/components/i18n/message';
 import RevisionEntity from 'app/entities/revision';
 import Header from 'app/components/timeline/header';
@@ -51,7 +50,7 @@ class HeaderRevision extends React.PureComponent {
 		return (
 			<Header href={this.props.url} side={this.props.side} className="text-center">
 				{this.props.revision.user}<br />
-				{this.props.timestamp.format( 'YYYY-MM-DD' )} &mdash; {this.props.timestamp.format( 'HH:mm' )}
+				{this.props.revision.timestamp.format( 'YYYY-MM-DD' )} &mdash; {this.props.revision.timestamp.format( 'HH:mm' )}
 			</Header>
 		);
 	}
@@ -61,14 +60,12 @@ HeaderRevision.propTypes = {
 	fetchRevision: PropTypes.func.isRequired,
 	revision: PropTypes.instanceOf( RevisionEntity ),
 	url: PropTypes.string,
-	timestamp: PropTypes.instanceOf( moment ),
 	side: PropTypes.string
 };
 
 HeaderRevision.defaultProps = {
 	revision: undefined,
 	url: undefined,
-	timestamp: undefined,
 	side: undefined
 };
 

@@ -129,37 +129,44 @@ footer {
 	background-color: $gray-300;
 	text-decoration: none;
 	color: $body-color;
-	&:hover {
-		text-decoration: none;
-		background-color: $gray-200;
-	}
 	&.left {
 		background-color: map-get($timeline-bg, "left");
 		color: $timeline-text;
-		&:hover {
-			background-color: lighten(map-get($timeline-bg, "left"), 5%);
-		}
 	}
 	&.right {
 		background-color: map-get($timeline-bg, "right");
 		color: $timeline-text;
-		&:hover {
-			background-color: lighten(map-get($timeline-bg, "right"), 5%);
-		}
 	}
 	&.error {
 		min-height: inherit;
 		background-color: theme-color("danger");
 		color: $white;
-		&:hover {
-			background-color: lighten(theme-color("danger"), 5%);
-		}
+	}
+}
+
+.timeline a.user {
+	&:hover {
+		text-decoration: none;
+		background-color: $gray-200;
+	}
+	&.left:hover {
+		background-color: lighten(map-get($timeline-bg, "left"), 5%);
+	}
+	&.right:hover {
+		background-color: lighten(map-get($timeline-bg, "right"), 5%);
+	}
+	&.error:hover {
+		background-color: lighten(theme-color("danger"), 5%);
 	}
 }
 
 .date-revisions,
 .status.has-content {
 	background-color: $gray-100;
+}
+
+.status .wrapper {
+	min-height: 1.6rem;
 }
 
 .date-revisions .day {
@@ -196,18 +203,18 @@ footer {
 		}
 		.content {
 			background-color: map-get($timeline-bg, "left");
-			&:hover {
-				background-color: lighten(map-get($timeline-bg, "left"), 5%);
-			}
+		}
+		a.content:hover {
+			background-color: lighten(map-get($timeline-bg, "left"), 5%);
 		}
 	}
 
 	&.right {
 		.content {
 			background-color: map-get($timeline-bg, "right");
-			&:hover {
-				background-color: lighten(map-get($timeline-bg, "right"), 5%);
-			}
+		}
+		a.content:hover {
+			background-color: lighten(map-get($timeline-bg, "right"), 5%);
 		}
 		.timestamp,
 		.timelapse {

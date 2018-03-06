@@ -1,9 +1,8 @@
 import { Map } from 'immutable';
 
-export function fetchRevisions( users ) {
+export function fetchRevisions() {
 	return {
-		type: 'REVISIONS_FETCH',
-		users
+		type: 'REVISIONS_FETCH'
 	};
 }
 
@@ -35,6 +34,12 @@ export function addRevision( revision ) {
 	};
 }
 
+export function setStatusFetching() {
+	return {
+		type: 'REVISIONS_FETCHING'
+	};
+}
+
 export function setStatusReady() {
 	return {
 		type: 'REVISIONS_READY'
@@ -53,11 +58,10 @@ export function setStatusDone() {
 	};
 }
 
-export function addRevisions( revisions, pages = new Map(), cont = new Map() ) {
+export function addRevisions( revisions, cont = '' ) {
 	return {
 		type: 'REVISIONS_ADD',
 		revisions,
-		pages,
 		cont
 	};
 }
