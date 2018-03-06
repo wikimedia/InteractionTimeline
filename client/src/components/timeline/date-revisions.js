@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import createIntersectionObservable from 'app/utils/intersection';
 import DateListContainer from './date-list.container';
 
