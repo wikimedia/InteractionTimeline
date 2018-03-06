@@ -29,7 +29,7 @@ class ErrorBoundary extends React.PureComponent {
 
 	render() {
 		if ( this.state.error === null ) {
-			// return this.props.children;
+			return this.props.children;
 		}
 
 		this.state.error = new Error( 'TEST' );
