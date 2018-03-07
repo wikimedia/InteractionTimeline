@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Dao\RevisionDao;
+use App\Dao\UserDao;
 
 class InteractionService {
 
@@ -12,10 +13,17 @@ class InteractionService {
 	private $revisionDao;
 
 	/**
-	 * @param RevisionDao $revisionDao
+	 * @var UserDao
 	 */
-	public function __construct( RevisionDao $revisionDao ) {
+	private $userDao;
+
+	/**
+	 * @param RevisionDao $revisionDao
+	 * @param UserDao $userDao
+	 */
+	public function __construct( RevisionDao $revisionDao, UserDao $userDao ) {
 		$this->revisionDao = $revisionDao;
+		$this->userDao = $userDao;
 	}
 
 	/**
@@ -27,13 +35,31 @@ class InteractionService {
 	 * @return array
 	 */
 	public function getInteraction(
-		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+		array $users, $startDate = null, $endDate = null, $limit = 50, $continue = null
 	) {
 		$this->validateUsers( $users );
 		$this->validateLimit( $limit );
 
+		// get user ids from usernames
+		$userIds = array_map( function ( $username ) {
+			$userId = $this->userDao->getUserId( $username );
+			if ( !$userId ) {
+				throw new \InvalidArgumentException( sprintf( 'username %s could not be found', $username ) );
+			}
+			return $userId;
+		}, $users );
+
+		// get sensible starting date if no date is provided
+		if ( !$startDate ) {
+			$startDate = $this->getDefaultStartingDate( $userIds );
+			// make sure the default start date is before the endDate
+			if ( $endDate && $startDate >= $endDate ) {
+				$startDate = null;
+			}
+		}
+
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
-				$users,  $startDate, $endDate, $limit, $continue
+				$userIds,  $startDate, $endDate, $limit, $continue
 		);
 
 		$revisions = [];
@@ -46,10 +72,20 @@ class InteractionService {
 	}
 
 	/**
+	 * @param int[] $users
+	 * @return null|int
+	 */
+	private function getDefaultStartingDate( array $users ) {
+		$dates = $this->revisionDao->getUsersFirstEditDate( $users );
+
+		return ( !$dates ) ? null : strtotime( max( $dates ) . '-1 day midnight' );
+	}
+
+	/**
 	 * @param int[] $revisions
 	 * @return array
 	 */
-	private function parseAndMapRevisions( $revisions ) {
+	private function parseAndMapRevisions( array $revisions ) {
 		$interaction = [];
 		foreach ( $revisions as $revision ) {
 			$revision = [
@@ -82,7 +118,7 @@ class InteractionService {
 
 	/**
 	 * @param int $limit
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	private function validateLimit( $limit ) {
 		if ( $limit <= 0 ) {
@@ -92,9 +128,9 @@ class InteractionService {
 
 	/**
 	 * @param string[] $users
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
-	private function validateUsers( $users ) {
+	private function validateUsers( array $users ) {
 		if ( count( $users ) < 2 ) {
 			throw new \InvalidArgumentException( 'at least 2 users should be provided' );
 		}
