@@ -18,8 +18,20 @@ $container['errorHandler'] = function ( $c ) {
 	return new App\AppErrorHandler( $logger );
 };
 
+$container['redis'] = function ( $c ) {
+	$config = $c->get( 'settings' )['redis'];
+
+	$redis = new \Redis();
+	$redis->connect( $config['host'], $config['port'] );
+
+	return $redis;
+};
+
 $container['dbalCache'] = function ( $c ) {
-	return new Doctrine\Common\Cache\FilesystemCache( __DIR__ . '/../cache' );
+	$cacheProvider = new Doctrine\Common\Cache\RedisCache();
+	$cacheProvider->setRedis( $c->get( 'redis' ) );
+
+	return $cacheProvider;
 };
 
 $container['connectionService'] = function ( $c ) {

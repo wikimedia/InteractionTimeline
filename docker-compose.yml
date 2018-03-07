@@ -13,6 +13,7 @@ services:
       - ./:/var/www:cached
     links:
       - enwiki.db-replica
+      - redis
   watch:
     image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
     working_dir: /code/client/
@@ -20,6 +21,8 @@ services:
       - ./bin/watch
     volumes:
       - ./:/code:cached
+  redis:
+    image: redis
   enwiki.db-replica:
     build:
       context: .

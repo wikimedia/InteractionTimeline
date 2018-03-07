@@ -41,17 +41,21 @@ class InteractionService {
 		$this->validateLimit( $limit );
 
 		// get user ids from usernames
-		foreach ( $users as $username ) {
+		$userIds = array_map( function ( $username ) {
 			$userId = $this->userDao->getUserId( $username );
 			if ( !$userId ) {
 				throw new \InvalidArgumentException( sprintf( 'username %s could not be found', $username ) );
 			}
-			$userIds[] = $userId;
-		}
+			return $userId;
+		}, $users );
 
 		// get sensible starting date if no date is provided
-		if ( !$startDate && !$endDate ) {
+		if ( !$startDate ) {
 			$startDate = $this->getDefaultStartingDate( $userIds );
+			// make sure the default start date is before the endDate
+			if ( $endDate && $startDate >= $endDate ) {
+				$startDate = null;
+			}
 		}
 
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
