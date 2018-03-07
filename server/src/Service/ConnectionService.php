@@ -27,7 +27,7 @@ class ConnectionService implements ConnectionServiceInterface {
 	 * @param array $params
 	 * @param Configuration $config
 	 */
-	public function __construct( $params, Configuration $config ) {
+	public function __construct( array $params, Configuration $config ) {
 		$this->params = $params;
 		$this->config = $config;
 	}

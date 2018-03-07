@@ -18,6 +18,7 @@ return [
 		'redis' => [
 			'host' => getenv( 'REDIS_HOST' ),
 			'port' => getenv( 'REDIS_PORT' ),
+			'prefix' => getenv( 'REDIS_KEY_PREFIX' ),
 		],
 
 		// monolog settings

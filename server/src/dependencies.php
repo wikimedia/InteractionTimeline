@@ -23,6 +23,7 @@ $container['redis'] = function ( $c ) {
 
 	$redis = new \Redis();
 	$redis->connect( $config['host'], $config['port'] );
+	$redis->setOption( \Redis::OPT_PREFIX, $config['prefix'] );
 
 	return $redis;
 };

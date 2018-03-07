@@ -17,7 +17,7 @@ class RevisionDao extends AbstractDao {
 	 * @return array
 	 */
 	public function getUserRevisionsInCommonPages(
-		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+		array $users, $startDate = null, $endDate = null, $limit = 50, $continue = null
 	) {
 		$pages = $this->getUsersCommonPages( $users );
 
@@ -52,7 +52,7 @@ class RevisionDao extends AbstractDao {
 	 * @param int[] $users
 	 * @return array
 	 */
-	public function getUsersCommonPages( $users ) {
+	public function getUsersCommonPages( array $users ) {
 		$query = $this->conn->createQueryBuilder();
 		$query->select( 'rev_page' )
 			->from( 'revision_userindex' )
@@ -102,7 +102,7 @@ class RevisionDao extends AbstractDao {
 	 * @param int[] $users
 	 * @return array
 	 */
-	public function getUsersFirstEditDate( $users ) {
+	public function getUsersFirstEditDate( array $users ) {
 		$pages = $this->getUsersCommonPages( $users );
 
 		// build query to find interaction between users in common pages

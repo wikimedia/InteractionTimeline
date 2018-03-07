@@ -11,7 +11,7 @@ abstract class AbstractDao {
 	/**
 	 * Cache TTL default value
 	 */
-	const CONST_CACHE_TTL = 3600;
+	const CONST_CACHE_TTL = 86400;
 
 	/**
 	 * @var \Doctrine\DBAL\Connection

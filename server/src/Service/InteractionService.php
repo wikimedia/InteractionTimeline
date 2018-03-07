@@ -35,7 +35,7 @@ class InteractionService {
 	 * @return array
 	 */
 	public function getInteraction(
-		$users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+		array $users, $startDate = null, $endDate = null, $limit = 50, $continue = null
 	) {
 		$this->validateUsers( $users );
 		$this->validateLimit( $limit );
@@ -75,7 +75,7 @@ class InteractionService {
 	 * @param int[] $users
 	 * @return null|int
 	 */
-	private function getDefaultStartingDate( $users ) {
+	private function getDefaultStartingDate( array $users ) {
 		$dates = $this->revisionDao->getUsersFirstEditDate( $users );
 
 		return ( !$dates ) ? null : strtotime( max( $dates ) . '-1 day midnight' );
@@ -85,7 +85,7 @@ class InteractionService {
 	 * @param int[] $revisions
 	 * @return array
 	 */
-	private function parseAndMapRevisions( $revisions ) {
+	private function parseAndMapRevisions( array $revisions ) {
 		$interaction = [];
 		foreach ( $revisions as $revision ) {
 			$revision = [
@@ -130,7 +130,7 @@ class InteractionService {
 	 * @param string[] $users
 	 * @throws \InvalidArgumentException
 	 */
-	private function validateUsers( $users ) {
+	private function validateUsers( array $users ) {
 		if ( count( $users ) < 2 ) {
 			throw new \InvalidArgumentException( 'at least 2 users should be provided' );
 		}
