@@ -3,17 +3,23 @@
 namespace App\Dao;
 
 use App\Service\ConnectionServiceInterface;
+use Doctrine\DBAL\Cache\QueryCacheProfile;
 use Psr\Log\LoggerInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 abstract class AbstractDao {
+	/**
+	 * Cache TTL default value
+	 */
+	const CONST_CACHE_TTL = 86400;
+
 	/**
 	 * @var \Doctrine\DBAL\Connection
 	 */
 	protected $conn;
 
 	/**
-	 * @var
+	 * @var LoggerInterface
 	 */
 	protected $logger;
 
@@ -47,13 +53,10 @@ abstract class AbstractDao {
 				->setParameter( ':indexKey', $indexKey );
 		}
 
-		$this->logger->debug( $qb->getSQL(), $qb->getParameters() );
-
 		$limit = $qb->getMaxResults();
 		$qb->setMaxResults( $limit + 1 );
 
-		$stmt = $qb->execute();
-		$results = $stmt->fetchAll( $fetchMode );
+		$results = $this->fetchAll( $qb, $fetchMode, true );
 
 		// if we have limit + 1, create continue token and remove extra row
 		if ( count( $results ) > $limit ) {
@@ -73,5 +76,36 @@ abstract class AbstractDao {
 		}
 
 		return [ $results, $continue ];
+	}
+
+	/**
+	 * Fetch all with the option of caching results
+	 *
+	 * @param QueryBuilder $qb
+	 * @param int $fetchMode
+	 * @param bool $cache
+	 * @param int $ttl
+	 * @return array
+	 */
+	protected function fetchAll(
+		QueryBuilder $qb, $fetchMode, $cache = false, $ttl = self::CONST_CACHE_TTL
+	) {
+		if ( $cache ) {
+			$qpf = new QueryCacheProfile( $ttl );
+		}
+
+		$stmt = $this->conn->executeQuery(
+			$qb->getSQL(),
+			$qb->getParameters(),
+			$qb->getParameterTypes(),
+			( $qpf ) ? $qpf : null
+		);
+
+		$results = $stmt->fetchAll( $fetchMode );
+
+		// this is where Doctrine DBAL caches results
+		$stmt->closeCursor();
+
+		return $results;
 	}
 }

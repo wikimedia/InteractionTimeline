@@ -17,7 +17,12 @@ class InteractionServiceTest extends TestCase {
 			->with( $this->equalto( [ 1 ] ) )
 			->willReturn( [ $this->getRevisionDetails() ] );
 
-		$service = new InteractionService( $revisionDao );
+		$userDao = $this->createMock( \App\Dao\UserDao::class );
+		$userDao->expects( $this->any() )
+			->method( 'getUserId' )
+			->willReturn( 1 );
+
+		$service = new InteractionService( $revisionDao, $userDao );
 		$users = [ 'user-1', 'user-2' ];
 		list( $interaction, $continue ) = $service->getInteraction( $users );
 
@@ -28,15 +33,32 @@ class InteractionServiceTest extends TestCase {
 	/**
 	 * @dataProvider providerInvalidParams
 	 */
-	public function testInteractionWithInvalidParams(
+	public function testInteractionFailsWithInvalidParams(
 		$users, $startDate, $endDate, $limit, $continue
 	) {
 		$revisionDao = $this->createMock( \App\Dao\RevisionDao::class );
+		$userDao = $this->createMock( \App\Dao\UserDao::class );
 
-		$service = new InteractionService( $revisionDao );
+		$service = new InteractionService( $revisionDao, $userDao );
 
 		$this->expectException( \InvalidArgumentException::class );
 		$service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
+	}
+
+	public function testInteractionFailsWithNoUserIdsFound() {
+		$revisionDao = $this->createMock( \App\Dao\RevisionDao::class );
+		$userDao = $this->createMock( \App\Dao\UserDao::class );
+
+		$userDao->expects( $this->any() )
+			->method( 'getUserId' )
+			->willReturn( null );
+
+		$service = new InteractionService( $revisionDao, $userDao );
+
+		$this->expectException( \InvalidArgumentException::class );
+
+		$users = [ 'user-1', 'user-2' ];
+		$service->getInteraction( $users );
 	}
 
 	public function providerInvalidParams() {
