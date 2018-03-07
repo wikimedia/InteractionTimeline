@@ -34,5 +34,11 @@ export default [
 		domain: 'wikisource.org',
 		code: 'sources',
 		family: 'wiki'
+	},
+	{
+		id: 'mediawikiwiki',
+		domain: 'mediawiki.org',
+		code: 'mediawiki',
+		family: 'wiki'
 	}
 ];
