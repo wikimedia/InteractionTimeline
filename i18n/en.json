@@ -10,7 +10,7 @@
 		"error-help-report": "Report the error",
 		"error-help-refresh": "refresh the page",
 		"error-message-request-url": "Request URL",
-		"error-supressed-diff": "You cannot view this diff because one or both of the revisions has been suppressed.",
+		"error-suppressed-diff": "You cannot view this diff because one or both of the revisions has been suppressed.",
 		"info-no-users": "Please provide two users to begin.",
 		"info-no-wiki": "Please provide a wiki to begin.",
 		"info-required-fields": "Please provide two users and wiki to begin.",

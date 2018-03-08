@@ -80,7 +80,7 @@ const Diff = ( { revision, diff, side, closeDiff } ) => {
 				<div className="col-12 pt-2">
 					<div className="row align-items-center justify-content-center">
 						<div className="col text-center">
-							<Message id="error-supressed-diff" />
+							<Message id="error-suppressed-diff" />
 						</div>
 					</div>
 				</div>
