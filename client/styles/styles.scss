@@ -245,7 +245,7 @@ footer {
 		margin-left:  -($timeline-width / 2);
 		&:before {
 			background-color: map-get($timeline-bg, "right");
-			margin-left: -0.85rem;
+			margin-left: -0.80rem;
 		}
 	}
 
@@ -255,7 +255,7 @@ footer {
 		margin-left: -($timeline-width / 2) - 1;
 		&:before {
 			background-color: map-get($timeline-bg, "left");
-			margin-right: -0.85rem;
+			margin-right: -0.80rem;
 		}
 	}
 }
