@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import Message from 'app/components/i18n/message';
 import REGEX_EDIT_SUMMARY_PARTS from './edit-summary-parts';
 
 const Comment = ( { comment, commentHidden } ) => {
@@ -8,7 +8,7 @@ const Comment = ( { comment, commentHidden } ) => {
 		return (
 			<em>
 				<del>
-					<FormattedMessage id="revision-edit-summary-removed" />
+					<Message id="revision-edit-summary-removed" />
 				</del>
 			</em>
 		);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Revision from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
+import Message from 'app/components/i18n/message';
 import Spinner from 'app/components/timeline/spinner';
 import ErrorMessage from 'app/components/timeline/error-message';
 import HeaderContainer from './header.container';
@@ -74,13 +75,12 @@ const Diff = ( { revision, diff, side, closeDiff } ) => {
 	}
 
 	if ( revision.suppressed ) {
-		// @TODO Translate
 		return (
 			<div className={className.join( ' ' )}>
 				<div className="col-12 pt-2">
 					<div className="row align-items-center justify-content-center">
 						<div className="col text-center">
-							You cannot view this diff because one or both of the revisions has been suppressed.
+							<Message id="error-suppressed-diff" />
 						</div>
 					</div>
 				</div>

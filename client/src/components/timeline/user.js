@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Wiki from 'app/entities/wiki';
+import 'material-design-icons/iconfont/material-icons.css';
 import Header from './header';
 
 const User = ( { user, side, wiki } ) => {

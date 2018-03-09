@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'material-design-icons/iconfont/material-icons.css';
+import Message from 'app/components/i18n/message';
 
 const TimelineTimelapse = ( { date } ) => (
 	<div className="col-md-6 small col-12 timelapse align-text-middle">
-		{/* @TODO Translate "between interactions" */}
-		<span>{date} between interactions</span>
+		<span><Message id="between-interactions" placeholders={[ date ]} /></span>
 	</div>
 );
 

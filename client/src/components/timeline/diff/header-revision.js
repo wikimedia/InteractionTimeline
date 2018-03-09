@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Message from 'app/components/i18n/message';
 import RevisionEntity from 'app/entities/revision';
 import Header from 'app/components/timeline/header';
 import Spinner from 'app/components/timeline/spinner';
@@ -38,10 +39,9 @@ class HeaderRevision extends React.PureComponent {
 		}
 
 		if ( this.props.revision.meta.status === 'error' ) {
-			// @TODO Translate.
 			return (
 				<Header href={this.props.url} className="text-center error">
-					Error<br />
+					<Message id="error" /><br />
 					{this.props.revision.meta.error.message}
 				</Header>
 			);

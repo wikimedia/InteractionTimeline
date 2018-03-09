@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import Message from './i18n/message';
 import Form from './form';
 import TimelineContainer from './timeline/timeline.container';
 import ErrorBoundary from './error-boundary';
@@ -11,13 +11,12 @@ export default () => (
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
 						<div className="col-sm-auto">
-							<h2><FormattedMessage id="app-title" /></h2>
-							{/* @TODO Translate */}
-							<h6>Chronologic history for two users on pages where they have both made edits.</h6>
+							<h2><Message id="app-title" /></h2>
+							<h6><Message id="app-description" /></h6>
 						</div>
 						<div className="col-sm-auto">
 							<h6>
-								<FormattedMessage id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><FormattedMessage id="app-feedback-link" /></a>
+								<Message id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><Message id="app-feedback-link" /></a>
 							</h6>
 						</div>
 					</div>
@@ -41,12 +40,39 @@ export default () => (
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
 						<div className="col-sm-auto">
-							<h6>Made by the Wikimedia Foundation&apos;s <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/The_Team">Anti-Harassment Tools team</a>.</h6>
-							<h6>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a> - View on <a href="https://github.com/wikimedia/InteractionTimeline">GitHub</a> - <a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a> - <a href="https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment,InteractionTimeline&title=Interaction%20Timeline%20bug%20report:%20&assign=TBolliger&description=Please%20be%20descriptive%20and%20include%20screenshots%20and%20links%20if%20possible.%20Thank%20you!%20">Report a bug</a></h6>
+							<h6>
+								<Message
+									id="made-by"
+									placeholders={[
+										<a href="https://meta.wikimedia.org/wiki/Community_health_initiative/The_Team"><Message id="made-by-team" /></a>
+									]}
+								/>
+							</h6>
+							<h6>
+								<Message
+									id="licensed-under"
+									placeholders={[
+										<a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>
+									]}
+								/>
+								<span> &ndash; </span>
+								<Message
+									id="view-source-code-on"
+									placeholders={[
+										<a href="https://github.com/wikimedia/InteractionTimeline">GitHub</a>
+									]}
+								/>
+								<span> &ndash; </span>
+								<a href="https://wikimediafoundation.org/wiki/Privacy_policy"><Message id="privacy-policy" /></a>
+								<span> &ndash; </span>
+								<a href="https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment,InteractionTimeline&title=Interaction%20Timeline%20bug%20report:%20&assign=TBolliger&description=Please%20be%20descriptive%20and%20include%20screenshots%20and%20links%20if%20possible.%20Thank%20you!%20">
+									<Message id="report-bug" />
+								</a>
+							</h6>
 						</div>
 						<div className="col-sm-auto align-self-center">
 							<a href="https://tools.wmflabs.org/">
-								<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt="Powered by Wikimedia Toolforge" />
+								<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={Message( { id: 'powered-by' } )} />
 							</a>
 						</div>
 					</div>
