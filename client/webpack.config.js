@@ -8,6 +8,7 @@ const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const CleanWebpackPlugin = require( 'clean-webpack-plugin' );
 const ScriptExtHtmlWebpackPlugin = require( 'script-ext-html-webpack-plugin' );
+const FaviconsWebpackPlugin = require( 'favicons-webpack-plugin' );
 
 const publicPath = process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/';
 
@@ -92,6 +93,7 @@ const config = {
 	},
 	plugins: [
 		extractSass,
+		new FaviconsWebpackPlugin( path.resolve( './images/logo.png' ) ),
 		new CleanWebpackPlugin( [ '../html' ], {
 			exclude: [ 'api' ],
 			allowExternal: true
