@@ -42,8 +42,8 @@ git pull origin master
 ```
 
 ### Build
-[Toolfoge](https://tools.wmflabs.org) VPS only has nodejs 0.11, but 6.11 can be
-run within a container.
+[Toolforge](https://tools.wmflabs.org) provides Node.js 0.11 by default, but
+Node.js 6.11 is available via the Kubernetes backend.
 ```
 webservice --backend=kubernetes nodejs shell;
 cd tool;
