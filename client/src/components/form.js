@@ -5,7 +5,7 @@ import DateRangeContainer from 'app/components/fields/date-range.container';
 import Message from './i18n/message';
 
 const Form = () => (
-	<form>
+	<form autoComplete="off">
 		<div className="form-group row align-items-center">
 			<label className="col-sm-1 col col-form-label" htmlFor="users"><Message id="field-label-users" /></label>
 			<div className="col">
