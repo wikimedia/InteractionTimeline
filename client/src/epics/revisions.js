@@ -180,7 +180,15 @@ export const doFetchRevisions = ( action$, store ) => (
 				} )
 				// If the query is no longer valid, cancel the request.
 				.takeUntil( action$.ofType( 'REVISIONS_NOT_READY' ) )
-				.catch( ( error ) => Observable.of( throwError( error ) ) );
+				.catch( ( error ) => {
+					// Use the message from the response.
+					error = new AjaxError(
+						error.response.message || error.message,
+						error.xhr,
+						error.request
+					);
+					return Observable.of( throwError( error ) );
+				} );
 
 			return Observable.concat(
 				Observable.of( setStatusFetching() ),

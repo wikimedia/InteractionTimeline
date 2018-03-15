@@ -36,7 +36,7 @@ const Status = ( { status } ) => {
 		case 'noresults':
 			message = (
 				<Alert type="warning">
-					<Message id="warning-no-resutls" />
+					<Message id="warning-no-results" />
 				</Alert>
 			);
 			break;
