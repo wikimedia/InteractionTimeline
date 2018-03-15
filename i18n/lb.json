@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"back-top": "Zréck no uewen",
+	"error": "Feeler",
+	"error-help-report": "Feeler mellen",
+	"error-help-refresh": "d'Säit aktualiséieren",
+	"licensed-under": "Lizenzéiert ënner $1.",
+	"field-label-end-date": "Schlussdatum",
+	"field-label-start-date": "Ufanksdatum",
+	"field-label-users": "Benotzer",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Eraussichen...",
+	"field-select-no-results": "Näischt fonnt",
+	"field-select-search-prompt": "Tippe fir ze sichen",
+	"warning-no-results": "Keng Resultater"
+}

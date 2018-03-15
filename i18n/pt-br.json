@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chicocvenancio"
+		]
+	},
+	"app-beta-warning": "Esta função está em testes iniciais",
+	"app-description": "Histórico cronológico de dois usuários em página em que ambos tenham feito edições.",
+	"app-feedback-link": "Aprenda mais e deixe comentário!",
+	"app-title": "Linha do tempo de interação",
+	"back-top": "Voltar ao Topo",
+	"between-interactions": "$1 entre interações",
+	"error": "Erro",
+	"error-help": "$1, e depois $2",
+	"error-help-report": "Reporte o erro",
+	"error-help-refresh": "recarregue a página",
+	"error-message-request-url": "URL solicitante:",
+	"error-suppressed-diff": "Não podes ver esse diferencial porque um ou ambas as revisões foram suprimidas.",
+	"info-no-users": "Por favor escolha dois usuários para começar.",
+	"info-no-wiki": "Por favor escolha uma wiki para começar.",
+	"info-required-fields": "Por favor escolha dois usuários e uma wiki para começar",
+	"licensed-under": "Licenciado sob $1.",
+	"field-label-end-date": "Data final",
+	"field-label-start-date": "Data inicial",
+	"field-label-users": "Usuários",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selecione...",
+	"field-select-no-results": "Nenhum resultado encontrado",
+	"field-select-search-prompt": "Escreva para buscar",
+	"made-by": "Feito pela equipe $1 da Fundação Wikimedia.",
+	"made-by-team": "Equipe de ferramentas anti-assédio",
+	"privacy-policy": "Politica de privacidade",
+	"powered-by": "Com a tecnologia Wikimedia Toolforge",
+	"report-bug": "Reportar um erro",
+	"revision-edit-summary-removed": "resumo da edição suprimido",
+	"view-source-code-on": "Ver em $1",
+	"warning-no-results": "Sem resultados"
+}

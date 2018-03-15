@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"app-beta-warning": "此功能在早期测试阶段。",
+	"app-description": "两位用户在其均编辑过的页面上的历史，按时间顺序排列。",
+	"app-feedback-link": "了解更多与提供反馈！",
+	"app-title": "交互式时间线",
+	"back-top": "返回顶部",
+	"between-interactions": "$1之间交互",
+	"error": "错误",
+	"error-help": "$1，然后$2。",
+	"error-help-report": "报告错误",
+	"error-help-refresh": "刷新页面",
+	"error-message-request-url": "请求URL",
+	"error-suppressed-diff": "您不能查看此差异，因为修订版本之一（或两者）已被屏蔽。",
+	"info-no-users": "请提供两位用户以开始。",
+	"info-no-wiki": "请提供一个wiki以开始。",
+	"info-required-fields": "请提供两位用户和wiki以开始。",
+	"licensed-under": "采用$1授权",
+	"field-label-end-date": "结束日期",
+	"field-label-start-date": "开始日期",
+	"field-label-users": "用户",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "选择...",
+	"field-select-no-results": "找不到结果",
+	"field-select-search-prompt": "搜索的类型",
+	"made-by": "由维基媒体基金会的$1制作。",
+	"made-by-team": "反骚扰工具团队",
+	"privacy-policy": "隐私政策",
+	"powered-by": "由维基媒体Toolforge提供支持",
+	"report-bug": "报告错误",
+	"revision-edit-summary-removed": "编辑摘要被移除",
+	"view-source-code-on": "在$1查看",
+	"warning-no-results": "没有结果"
+}

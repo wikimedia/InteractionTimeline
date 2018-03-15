@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dmaza"
+		]
+	},
+	"app-beta-warning": "Esta funcionalidád está en etapas iniciales de prueba",
+	"back-top": "Volver al principio",
+	"between-interactions": "$1 entre interacciones",
+	"error": "Error",
+	"error-help": "$1, y después $2",
+	"error-help-report": "Reporta el error",
+	"error-help-refresh": "recarga la página",
+	"licensed-under": "Bajo licencia $1",
+	"field-label-end-date": "Fecha de Fin",
+	"field-label-start-date": "Fecha de Inicio",
+	"field-label-users": "Usuarios",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selecciona...",
+	"field-select-no-results": "No se han encontrado resultados",
+	"field-select-search-prompt": "Escribe para buscar",
+	"made-by": "Hecho por el equipo $1 de la Fundación Wikimedia",
+	"privacy-policy": "Política de privacidad",
+	"powered-by": "Con la tecnología de Wikimedia Toolforge",
+	"report-bug": "Reportar un problema",
+	"revision-edit-summary-removed": "resumen de edición eliminado",
+	"view-source-code-on": "Ver en $1",
+	"warning-no-results": "No hay resultados"
+}

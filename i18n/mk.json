@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"app-beta-warning": "Оваа можност е во првично испробување.",
+	"app-description": "Времеследна историја за двајца корисници на страниците кајшто обајцата вршеле уредувања.",
+	"app-feedback-link": "Дознајте повеќе и дајте ваше мислење!",
+	"app-title": "Заемодејствен времеслед",
+	"back-top": "Најгоре",
+	"between-interactions": "$1 помеѓу заемодејствата",
+	"error": "Грешка",
+	"error-help": "$1, а потоа $2.",
+	"error-help-report": "Пријави ја грешката",
+	"error-help-refresh": "превчитај ја страницата",
+	"error-message-request-url": "URL на барањето:",
+	"error-suppressed-diff": "Не можете да ја гледате оваа разлика бидејќи една или обете преработки се притаени.",
+	"info-no-users": "Укажете ги двајцата корисници за да почнете.",
+	"info-no-wiki": "Укажете вики за да почнете.",
+	"info-required-fields": "Укажете двајца корисници и вики за да почнете.",
+	"licensed-under": "Под лиценцата $1",
+	"field-label-end-date": "Завршен датум",
+	"field-label-start-date": "Почетен датум",
+	"field-label-users": "Корисници",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Изберете...",
+	"field-select-no-results": "Не пронајдов ништо",
+	"field-select-search-prompt": "Внесете за да пребарате",
+	"made-by": "Изработено од $1 на Фондацијата Викимедија.",
+	"made-by-team": "Екипата за алатките против малтретирање",
+	"privacy-policy": "Заштита на личните податоци",
+	"powered-by": "Овозможено од Викимедиините лаборатории за алатки",
+	"report-bug": "Пријави грешка",
+	"revision-edit-summary-removed": "отстранет описот на уредувањето",
+	"view-source-code-on": "Погл. на $1",
+	"warning-no-results": "Нема исход"
+}

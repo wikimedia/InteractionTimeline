@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nikosgranturismogt"
+		]
+	},
+	"app-beta-warning": "Το χαρακτηριστικό αυτό είναι στις πρώτες δοκιμές του.",
+	"app-description": "Χρονολογικό ιστορικό για δύο χρήστες σε σελίδες όπου και οι δύο έχουν κάνει επεξεργασίες.",
+	"app-feedback-link": "Μάθετε περισσότερα & αφήστε ανατροφοδότηση!",
+	"app-title": "Χρονολόγιο διάδρασης",
+	"back-top": "Επιστροφή στην κορυφή",
+	"between-interactions": "$1 ανάμεσα στις διαδράσεις",
+	"error": "Σφάλμα",
+	"error-help": "$1, και μετά $2.",
+	"error-help-report": "Αναφορά σφάλματος",
+	"error-help-refresh": "επαναφόρτωση σελίδας",
+	"error-message-request-url": "Αίτηση URL",
+	"error-suppressed-diff": "Δεν μπορείτε να δείτε αυτή τη διαφορά επειδή μια ή και οι δύο αναθεωρήσεις έχουν αποκρυφθεί.",
+	"info-no-users": "Παρακαλώ παράσχετε δύο χρήστες για να ξεκινήσουμε.",
+	"info-no-wiki": "Παρακαλώ παράσχετε ένα βίκι για να ξεκινήσουμε.",
+	"info-required-fields": "Παρακαλώ παράσχετε δύο χρήστες και ένα βίκι για να ξεκινήσουμε.",
+	"licensed-under": "Αδειοδοτημένο υπό την $1",
+	"field-label-end-date": "Ημερομηνία λήξης",
+	"field-label-start-date": "Ημερομηνία έναρξης",
+	"field-label-users": "Χρήστες",
+	"field-label-wiki": "Βίκι",
+	"field-select-placeholder": "Επιλέξτε...",
+	"field-select-no-results": "Δεν βρέθηκε κανένα αποτέλεσμα",
+	"field-select-search-prompt": "Πληκτρολογήστε για αναζήτηση",
+	"made-by": "Δημιουργήθηκε από το $1 του Ιδρύματος Wikimedia.",
+	"made-by-team": "Ομάδα εργαλείων αντι-παρενόχλησης",
+	"privacy-policy": "Πολιτική ιδιωτικού απορρήτου",
+	"powered-by": "Τροφοδοτείται από το Wikimedia Toolforge",
+	"report-bug": "Αναφορά σφάλματος",
+	"revision-edit-summary-removed": "η σύνοψη επεξεργασίας αφαιρέθηκε",
+	"view-source-code-on": "Προβολή στο $1",
+	"warning-no-results": "Κανένα Αποτέλεσμα"
+}

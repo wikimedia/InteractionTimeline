@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wladek92"
+		]
+	},
+	"app-beta-warning": "Cette fonctionalité est en début de test.",
+	"app-description": "Historique chronologique pour deux utilisateurs ayant modifié les mêmes pages.",
+	"app-feedback-link": "Aprenez-en davantage et laissez votre avis !",
+	"app-title": "Calendrier des interactions",
+	"back-top": "Retour en haut de la page",
+	"between-interactions": "$1 entre les interactions",
+	"error": "Erreur",
+	"error-help": "$1, et ensuite $2 .",
+	"error-help-report": "Signaler l'erreur",
+	"error-help-refresh": "rafraîchier la page",
+	"error-message-request-url": "Demande d'URL",
+	"error-suppressed-diff": "Vous ne pouvez pas afficher ce diff car l'une ou les deux révisions ont été supprimées.",
+	"info-no-users": "Veuillez fournir deux utilisateurs pour commencer.",
+	"info-no-wiki": "veuillez spécifier un wiki pour commencer.",
+	"info-required-fields": "Pour commencer, veuillez fournir deux utilisateurs et le wiki.",
+	"licensed-under": "Sous licence $1",
+	"field-label-end-date": "Date de fin",
+	"field-label-start-date": "Date de début",
+	"field-label-users": "Utilisateurs",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Sélectionner...",
+	"field-select-no-results": "Aucun résultat trouvé",
+	"field-select-search-prompt": "Type à rechercher",
+	"made-by": "Réalisé par $1 de la fondation Wikimedia.",
+	"made-by-team": "Equipe en charge des outils anti-harcèlement",
+	"privacy-policy": "Politique de confidentialité",
+	"powered-by": "Exécuté par Wikimédia Toolforge",
+	"report-bug": "Signaler un bogue",
+	"revision-edit-summary-removed": "résumé des modifications retiré",
+	"view-source-code-on": "Voir sur $1",
+	"warning-no-results": "Aucun résultat"
+}

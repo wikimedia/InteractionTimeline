@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"app-beta-warning": "此功能仍在初期測試階段。",
+	"app-description": "兩名使用者曾編輯過的同一個頁面裡順序歷史記錄。",
+	"app-feedback-link": "了解更多並留下意見回饋！",
+	"app-title": "Interaction Timeline",
+	"back-top": "返回頂端",
+	"between-interactions": "在 $1 期間的互動",
+	"error": "錯誤",
+	"error-help": "$1，然後是$2。",
+	"error-help-report": "回報錯誤",
+	"error-help-refresh": "重新整理頁面",
+	"error-message-request-url": "請求 URL",
+	"error-suppressed-diff": "因修訂版本已被隱藏，您無法檢視差異。",
+	"info-no-users": "請提供兩名使用者來進行。",
+	"info-no-wiki": "請提供 wiki 來進行。",
+	"info-required-fields": "請提供兩名使用者與 wiki 來進行。",
+	"licensed-under": "使用 $1 條款授權",
+	"field-label-end-date": "結束日期",
+	"field-label-start-date": "開始日期",
+	"field-label-users": "使用者",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "選擇...",
+	"field-select-no-results": "查無結果",
+	"field-select-search-prompt": "要搜尋的類型",
+	"made-by": "由維基媒體基金會的 $1 製作。",
+	"made-by-team": "Anti-Harassment Tools team",
+	"privacy-policy": "隱私政策",
+	"powered-by": "由維基媒體 Toolforge 提供支援",
+	"report-bug": "回報程式問題",
+	"revision-edit-summary-removed": "編輯摘要已移除",
+	"view-source-code-on": "在 $1 檢視",
+	"warning-no-results": "沒有結果"
+}

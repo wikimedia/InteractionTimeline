@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mutante"
+		]
+	},
+	"error": "Fehler",
+	"error-help-refresh": "Seite neu laden",
+	"info-no-wiki": "Bitte gebe ein Wiki am um anzufangen",
+	"info-required-fields": "Bitte gebe 2 Benutzer und ein Wiki an um anzufangen.",
+	"field-label-end-date": "Enddatum",
+	"field-label-start-date": "Startdatum",
+	"field-label-users": "Benutzer",
+	"field-select-placeholder": "Auswahl..",
+	"field-select-no-results": "Keine Ergebnisse gefunden",
+	"report-bug": "Fehler melden",
+	"view-source-code-on": "Auf $1 anschauen",
+	"warning-no-results": "Keine Ergebnisse"
+}

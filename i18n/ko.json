@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"app-beta-warning": "이 기능은 초기 테스트 단계입니다.",
+	"app-feedback-link": "더 알아보세요. 의견을 남겨주세요!",
+	"back-top": "맨 위로 돌아가기",
+	"error": "오류",
+	"error-help-report": "오류 보고",
+	"error-help-refresh": "문서 새로 고침",
+	"error-message-request-url": "요청 URL",
+	"error-suppressed-diff": "판 하나 또는 두 판 모두 숨겨져 있으므로 이 차이를 볼 수 없습니다.",
+	"info-no-users": "시작할 두 사용자를 지정해 주십시오.",
+	"info-no-wiki": "시작할 위키를 지정해 주십시오.",
+	"info-required-fields": "시작할 두 사용자와 위키를 지정해 주십시오.",
+	"licensed-under": "$1로 라이선스됨",
+	"field-label-end-date": "종료일",
+	"field-label-start-date": "시작일",
+	"field-label-users": "사용자",
+	"field-label-wiki": "위키",
+	"field-select-placeholder": "선택...",
+	"field-select-no-results": "결과가 없습니다",
+	"field-select-search-prompt": "검색하려면 입력하세요",
+	"made-by": "위키미디어 재단의 $1님이 만들었습니다.",
+	"privacy-policy": "개인정보 정책",
+	"powered-by": "Wikimedia Toolforge에 의해 지원됨",
+	"report-bug": "버그 보고",
+	"revision-edit-summary-removed": "편집 요약 삭제됨",
+	"view-source-code-on": "$1에서 보기",
+	"warning-no-results": "결과 없음"
+}

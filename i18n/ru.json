@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patrick Star"
+		]
+	},
+	"app-title": "Interaction Timeline",
+	"back-top": "Вернуться наверх",
+	"error": "Ошибка",
+	"error-help-report": "Сообщить об ошибке",
+	"error-message-request-url": "URL-адрес запроса",
+	"field-label-end-date": "Дата окончания",
+	"field-label-start-date": "Дата начала",
+	"field-label-users": "Участники",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Выбрать...",
+	"field-select-no-results": "Ничего не найдено",
+	"privacy-policy": "Политика конфиденциальности",
+	"report-bug": "Сообщить об ошибке",
+	"revision-edit-summary-removed": "описание правки удалено",
+	"view-source-code-on": "Посмотреть на сайте $1",
+	"warning-no-results": "Нет результатов"
+}

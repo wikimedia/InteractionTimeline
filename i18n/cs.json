@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ilimanaq29"
+		]
+	},
+	"app-beta-warning": "Tento nástroj se ještě testuje.",
+	"app-description": "Chronologická historie dvou uživatelů na stránkách, na kterých oba editovali.",
+	"app-feedback-link": "Zjistěte více a pošlete zpětnou vazbu",
+	"app-title": "Interaction Timeline",
+	"back-top": "Zpět na začátek",
+	"between-interactions": "$1 mezi interakcemi",
+	"error": "Chyba",
+	"error-help": "$1, a potom $2.",
+	"error-help-report": "Nahlásit chybu",
+	"error-help-refresh": "Načíst stránku znovu",
+	"error-message-request-url": "Požádat o URL",
+	"error-suppressed-diff": "Nemůžete si prohlédnout tento rozdíl verzí, protože jedna nebo obě z těchto revizí byly smazány.",
+	"info-no-users": "Pro začátek prosím vložte dva uživatele.",
+	"info-no-wiki": "Pro začátek prosím vložte wiki.",
+	"info-required-fields": "Pro začátek prosím vložte dva uživatele.",
+	"licensed-under": "Licencováno pod $1",
+	"field-label-end-date": "Datum ukončení",
+	"field-label-start-date": "Datum zahájení",
+	"field-label-users": "Uživatelé",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Zvolit...",
+	"field-select-no-results": "Nenalezeny žádné výsledky",
+	"field-select-search-prompt": "Napište k vyhledání",
+	"made-by": "Vytvořeno Nadací Wikimedia $1.",
+	"made-by-team": "Tým nástrojů Anti-Harassment",
+	"privacy-policy": "Zásady ochrany osobních údajů",
+	"powered-by": "Napájeno Wikimedia Toolforge",
+	"report-bug": "Nahlásit chybu",
+	"revision-edit-summary-removed": "Shrnutí editace odstraněno",
+	"view-source-code-on": "Zobrazit na $1",
+	"warning-no-results": "Žádné výsledky"
+}

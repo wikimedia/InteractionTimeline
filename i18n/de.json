@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"app-beta-warning": "Diese Funktion ist in einer frühen Testphase.",
+	"app-description": "Chronologischer Verlauf für zwei Benutzer auf Seiten, auf denen beide Bearbeitungen durchgeführt haben.",
+	"app-feedback-link": "Erfahre mehr und gib eine Rückmeldung!",
+	"app-title": "Interaktions-Zeitleiste",
+	"back-top": "Zurück nach oben",
+	"between-interactions": "$1 zwischen Interaktionen",
+	"error": "Fehler",
+	"error-help": "$1 und $2.",
+	"error-help-report": "Melde den Fehler",
+	"error-help-refresh": "aktualisiere dann die Seite",
+	"error-message-request-url": "Angeforderte URL",
+	"error-suppressed-diff": "Du kannst diesen Unterschied nicht ansehen, da eine oder beide Versionen unterdrückt wurden.",
+	"info-no-users": "Bitte gib zum Anfangen zwei Benutzer an.",
+	"info-no-wiki": "Bitte gib zum Anfangen ein Wiki an.",
+	"info-required-fields": "Bitte gib zum Anfangen zwei Benutzer und ein Wiki an.",
+	"licensed-under": "Lizenziert unter $1",
+	"field-label-end-date": "End-Datum",
+	"field-label-start-date": "Start-Datum",
+	"field-label-users": "Benutzer",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Auswählen …",
+	"field-select-no-results": "Keine Ergebnisse gefunden",
+	"field-select-search-prompt": "Tippen zum Suchen",
+	"made-by": "Erstellt vom $1.",
+	"made-by-team": "Anti-Belästigungs-Werkzeuge-Team der Wikimedia Foundation",
+	"privacy-policy": "Datenschutzrichtlinie",
+	"powered-by": "Powered by Wikimedia Toolforge",
+	"report-bug": "Einen Fehler melden",
+	"revision-edit-summary-removed": "Zusammenfassung entfernt",
+	"view-source-code-on": "Auf $1 ansehen",
+	"warning-no-results": "Keine Ergebnisse"
+}

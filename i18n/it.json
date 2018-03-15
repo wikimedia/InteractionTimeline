@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"back-top": "Torna all'inizio",
+	"error": "Errore",
+	"error-help-refresh": "aggiorna la pagina",
+	"field-label-end-date": "Data fine",
+	"field-label-start-date": "Data inizio",
+	"field-label-users": "Utenti",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Seleziona...",
+	"field-select-no-results": "Nessun risultato trovato",
+	"privacy-policy": "Informativa sulla privacy",
+	"report-bug": "Segnala un errore",
+	"view-source-code-on": "Vedi su $1",
+	"warning-no-results": "Nessun risultato"
+}

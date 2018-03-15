@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Épine"
+		]
+	},
+	"back-top": "گەڕانەوە بۆ سەرەوە",
+	"error": "ھەڵە",
+	"field-label-end-date": "ڕێکەوتی کۆتایی",
+	"field-label-start-date": "ڕێکەوتی دەستپێکردن",
+	"field-label-users": "بەکارھێنەران",
+	"field-label-wiki": "ویکی",
+	"field-select-placeholder": "ھەڵبژاردن...",
+	"field-select-no-results": "ھیچ ئەنجامێک نەدۆزرایەوە",
+	"privacy-policy": "سیاسەتی تایبەتێتی",
+	"report-bug": "سکاڵای کێشەیەک بدە",
+	"view-source-code-on": "لە $1دا بیبینە",
+	"warning-no-results": "هیچ ئەنجامێک نییە"
+}
