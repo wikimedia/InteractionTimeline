@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps",
+			"Woytecr"
+		]
+	},
+	"app-beta-warning": "Ta funkcjonalność jest we wczesnej fazie testowej.",
+	"app-description": "Chronologiczna historia edycji dwóch użytkowników edytujących te same strony.",
+	"app-feedback-link": "Dowiedz się więcej i podziel się opinią!",
+	"back-top": "Powrót do góry",
+	"error": "Błąd",
+	"error-help-report": "Zgłoś błąd",
+	"error-help-refresh": "odśwież stronę",
+	"info-no-users": "Wskaż dwóch użytkowników aby zacząć.",
+	"info-no-wiki": "Podaj wiki aby zacząć.",
+	"info-required-fields": "Wskaż dwóch użytkowników i wiki aby zacząć.",
+	"field-label-users": "Użytkownicy",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Wybierz...",
+	"field-select-no-results": "Nie znaleziono wyników",
+	"privacy-policy": "Polityka prywatności",
+	"powered-by": "Na platformie Wikimedia Toolforge",
+	"report-bug": "Zgłoś błąd",
+	"revision-edit-summary-removed": "(usunięto opis zmian)",
+	"warning-no-results": "Brak wyników"
+}

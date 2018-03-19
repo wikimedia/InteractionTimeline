@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bikarhêner"
+		]
+	},
+	"app-beta-warning": "Ev taybetmendî di asta cerribandina destpêkê de ye.",
+	"app-description": "Dîroka kronolojîk ji bo rûpelên ku herdu bikarhêner jî sererast kirine.",
+	"app-feedback-link": "Zêdetir hîn bibe & fikrê xwe ji me re bibêje!",
+	"app-title": "Kronolojiya Hevbandoriyê",
+	"back-top": "Vegere Jor",
+	"between-interactions": "$1 di navbera tesîra li ser hev de",
+	"error": "Çewtî",
+	"error-help": "$1, û piştre $2",
+	"error-help-report": "Çewtiyê rapor bike",
+	"error-help-refresh": "rûpelê nû bike",
+	"error-message-request-url": "URL bixwaze",
+	"field-label-end-date": "Wextêa xilasbûnê",
+	"field-label-start-date": "Wextê destpêkê",
+	"field-label-users": "Bikarhêner",
+	"field-label-wiki": "Wîkî",
+	"field-select-placeholder": "Bibijêre...",
+	"field-select-no-results": "Ti encam nehate dîtin",
+	"field-select-search-prompt": "Cureya lêgerînê",
+	"view-source-code-on": "Li ser $1 bibîne",
+	"warning-no-results": "Encam tine"
+}

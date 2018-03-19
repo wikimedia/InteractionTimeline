@@ -1,21 +1,30 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patrick Star"
+			"Patrick Star",
+			"Amire80"
 		]
 	},
+	"app-beta-warning": "Эта функция рано тестирование.",
 	"app-title": "Interaction Timeline",
 	"back-top": "Вернуться наверх",
 	"error": "Ошибка",
 	"error-help-report": "Сообщить об ошибке",
+	"error-help-refresh": "обновить страницу",
 	"error-message-request-url": "URL-адрес запроса",
+	"info-no-users": "Пожалуйста предоставлять два участника в начале.",
+	"info-no-wiki": "Пожалуйста предоставлять вики в начале.",
+	"info-required-fields": "Пожалуйста предоставлять два участника и вики в начале.",
+	"licensed-under": "Лицензию под $1",
 	"field-label-end-date": "Дата окончания",
 	"field-label-start-date": "Дата начала",
 	"field-label-users": "Участники",
 	"field-label-wiki": "Вики",
 	"field-select-placeholder": "Выбрать...",
 	"field-select-no-results": "Ничего не найдено",
+	"field-select-search-prompt": "Тип в поиске",
 	"privacy-policy": "Политика конфиденциальности",
+	"powered-by": "На платформе Wikimedia Toolforge",
 	"report-bug": "Сообщить об ошибке",
 	"revision-edit-summary-removed": "описание правки удалено",
 	"view-source-code-on": "Посмотреть на сайте $1",

@@ -4,10 +4,14 @@
 			"Robby"
 		]
 	},
+	"app-feedback-link": "Méi gewuer ginn & Feedback ginn!",
 	"back-top": "Zréck no uewen",
 	"error": "Feeler",
+	"error-help": "$1 an dann $2.",
 	"error-help-report": "Feeler mellen",
 	"error-help-refresh": "d'Säit aktualiséieren",
+	"error-message-request-url": "URL ufroen",
+	"info-no-wiki": "Gitt w.e.g. eng Wiki u fir unzefänken.",
 	"licensed-under": "Lizenzéiert ënner $1.",
 	"field-label-end-date": "Schlussdatum",
 	"field-label-start-date": "Ufanksdatum",
@@ -16,5 +20,9 @@
 	"field-select-placeholder": "Eraussichen...",
 	"field-select-no-results": "Näischt fonnt",
 	"field-select-search-prompt": "Tippe fir ze sichen",
+	"made-by": "Vum $1 vun der Wikimedia Foundation.",
+	"privacy-policy": "Dateschutz",
+	"report-bug": "E Feeler mellen",
+	"view-source-code-on": "Op $1 kucken",
 	"warning-no-results": "Keng Resultater"
 }

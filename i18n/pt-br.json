@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chicocvenancio"
+			"Chicocvenancio",
+			"Fitoschido"
 		]
 	},
 	"app-beta-warning": "Esta função está em testes iniciais",
 	"app-description": "Histórico cronológico de dois usuários em página em que ambos tenham feito edições.",
 	"app-feedback-link": "Aprenda mais e deixe comentário!",
 	"app-title": "Linha do tempo de interação",
-	"back-top": "Voltar ao Topo",
+	"back-top": "Voltar ao topo",
 	"between-interactions": "$1 entre interações",
 	"error": "Erro",
 	"error-help": "$1, e depois $2",

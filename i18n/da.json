@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joedalton"
+		]
+	},
+	"app-beta-warning": "Denne funktion er i tidlig test.",
+	"app-description": "Kronologisk historik for to brugere på sider, hvor de begge har lavet redigeringer.",
+	"app-feedback-link": "Lær mere og giv en tilbagemelding!",
+	"app-title": "Interaktionstidslinje",
+	"back-top": "Tilbage til toppen",
+	"between-interactions": "$1 mellem interaktioner",
+	"error": "Fejl",
+	"error-help": "$1, og så $2.",
+	"error-help-report": "Rapporter fejlen",
+	"error-help-refresh": "opdater siden",
+	"error-message-request-url": "Anmod om adresse",
+	"error-suppressed-diff": "Du kan ikke se forskellen da en eller begge af revisionerne er blevet undertrykt.",
+	"info-no-users": "Angiv venligst to brugere for at begynde.",
+	"info-no-wiki": "Angiv venligst en wiki for at begynde.",
+	"info-required-fields": "Angiv venligst to brugere og en wiki for at begynde.",
+	"licensed-under": "Licenseret under $1",
+	"field-label-end-date": "Slutdato",
+	"field-label-start-date": "Startdato",
+	"field-label-users": "Brugere",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Vælg ...",
+	"field-select-no-results": "Ingen resultater fundet",
+	"field-select-search-prompt": "Tast for at søge",
+	"made-by": "Lavet af Wikimedia Foundations $1.",
+	"made-by-team": "Anti-Harassment Tools-holdet",
+	"privacy-policy": "Behandling af personlige oplysninger",
+	"powered-by": "Drevet af Wikimedia Toolforge",
+	"report-bug": "Rapporter en fejl",
+	"revision-edit-summary-removed": "redigeringsbeskrivelsen er fjernet",
+	"view-source-code-on": "Vis på $1",
+	"warning-no-results": "Ingen resultater"
+}

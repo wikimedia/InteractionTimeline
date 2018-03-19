@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"app-beta-warning": "Denna funktion är i tidigt teststadium.",
+	"app-description": "Kronologisk historik för två användare på sidor som de båda har redigerat.",
+	"app-feedback-link": "Läs mer och lämna återkoppling!",
+	"app-title": "Interaktionstidslinje",
+	"back-top": "Tillbaka till början",
+	"between-interactions": "$1 mellan interaktioner",
+	"error": "Fel",
+	"error-help": "$1 och sedan $2.",
+	"error-help-report": "Rapportera felet",
+	"error-help-refresh": "uppdatera sidan",
+	"error-message-request-url": "Begär webbadress",
+	"error-suppressed-diff": "Du kan inte se denna diff eftersom en eller båda sidversioner har censurerats.",
+	"info-no-users": "Ange två användare för att börja.",
+	"info-no-wiki": "Ange en wiki för att börja.",
+	"info-required-fields": "Ange två användare och wiki för att börja.",
+	"licensed-under": "Licensierad under $1",
+	"field-label-end-date": "Slutdatum",
+	"field-label-start-date": "Startdatum",
+	"field-label-users": "Användare",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Välj...",
+	"field-select-no-results": "Inga resultat hittades",
+	"field-select-search-prompt": "Skriv för att söka",
+	"made-by": "Skapad av Wikimedia Foundations $1.",
+	"made-by-team": "gruppen för verktyg av antitrakasseri",
+	"privacy-policy": "Integritetspolicy",
+	"powered-by": "Drivs av Wikimedia Toolforge",
+	"report-bug": "Rapportera ett fel",
+	"revision-edit-summary-removed": "redigeringssammanfattning togs bort",
+	"view-source-code-on": "Visa på $1",
+	"warning-no-results": "Inga resultat"
+}

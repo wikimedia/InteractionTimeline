@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"app-feedback-link": "Més informació i comentaris",
+	"back-top": "Torna a dalt",
+	"licensed-under": "Subjecte als termes de la llicència $1",
+	"field-label-start-date": "Data d’inici",
+	"field-label-users": "Usuaris",
+	"field-select-no-results": "No s’ha trobat cap resultat",
+	"made-by": "Realitzada per l’$1 de la Fundació Wikimedia.",
+	"privacy-policy": "Política de privadesa",
+	"powered-by": "Funciona amb Wikimedia Toolforge",
+	"report-bug": "Informeu d’un error",
+	"warning-no-results": "Cap resultat"
+}

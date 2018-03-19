@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aftabuzzaman"
+		]
+	},
+	"back-top": "উপরে ফিরুন",
+	"error": "ত্রুটি",
+	"error-help": "$1, এবং তারপর $2।",
+	"error-message-request-url": "অনুরোধের URL",
+	"field-label-end-date": "শেষের তারিখ",
+	"field-label-start-date": "শুরুর তারিখ",
+	"field-label-users": "ব্যবহারকারী",
+	"field-label-wiki": "উইকি",
+	"field-select-placeholder": "নির্বাচন করুন...",
+	"field-select-no-results": "কোনো ফলাফল পাওয়া যায়নি",
+	"field-select-search-prompt": "অনুসন্ধান করতে লিখুন",
+	"privacy-policy": "গোপনীয়তার নীতি",
+	"view-source-code-on": "$1-এ দেখুন",
+	"warning-no-results": "কোন ফলাফল নেই"
+}

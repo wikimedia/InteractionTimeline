@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"app-beta-warning": "Esta carauterística ta nes primeres fases de pruebes.",
+	"app-description": "Hestoria cronolóxica pa dos usuarios en páxines onde dambos fixeron ediciones.",
+	"app-feedback-link": "Más información y comentarios",
+	"app-title": "Interaction Timeline",
+	"back-top": "Volver arriba",
+	"between-interactions": "$1 ente interacciones",
+	"error": "Error",
+	"error-help": "$1, y llueu $2.",
+	"error-help-report": "Informar del error",
+	"error-help-refresh": "recarga la páxina",
+	"error-message-request-url": "URL de la solicitú",
+	"error-suppressed-diff": "Nun puedes ver esti diff porque suprimióse una de les revisiones o dambes.",
+	"info-no-users": "Apurre dos usuarios pa principiar.",
+	"info-no-wiki": "Apurre una wiki pa principiar.",
+	"info-required-fields": "Apurre dos usuarios y la wiki pa principiar.",
+	"licensed-under": "Baxo la llicencia $1",
+	"field-label-end-date": "Data final",
+	"field-label-start-date": "Data d'entamu",
+	"field-label-users": "Usuarios",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Seleccionar...",
+	"field-select-no-results": "Nun s'alcontraron resultaos",
+	"field-select-search-prompt": "Escribe pa buscar",
+	"made-by": "Fechu pol $1 de la Fundación Wikimedia",
+	"made-by-team": "equipu de Ferramientes Anti-Amenaces",
+	"privacy-policy": "Política d'intimidá",
+	"powered-by": "Cola teunoloxía de Wikimedia Toolforge",
+	"report-bug": "Informar d'un fallu",
+	"revision-edit-summary-removed": "resume d'edición desaniciáu",
+	"view-source-code-on": "Ver en $1",
+	"warning-no-results": "Nun hai resultaos"
+}
