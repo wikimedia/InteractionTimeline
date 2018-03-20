@@ -44,6 +44,7 @@ class DatePicker extends React.Component {
 					id: this.props.id
 				}}
 				timeFormat={false}
+				utc
 				closeOnSelect
 			/>
 		);

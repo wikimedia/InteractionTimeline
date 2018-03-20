@@ -10,6 +10,6 @@ export default connect(
 	} ),
 	dispatch => ( {
 		onStartDateChange: value => dispatch( startDateChange( value ? value.utc().unix().toString() : undefined ) ),
-		onEndDateChange: value => dispatch( endDateChange( value ? value.utc().unix().toString() : undefined ) )
+		onEndDateChange: value => dispatch( endDateChange( value ? value.utc().endOf( 'day' ).unix().toString() : undefined ) )
 	} ),
 )( DateRange );
