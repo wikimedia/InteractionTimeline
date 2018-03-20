@@ -62,7 +62,7 @@ class Revision extends React.Component {
 
 		if ( this.props.duration ) {
 			displayTimelapse = (
-				<Timelapse icon="timelapse" date={this.props.duration.humanize()} />
+				<Timelapse icon="timelapse" samePage={this.props.samePage} date={this.props.duration.humanize()} />
 			);
 		}
 
@@ -132,6 +132,7 @@ Revision.propTypes = {
 		humanize: PropTypes.func,
 		asSeconds: PropTypes.func
 	} ),
+	samePage: PropTypes.bool,
 	title: PropTypes.string,
 	url: PropTypes.string,
 	diff: PropTypes.instanceOf( DiffEntity ).isRequired,
@@ -142,6 +143,7 @@ Revision.defaultProps = {
 	side: undefined,
 	title: undefined,
 	duration: undefined,
+	samePage: false,
 	url: undefined
 };
 
