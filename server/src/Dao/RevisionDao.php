@@ -95,27 +95,4 @@ class RevisionDao extends AbstractDao {
 
 		return $this->fetchAll( $query, \PDO::FETCH_ASSOC );
 	}
-
-	/**
-	 * Gets one or many users first edit date
-	 *
-	 * @param int[] $users
-	 * @return array
-	 */
-	public function getUsersFirstEditDate( array $users ) {
-		$pages = $this->getUsersCommonPages( $users );
-
-		// build query to find interaction between users in common pages
-		$query = $this->conn->createQueryBuilder();
-		$query->select( 'min(rev_timestamp)' )
-			->from( 'revision_userindex', 'r' )
-			->where( 'rev_user in (:users)' )
-			->andWhere( 'rev_page in (:pages)' )
-			->groupBy( 'rev_user' )
-			->orderBy( 'rev_id', 'asc' )
-			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY )
-			->setParameter( ':pages', $pages, Connection::PARAM_STR_ARRAY );
-
-		return $this->fetchAll( $query, \PDO::FETCH_COLUMN, true );
-	}
 }

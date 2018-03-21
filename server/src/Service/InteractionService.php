@@ -49,15 +49,6 @@ class InteractionService {
 			return $userId;
 		}, $users );
 
-		// get sensible starting date if no date is provided
-		if ( !$startDate ) {
-			$startDate = $this->getDefaultStartingDate( $userIds );
-			// make sure the default start date is before the endDate
-			if ( $endDate && $startDate >= $endDate ) {
-				$startDate = null;
-			}
-		}
-
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
 				$userIds,  $startDate, $endDate, $limit, $continue
 		);
@@ -69,16 +60,6 @@ class InteractionService {
 		}
 
 		return [ $revisions, $continue ];
-	}
-
-	/**
-	 * @param int[] $users
-	 * @return null|int
-	 */
-	private function getDefaultStartingDate( array $users ) {
-		$dates = $this->revisionDao->getUsersFirstEditDate( $users );
-
-		return ( !$dates ) ? null : strtotime( max( $dates ) . '-1 day midnight' );
 	}
 
 	/**
