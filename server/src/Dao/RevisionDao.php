@@ -19,7 +19,7 @@ class RevisionDao extends AbstractDao {
 	public function getUserRevisionsInCommonPages(
 		array $users, $startDate = null, $endDate = null, $limit = 50, $continue = null
 	) {
-		$pages = $this->getUsersCommonPages( $users );
+		$pages = $this->getUsersCommonPages( $users, $startDate, $endDate );
 
 		// build query to find interaction between users in common pages
 		$query = $this->conn->createQueryBuilder();
@@ -50,9 +50,11 @@ class RevisionDao extends AbstractDao {
 	 * Get common edited pages between multiple users
 	 *
 	 * @param int[] $users
+	 * @param null $startDate
+	 * @param null $endDate
 	 * @return array
 	 */
-	public function getUsersCommonPages( array $users ) {
+	public function getUsersCommonPages( array $users, $startDate = null, $endDate = null ) {
 		$query = $this->conn->createQueryBuilder();
 		$query->select( 'rev_page' )
 			->from( 'revision_userindex' )
@@ -60,6 +62,16 @@ class RevisionDao extends AbstractDao {
 			->groupBy( 'rev_page' )
 			->having( 'count(distinct rev_user) > 1' )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY );
+
+		if ( $startDate ) {
+			$query->andWhere( 'rev_timestamp >= :start_date' )
+				->setParameter( ':start_date', date( 'Ymdhmi', $startDate ) );
+		}
+
+		if ( $endDate ) {
+			$query->andWhere( 'rev_timestamp <= :end_date' )
+				->setParameter( ':end_date', date( 'Ymdhmi', $endDate ) );
+		}
 
 		return $this->fetchAll( $query, \PDO::FETCH_COLUMN, true );
 	}
