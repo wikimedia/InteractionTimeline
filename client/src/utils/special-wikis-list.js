@@ -37,7 +37,7 @@ export default [
 	},
 	{
 		id: 'mediawikiwiki',
-		domain: 'mediawiki.org',
+		domain: 'www.mediawiki.org',
 		code: 'mediawiki',
 		family: 'wiki'
 	}
