@@ -7,7 +7,6 @@ import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import WebFont from 'webfontloader';
 import 'intersection-observer'; // Pollyfill
 import moment from 'moment';
 import i18n from './i18n.dir';
@@ -18,17 +17,6 @@ import epic from './src/epics/index';
 import './styles/styles.scss';
 
 function main() {
-	// Start loading the webfont.
-	// We lazy-load the web font in JavaScript because CSS blocks rendering.
-	WebFont.load( {
-		google: {
-			families: [
-				// @see https://wikimedia.github.io/WikimediaUI-Style-Guide/visual-style_typography.html
-				'Lato:300,300i,400,400i,700,700i'
-			]
-		}
-	} );
-
 	// Setup i18n data.
 	const fileNames = Object.keys( i18n );
 	const locale = navigator.language.split( '-' )[ 0 ];
