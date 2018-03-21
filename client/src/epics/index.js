@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
-import { pushQueryToLocation, pushLocationToQuery } from './query';
+import { pushQueryToLocation, pushLocationToQuery, setDefaultQuery } from './query';
 import { fetchAllWikis, fetchWikiNamespaces } from './wiki';
 import {
 	shouldFetchRevisions,
@@ -18,5 +18,6 @@ export default combineEpics(
 	revisionsReady,
 	fetchRevision,
 	doFetchRevisions,
-	fetchDiff
+	fetchDiff,
+	setDefaultQuery
 );
