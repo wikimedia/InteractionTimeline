@@ -31,7 +31,7 @@ function main() {
 
 	// Setup i18n data.
 	const fileNames = Object.keys( i18n );
-	const locale = navigator.language.split( '-' )[ 0 ];
+	const locale = navigator.language;
 
 	// Create a messages object.
 	const messages = fileNames.reduce( ( m, name ) => {
@@ -43,7 +43,7 @@ function main() {
 	}, {} );
 
 	// Set the language globally for moment.
-	moment.locale( navigator.language );
+	moment.locale( locale );
 
 	// Create a history of your choosing (we're using a browser history in this case)
 	const history = createHistory();
