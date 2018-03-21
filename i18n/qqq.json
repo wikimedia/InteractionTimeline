@@ -9,6 +9,7 @@
 	"app-feedback-link": "Providing a Link for users to leave feedback.",
 	"app-title": "The Title of the App",
 	"back-top": "Link to take the user back to the top of the page.",
+	"between-edits": "Suffix to time between. ex: 13 minutes 'between edits'",
 	"between-interactions": "Suffix to time between. ex: 13 minutes 'between interactions'",
 	"error": "Error message title.\n{{Identical|Error}}",
 	"error-help": "Help message that is displayed when an error message is invoked: 'error-help-report', and then 'error-help-refresh'",
