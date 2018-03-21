@@ -62,7 +62,7 @@ class Revision extends React.Component {
 
 		if ( this.props.duration ) {
 			displayTimelapse = (
-				<Timelapse icon="timelapse" samePage={this.props.samePage} date={this.props.duration.humanize()} />
+				<Timelapse samePage={this.props.samePage} date={this.props.duration.humanize()} />
 			);
 		}
 
