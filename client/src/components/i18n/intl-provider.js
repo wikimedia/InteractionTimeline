@@ -1,8 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import jQuery from 'jquery'; // Load jQuery for jQuery.i18n
+// Load jQuery for jQuery.i18n
+import jQuery from 'jquery';
+// @see https://github.com/wikimedia/jquery.i18n/issues/159
+import 'cldrpluralruleparser/src/CLDRPluralRuleParser';
 import 'jquery.i18n/src/jquery.i18n';
 import 'jquery.i18n/src/jquery.i18n.messagestore';
+import 'jquery.i18n/src/jquery.i18n.fallbacks';
+import 'jquery.i18n/src/jquery.i18n.parser';
+import 'jquery.i18n/src/jquery.i18n.emitter';
+import 'jquery.i18n/src/jquery.i18n.language';
+import 'jquery.i18n/src/languages/bs';
+import 'jquery.i18n/src/languages/dsb';
+import 'jquery.i18n/src/languages/fi';
+import 'jquery.i18n/src/languages/ga';
+import 'jquery.i18n/src/languages/he';
+import 'jquery.i18n/src/languages/hsb';
+import 'jquery.i18n/src/languages/hu';
+import 'jquery.i18n/src/languages/hy';
+import 'jquery.i18n/src/languages/la';
+import 'jquery.i18n/src/languages/ml';
+import 'jquery.i18n/src/languages/os';
+import 'jquery.i18n/src/languages/ru';
+import 'jquery.i18n/src/languages/sl';
+import 'jquery.i18n/src/languages/uk';
 
 class IntlProvider extends React.Component {
 	constructor( props ) {
