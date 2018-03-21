@@ -33,7 +33,7 @@ class ErrorBoundary extends React.PureComponent {
 		}
 
 		const report = (
-			<a href={`https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment&title=Interaction%20Timeline%20Fatal%20Error%3A%20${encodeURIComponent( this.state.error.message )}&assign=TBolliger&description=Error%20Message%3A%0A%3E%20${encodeURIComponent( this.state.error.message )}%0A%0AReproduction%20Steps%3A%0A`}>
+			<a href="https://phabricator.wikimedia.org/project/board/3156/">
 				<Message id="error-help-report" />
 			</a>
 		);
