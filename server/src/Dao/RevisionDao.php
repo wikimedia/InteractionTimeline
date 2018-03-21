@@ -34,12 +34,12 @@ class RevisionDao extends AbstractDao {
 
 		if ( $startDate ) {
 			$query->andWhere( 'rev_timestamp >= :start_date' )
-				->setParameter( ':start_date', date( 'Ymdhmi', $startDate ) );
+				->setParameter( ':start_date', date( 'YmdHis', $startDate ) );
 		}
 
 		if ( $endDate ) {
 			$query->andWhere( 'rev_timestamp <= :end_date' )
-				->setParameter( ':end_date', date( 'Ymdhmi', $endDate ) );
+				->setParameter( ':end_date', date( 'YmdHis', $endDate ) );
 		}
 		$this->logger->debug( sprintf( "Fetching revisions for users: %s", join( ', ', $users ) ) );
 
