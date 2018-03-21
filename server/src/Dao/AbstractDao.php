@@ -98,7 +98,7 @@ abstract class AbstractDao {
 			$qb->getSQL(),
 			$qb->getParameters(),
 			$qb->getParameterTypes(),
-			( $qpf ) ? $qpf : null
+			isset( $qpf ) ? $qpf : null
 		);
 
 		$results = $stmt->fetchAll( $fetchMode );
