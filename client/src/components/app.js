@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Message from './i18n/message';
 import Form from './form';
 import TimelineContainer from './timeline/timeline.container';
@@ -6,6 +7,19 @@ import ErrorBoundary from './error-boundary';
 
 export default () => (
 	<ErrorBoundary>
+		<Helmet>
+			{/*
+				* Start loading the webfont.
+				* We lazy-load the web font in JavaScript because CSS blocks rendering.
+				*
+				* If Server Side Rendering (SSR) is enabled, this will need to be
+				* updated by setting rel="preload" on the server and changing to
+				* rel="stylesheet" on the client.
+				*
+				* @see https://wikimedia.github.io/WikimediaUI-Style-Guide/visual-style_typography.html
+				*/}
+			<link href="https://tools-static.wmflabs.org/fontcdn/css?family=Lato:300,300italic,400,400italic,700,700italic" rel="stylesheet" type="text/css" />
+		</Helmet>
 		<div className="container-fluid app d-flex flex-column">
 			<header className="row border-bottom pt-2 pb-2 mb-3 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
