@@ -2,6 +2,7 @@ import Query from 'app/entities/query';
 
 export default ( state = new Query(), action ) => {
 	switch ( action.type ) {
+		case 'QUERY_SET_DEFAULT':
 		case 'QUERY_UPDATE':
 			let query = action.query;
 

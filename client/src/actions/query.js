@@ -6,6 +6,14 @@ export const EVENTS = [
 	'QUERY_END_DATE_CHANGE'
 ];
 
+// Setting the default query is not a Query event that should be listened to.
+export function setDefaultQuery( query ) {
+	return {
+		type: 'QUERY_SET_DEFAULT',
+		query
+	};
+}
+
 export function updateQuery( query ) {
 	return {
 		type: 'QUERY_UPDATE',
