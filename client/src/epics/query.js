@@ -41,12 +41,18 @@ export const pushQueryToLocation = ( action$, store ) => (
 
 export const setDefaultQueryOnLoad = ( action$, store ) => (
 	action$.ofType( LOCATION_CHANGE )
-		// Only set the default query on the initial localation change.
+		// Only set the default query on the initial location change.
 		.first()
 		// If the query is empty, set the default.
 		.filter( () => getQueryFromLocation( store.getState().router.location ).equals( new Query() ) )
 		// Do not update the URL on page load, wait for some other action.
-		.flatMap( () => Observable.of( setDefaultQuery( new Query( { startDate: moment.utc().startOf( 'day' ).subtract( 30, 'days' ).unix().toString() } ) ) ) )
+		.flatMap( () => {
+			const query = new Query( {
+				startDate: moment.utc().startOf( 'day' ).subtract( 30, 'days' ).unix().toString()
+			} );
+
+			return Observable.of( setDefaultQuery( query ) );
+		} )
 );
 
 export const pushLocationToQuery = ( action$, store ) => (
