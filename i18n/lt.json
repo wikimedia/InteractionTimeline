@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Manvydasz"
+		]
+	},
+	"app-beta-warning": "Šis įrankis šiuo metu yra testuojamas.",
+	"back-top": "Į viršų",
+	"between-edits": "$1 tarp pakeitimų",
+	"error": "Klaida",
+	"licensed-under": "Pagal $1 licenciją",
+	"field-label-end-date": "Pabaigos data",
+	"field-label-start-date": "Pradžios data",
+	"field-label-users": "Naudotojai",
+	"field-label-wiki": "Projektas",
+	"field-select-placeholder": "Pasirinkti...",
+	"field-select-no-results": "Rezultatų nerasta",
+	"privacy-policy": "Privatumo politika",
+	"report-bug": "Pranešti apie klaidą",
+	"view-source-code-on": "Rodyti $1",
+	"warning-no-results": "Nėra rezultatų"
+}

@@ -2,26 +2,39 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
-			"Woytecr"
+			"Woytecr",
+			"DeRudySoulStorm"
 		]
 	},
 	"app-beta-warning": "Ta funkcjonalność jest we wczesnej fazie testowej.",
 	"app-description": "Chronologiczna historia edycji dwóch użytkowników edytujących te same strony.",
 	"app-feedback-link": "Dowiedz się więcej i podziel się opinią!",
+	"app-title": "Interakcja Oś czasu",
 	"back-top": "Powrót do góry",
+	"between-interactions": "$1 pomiędzy interakcjami",
 	"error": "Błąd",
+	"error-help": "$1, a następnie $2.",
 	"error-help-report": "Zgłoś błąd",
 	"error-help-refresh": "odśwież stronę",
+	"error-message-request-url": "URL zapytania:",
+	"error-suppressed-diff": "Nie można wyświetlić tego porównania, ponieważ jedna lub obie wersje zostały wyłączone.",
 	"info-no-users": "Wskaż dwóch użytkowników aby zacząć.",
 	"info-no-wiki": "Podaj wiki aby zacząć.",
 	"info-required-fields": "Wskaż dwóch użytkowników i wiki aby zacząć.",
+	"licensed-under": "Licencjonowane na mocy $1",
+	"field-label-end-date": "Data zakończenia",
+	"field-label-start-date": "Data rozpoczęcia",
 	"field-label-users": "Użytkownicy",
 	"field-label-wiki": "Wiki",
 	"field-select-placeholder": "Wybierz...",
 	"field-select-no-results": "Nie znaleziono wyników",
+	"field-select-search-prompt": "Wpisz, aby wyszukać",
+	"made-by": "Wykonane przez Fundację Wikimedia $1",
+	"made-by-team": "Zespół ds. Zwalczania nękania",
 	"privacy-policy": "Polityka prywatności",
 	"powered-by": "Na platformie Wikimedia Toolforge",
 	"report-bug": "Zgłoś błąd",
 	"revision-edit-summary-removed": "(usunięto opis zmian)",
+	"view-source-code-on": "Wyświetl na $1",
 	"warning-no-results": "Brak wyników"
 }
