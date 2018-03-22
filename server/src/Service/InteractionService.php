@@ -131,14 +131,10 @@ class InteractionService {
 	private function sanitizeDate( $date ) {
 		if ( $date ) {
 			if ( is_numeric( $date ) ) {
-				$dateObj = new \DateTime();
-				$dateObj->setTimestamp( $date );
+				$dateObj = \DateTime::createFromFormat( 'U', $date );
 			} else {
-				$ts = strtotime( $date );
-				if ( $ts ) {
-					$dateObj = new \DateTime();
-					$dateObj->setTimestamp( $ts );
-				} else {
+				$dateObj = \DateTime::createFromFormat( 'U', strtotime( $date ) );
+				if ( !$dateObj ) {
 					throw new \InvalidArgumentException( 'invalid date argument' );
 				}
 			}

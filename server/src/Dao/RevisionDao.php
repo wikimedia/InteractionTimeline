@@ -10,14 +10,14 @@ class RevisionDao extends AbstractDao {
 	 * Fetch user interaction in commonly edited pages
 	 *
 	 * @param int[] $users
-	 * @param \DateTime|null $startDate
-	 * @param \DateTime|null $endDate
+	 * @param \DateTimeInterface|null $startDate
+	 * @param \DateTimeInterface|null $endDate
 	 * @param int $limit
 	 * @param null $continue
 	 * @return array
 	 */
 	public function getUserRevisionsInCommonPages(
-		array $users, \DateTime $startDate = null, \DateTime $endDate = null,
+		array $users, \DateTimeInterface $startDate = null, \DateTimeInterface $endDate = null,
 		$limit = 50, $continue = null
 	) {
 		$pages = $this->getUsersCommonPages( $users, $startDate, $endDate );
@@ -51,12 +51,12 @@ class RevisionDao extends AbstractDao {
 	 * Get common edited pages between multiple users
 	 *
 	 * @param int[] $users
-	 * @param \DateTime|null $startDate
-	 * @param \DateTime|null $endDate
+	 * @param \DateTimeInterface|null $startDate
+	 * @param \DateTimeInterface|null $endDate
 	 * @return array
 	 */
 	public function getUsersCommonPages(
-		array $users, \DateTime $startDate = null, \DateTime $endDate = null
+		array $users, \DateTimeInterface $startDate = null, \DateTimeInterface $endDate = null
 	) {
 		$query = $this->conn->createQueryBuilder();
 		$query->select( 'rev_page' )
