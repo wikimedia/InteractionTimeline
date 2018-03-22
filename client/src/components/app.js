@@ -79,7 +79,7 @@ export default () => (
 								<span> &ndash; </span>
 								<a href="https://wikimediafoundation.org/wiki/Privacy_policy"><Message id="privacy-policy" /></a>
 								<span> &ndash; </span>
-								<a href="https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?projects=Anti-Harassment,InteractionTimeline&title=Interaction%20Timeline%20bug%20report:%20&assign=TBolliger&description=Please%20be%20descriptive%20and%20include%20screenshots%20and%20links%20if%20possible.%20Thank%20you!%20">
+								<a href="https://phabricator.wikimedia.org/project/board/3156/">
 									<Message id="report-bug" />
 								</a>
 							</h6>
