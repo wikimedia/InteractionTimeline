@@ -28,8 +28,8 @@ class InteractionService {
 
 	/**
 	 * @param string[] $users
-	 * @param int|null $startDate
-	 * @param int|null $endDate
+	 * @param int|string|null $startDate
+	 * @param int|string|null $endDate
 	 * @param int $limit
 	 * @param string|null $continue
 	 * @return array
@@ -39,6 +39,9 @@ class InteractionService {
 	) {
 		$this->validateUsers( $users );
 		$this->validateLimit( $limit );
+
+		$startDate = $this->sanitizeDate( $startDate );
+		$endDate = $this->sanitizeDate( $endDate );
 
 		// get user ids from usernames
 		$userIds = array_map( function ( $username ) {
@@ -115,5 +118,28 @@ class InteractionService {
 		if ( count( $users ) < 2 ) {
 			throw new \InvalidArgumentException( 'at least 2 users should be provided' );
 		}
+	}
+
+	/**
+	 * Takes a timestamp or a string representing a date
+	 * and returns a \DateTime object
+	 *
+	 * @param int|string $date
+	 * @return \DateTime|null
+	 * @throws \InvalidArgumentException
+	 */
+	private function sanitizeDate( $date ) {
+		if ( $date ) {
+			if ( is_numeric( $date ) ) {
+				$dateObj = \DateTime::createFromFormat( 'U', $date );
+			} else {
+				$dateObj = \DateTime::createFromFormat( 'U', strtotime( $date ) );
+				if ( !$dateObj ) {
+					throw new \InvalidArgumentException( 'invalid date argument' );
+				}
+			}
+		}
+
+		return isset( $dateObj ) ? $dateObj : null;
 	}
 }

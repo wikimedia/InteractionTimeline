@@ -63,6 +63,8 @@ class InteractionServiceTest extends TestCase {
 
 	public function providerInvalidParams() {
 		return [
+			[ [ 'a', 'b' ], 'invalid-date', null, 20, null ],
+			[ [ 'a', 'b' ], 1507056594, 'invalid-date', 50, null ],
 			[ [ 'a', 'b' ], null, null, 'invalid-limit', null ],
 			[ [], null, null, 100, null ],
 		];
