@@ -4,10 +4,16 @@
 			"Aftabuzzaman"
 		]
 	},
+	"app-feedback-link": "আরও জানুন এবং প্রতিক্রিয়া দিন!",
 	"back-top": "উপরে ফিরুন",
 	"error": "ত্রুটি",
 	"error-help": "$1, এবং তারপর $2।",
+	"error-help-refresh": "পাতাটি পুনঃসতেজ করুন",
 	"error-message-request-url": "অনুরোধের URL",
+	"info-no-users": "শুরু করতে দুইজন ব্যবহারকারী প্রদান করুন।",
+	"info-no-wiki": "শুরু করতে একটি উইকি প্রদান করুন।",
+	"info-required-fields": "শুরু করতে দুইজন ব্যবহারকারী ও একটি উইকি প্রদান করুন।",
+	"licensed-under": "$1-এর অধীনে লাইসেন্সকৃত",
 	"field-label-end-date": "শেষের তারিখ",
 	"field-label-start-date": "শুরুর তারিখ",
 	"field-label-users": "ব্যবহারকারী",
@@ -16,6 +22,8 @@
 	"field-select-no-results": "কোনো ফলাফল পাওয়া যায়নি",
 	"field-select-search-prompt": "অনুসন্ধান করতে লিখুন",
 	"privacy-policy": "গোপনীয়তার নীতি",
+	"report-bug": "একটি সমস্যা প্রতিবেদন করুন",
+	"revision-edit-summary-removed": "সম্পাদনা সারাংশ অপসারিত হয়েছে",
 	"view-source-code-on": "$1-এ দেখুন",
 	"warning-no-results": "কোন ফলাফল নেই"
 }

@@ -5,6 +5,7 @@
 		]
 	},
 	"back-top": "Torna all'inizio",
+	"between-edits": "$1 tra le modifiche",
 	"error": "Errore",
 	"error-help-refresh": "aggiorna la pagina",
 	"field-label-end-date": "Data fine",

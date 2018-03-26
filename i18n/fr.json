@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wladek92"
+			"Wladek92",
+			"Gomoko"
 		]
 	},
 	"app-beta-warning": "Cette fonctionalité est en début de test.",
@@ -9,6 +10,7 @@
 	"app-feedback-link": "Aprenez-en davantage et laissez votre avis !",
 	"app-title": "Calendrier des interactions",
 	"back-top": "Retour en haut de la page",
+	"between-edits": "$1 entre deux modifications",
 	"between-interactions": "$1 entre les interactions",
 	"error": "Erreur",
 	"error-help": "$1, et ensuite $2 .",

@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Athena in Wonderland"
+		]
+	},
+	"app-beta-warning": "Esta funcionalidade está em período de testes.",
+	"app-description": "O histórico cronológico de dois utilizadores nas páginas onde ambos realizaram as edições.",
+	"app-feedback-link": "Saiba mais e dê-nos a sua opinião!",
+	"app-title": "Cronologia de interação",
+	"back-top": "Voltar ao topo",
+	"between-edits": "$1 entre edições",
+	"between-interactions": "$1 entre interações",
+	"error": "Erro",
+	"error-help": "$1, e depois $2.",
+	"error-help-report": "Comunicar o erro",
+	"error-help-refresh": "atualizar a página",
+	"error-message-request-url": "URL do pedido",
+	"error-suppressed-diff": "Não foi possível ver esta diferença entre revisões, porque uma ou mais revisões foram suprimidas.",
+	"info-no-users": "Escolha dois utilizadores para começar, por favor.",
+	"info-no-wiki": "Escolha uma wiki para começar, por favor.",
+	"info-required-fields": "Escolha dois utilizadores e a wiki para começar, por favor.",
+	"licensed-under": "Licenciado ao abrigo da licença $1",
+	"field-label-end-date": "Data final",
+	"field-label-start-date": "Data inicial",
+	"field-label-users": "Utilizadores",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selecionar...",
+	"field-select-no-results": "Não foram encontrados resultados",
+	"field-select-search-prompt": "Escreva para procurar",
+	"made-by": "Realizado por $1 da Fundação Wikimedia.",
+	"made-by-team": "Equipa encarregada das ferramentas contra o assédio",
+	"privacy-policy": "Política de privacidade",
+	"powered-by": "Disponibilizado por Wikimedia Toolforge",
+	"report-bug": "Reportar um defeito",
+	"revision-edit-summary-removed": "resumo da edição suprimido",
+	"view-source-code-on": "Ver em $1",
+	"warning-no-results": "Sem resultados"
+}
