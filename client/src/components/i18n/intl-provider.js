@@ -30,7 +30,9 @@ class IntlProvider extends React.Component {
 		super( props );
 
 		jQuery.i18n( {
-			locale: props.locale
+			// Convert to lowercase.
+			// @see https://github.com/wikimedia/jquery.i18n/issues/120
+			locale: props.locale.toLowerCase()
 		} ).load( props.messages );
 	}
 
