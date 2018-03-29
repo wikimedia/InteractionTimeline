@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Hamilton Abreu"
 		]
 	},
 	"app-beta-warning": "Esta funcionalidade está em período de testes.",
-	"app-description": "O histórico cronológico de dois utilizadores nas páginas onde ambos realizaram as edições.",
+	"app-description": "O historial cronológico de dois utilizadores nas páginas onde ambos realizaram edições.",
 	"app-feedback-link": "Saiba mais e dê-nos a sua opinião!",
 	"app-title": "Cronologia de interação",
 	"back-top": "Voltar ao topo",
@@ -16,7 +17,7 @@
 	"error-help-report": "Comunicar o erro",
 	"error-help-refresh": "atualizar a página",
 	"error-message-request-url": "URL do pedido",
-	"error-suppressed-diff": "Não foi possível ver esta diferença entre revisões, porque uma ou mais revisões foram suprimidas.",
+	"error-suppressed-diff": "Não pode ver estas diferenças entre revisões, porque uma ou ambas as revisões foram suprimidas.",
 	"info-no-users": "Escolha dois utilizadores para começar, por favor.",
 	"info-no-wiki": "Escolha uma wiki para começar, por favor.",
 	"info-required-fields": "Escolha dois utilizadores e a wiki para começar, por favor.",
