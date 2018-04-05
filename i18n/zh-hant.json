@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"Sanmosa"
 		]
 	},
 	"app-beta-warning": "此功能仍在初期測試階段。",
@@ -23,7 +24,7 @@
 	"licensed-under": "使用 $1 條款授權",
 	"field-label-end-date": "結束日期",
 	"field-label-start-date": "開始日期",
-	"field-label-users": "使用者",
+	"field-label-users": "用戶",
 	"field-label-wiki": "Wiki",
 	"field-select-placeholder": "選擇...",
 	"field-select-no-results": "查無結果",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chicocvenancio",
-			"Fitoschido"
+			"Fitoschido",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"app-beta-warning": "Esta função está em testes iniciais",
@@ -10,6 +11,7 @@
 	"app-feedback-link": "Aprenda mais e deixe comentário!",
 	"app-title": "Linha do tempo de interação",
 	"back-top": "Voltar ao topo",
+	"between-edits": "$1 entre edições",
 	"between-interactions": "$1 entre interações",
 	"error": "Erro",
 	"error-help": "$1, e depois $2",
