@@ -4,12 +4,13 @@
 			"Patrick Star",
 			"Amire80",
 			"Okras",
-			"Happy13241"
+			"Happy13241",
+			"Movses"
 		]
 	},
 	"app-beta-warning": "Эта функция рано тестирование.",
 	"app-description": "Хронологическая история для двух пользователей на страницах, где они оба вносили изменения.",
-	"app-feedback-link": "Узнать больше и оставить отзыв!",
+	"app-feedback-link": "Узнай больше и оставь отзыв!",
 	"app-title": "Interaction Timeline",
 	"back-top": "Вернуться наверх",
 	"between-edits": "$1 между правками",
@@ -31,7 +32,7 @@
 	"field-select-placeholder": "Выберите…",
 	"field-select-no-results": "Ничего не найдено",
 	"field-select-search-prompt": "Введите для поиска",
-	"made-by": "Сделано в Фондом Викимедиа $1.",
+	"made-by": "Сделано командой $1 Фонда Викимедиа.",
 	"made-by-team": "Команда по борьбе с преследованиями",
 	"privacy-policy": "Политика конфиденциальности",
 	"powered-by": "На платформе Wikimedia Toolforge",
