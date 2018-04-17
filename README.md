@@ -13,7 +13,7 @@ Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 ## Contributing
 *Dev access to Toolforge is required.*
 
-- Configure the api to connect to toolforge replica db(s) by configuring your login information into the new `.env` file 
+- Configure the API to connect to toolforge replica db(s) by configuring your login information (`TOOLFORGE_USER`) into the new `.env` file. Also update `DB_USER` and `DB_PASS`, you can find these in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
 ```
 cp ./server/.env.dist ./server/.env
 ```
