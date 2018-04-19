@@ -217,6 +217,11 @@ body {
 		}
 	}
 
+	.timestamp {
+		font-weight: 600;
+		font-size: 0.9em;
+	}
+
 	&.left {
 		.wrapper,
 		.record {
@@ -224,6 +229,10 @@ body {
 		}
 		.content { // TODO No hover
 			background-color: map-get($timeline-bg, "left");
+		}
+
+		.timestamp {
+			color: map-get($timeline-bg, "left-dark");
 		}
 	}
 
@@ -235,6 +244,9 @@ body {
 		.timelapse {
 			@extend .text-right;
 		}
+		.timestamp {
+			color: map-get($timeline-bg, "right-dark");
+		}
 	}
 
 	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
@@ -245,6 +257,7 @@ body {
 			&:before {
 				content: '';
 				display: block;
+				border: 5px solid white;
 				width: 1.5em;
 				height: 1.5em;
 				-moz-border-radius: 0.75em;
