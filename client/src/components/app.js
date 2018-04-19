@@ -21,24 +21,22 @@ export default () => (
 				*/}
 			<link href="https://tools-static.wmflabs.org/fontcdn/css?family=Lato:300,300italic,400,400italic,700,700italic" rel="stylesheet" type="text/css" />
 		</Helmet>
-		<div className="container-fluid app d-flex flex-column">
-			<header className="row border-bottom pt-2 pb-2 mb-3 justify-content-center">
+		<div className="container app d-flex flex-column">
+			<header className="row pt-2 pb-2 mb-3 justify-content-center header">
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
-						<div className="col-sm-auto">
-							<h2><Message id="app-title" /></h2>
-							<h6><Message id="app-description" /></h6>
-						</div>
-						<div className="col-sm-auto">
-							<h6>
-								<a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><Message id="app-feedback-link" /></a>
-							</h6>
+						<div className="col-sm-6">
+							<h1><Message id="app-title" /></h1>
+							<p><Message id="app-description" /></p>
+							<p>
+								<Message id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><Message id="app-feedback-link" /></a>
+							</p>
 						</div>
 					</div>
 				</div>
 			</header>
-			<div className="row justify-content-center">
-				<div className="col-xl-10 col-sm-8">
+			<div className="row justify-content-center form pt-3">
+				<div className="col-xl-12 col-sm-8">
 					<div className="row mb-3">
 						<div className="col">
 							<Form />
@@ -51,7 +49,7 @@ export default () => (
 					<TimelineContainer />
 				</div>
 			</div>
-			<footer className="row mt-auto border-top pt-2 pb-2 justify-content-center">
+			<footer className="row mt-auto pt-2 pb-2 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
 						<div className="col-sm-auto">

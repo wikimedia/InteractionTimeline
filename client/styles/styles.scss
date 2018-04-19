@@ -48,11 +48,6 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
-}
-
-
-header,
-footer {
 	background-color: $header-footer-bg;
 }
 
@@ -71,6 +66,20 @@ footer {
 	visibility: hidden;
 	opacity: 0;
 	transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.header {
+  padding-top: 6rem !important;
+
+	h1 {
+		font-weight: 600;
+		letter-spacing: 1px;
+	}
+}
+
+.form {
+	background-color: var( --wmui-color-base100 );
+	border: var( --border-base )
 }
 
 .error {
@@ -168,11 +177,6 @@ footer {
 	&.error:hover {
 		background-color: var( --wmui-color-red90 ); // TODO No hover change
 	}
-}
-
-.date-revisions,
-.status.has-content {
-	background-color: var( --wmui-color-base90 );
 }
 
 .status .wrapper {
