@@ -52,7 +52,12 @@ export default () => (
 			<footer className="row mt-auto pt-2 pb-2 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
-						<div className="col-sm-auto">
+						<div className="col-sm-auto align-self-left">
+							<a href="https://tools.wmflabs.org/">
+								<img className="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={Message( { id: 'powered-by' } )} />
+							</a>
+						</div>
+						<div className="col-sm-auto text-right">
 							<h6>
 								<Message
 									id="made-by"
@@ -82,11 +87,6 @@ export default () => (
 									<Message id="report-bug" />
 								</a>
 							</h6>
-						</div>
-						<div className="col-sm-auto align-self-center">
-							<a href="https://tools.wmflabs.org/">
-								<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={Message( { id: 'powered-by' } )} />
-							</a>
 						</div>
 					</div>
 				</div>

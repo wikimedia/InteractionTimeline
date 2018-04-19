@@ -82,6 +82,17 @@ body {
 	border: var( --border-base )
 }
 
+.toolforge-logo {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+
+	&:hover {
+		-webkit-filter: none;
+		filter: none;
+	}
+}
+
 .error {
 	min-height: 100%;
 	min-height: 100vh;
