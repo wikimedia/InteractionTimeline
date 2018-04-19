@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pyscowicz"
+		]
+	},
+	"app-beta-warning": "Tämä ominaisuus on varhaisessa testauksessa.",
+	"app-description": "Kronologinen historia kahdelle käyttäjälle sivuilla, missä molemmat ovat tehneet muokkauksia.",
+	"app-feedback-link": "Lisätietoja & jätä palautetta!",
+	"app-title": "Vuorovaikutteinen aikajana",
+	"back-top": "Takaisin alkuun",
+	"error": "Virhe",
+	"error-help": "$1, ja sitten $2.",
+	"error-help-report": "Ilmoita virheestä",
+	"error-help-refresh": "päivitä sivu",
+	"error-message-request-url": "Pyynnön URL",
+	"info-no-users": "Anna kaksi käyttäjää aloittaaksesi.",
+	"info-no-wiki": "Anna wiki aloittaaksesi.",
+	"info-required-fields": "Anna kaksi käyttäjää ja wiki aloittaaksesi.",
+	"licensed-under": "Lisensoitu lisenssillä $1",
+	"field-label-end-date": "Päättymispäivä",
+	"field-label-start-date": "Alkamispäivä",
+	"field-label-users": "Käyttäjät",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Valitse...",
+	"field-select-no-results": "Tuloksia ei löytynyt",
+	"field-select-search-prompt": "Kirjoita hakeaksesi",
+	"made-by": "Tehnyt Wikimedia Foundationin $1",
+	"made-by-team": "Anti-Harassment Tools -tiimi",
+	"privacy-policy": "Tietosuojakäytäntö",
+	"powered-by": "Moottorina toimii Wikimedia Toolforge",
+	"report-bug": "Ilmoita viasta",
+	"revision-edit-summary-removed": "muokkausyhteenveto poistettu",
+	"view-source-code-on": "Näytä $1issa",
+	"warning-no-results": "Ei tuloksia"
+}
