@@ -1,5 +1,8 @@
 $font-size-base: 0.9rem;
-$font-family-sans-serif: 'Lato', sans-serif;
+
+// TODO Use wmui var here once it is corrected
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont,
+	'Segoe UI', Roboto, Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
 
 // TODO Should be wmui-color-accent50, but ligthen/darken doesn't work on vars
 $primary: #36c;
