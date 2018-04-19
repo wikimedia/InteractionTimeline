@@ -4,10 +4,8 @@ import 'material-design-icons/iconfont/material-icons.css';
 
 const TimelineDate = ( { date } ) => (
 	<div className="row mb-1">
-		<div className="col-10 date pb-1 pt-1 border rounded text-center align-text-middle">
-			<div className="d-flex justify-content-center align-items-center text-nowrap">
-				<span>{date}</span>
-			</div>
+		<div className="col-12 date pt-3">
+			<h4>{date}</h4>
 		</div>
 	</div>
 );
