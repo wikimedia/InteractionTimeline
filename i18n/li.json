@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"app-beta-warning": "Dit óngerdeil zitj nag inne kinjersjoon.",
+	"app-description": "Chronologische gesjiechte van twieë gebroekers op pagina's worop zie allebei bewirkinge höbbe gemaak.",
+	"app-feedback-link": "Laes mier & gaef feedback!",
+	"app-title": "Interaksjetiedlien",
+	"back-top": "Trök nao baove",
+	"between-edits": "$1 tösse bewirkinge",
+	"between-interactions": "$1 tösje interaksjes",
+	"error": "Fout",
+	"error-help": "$1, en daonao $2.",
+	"error-help-report": "Rapporteer de fout",
+	"error-help-refresh": "vernuuj de pagina",
+	"error-message-request-url": "Vraog URL op",
+	"error-suppressed-diff": "Doe kans dit versjil neet zeen, went ein of allebei de bewirkinge zint óngerdrök.",
+	"info-no-users": "Gaef estebleef twie gebroekers op veur te beginne.",
+	"info-no-wiki": "Gaef estebleef 'ne wiki op veur te beginne.",
+	"info-required-fields": "Gaef estebleef twie gebroekers en 'ne wiki op veur te beginne.",
+	"licensed-under": "Oetgegaove ónger $1",
+	"field-label-end-date": "Verloupdatum",
+	"field-label-start-date": "Begindatum",
+	"field-label-users": "Gebroekers",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Sillekteer...",
+	"field-select-no-results": "Gein rizzeltaote gevónje",
+	"field-select-search-prompt": "Tik veur te zeuke",
+	"made-by": "Gemaak door $1 van de Wikimedia Foundation.",
+	"made-by-team": "Anti-Harassment Tools team",
+	"privacy-policy": "Privaatbeleid",
+	"powered-by": "Óngerstäönd door Wikimedia Toolforge",
+	"report-bug": "Melj perbleem",
+	"revision-edit-summary-removed": "(bewirkingssamevatting eweggesjaf)",
+	"view-source-code-on": "Betrach op $1",
+	"warning-no-results": "Gein rizzeltaote"
+}
