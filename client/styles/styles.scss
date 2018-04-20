@@ -79,7 +79,6 @@ body {
 
 .form {
 	background-color: var( --wmui-color-base100 );
-	border: var( --border-base )
 }
 
 .toolforge-logo {
@@ -154,10 +153,12 @@ body {
 	color: $body-color;
 	&.left {
 		background-color: map-get($timeline-bg, "left");
+		border-bottom: solid 2px map-get($timeline-bg, "left-dark");
 		color: $timeline-text;
 	}
 	&.right {
 		background-color: map-get($timeline-bg, "right");
+		border-bottom: solid 2px map-get($timeline-bg, "right-dark");
 		color: $timeline-text;
 	}
 	&.error {

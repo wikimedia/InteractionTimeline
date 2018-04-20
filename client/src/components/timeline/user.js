@@ -17,7 +17,7 @@ const User = ( { user, side, wiki } ) => {
 	}
 
 	return (
-		<Header href={href} className="rounded" side={side}>
+		<Header href={href} side={side}>
 			<i className="mr-2 material-icons">person</i>
 			<span>{user}</span>
 		</Header>
