@@ -81,6 +81,11 @@ body {
 	background-color: var( --wmui-color-base100 );
 }
 
+label {
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
 .toolforge-logo {
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);

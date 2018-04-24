@@ -6,23 +6,22 @@ import { Message } from '@wikimedia/react.i18n';
 
 const Form = () => (
 	<form autoComplete="off">
-		<div className="form-group row align-items-center">
-			<label className="col-sm-1 col col-form-label" htmlFor="users"><Message id="field-label-users" /></label>
-			<div className="col">
-				<SelectUsersContainer id="users" name="user" />
-			</div>
-		</div>
+
 		<div className="row">
-			<div className="col-sm-6">
-				<div className="form-group row align-items-center">
-					<label className="col-sm-2 col col-form-label" htmlFor="wiki"><Message id="field-label-wiki" /></label>
-					<div className="col">
+			<div className="col-sm-10 offset-sm-1">
+				<div className="row">
+					<div className="col-sm-8">
+						<label htmlFor="users"><Message id="field-label-users" /></label>
+						<SelectUsersContainer id="users" name="user" />
+					</div>
+					<div className="col-sm-4">
+						<label htmlFor="wiki"><Message id="field-label-wiki" /></label>
 						<SelectWikiContainer id="wiki" name="wiki" />
 					</div>
+					<div className="col-sm-8 pt-3">
+						<DateRangeContainer />
+					</div>
 				</div>
-			</div>
-			<div className="col-sm-6">
-				<DateRangeContainer />
 			</div>
 		</div>
 	</form>
