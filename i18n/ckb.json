@@ -10,8 +10,10 @@
 	"between-edits": "$1 لە نێوان دەستکارییەکان",
 	"error": "ھەڵە",
 	"error-help": "$1، دواتریش $2.",
+	"error-help-report": "سکاڵای کێشەیەک بدە",
 	"error-help-refresh": "پەڕەکە خاوێن بکەرەوە",
 	"error-message-request-url": "داوای ناونیشان بکە",
+	"error-suppressed-diff": "ناتوانیت ئەم جیاوازییە ببینیت چوونکە یەکێک یان ھەردووک بەسەرداچوونەوەکان خامۆشکراون.",
 	"info-no-users": "سەرەتا دوو بەکارھێنەر بدە.",
 	"info-no-wiki": "سەرەتا ویکییەک بدە.",
 	"info-required-fields": "سەرەتا دوو بەکارھێنەر و ویکییەک بدە.",
@@ -24,8 +26,10 @@
 	"field-select-no-results": "ھیچ ئەنجامێک نەدۆزرایەوە",
 	"field-select-search-prompt": "بۆ گەڕان لێرە بنووسە",
 	"made-by": "لەلایەن $1ی دامەزراوەی ویکیمیدیاوە دروست کراوە.",
+	"made-by-team": "تیمی ئامرازی دژە-ھەراسانکاری",
 	"privacy-policy": "سیاسەتی تایبەتێتی",
 	"report-bug": "سکاڵای کێشەیەک بدە",
+	"revision-edit-summary-removed": "کورتەی دەستکاری لابرا",
 	"view-source-code-on": "لە $1دا بیبینە",
 	"warning-no-results": "هیچ ئەنجامێک نییە"
 }
