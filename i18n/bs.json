@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Srdjan m"
+		]
+	},
+	"app-title": "Hronologija interakcije",
+	"field-label-end-date": "Završni datum",
+	"field-label-start-date": "Početni datum",
+	"field-label-users": "Korisnici",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Izaberite...",
+	"field-select-no-results": "Nema rezultata",
+	"report-bug": "Prijavi grešku",
+	"view-source-code-on": "Vidi na $1"
+}
