@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alp Er Tunqa"
+		]
+	},
+	"back-top": "اوسته قاییت",
+	"error": "خطا",
+	"field-label-end-date": "قورتارماق تاریخی",
+	"field-label-start-date": "باشلانماق تاریخی",
+	"field-label-users": "ایشلدنلر",
+	"field-label-wiki": "ویکی",
+	"field-select-placeholder": "سئچین...",
+	"field-select-no-results": "هئچ بیر نتیجه تاپیلمادی",
+	"privacy-policy": "گیزلیلیک سیاستی",
+	"warning-no-results": "نتیجه یوخ‌دور"
+}
