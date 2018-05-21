@@ -3,10 +3,11 @@
 		"authors": [
 			"Chrumps",
 			"Woytecr",
-			"DeRudySoulStorm"
+			"DeRudySoulStorm",
+			"Tar Lócesilion"
 		]
 	},
-	"app-beta-warning": "Ta funkcjonalność jest we wczesnej fazie testowej.",
+	"app-beta-warning": "Ta funkcja jest we wczesnej fazie testowej.",
 	"app-description": "Chronologiczna historia edycji dwóch użytkowników edytujących te same strony.",
 	"app-feedback-link": "Dowiedz się więcej i podziel się opinią!",
 	"app-title": "Interakcja Oś czasu",
@@ -20,8 +21,8 @@
 	"error-message-request-url": "URL zapytania:",
 	"error-suppressed-diff": "Nie można wyświetlić tego porównania, ponieważ jedna lub obie wersje zostały wyłączone.",
 	"info-no-users": "Wskaż dwóch użytkowników aby zacząć.",
-	"info-no-wiki": "Podaj wiki aby zacząć.",
-	"info-required-fields": "Wskaż dwóch użytkowników i wiki aby zacząć.",
+	"info-no-wiki": "Podaj wiki, aby zacząć.",
+	"info-required-fields": "Wskaż dwóch użytkowników i wiki, aby zacząć.",
 	"licensed-under": "Licencjonowane na mocy $1",
 	"field-label-end-date": "Data zakończenia",
 	"field-label-start-date": "Data rozpoczęcia",
@@ -30,7 +31,7 @@
 	"field-select-placeholder": "Wybierz...",
 	"field-select-no-results": "Nie znaleziono wyników",
 	"field-select-search-prompt": "Wpisz, aby wyszukać",
-	"made-by": "Wykonane przez Fundację Wikimedia $1",
+	"made-by": "Wykonane przez $1 w Wikimedia Foundation.",
 	"made-by-team": "Zespół ds. Zwalczania nękania",
 	"privacy-policy": "Polityka prywatności",
 	"powered-by": "Na platformie Wikimedia Toolforge",
