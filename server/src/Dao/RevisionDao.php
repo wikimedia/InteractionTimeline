@@ -119,15 +119,31 @@ class RevisionDao extends AbstractDao {
 	 * When possible, search for user ids to improve performance.
 	 * If usernames or IP(s) are provided, then use those.
 	 *
-	 * @param array $users List of usernames/IP(s), ids, or mixed
+	 * @param array $users List of usernames/IPs or user ids
 	 * @return string
 	 */
 	private function getUserSearchColumn( $users ) {
 		$column = 'rev_user_text';
-		if ( array_filter( $users, 'is_numeric' ) ) {
+		if ( $this->isNumericArray( $users ) ) {
 			$column = 'rev_user';
 		}
 
 		return $column;
+	}
+
+	/**
+	 * Determine if all the elements in an array are numeric.
+	 *
+	 * @param array $arr
+	 * @return boolean
+	 */
+	private function isNumericArray( $arr ) {
+		foreach ( $arr as $value ) {
+			if ( !is_numeric( $value ) ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
