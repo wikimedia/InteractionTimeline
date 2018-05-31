@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"EukeneFL",
+			"Mikel Ibaiba"
+		]
+	},
+	"back-top": "Gora itzuli",
+	"between-edits": "$1 aldaketen artean",
+	"between-interactions": "$1 elkarekintzen artean",
+	"error": "Akatsa",
+	"error-help": "$1, eta gero $2.",
+	"error-help-report": "Akatsa jakinarazi",
+	"error-help-refresh": "Orrialdea freskatu",
+	"error-message-request-url": "URLa eskatu",
+	"info-no-users": "Mesedez, eman bi erabiltzaile hasteko",
+	"field-label-end-date": "Amaiera data",
+	"field-label-start-date": "Hasiera data",
+	"field-label-users": "Erabiltzaileak",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Hautatu...",
+	"field-select-no-results": "Ez da emaitzarik aurkitu",
+	"field-select-search-prompt": "Idatzi bilatzeko",
+	"made-by": "Wikimedia Fundazioko $1-(e)k eginda.",
+	"privacy-policy": "Pribatutasun politika",
+	"view-source-code-on": "$1(e)an ikusi",
+	"warning-no-results": "Emaitzik ez"
+}
