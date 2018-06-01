@@ -9,7 +9,7 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Fetch user interaction in commonly edited pages
 	 *
-	 * @param array $users List of usernames/IP(s), ids, or mixed
+	 * @param array $users List of usernames/IPs or user ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @param int $limit
@@ -51,7 +51,7 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Get common edited pages between multiple users
 	 *
-	 * @param array $users List of usernames/IP(s), ids, or mixed
+	 * @param array $users List of usernames/IPs or user ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @return array
@@ -122,7 +122,7 @@ class RevisionDao extends AbstractDao {
 	 * @param array $users List of usernames/IPs or user ids
 	 * @return string
 	 */
-	private function getUserSearchColumn( $users ) {
+	private function getUserSearchColumn( array $users ) {
 		$column = 'rev_user_text';
 		if ( $this->isNumericArray( $users ) ) {
 			$column = 'rev_user';
@@ -137,7 +137,7 @@ class RevisionDao extends AbstractDao {
 	 * @param array $arr
 	 * @return boolean
 	 */
-	private function isNumericArray( $arr ) {
+	private function isNumericArray( array $arr ) {
 		foreach ( $arr as $value ) {
 			if ( !is_numeric( $value ) ) {
 				return false;
