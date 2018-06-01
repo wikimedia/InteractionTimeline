@@ -152,7 +152,7 @@ class InteractionService {
 	 * @param array $data
 	 * @return boolean
 	 */
-	private function isIpPresent( $data ) {
+	private function isIpPresent( array $data ) {
 		$ips = array_filter( $data, function ( $possibleIp ) {
 			return filter_var( $possibleIp, FILTER_VALIDATE_IP );
 		} );
