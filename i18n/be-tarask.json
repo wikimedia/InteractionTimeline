@@ -13,5 +13,7 @@
 	"between-interactions": "$1 паміж узаемадзеяньнямі",
 	"error": "Памылка",
 	"error-help": "$1, а потым $2.",
-	"error-help-report": "Паведаміць пра памылку"
+	"error-help-report": "Паведаміць пра памылку",
+	"error-help-refresh": "абнавіць старонку",
+	"error-message-request-url": "URL запыту"
 }
