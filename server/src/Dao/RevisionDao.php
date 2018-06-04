@@ -9,7 +9,7 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Fetch user interaction in commonly edited pages
 	 *
-	 * @param int[] $users
+	 * @param array $users List of usernames/IPs or user ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @param int $limit
@@ -24,9 +24,10 @@ class RevisionDao extends AbstractDao {
 
 		// build query to find interaction between users in common pages
 		$query = $this->conn->createQueryBuilder();
+		$searchColumn = $this->getUserSearchColumn( $users );
 		$query->select( 'rev_id' )
 			->from( 'revision_userindex', 'r' )
-			->where( 'rev_user in (:users)' )
+			->where( $searchColumn . ' in (:users)' )
 			->andWhere( 'rev_page in (:pages)' )
 			->orderBy( 'rev_id', 'asc' )
 			->setMaxResults( $limit )
@@ -50,7 +51,7 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Get common edited pages between multiple users
 	 *
-	 * @param int[] $users
+	 * @param array $users List of usernames/IPs or user ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @return array
@@ -59,11 +60,12 @@ class RevisionDao extends AbstractDao {
 		array $users, \DateTimeInterface $startDate = null, \DateTimeInterface $endDate = null
 	) {
 		$query = $this->conn->createQueryBuilder();
+		$searchColumn = $this->getUserSearchColumn( $users );
 		$query->select( 'rev_page' )
 			->from( 'revision_userindex' )
-			->where( 'rev_user in (:users)' )
+			->where( $searchColumn . ' in (:users)' )
 			->groupBy( 'rev_page' )
-			->having( 'count(distinct rev_user) > 1' )
+			->having( 'count(distinct ' . $searchColumn . ') > 1' )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY );
 
 		if ( $startDate ) {
@@ -109,5 +111,39 @@ class RevisionDao extends AbstractDao {
 			->setParameter( ':rev_ids', $revIds, Connection::PARAM_STR_ARRAY );
 
 		return $this->fetchAll( $query, \PDO::FETCH_ASSOC );
+	}
+
+	/**
+	 * Determine user's search column on revisions table.
+	 *
+	 * When possible, search for user ids to improve performance.
+	 * If usernames or IP(s) are provided, then use those.
+	 *
+	 * @param array $users List of usernames/IPs or user ids
+	 * @return string
+	 */
+	private function getUserSearchColumn( array $users ) {
+		$column = 'rev_user_text';
+		if ( $this->isNumericArray( $users ) ) {
+			$column = 'rev_user';
+		}
+
+		return $column;
+	}
+
+	/**
+	 * Determine if all the elements in an array are numeric.
+	 *
+	 * @param array $arr
+	 * @return boolean
+	 */
+	private function isNumericArray( array $arr ) {
+		foreach ( $arr as $value ) {
+			if ( !is_numeric( $value ) ) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }

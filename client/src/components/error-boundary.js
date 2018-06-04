@@ -14,17 +14,17 @@ class ErrorBoundary extends React.PureComponent {
 		this.handleRefresh = this.handleRefresh.bind( this );
 	}
 
+	componentDidCatch( error ) {
+		this.setState( {
+			error
+		} );
+	}
+
 	handleRefresh() {
 		const doc = this.refreshLink.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
 
 		return win.location.reload( true );
-	}
-
-	componentDidCatch( error ) {
-		this.setState( {
-			error
-		} );
 	}
 
 	render() {

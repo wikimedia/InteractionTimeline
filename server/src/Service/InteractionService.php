@@ -43,17 +43,20 @@ class InteractionService {
 		$startDate = $this->sanitizeDate( $startDate );
 		$endDate = $this->sanitizeDate( $endDate );
 
-		// get user ids from usernames
-		$userIds = array_map( function ( $username ) {
-			$userId = $this->userDao->getUserId( $username );
-			if ( !$userId ) {
-				throw new \InvalidArgumentException( sprintf( 'username %s could not be found', $username ) );
-			}
-			return $userId;
-		}, $users );
+		// If none of the users is an IP, get their user ID(s) to improve performance
+		if ( !$this->isIpPresent( $users ) ) {
+			// get user ids from usernames
+			$users = array_map( function ( $username ) {
+				$userId = $this->userDao->getUserId( $username );
+				if ( !$userId ) {
+					throw new \InvalidArgumentException( sprintf( 'username %s could not be found', $username ) );
+				}
+				return $userId;
+			}, $users );
+		}
 
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
-				$userIds,  $startDate, $endDate, $limit, $continue
+				$users,  $startDate, $endDate, $limit, $continue
 		);
 
 		$revisions = [];
@@ -141,5 +144,21 @@ class InteractionService {
 		}
 
 		return isset( $dateObj ) ? $dateObj : null;
+	}
+
+	/**
+	 * Check if a value in an array is a valid IP address
+	 *
+	 * @param array $data
+	 * @return boolean
+	 */
+	private function isIpPresent( array $data ) {
+		foreach ( $data as $possibleIp ) {
+			if ( filter_var( $possibleIp, FILTER_VALIDATE_IP ) ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
