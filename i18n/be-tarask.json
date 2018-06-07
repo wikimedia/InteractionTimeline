@@ -15,5 +15,8 @@
 	"error-help": "$1, а потым $2.",
 	"error-help-report": "Паведаміць пра памылку",
 	"error-help-refresh": "абнавіць старонку",
-	"error-message-request-url": "URL запыту"
+	"error-message-request-url": "URL запыту",
+	"error-suppressed-diff": "Вы ня можаце праглядзець гэтую розьніцу, бо адна ці абедзьве вэрсіі былі схаваныя.",
+	"info-no-users": "Калі ласка, для пачатку падайце імёны двух удзельнікаў.",
+	"info-no-wiki": "Калі ласка, падайце вікі для пачатку."
 }
