@@ -30,7 +30,7 @@ export default () => (
 						</div>
 						<div className="col-sm-auto">
 							<h6>
-								<Message id="app-beta-warning" /> <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><Message id="app-feedback-link" /></a>
+								<a href="https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline"><Message id="app-feedback-link" /></a>
 							</h6>
 						</div>
 					</div>
