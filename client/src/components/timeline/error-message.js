@@ -21,7 +21,7 @@ const ErrorMessage = ( { error, clearError } ) => {
 				<hr />
 				<p>
 					<Message id="error-message-request-url" /><br />
-					<a href={error.request.url} className="alert-link" target="_blank" rel="noopener">
+					<a href={error.request.url} className="alert-link" target="_blank" rel="noopener noreferrer">
 						{error.request.url}
 					</a>
 				</p>

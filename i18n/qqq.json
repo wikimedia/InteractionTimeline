@@ -4,9 +4,8 @@
 			"Robby"
 		]
 	},
-	"app-beta-warning": "Warning users that this feature is in beta",
 	"app-description": "Description of the App",
-	"app-feedback-link": "Providing a Link for users to leave feedback.",
+	"app-feedback-link": "Help link",
 	"app-title": "The Title of the App",
 	"back-top": "Link to take the user back to the top of the page.",
 	"between-edits": "Suffix to time between. ex: 13 minutes 'between edits'",
