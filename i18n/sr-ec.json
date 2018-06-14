@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"BadDog",
+			"Obsuser"
+		]
+	},
+	"app-description": "Хронолошка историја за два корисника на страницама где су обојица направили измене.",
+	"app-feedback-link": "Сазнајте више и оставите повратне информације!",
+	"app-title": "Интеракциона хронологија",
+	"back-top": "Назад на врх",
+	"between-edits": "$1 између измена",
+	"between-interactions": "$1 између интеракција",
+	"error": "Грешка",
+	"error-help": "$1, а онда $2.",
+	"error-help-report": "Пријавите грешку",
+	"error-help-refresh": "освежи страницу",
+	"error-message-request-url": "Захтевајте URL",
+	"error-suppressed-diff": "Не можете да видите овај ''диф'' јер је једна или обе измене потиснуте.",
+	"info-no-users": "Унесите два корисника да започнете.",
+	"info-no-wiki": "Унесите вики да започнете.",
+	"info-required-fields": "Унесите два корисника и вики да започнете.",
+	"licensed-under": "Лиценцирано под $1",
+	"field-label-end-date": "Крајњи датум",
+	"field-label-start-date": "Почетни датум",
+	"field-label-users": "Корисници",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Одабир...",
+	"field-select-no-results": "Нису пронађени резултати",
+	"field-select-search-prompt": "Пишите за претрагу",
+	"made-by": "Направио $1 Фондације Викимедија.",
+	"made-by-team": "Тим за алатке за борбу против узнемиравања",
+	"privacy-policy": "Политика приватности",
+	"powered-by": "Покреће Wikimedia Toolforge",
+	"report-bug": "Пријавите баг",
+	"revision-edit-summary-removed": "опис измене уклоњен",
+	"view-source-code-on": "Види на пројекту $1",
+	"warning-no-results": "Нема резултата"
+}

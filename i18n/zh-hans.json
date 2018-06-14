@@ -4,9 +4,8 @@
 			"Liuxinyu970226"
 		]
 	},
-	"app-beta-warning": "此功能在早期测试阶段。",
 	"app-description": "两位用户在其均编辑过的页面上的历史，按时间顺序排列。",
-	"app-feedback-link": "了解更多与提供反馈！",
+	"app-feedback-link": "帮助",
 	"app-title": "交互式时间线",
 	"back-top": "返回顶部",
 	"between-edits": "编辑间隔$1",
