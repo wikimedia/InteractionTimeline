@@ -5,9 +5,8 @@
 			"Revi"
 		]
 	},
-	"app-beta-warning": "이 기능은 초기 테스트 단계입니다.",
 	"app-description": "두 사용자가 문서에 편집한 시간 순서에 따른 역사입니다.",
-	"app-feedback-link": "더 알아보세요. 의견을 남겨주세요!",
+	"app-feedback-link": "도움말",
 	"app-title": "상호작용 타임라인",
 	"back-top": "맨 위로 돌아가기",
 	"between-edits": "편집 간 $1",

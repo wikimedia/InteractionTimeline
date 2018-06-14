@@ -5,9 +5,8 @@
 			"Gomoko"
 		]
 	},
-	"app-beta-warning": "Cette fonctionalité est en début de test.",
 	"app-description": "Historique chronologique pour deux utilisateurs ayant modifié les mêmes pages.",
-	"app-feedback-link": "Aprenez-en davantage et laissez votre avis !",
+	"app-feedback-link": "Aide",
 	"app-title": "Calendrier des interactions",
 	"back-top": "Retour en haut de la page",
 	"between-edits": "$1 entre deux modifications",
