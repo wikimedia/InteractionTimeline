@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"EukeneFL",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Fitoschido"
 		]
 	},
+	"app-feedback-link": "Laguntza",
 	"back-top": "Gora itzuli",
 	"between-edits": "$1 aldaketen artean",
 	"between-interactions": "$1 elkarekintzen artean",
