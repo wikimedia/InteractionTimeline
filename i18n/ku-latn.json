@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bikarhêner"
+			"Bikarhêner",
+			"Kur"
 		]
 	},
 	"app-description": "Dîroka kronolojîk ji bo rûpelên ku herdu bikarhêner jî sererast kirine.",
@@ -31,7 +32,7 @@
 	"made-by-team": "Tîma Aletên Antî-Acizkirinê",
 	"privacy-policy": "Siyaseta veşarîtiyê",
 	"powered-by": "Ji aliyê Wikimedia Toolforge ve tê piştgirîkirin",
-	"report-bug": "Xetayek rabigihîne",
+	"report-bug": "Çewtiyeke bişîne",
 	"revision-edit-summary-removed": "kurteya guherandinê hate jêbirin",
 	"view-source-code-on": "Li ser $1 bibîne",
 	"warning-no-results": "Encam tine"
