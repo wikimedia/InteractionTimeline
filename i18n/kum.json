@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"ArslanX"
+		]
+	},
+	"app-feedback-link": "Кёмек",
+	"back-top": "Оьрге къайтмакъ",
+	"between-edits": "$1 тюзлевлени арасында",
+	"error": "Янгылыш",
+	"error-help": "$1, сонгра $2.",
+	"error-help-report": "Хатаны гьакъында айтмакъ",
+	"error-help-refresh": "сагьифаны янгыртмакъ",
+	"error-message-request-url": "Талапны URL",
+	"field-label-end-date": "Ахыр тархы",
+	"field-label-start-date": "Баш тархы",
+	"field-label-users": "Къоллавчулар",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Сайла...",
+	"field-select-no-results": "Бир зат табылмагъан",
+	"field-select-search-prompt": "Излемек учун яз",
+	"privacy-policy": "Энчилилик ёругъу",
+	"view-source-code-on": "$1 сайфада къарамакъ",
+	"warning-no-results": "Гьасилсиз"
+}
