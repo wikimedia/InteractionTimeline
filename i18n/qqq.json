@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Amire80"
 		]
 	},
 	"app-description": "Description of the App",
@@ -11,9 +12,9 @@
 	"between-edits": "Suffix to time between. ex: 13 minutes 'between edits'",
 	"between-interactions": "Suffix to time between. ex: 13 minutes 'between interactions'",
 	"error": "Error message title.\n{{Identical|Error}}",
-	"error-help": "Help message that is displayed when an error message is invoked: 'error-help-report', and then 'error-help-refresh'",
-	"error-help-report": "Instructs the user to report the error and links to the error reporting form.",
-	"error-help-refresh": "Instructs the user to refreshes the page and gives the user a link to do s.",
+	"error-help": "Help message that is displayed when an error message is invoked:\n: $1: {{msg-wm|Interaction-timeline-error-help-report}}\n: $2: {{msg-wm|Interaction-timeline-error-help-refresh}}",
+	"error-help-report": "Instructs the user to report the error and links to the error reporting form. Used in {{msg-wm|Interaction-timeline-error-help}}.",
+	"error-help-refresh": "Instructs the user to refresh the page and gives the user a link to do this. Used in {{msg-wm|Interaction-timeline-error-help}}.",
 	"error-message-request-url": "In an error message, the title of the Request URL.",
 	"error-suppressed-diff": "Error message to display when diff cannot be viewed because it is suppressed.",
 	"info-no-users": "Ask the user to provide the required number of users.",

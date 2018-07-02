@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Deborahjay",
+			"Guycn2"
+		]
+	},
+	"app-description": "היסטוריה כרונולוגית של שני משתמשים בדפים שבהם שניהם עשו עריכות.",
+	"app-feedback-link": "עזרה",
+	"back-top": "חזרה למעלה",
+	"between-edits": "$1 בין עריכות",
+	"error": "שגיאה",
+	"error-help": "$1, ואז $2.",
+	"error-help-report": "דווחו את השגיאה",
+	"error-help-refresh": "רעננו את הדף",
+	"error-message-request-url": "ה־URL של הבקשה",
+	"error-suppressed-diff": "לא ניתן להציג את ההשוואה הזאת כי אחת מהגרסאות הועלמה.",
+	"info-no-users": "נא לתת שני משתמשים כדי להתחיל.",
+	"info-no-wiki": "נא לתת ויקי כדי להתחיל.",
+	"info-required-fields": "נא לתת שני משתמשים וויקי כדי להתחיל.",
+	"licensed-under": "ברישיון $1",
+	"field-label-end-date": "תאריך סיום",
+	"field-label-start-date": "תאריך התחלה",
+	"field-label-users": "משתמשים",
+	"field-label-wiki": "ויקי",
+	"field-select-placeholder": "לבחור...",
+	"field-select-no-results": "לא נמצאו תוצאות",
+	"field-select-search-prompt": "נא להקליד כדי לחפש"
+}
