@@ -3,6 +3,9 @@
 		"airbnb",
 		"wikimedia"
 	],
+	"env": {
+		"jest": true
+	},
   "rules": {
 		"import/extensions": ["off"],
 		"import/no-extraneous-dependencies": ["off"],
