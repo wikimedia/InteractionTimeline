@@ -78,6 +78,7 @@
     ],
     "moduleNameMapper": {
       "^app(.*)$": "<rootDir>/src$1"
-    }
+    },
+		"setupFiles": ["./test-env.js"]
   }
 }
