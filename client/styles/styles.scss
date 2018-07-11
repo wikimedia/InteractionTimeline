@@ -335,5 +335,9 @@ footer {
 .btn-share {
 	position: fixed;
 	right: 0;
-	bottom: 15%;
+	bottom: 10%;
+	@include transition( transform .5s )
+	&.empty {
+		transform: translateX( 100% );
+	}
 }

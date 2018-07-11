@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
 	Button,
 	Modal,
@@ -32,9 +33,15 @@ class Share extends React.Component {
 		const text = Message( {
 			id: 'discuss-on-wiki-text'
 		} );
+
+		const buttonClassName = [
+			'btn-share',
+			this.props.empty ? 'empty' : ''
+		];
+
 		return (
 			<React.Fragment>
-				<Button color="light" className="btn-share" onClick={this.toggle}>
+				<Button color="light" className={buttonClassName.join( ' ' )} onClick={this.toggle}>
 					<i className="material-icons align-bottom">comment</i> {title}
 				</Button>
 				<Modal isOpen={this.state.isOpen} toggle={this.toggle} centered size="lg">
@@ -43,7 +50,7 @@ class Share extends React.Component {
 						<Form>
 							<Input type="textarea" rows={5} defaultValue={text} />
 							<FormText color="muted">
-								Copy & paste this wikitext to an on-wiki discussion to share these Interaction Timeline results with others
+								<Message id="discus-on-wiki-help" />
 							</FormText>
 						</Form>
 					</ModalBody>
@@ -55,5 +62,9 @@ class Share extends React.Component {
 		);
 	}
 }
+
+Share.propTypes = {
+	empty: PropTypes.bool.isRequired
+};
 
 export default Share;
