@@ -5,7 +5,6 @@ import DateRevisionsContainer from './date-revisions.container';
 import StatusContainer from './status.container';
 import BackToTopButton from './back-top';
 
-
 const Users = () => {
 	let stickyHeader = React.createRef();
 	return (
