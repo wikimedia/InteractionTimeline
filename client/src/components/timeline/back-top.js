@@ -16,6 +16,8 @@ class BackToTopButton extends React.PureComponent {
 			tooltipOpen: false
 		};
 
+		this.container = React.createRef();
+		this.button = React.createRef();
 		this.showButton = new Subject();
 		this.handleClick = this.handleClick.bind( this );
 		this.showTooltip = this.showTooltip.bind( this );
@@ -23,12 +25,12 @@ class BackToTopButton extends React.PureComponent {
 	}
 
 	componentDidUpdate( prevProps ) {
-		if ( prevProps.stickyHeader === this.props.stickyHeader ) {
+		if ( prevProps.stickyHeader.current === this.props.stickyHeader.current ) {
 			return;
 		}
 
 		this.showButton.unsubscribe();
-		this.showButton = createIntersectionObservable( this.props.stickyHeader )
+		this.showButton = createIntersectionObservable( this.props.stickyHeader.current )
 			.map( entry => !entry.isIntersecting )
 			.subscribe( show => {
 				this.setState( {
@@ -57,7 +59,7 @@ class BackToTopButton extends React.PureComponent {
 	}
 
 	handleClick() {
-		const doc = this.button.ownerDocument;
+		const doc = this.button.current.ownerDocument;
 		const win = doc.defaultView || doc.parentWindow;
 
 		// Scroll the user to the top.
@@ -84,11 +86,11 @@ class BackToTopButton extends React.PureComponent {
 		];
 
 		return (
-			<div ref={( element ) => { this.container = element; }}>
-				<button className={className.join( ' ' )} ref={( element ) => { this.button = element; }} onClick={this.handleClick} onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>
+			<div ref={this.container}>
+				<button className={className.join( ' ' )} ref={this.button} onClick={this.handleClick} onMouseEnter={this.showTooltip} onMouseLeave={this.hideTooltip}>
 					<i className="material-icons align-middle">vertical_align_top</i> <span className="sr-only"><Message id="back-top" /></span>
 				</button>
-				<Tooltip placement="bottom" target={() => this.button} isOpen={this.state.tooltipOpen} container={this.container} autohide={false}>
+				<Tooltip placement="bottom" target={() => this.button.current} isOpen={this.state.tooltipOpen} container={this.container.current} autohide={false}>
 					<Message id="back-top" />
 				</Tooltip>
 			</div>
@@ -97,11 +99,9 @@ class BackToTopButton extends React.PureComponent {
 }
 
 BackToTopButton.propTypes = {
-	stickyHeader: PropTypes.instanceOf( Element )
-};
-
-BackToTopButton.defaultProps = {
-	stickyHeader: undefined
+	stickyHeader: PropTypes.shape( {
+		current: PropTypes.instanceOf( Element )
+	} ).isRequired
 };
 
 export default BackToTopButton;
