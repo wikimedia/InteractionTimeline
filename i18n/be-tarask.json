@@ -4,9 +4,8 @@
 			"Red Winged Duck"
 		]
 	},
-	"app-beta-warning": "Гэтая функцыя знаходзіцца ў статусе раньняга тэставаньня.",
 	"app-description": "Храналягічная гісторыя для двух удзельнікаў на старонках, якія яны абодва рэдагавалі",
-	"app-feedback-link": "Даведацца болей і пакінуць водгук!",
+	"app-feedback-link": "Дапамога",
 	"app-title": "Часавая шкала ўзаемадзеяньня",
 	"back-top": "Вярнуцца ўгару",
 	"between-edits": "$1 паміж зьменамі",
@@ -18,5 +17,22 @@
 	"error-message-request-url": "URL запыту",
 	"error-suppressed-diff": "Вы ня можаце праглядзець гэтую розьніцу, бо адна ці абедзьве вэрсіі былі схаваныя.",
 	"info-no-users": "Калі ласка, для пачатку падайце імёны двух удзельнікаў.",
-	"info-no-wiki": "Калі ласка, падайце вікі для пачатку."
+	"info-no-wiki": "Калі ласка, падайце вікі для пачатку.",
+	"info-required-fields": "Калі ласка, падайце імёны двух удзельнікаў і вікі для пачатку.",
+	"licensed-under": "Паводле ліцэнзіі $1",
+	"field-label-end-date": "Дата сканчэньня",
+	"field-label-start-date": "Дата пачатку",
+	"field-label-users": "Удзельнікі",
+	"field-label-wiki": "Вікі",
+	"field-select-placeholder": "Абярыце…",
+	"field-select-no-results": "Нічога ня знойдзена",
+	"field-select-search-prompt": "Увядзіце для пошуку",
+	"made-by": "Зроблена камандай $1 фундацыі «Вікімэдыя».",
+	"made-by-team": "Каманда барацьбы зь перасьледам",
+	"privacy-policy": "Палітыка прыватнасьці",
+	"powered-by": "На плятформе «Вікімэдыі» Toolforge",
+	"report-bug": "Паведаміць пра памылку",
+	"revision-edit-summary-removed": "апісаньне рэдагаваньня выдаленае",
+	"view-source-code-on": "Паглядзець на $1",
+	"warning-no-results": "Няма вынікаў"
 }

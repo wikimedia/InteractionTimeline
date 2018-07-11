@@ -4,9 +4,8 @@
 			"Hedda"
 		]
 	},
-	"app-beta-warning": "Bu özellik ilk testlerde yer almaktadır.",
 	"app-description": "İki kullanıcının düzenleme yapmış oldukları sayfalarda her ikisi için kronolojik geçmiş.",
-	"app-feedback-link": "Daha fazla bilgi edinin ve geri bildirim bırakın!",
+	"app-feedback-link": "Yardım",
 	"app-title": "Etkileşim Zaman Çizelgesi",
 	"back-top": "Başa dön",
 	"between-edits": "Düzenlemeler arasında $1",

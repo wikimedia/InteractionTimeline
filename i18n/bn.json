@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aftabuzzaman"
+			"Aftabuzzaman",
+			"আফতাবুজ্জামান"
 		]
 	},
-	"app-feedback-link": "আরও জানুন এবং প্রতিক্রিয়া দিন!",
+	"app-feedback-link": "সাহায্য",
 	"back-top": "উপরে ফিরুন",
 	"error": "ত্রুটি",
 	"error-help": "$1, এবং তারপর $2।",

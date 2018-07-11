@@ -64,6 +64,7 @@
   "devDependencies": {
     "babel-jest": "^23.2.0",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-wikimedia": "^0.5.0",
@@ -77,8 +78,11 @@
       "src"
     ],
     "moduleNameMapper": {
-      "^app(.*)$": "<rootDir>/src$1"
+      "^app(.*)$": "<rootDir>/src$1",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/style.js"
     },
-		"setupFiles": ["./test-env.js"]
+    "setupFiles": [
+  		"./test-env.js"
+    ]
   }
 }

@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ilimanaq29",
-			"Patriccck"
+			"Patriccck",
+			"Dvorapa"
 		]
 	},
-	"app-beta-warning": "Tento nástroj se ještě testuje.",
 	"app-description": "Chronologická historie dvou uživatelů na stránkách, na kterých oba editovali.",
-	"app-feedback-link": "Zjistěte více a pošlete zpětnou vazbu",
+	"app-feedback-link": "Nápověda",
 	"app-title": "Interaction Timeline",
 	"back-top": "Zpět na začátek",
 	"between-edits": "$1 mezi editacemi",

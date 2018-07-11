@@ -4,9 +4,8 @@
 			"WikiPhoenix"
 		]
 	},
-	"app-beta-warning": "Denna funktion är i tidigt teststadium.",
 	"app-description": "Kronologisk historik för två användare på sidor som de båda har redigerat.",
-	"app-feedback-link": "Läs mer och lämna återkoppling!",
+	"app-feedback-link": "Hjälp",
 	"app-title": "Interaktionstidslinje",
 	"back-top": "Tillbaka till början",
 	"between-edits": "$1 mellan redigeringarna",
