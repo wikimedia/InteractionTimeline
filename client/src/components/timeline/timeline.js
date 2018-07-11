@@ -23,7 +23,7 @@ const Users = () => {
 							</div>
 						</div>
 						<div className="col-1 text-center">
-							<BackToTopButton stickyHeader={stickyHeader.current} />
+							<BackToTopButton stickyHeader={stickyHeader} />
 						</div>
 					</div>
 				</div>
