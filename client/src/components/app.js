@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Message from './i18n/message';
 import Form from './form';
+import Share from './share/share';
 import TimelineContainer from './timeline/timeline.container';
 import ErrorBoundary from './error-boundary';
 
@@ -93,5 +94,6 @@ export default () => (
 				</div>
 			</footer>
 		</div>
+		<Share />
 	</ErrorBoundary>
 );

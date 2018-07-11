@@ -29,5 +29,7 @@
 		"report-bug": "Report a bug",
 		"revision-edit-summary-removed": "edit summary removed",
 		"view-source-code-on": "View on $1",
-		"warning-no-results": "No Results"
+		"warning-no-results": "No Results",
+		"discuss-on-wiki": "Discuss these results on wiki",
+		"discuss-on-wiki-text": "Between $1 and $2 on $3 [[User:$4]] ([[User talk:$4|talk]] | ([[Special:Contributions/T$4|contribs]]) and [[User:$5]] ([[User talk:$5|talk]] | ([[Special:Contributions/$5|contribs]]) both made edits to the same $6 pages. You can see a chronological list of all their edits on [https://tools.wmflabs.org/interaction-timeline/?wiki=$3&user=$4&user=$5&startDate=$1 the Interaction Timeline] or a table view on [https://tools.wmflabs.org/sigma/editorinteract.py?users=$4&users=$5&startdate=$1&enddate=$2&ns=&server=$3 the Interaction Analyser]."
 }
