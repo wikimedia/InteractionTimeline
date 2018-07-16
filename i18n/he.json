@@ -26,5 +26,13 @@
 	"field-label-wiki": "ויקי",
 	"field-select-placeholder": "לבחור...",
 	"field-select-no-results": "לא נמצאו תוצאות",
-	"field-select-search-prompt": "נא להקליד כדי לחפש"
+	"field-select-search-prompt": "נא להקליד כדי לחפש",
+	"made-by": "נוצר על־די $1 של קרן ויקימדיה",
+	"made-by-team": "צוות הכלים נגד הטרדה",
+	"privacy-policy": "מדיניות פרטיות",
+	"powered-by": "מופעל על־ידי מעבדות כלי ויקימדיה",
+	"report-bug": "דיווח באג",
+	"revision-edit-summary-removed": "תקציר העריכה הוסר",
+	"view-source-code-on": "להציג באתר $1",
+	"warning-no-results": "אין תוצאות"
 }
