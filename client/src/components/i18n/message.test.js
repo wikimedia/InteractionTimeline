@@ -37,3 +37,24 @@ test( 'will get a basic message string with a placeholder', () => {
 	} );
 	expect( text ).toStrictEqual( 'TEST RIGHT' );
 } );
+
+test( 'will get a basic message string with multiple placeholders', () => {
+	// eslint-disable-next-line no-unused-vars
+	const provider = new IntlProvider( {
+		locale: 'en',
+		messages: {
+			en: {
+				test: '$2 TEST $1'
+			}
+		}
+	} );
+
+	const text = Message( {
+		id: 'test',
+		placeholders: [
+			'RIGHT',
+			'LEFT'
+		]
+	} );
+	expect( text ).toStrictEqual( 'LEFT TEST RIGHT' );
+} );

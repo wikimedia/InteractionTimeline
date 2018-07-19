@@ -10,7 +10,7 @@ const Message = ( { id, placeholders = [] } ) => {
 
 	// If all of the placeholders are not react elements, return the string.
 	if ( !placeholders.filter( ( p ) => React.isValidElement( p ) ).length ) {
-		return jQuery.i18n( id, placeholders );
+		return jQuery.i18n( id, ...placeholders );
 	}
 
 	const uid = Math.floor( Math.random() * 0x10000000000 ).toString( 16 );

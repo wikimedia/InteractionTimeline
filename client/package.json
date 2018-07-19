@@ -48,7 +48,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-select": "^1.0.0-rc.10",
     "react-with-styles": "^2.2.0",
-    "reactstrap": "^5.0.0-beta.2",
+    "reactstrap": "^5.0.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-observable": "^0.16.0",
@@ -82,7 +82,7 @@
       "\\.(css|scss)$": "<rootDir>/__mocks__/style.js"
     },
     "setupFiles": [
-  		"./test-env.js"
+      "./test-env.js"
     ]
   }
 }
