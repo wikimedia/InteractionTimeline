@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import {
 	Button,
 	Modal,
@@ -10,6 +11,7 @@ import {
 	FormText,
 	Input
 } from 'reactstrap';
+import Wiki from 'app/entities/wiki';
 import Message from 'app/components/i18n/message';
 
 class Share extends React.Component {
@@ -19,19 +21,35 @@ class Share extends React.Component {
 			isOpen: false
 		};
 
+		this.textArea = React.createRef();
 		this.toggle = this.toggle.bind( this );
 	}
 
 	toggle() {
+		// Select all of the text in the text area.
+		if ( !this.state.isOpen ) {
+			this.textArea.current.select();
+		}
+
 		this.setState( {
+			...this.state,
 			isOpen: !this.state.isOpen
 		} );
 	}
 
 	render() {
+		const dateFormat = 'YYYY-MM-DD';
 		const title = <Message id="discuss-on-wiki" />;
 		const text = Message( {
-			id: 'discuss-on-wiki-text'
+			id: 'discuss-on-wiki-text',
+			placeholders: [
+				this.props.startDate ? this.props.startDate.format( dateFormat ) : '2000-01-01',
+				this.props.endDate ? this.props.startDate.format( dateFormat ) : moment.utc().format( dateFormat ),
+				this.props.wiki ? this.props.wiki.domain : null,
+				...this.props.users,
+				'https://tools.wmflabs.org/interaction-timeline/' + this.props.queryString,
+				this.props.editorInteractUrl
+			]
 		} );
 
 		const buttonClassName = [
@@ -48,7 +66,7 @@ class Share extends React.Component {
 					<ModalHeader toggle={this.toggle}>{title}</ModalHeader>
 					<ModalBody>
 						<Form>
-							<Input type="textarea" rows={5} defaultValue={text} />
+							<Input type="textarea" rows={5} defaultValue={text} innerRef={this.textArea} />
 							<FormText color="muted">
 								<Message id="discus-on-wiki-help" />
 							</FormText>
@@ -64,7 +82,20 @@ class Share extends React.Component {
 }
 
 Share.propTypes = {
-	empty: PropTypes.bool.isRequired
+	empty: PropTypes.bool.isRequired,
+	users: PropTypes.arrayOf( PropTypes.string ).isRequired,
+	queryString: PropTypes.string.isRequired,
+	startDate: PropTypes.instanceOf( moment ),
+	endDate: PropTypes.instanceOf( moment ),
+	wiki: PropTypes.instanceOf( Wiki ),
+	editorInteractUrl: PropTypes.string
+};
+
+Share.defaultProps = {
+	startDate: undefined,
+	endDate: undefined,
+	wiki: undefined,
+	editorInteractUrl: undefined
 };
 
 export default Share;
