@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import 'react-select/dist/react-select.css';
 
 class SelectWiki extends React.Component {

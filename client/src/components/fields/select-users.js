@@ -6,7 +6,7 @@ import 'rxjs/add/observable/dom/ajax';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 import 'react-select/dist/react-select.css';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import { isIPAddress } from 'app/utils/ip-validator';
 
 class SelectUsers extends React.Component {
