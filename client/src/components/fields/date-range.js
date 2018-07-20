@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import DatePicker from './date-picker';
 
 class DateRange extends React.Component {

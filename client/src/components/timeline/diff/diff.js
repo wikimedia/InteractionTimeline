@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Revision from 'app/entities/revision';
 import DiffEntity from 'app/entities/diff';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import Spinner from 'app/components/timeline/spinner';
 import ErrorMessage from 'app/components/timeline/error-message';
 import HeaderContainer from './header.container';

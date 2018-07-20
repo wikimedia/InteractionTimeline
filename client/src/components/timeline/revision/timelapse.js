@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 
 const TimelineTimelapse = ( { date, samePage } ) => (
 	<div className="col-md-6 small col-12 timelapse align-text-middle">

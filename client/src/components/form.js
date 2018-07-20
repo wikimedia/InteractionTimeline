@@ -2,7 +2,7 @@ import React from 'react';
 import SelectUsersContainer from 'app/components/fields/select-users.container';
 import SelectWikiContainer from 'app/components/fields/select-wiki.container';
 import DateRangeContainer from 'app/components/fields/date-range.container';
-import Message from './i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 
 const Form = () => (
 	<form autoComplete="off">
