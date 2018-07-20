@@ -15,8 +15,10 @@ services:
       - enwiki.db-replica
       - redis
   watch:
-    image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
-    working_dir: /code/client/
+    image: node:6
+    # Development dependencies error out when installed on Toolforge Image.
+    # image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
+    working_dir: /code/client
     command:
       - ./bin/watch
     volumes:
