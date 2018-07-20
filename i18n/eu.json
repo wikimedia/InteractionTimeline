@@ -6,7 +6,9 @@
 			"Fitoschido"
 		]
 	},
+	"app-description": "Bi erabiltzaileek aldaketak egin dituzten orrialdeen historia kronologikoa.",
 	"app-feedback-link": "Laguntza",
+	"app-title": "Interakzioaren Denbora-lerroa",
 	"back-top": "Gora itzuli",
 	"between-edits": "$1 aldaketen artean",
 	"between-interactions": "$1 elkarekintzen artean",
@@ -15,7 +17,11 @@
 	"error-help-report": "Akatsa jakinarazi",
 	"error-help-refresh": "Orrialdea freskatu",
 	"error-message-request-url": "URLa eskatu",
+	"error-suppressed-diff": "Ezin duzu diff hau ikusi bertsio bat edo biak ezabatuak izan direlako.",
 	"info-no-users": "Mesedez, eman bi erabiltzaile hasteko",
+	"info-no-wiki": "Mesedez eskaini wikia hasteko.",
+	"info-required-fields": "Mesedez eskain esazu bi erabiltzaileak eta wiki hasteko.",
+	"licensed-under": "$1 lizentziaren babespean",
 	"field-label-end-date": "Amaiera data",
 	"field-label-start-date": "Hasiera data",
 	"field-label-users": "Erabiltzaileak",
@@ -24,7 +30,11 @@
 	"field-select-no-results": "Ez da emaitzarik aurkitu",
 	"field-select-search-prompt": "Idatzi bilatzeko",
 	"made-by": "Wikimedia Fundazioko $1-(e)k eginda.",
+	"made-by-team": "Jazarpenaren kontrako Tresna taldea",
 	"privacy-policy": "Pribatutasun politika",
+	"powered-by": "Wikimedia Toolforge-k sortutakoa",
+	"report-bug": "Akatsa salatu",
+	"revision-edit-summary-removed": "aldaketa laburpena ezabatu da",
 	"view-source-code-on": "$1(e)an ikusi",
 	"warning-no-results": "Emaitzik ez"
 }

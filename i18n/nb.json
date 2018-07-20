@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby",
+			"Kingu"
+		]
+	},
+	"app-description": "Kronologisk historikk for to brukere på sider der begge har gjort redigeringer.",
+	"app-feedback-link": "Hjelp",
+	"app-title": "Interaksjonstidslinje",
+	"back-top": "Tilbake til toppen",
+	"between-edits": "$1 mellom redigeringer",
+	"between-interactions": "$1 mellom interaksjoner",
+	"error": "Feil",
+	"error-help": "$1, og så $2.",
+	"error-help-report": "Rapporter feilen",
+	"error-help-refresh": "oppdater siden",
+	"error-message-request-url": "Forespurt URL",
+	"error-suppressed-diff": "Du kan ikke vise denne diffen fordi én av eller begge revisjonene har blitt sensurert.",
+	"info-no-users": "Oppgi to brukernavn for å begynne.",
+	"info-no-wiki": "Oppgi en wiki for å begynne.",
+	"info-required-fields": "Oppgi to brukernavn og en wiki for å begynne.",
+	"licensed-under": "Lisensiert under $1",
+	"field-label-end-date": "Sluttdato",
+	"field-label-start-date": "Startdato",
+	"field-label-users": "Brukere",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Velg …",
+	"field-select-no-results": "Ingen resultater funnet",
+	"field-select-search-prompt": "Skriv for å søke",
+	"made-by": "Laget av Wikimedia Foundations $1.",
+	"made-by-team": "team for anti-trakassering",
+	"privacy-policy": "Personvernspolitikk",
+	"powered-by": "Drives av Wikimedia Toolforge",
+	"report-bug": "Innrapporter feil",
+	"revision-edit-summary-removed": "redigeringsforklaring fjernet",
+	"view-source-code-on": "Vis på $1",
+	"warning-no-results": "Ingen resultater"
+}
