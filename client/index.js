@@ -9,8 +9,8 @@ import { createEpicMiddleware } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import 'intersection-observer'; // Pollyfill
 import moment from 'moment';
-import i18n from './i18n.dir';
 import { IntlProvider } from '@wikimedia/react.i18n';
+import i18n from './i18n.dir';
 import App from './src/components/app';
 import reducer from './src/reducers/index';
 import epic from './src/epics/index';
