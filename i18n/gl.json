@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo"
+		]
+	},
+	"app-feedback-link": "Axuda",
+	"back-top": "Volver ao inicio",
+	"between-edits": "$1 entre edicións",
+	"between-interactions": "$1 entre interaccións",
+	"error": "Erro",
+	"error-help": "$1, e despois $2.",
+	"error-help-report": "Informar do erro",
+	"error-help-refresh": "atualizar a páxina",
+	"error-message-request-url": "URL da solicitude",
+	"error-suppressed-diff": "Non pode ver este diff porque unha ou ámbalas dúas revisións foron suprimidas.",
+	"field-label-end-date": "Data de fin",
+	"field-label-start-date": "Data de inicio",
+	"field-label-users": "Usuarios",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selecionar...",
+	"field-select-no-results": "Non se atopou ningún resultado",
+	"privacy-policy": "Política de privacidade",
+	"powered-by": "Impulsado por Wikimedia Toolforge",
+	"report-bug": "Informar dun erro",
+	"revision-edit-summary-removed": "resumo de edición eliminado",
+	"view-source-code-on": "Ver en $1",
+	"warning-no-results": "Sen resultados"
+}
