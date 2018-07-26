@@ -1,4 +1,5 @@
 #!/bin/sh
-npm install -g npm \
-	&& hash -r \
+npm config set prefix ~/.npm npm \
+	&& npm install -g npm \
+	&& PATH=$(npm bin -g):$PATH  \
 	&& npm install --production
