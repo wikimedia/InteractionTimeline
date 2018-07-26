@@ -1,5 +1,4 @@
 #!/bin/sh
 npm install -g npm \
 	&& hash -r \
-	&& npm install \
-	&& npm run watch
+	&& npm install --production
