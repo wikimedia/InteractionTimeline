@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AjaxError } from 'rxjs';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import Alert from './alert';
 
 const ErrorMessage = ( { error, clearError } ) => {

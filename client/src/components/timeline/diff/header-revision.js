@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import RevisionEntity from 'app/entities/revision';
 import Header from 'app/components/timeline/header';
 import Spinner from 'app/components/timeline/spinner';

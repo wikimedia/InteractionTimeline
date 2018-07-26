@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import 'material-design-icons/iconfont/material-icons.css';
 
 class ErrorBoundary extends React.PureComponent {
