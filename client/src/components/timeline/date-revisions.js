@@ -8,6 +8,7 @@ class DateRevisions extends React.Component {
 	constructor( props ) {
 		super( props );
 
+		this.bottom = React.createRef();
 		this.invokeFetch = new Subject();
 	}
 
@@ -18,7 +19,7 @@ class DateRevisions extends React.Component {
 		};
 
 		// Create the infinite scroll.
-		this.infinite = createIntersectionObservable( this.bottom, options )
+		this.infinite = createIntersectionObservable( this.bottom.current, options )
 			.map( entry => entry.isIntersecting )
 			.filter( isBottomVisable => isBottomVisable )
 			.filter( () => this.props.status === 'ready' )
@@ -47,7 +48,7 @@ class DateRevisions extends React.Component {
 			<div className="row date-revisions">
 				<div className="col ml-3 mr-3 pt-3">
 					<DateListContainer />
-					<div ref={( element ) => { this.bottom = element; }} />
+					<div ref={this.bottom} />
 				</div>
 			</div>
 		);
