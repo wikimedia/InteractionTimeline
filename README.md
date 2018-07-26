@@ -46,8 +46,8 @@ git pull origin master
 Node.js 6.11 is available via the Kubernetes backend.
 ```
 webservice --backend=kubernetes nodejs shell;
-cd tool;
-npm install --production;
+cd tool/client;
+./bin/build;
 exit;
 ```
 
@@ -75,11 +75,11 @@ webservice --backend=kubernetes restart
 * `wiki:` Wiki project we want to check the interactions on. Ex: enwiki, eswiki, testwiki
 * `user:` List of usernames involved in the interactions joined by a `|`. No less than 2
 * `start_date:` The start timestamp to return from
-* `end_date:` The end timestamp to return to 
+* `end_date:` The end timestamp to return to
 * `limit:` Maximum amount of interactions to list. Default to 50
 * `continue:` When more results are available, use the returned continue string to fetch the next page
 
 #### Example
-``` 
+```
 /api/testwiki/interaction?user=Test-bananas|Test-apples&start_date=1509508800&end_date=1512104400&limit=10&continue=MzM4NTEy
 ```
