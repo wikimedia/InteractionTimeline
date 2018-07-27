@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import Alert from './alert';
 import Spinner from './spinner';
 import ErrorMessageContainer from './error-message.container';

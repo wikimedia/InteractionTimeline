@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Subject } from 'rxjs';
-import Message from 'app/components/i18n/message';
+import { Message } from '@wikimedia/react.i18n';
 import createIntersectionObservable from 'app/utils/intersection';
 import { Tooltip } from 'reactstrap';
 import 'material-design-icons/iconfont/material-icons.css';
