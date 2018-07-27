@@ -84,6 +84,7 @@
     },
     "setupFiles": [
       "./test-env.js"
-    ]
+    ],
+		"testURL": "http://localhost/"
   }
 }
