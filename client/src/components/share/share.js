@@ -32,12 +32,6 @@ class Share extends React.Component {
 	}
 
 	toggle() {
-		// Select all of the text in the text area.
-		// if ( !this.state.isOpen ) {
-		// 	console.log(this.textArea);
-		// 	this.textArea.current.select();
-		// }
-
 		this.setState( {
 			...this.state,
 			isOpen: !this.state.isOpen
