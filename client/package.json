@@ -79,17 +79,9 @@
       "src"
     ],
     "moduleNameMapper": {
-<<<<<<< HEAD
       "^app(.*)$": "<rootDir>/src$1"
     },
-		"setupFiles": ["./test-env.js"]
-=======
-      "^app(.*)$": "<rootDir>/src$1",
-      "\\.(css|scss)$": "<rootDir>/__mocks__/style.js"
-    },
-    "setupFiles": [
-      "./test-env.js"
-    ]
->>>>>>> T199284 Fix the timeline error
+		"setupFiles": ["./test-env.js"],
+		"testURL": "http://localhost/"
   }
 }
