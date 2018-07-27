@@ -26,7 +26,8 @@ class Share extends React.Component {
 	}
 
 	componentDidUpdate( prevProps, prevState ) {
-		if ( !prevState.isOpen && this.state.isOpen ) {
+		if ( !prevState.isOpen && this.state.isOpen && this.textArea.current ) {
+			this.textArea.current.focus();
 			this.textArea.current.select();
 		}
 	}
@@ -45,7 +46,7 @@ class Share extends React.Component {
 			id: 'discuss-on-wiki-text',
 			placeholders: [
 				this.props.startDate ? this.props.startDate.format( dateFormat ) : '2000-01-01',
-				this.props.endDate ? this.props.startDate.format( dateFormat ) : moment.utc().format( dateFormat ),
+				this.props.endDate ? this.props.endDate.format( dateFormat ) : moment.utc().format( dateFormat ),
 				this.props.wiki ? this.props.wiki.domain : null,
 				...this.props.users,
 				'https://tools.wmflabs.org/interaction-timeline/' + this.props.queryString,
