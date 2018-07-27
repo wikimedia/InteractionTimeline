@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Message } from '@wikimedia/react.i18n';
 import moment from 'moment';
 import {
 	Button,
@@ -12,7 +13,6 @@ import {
 	Input
 } from 'reactstrap';
 import Wiki from 'app/entities/wiki';
-import Message from 'app/components/i18n/message';
 
 class Share extends React.Component {
 	constructor( props ) {
@@ -25,11 +25,18 @@ class Share extends React.Component {
 		this.toggle = this.toggle.bind( this );
 	}
 
-	toggle() {
-		// Select all of the text in the text area.
-		if ( !this.state.isOpen ) {
+	componentDidUpdate( prevProps, prevState ) {
+		if ( !prevState.isOpen && this.state.isOpen ) {
 			this.textArea.current.select();
 		}
+	}
+
+	toggle() {
+		// Select all of the text in the text area.
+		// if ( !this.state.isOpen ) {
+		// 	console.log(this.textArea);
+		// 	this.textArea.current.select();
+		// }
 
 		this.setState( {
 			...this.state,
