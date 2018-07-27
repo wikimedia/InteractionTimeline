@@ -81,7 +81,9 @@
     "moduleNameMapper": {
       "^app(.*)$": "<rootDir>/src$1"
     },
-		"setupFiles": ["./test-env.js"],
-		"testURL": "http://localhost/"
+    "setupFiles": [
+      "./test-env.js"
+    ],
+    "testURL": "http://localhost/"
   }
 }
