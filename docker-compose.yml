@@ -2,6 +2,8 @@ version: '3'
 services:
   web:
     image: docker-registry.tools.wmflabs.org/toollabs-php-web
+    env_file:
+      - .env
     environment:
       COMPOSER_ALLOW_SUPERUSER: 1
     ports:
@@ -12,7 +14,6 @@ services:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
       - ./:/var/www:cached
     links:
-      - enwiki.db-replica
       - redis
   watch:
     image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
@@ -23,11 +24,3 @@ services:
       - ./:/code:cached
   redis:
     image: redis
-  enwiki.db-replica:
-    build:
-      context: .
-      dockerfile: Dockerfile-replica-db
-    env_file:
-      - ./server/.env
-    ports:
-      - 4711:4711
