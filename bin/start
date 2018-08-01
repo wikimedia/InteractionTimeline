@@ -2,6 +2,9 @@
 
 # Set the host domain on Linux.
 # see https://github.com/docker/for-linux/issues/264
+apt-get update
+apt-get install iputils-ping iproute2 -y
+
 HOST_DOMAIN="host.docker.internal"
 ping -q -c1 $HOST_DOMAIN > /dev/null 2>&1
 if [ $? -ne 0 ]; then
@@ -9,7 +12,8 @@ if [ $? -ne 0 ]; then
   echo -e "$HOST_IP\t$HOST_DOMAIN" >> /etc/hosts
 fi
 
-composer install -d /var/www/server &&
-mkdir -p /var/www/html/api &&
-ln -sf ../../server/public/index.php /var/www/html/api/index.php &&
+# Install Dependencies and start Lighttpd
+composer install -d /var/www/server
+mkdir -p /var/www/html/api
+ln -sf ../../server/public/index.php /var/www/html/api/index.php
 lighttpd -D -f /etc/lighttpd/lighttpd.conf
