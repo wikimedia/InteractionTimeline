@@ -12,15 +12,11 @@ Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 
 ## Contributing
 *Dev access to Toolforge is required.*
-_ Copy `./.env.dist` to `./.env` and customize.
+- Copy `./.env.dist` to `./.env` and customize.
 - You can find `DB_USER` and `DB_PASS` in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
-- If on mac/windows, open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
-- If on linux, copy your toolforge ssh private key into the project as `id_rsa` and remove the password (if necessary). This file is part of .gitignore and will not be added to the repo
-```
-cp /path/to/your/priv/key ./etc/ssh/id_rsa
-```
+- Open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
 
-- Run the Interaction Timeline locally execute:
+- Run the Interaction Timeline locally:
 ```
 docker-compose up
 ```
