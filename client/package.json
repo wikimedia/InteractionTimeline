@@ -83,6 +83,6 @@
     "setupFiles": [
       "./test-env.js"
     ],
-    "testURL": "http://localhost/"
+    "testURL":  "http://localhost/"
   }
 }
