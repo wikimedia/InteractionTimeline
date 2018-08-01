@@ -1,15 +1,11 @@
 version: '3'
 services:
   web:
-    image: docker-registry.tools.wmflabs.org/toollabs-php-web
+    build: ./
     env_file:
       - .env
-    environment:
-      COMPOSER_ALLOW_SUPERUSER: 1
     ports:
       - 8888:80
-    command:
-      - ./var/www/bin/start
     volumes:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
       - ./:/var/www:cached
