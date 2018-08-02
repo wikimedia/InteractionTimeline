@@ -7,8 +7,8 @@ matrix:
   - language: php
     php: 5.6
     before_install:
-      - cd server
       - cp .env.dist .env
+      - cd server
     install:
       - composer install
     script:
