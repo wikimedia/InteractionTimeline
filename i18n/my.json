@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"app-feedback-link": "အ​ကူ​အ​ညီ​",
+	"back-top": "ထိပ်ဆုံးသို့ ပြန်သွားရန်",
+	"between-edits": "$1 ကြား တည်းဖြတ်မှုများ",
+	"error": "အမှား",
+	"licensed-under": "$1 အောက်ရှိ လိုင်စင်သတ်မှတ်ထားသည်",
+	"field-label-end-date": "ကုန်ဆုံးသည့်ရက်စွဲ",
+	"field-label-start-date": "စတင်သည့်ရက်စွဲ",
+	"field-label-users": "အသုံးပြုသူများ",
+	"field-label-wiki": "ဝီကီ",
+	"field-select-placeholder": "ရွေးချယ်...",
+	"field-select-no-results": "မည်သည့်ရလဒ်မျှ မရပါ",
+	"field-select-search-prompt": "ရှာဖွေရန် ရိုက်ထည့်ပါ",
+	"privacy-policy": "ကိုယ်ရေးကိုယ်တာ မူဝါဒ",
+	"view-source-code-on": "$1 ပေါ်တွင် ကြည့်ရှုရန်",
+	"warning-no-results": "ရလဒ်များ မရှိပါ"
+}
