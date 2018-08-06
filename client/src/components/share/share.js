@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Message } from '@wikimedia/react.i18n';
 import moment from 'moment';
+import clipboard from 'clipboard-polyfill';
+import 'material-design-icons/iconfont/material-icons.css';
 import {
 	Button,
 	Modal,
@@ -18,11 +20,13 @@ class Share extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			isOpen: false
+			isOpen: false,
+			copied: false
 		};
 
 		this.textArea = React.createRef();
 		this.toggle = this.toggle.bind( this );
+		this.copyToClipboard = this.copyToClipboard.bind( this );
 	}
 
 	componentDidUpdate( prevProps, prevState ) {
@@ -32,17 +36,10 @@ class Share extends React.Component {
 		}
 	}
 
-	toggle() {
-		this.setState( {
-			...this.state,
-			isOpen: !this.state.isOpen
-		} );
-	}
-
-	render() {
+	getMessageText() {
 		const dateFormat = 'YYYY-MM-DD';
-		const title = <Message id="discuss-on-wiki" />;
-		const text = Message( {
+
+		return Message( {
 			id: 'discuss-on-wiki-text',
 			placeholders: [
 				this.props.startDate ? this.props.startDate.format( dateFormat ) : '2000-01-01',
@@ -53,11 +50,35 @@ class Share extends React.Component {
 				this.props.editorInteractUrl
 			]
 		} );
+	}
+
+	copyToClipboard() {
+		clipboard.writeText( this.getMessageText() ).then( () => {
+			this.setState( {
+				copied: true
+			} );
+		} );
+	}
+
+	toggle() {
+		this.setState( {
+			...this.state,
+			// If the modal is being opened, clear the copied state.
+			copied: this.state.isOpen ? this.state.copied : false,
+			// Reverse the open state.
+			isOpen: !this.state.isOpen
+		} );
+	}
+
+	render() {
+		const title = <Message id="discuss-on-wiki" />;
 
 		const buttonClassName = [
 			'btn-share',
 			this.props.empty ? 'empty' : ''
 		];
+
+		const copiedMessage = this.state.copied ? 'discus-on-wiki-copied' : 'discus-on-wiki-copy';
 
 		return (
 			<React.Fragment>
@@ -68,14 +89,14 @@ class Share extends React.Component {
 					<ModalHeader toggle={this.toggle}>{title}</ModalHeader>
 					<ModalBody>
 						<Form>
-							<Input type="textarea" rows={5} defaultValue={text} innerRef={this.textArea} />
+							<Input type="textarea" rows={6} defaultValue={this.getMessageText()} innerRef={this.textArea} />
 							<FormText color="muted">
 								<Message id="discus-on-wiki-help" />
 							</FormText>
 						</Form>
 					</ModalBody>
 					<ModalFooter>
-						<Button color="danger" onClick={this.toggle}>Close</Button>
+						<Button color="primary" onClick={this.copyToClipboard}><Message id={copiedMessage} /></Button>
 					</ModalFooter>
 				</Modal>
 			</React.Fragment>
