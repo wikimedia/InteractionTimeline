@@ -15,6 +15,10 @@ Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 - Copy `./.env.dist` to `./.env` and customize.
 - You can find `DB_USER` and `DB_PASS` in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
 - Open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
+  - On Linux, ensure that your tunnel is bound to `0.0.0.0` rather than just localhost:
+	  ```
+    ssh -N yourusername@tools-dev.wmflabs.org -L 0.0.0.0:3306:enwiki.analytics.db.svc.eqiad.wmflabs:3306
+		```
 
 - Run the Interaction Timeline locally:
 ```
