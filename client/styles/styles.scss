@@ -334,10 +334,14 @@ footer {
 
 .btn-share {
 	position: fixed;
-	right: 0;
-	bottom: 5%;
-	@include transition( transform .5s )
+	right: 2%;
+	bottom: 2%;
+	visibility: visible;
+	opacity: 100;
+	background-color: $gray-200;
+	@include transition( opacity .5s )
 	&.empty {
-		transform: translateX( 100% );
+		visibility: hidden;
+		opacity: 0;
 	}
 }

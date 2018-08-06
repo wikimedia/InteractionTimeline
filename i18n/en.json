@@ -30,7 +30,9 @@
 		"revision-edit-summary-removed": "edit summary removed",
 		"view-source-code-on": "View on $1",
 		"warning-no-results": "No Results",
-		"discuss-on-wiki": "Discuss these results on wiki",
+		"discuss-on-wiki": "Share these results",
 		"discuss-on-wiki-text": "Between $1 and $2 on $3 [[User:$4]] ([[User talk:$4|talk]] | ([[Special:Contributions/$4|contribs]]) and [[User:$5]] ([[User talk:$5|talk]] | ([[Special:Contributions/$5|contribs]]) both made edits to some pages in common. You can see a chronological list of all their edits on the [$6 Interaction Timeline] or a table view on the [$7 Interaction Analyser].",
-		"discus-on-wiki-help": "Copy & paste this wikitext to an on-wiki discussion to share these Interaction Timeline results with others"
+		"discus-on-wiki-help": "Copy & paste this wikitext to an on-wiki discussion to share these Interaction Timeline results with others",
+		"discus-on-wiki-copy": "Copy",
+		"discus-on-wiki-copied": "Copied!"
 }
