@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Leducthn"
+		]
+	},
+	"app-description": "Lịch sử chỉnh sửa theo thứ tự của hai người dùng chỉnh sửa cùng một trang.",
+	"app-feedback-link": "Trợ giúp",
+	"app-title": "Dòng thời gian tương tác",
+	"back-top": "Trở lên đầu trang",
+	"between-edits": "$1 giữa các lần chỉnh sửa",
+	"between-interactions": "$1 giữa các lần tương tác",
+	"error": "Lỗi",
+	"error-help": "$1 và sau đó $2.",
+	"error-help-report": "Báo cáo lỗi",
+	"error-help-refresh": "tải lại trang",
+	"error-message-request-url": "URL được yêu cầu",
+	"error-suppressed-diff": "Bạn không thể xem sự khác biệt giữa cả hai vì một hoặc cả hai bản sửa đổi đã không còn nữa.",
+	"info-no-users": "Xin hãy cung cấp hai người dùng để bắt đầu.",
+	"info-no-wiki": "Xin hãy cung cấp một wiki để bắt đầu.",
+	"info-required-fields": "Xin hãy cung cấp hai người dùng và một wiki để bắt đầu.",
+	"licensed-under": "Phát hành theo giấy phép $1",
+	"field-label-end-date": "Ngày kết thúc",
+	"field-label-start-date": "Ngày bắt đầu",
+	"field-label-users": "Người dùng",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Chọn...",
+	"field-select-no-results": "Không tìm thấy kết quả",
+	"field-select-search-prompt": "Nhập vào để tìm",
+	"made-by": "Được tạo ra bởi $1 của Quỹ Wikimedia.",
+	"made-by-team": "Đội ngũ Công cụ Chống Quấy rối",
+	"privacy-policy": "Chính sách riêng tư",
+	"powered-by": "Chạy trên Phòng thí nghiệm Công cụ Wikimedia (Wikimedia Toolforge)",
+	"report-bug": "Báo lỗi",
+	"revision-edit-summary-removed": "tóm lược sửa đổi đã bị xóa",
+	"view-source-code-on": "Xem tại $1",
+	"warning-no-results": "Không có kết quả"
+}
