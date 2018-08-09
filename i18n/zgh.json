@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aslmad mohamed belarhzali"
+		]
+	},
+	"app-feedback-link": "ⵜⵉⵡⵉⵙⵉ",
+	"error": "ⴰⵣⴳⴰⵍ",
+	"error-help": "$1, ⵉⵍⵎⵎⴰ $2.",
+	"error-help-report": "ⵛⴽⴽⵎ ⵙ ⵓⵣⴳⴰⵍ",
+	"error-help-refresh": "ⵙⵙⵜⵔⴻⵔ ⵜⴰⵙⵏⴰ",
+	"error-message-request-url": "ⵜⵓⵜⵜⵔⴰ ⵏ URL",
+	"field-label-end-date": "ⴰⵙⴰⴽⵓⴷ ⵏ ⵜⴳⵉⵔⴰ",
+	"field-label-start-date": "ⴰⵙⴰⴽⵓⴷ ⵏ ⵓⵏⵜⵜⵉ",
+	"field-label-users": "ⵉⵏⵙⵙⵎⵔⴰⵙ",
+	"field-label-wiki": "ⵡⵉⴽⵉ",
+	"field-select-no-results": "ⵓⵔ ⵜⴻⵜⵜⵢⴰⴼⴰ ⴰⵡⴷ ⵢⴰⵜ ⵜⵢⴰⴼⵓⵜ",
+	"field-select-search-prompt": "ⴰⵔⴰ ⴰⴼⴰⴷ ⴰⴷ ⵜⵔⵣⵓⴷ",
+	"made-by": "ⵜⵙⴽⵔ ⵜ ⵜⵎⵔⵙⵍⵜ ⵡⵉⴽⵉⵎⵉⴷⵢⴰ $1",
+	"view-source-code-on": "ⵙⴽⵏ ⴳ $1",
+	"warning-no-results": "ⵓⵔ ⵍⵍⵉⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ"
+}
