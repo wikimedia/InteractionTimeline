@@ -75,10 +75,10 @@ class Share extends React.Component {
 
 		const buttonClassName = [
 			'btn-share',
-			this.props.empty ? 'empty' : ''
+			this.props.empty ? 'invisible' : 'visible'
 		];
 
-		const copiedMessage = this.state.copied ? 'discus-on-wiki-copied' : 'discus-on-wiki-copy';
+		const copiedMessage = this.state.copied ? 'discuss-on-wiki-copied' : 'discuss-on-wiki-copy';
 
 		return (
 			<React.Fragment>
@@ -91,7 +91,7 @@ class Share extends React.Component {
 						<Form>
 							<Input type="textarea" rows={6} defaultValue={this.getMessageText()} innerRef={this.textArea} />
 							<FormText color="muted">
-								<Message id="discus-on-wiki-help" />
+								<Message id="discuss-on-wiki-help" />
 							</FormText>
 						</Form>
 					</ModalBody>

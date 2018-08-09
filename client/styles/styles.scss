@@ -333,15 +333,10 @@ footer {
 }
 
 .btn-share {
-	position: fixed;
-	right: 2%;
-	bottom: 2%;
-	visibility: visible;
-	opacity: 100;
+	position: -webkit-sticky;
+	position: sticky;
+	float: right;
+	margin: -7.5rem 1.5rem 0 0;
+	bottom: 1rem;
 	background-color: $gray-200;
-	@include transition( opacity .5s )
-	&.empty {
-		visibility: hidden;
-		opacity: 0;
-	}
 }
