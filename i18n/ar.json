@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد",
+			"محمد أحمد عبد الفتاح"
+		]
+	},
+	"app-description": "سجل زمني لمستخدمين في الصفحات التي أجروا فيها تعديلات.",
+	"app-feedback-link": "مساعدة",
+	"app-title": "الجدول الزمني للتفاعل",
+	"back-top": "العودة إلى الأعلى",
+	"between-edits": "$1 بين التعديلات",
+	"between-interactions": "$1 بين التفاعلات",
+	"error": "خطأ",
+	"error-help": "$1، ثم $2.",
+	"error-help-report": "أبلغ عن الخطأ",
+	"error-help-refresh": "تحديث الصفحة",
+	"error-message-request-url": "طلب مسار",
+	"error-suppressed-diff": "لا يمكنك مشاهدة هذا الفرق بسبب إخفاء إحدى المراجعتين أو كليهما.",
+	"info-no-users": "يُرجَى تقديم مستخدمين اثنين للبدء.",
+	"info-no-wiki": "يُرجَى تقديم ويكي للبدء.",
+	"info-required-fields": "يُرجَى تقديم مستخدمين اثنين وويكي للبدء.",
+	"licensed-under": "مرخص تحت $1",
+	"field-label-end-date": "تاريخ الانتهاء",
+	"field-label-start-date": "تاريخ البدء",
+	"field-label-users": "المستخدمون",
+	"field-label-wiki": "الويكي",
+	"field-select-placeholder": "تحديد...",
+	"field-select-no-results": "لا توجد نتائج",
+	"field-select-search-prompt": "اكتب للبحث",
+	"made-by": "من صنع مؤسسة ويكيميديا $1.",
+	"made-by-team": "فريق أدوات مكافحة التحرش",
+	"privacy-policy": "سياسة الخصوصية",
+	"powered-by": "مدعوم من ويكيميديا ​​تولدورج",
+	"report-bug": "الإبلاغ عن خطأ",
+	"revision-edit-summary-removed": "تمت إزالة ملخص التعديل",
+	"view-source-code-on": "عرض في $1",
+	"warning-no-results": "لا توجد نتائج"
+}
