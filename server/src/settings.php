@@ -10,6 +10,7 @@ return [
 		'determineRouteBeforeAppMiddleware' => true,
 		'db' => [
 			'host' => getenv( 'DB_HOST' ),
+			'cluster' => getenv( 'DB_CLUSTER' ),
 			'user' => getenv( 'DB_USER' ),
 			'pass' => getenv( 'DB_PASS' ),
 			'port' => getenv( 'DB_PORT' ),
