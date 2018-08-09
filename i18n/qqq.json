@@ -35,5 +35,10 @@
 	"report-bug": "Report a bug link.",
 	"revision-edit-summary-removed": "Message when the edit summary was removed",
 	"view-source-code-on": "Where to view the source code: View on GitHub",
-	"warning-no-results": "A warning that displays when there are no results"
+	"warning-no-results": "A warning that displays when there are no results",
+	"discuss-on-wiki": "Button that is displayed when results are present to prompt user to discuss the reuslts on wiki.",
+	"discuss-on-wiki-text": "The text that is made avilable to copy to a wiki. Variables $1 and $2 are dates, variable $3 is a wiki domain name, $4 and $5 are usernames, $6 and $7 are urls.",
+	"discuss-on-wiki-help": "Instructions on what to do with the discuss-on-wiki-text that is presented.",
+	"discuss-on-wiki-copy": "Call to action in discss on wiki modal to copy the wikitext to the clipboard.",
+	"discuss-on-wiki-copied": "Passed tense version of copying to clipboard."
 }

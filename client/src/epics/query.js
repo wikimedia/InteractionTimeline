@@ -12,16 +12,7 @@ export const pushQueryToLocation = ( action$, store ) => (
 		.filter( () => !getQueryFromLocation( store.getState().router.location ).equals( store.getState().query ) )
 		.flatMap( () => {
 			let location = store.getState().router.location;
-			let query = getQueryFromLocation( location );
-
-			query = {
-				...query,
-				...store.getState().query.toJS()
-			};
-
-			// Remove the _map key.
-			// eslint-disable-next-line no-underscore-dangle
-			delete query._map;
+			const query = getQueryFromLocation( location ).merge( store.getState().query ).toJS();
 
 			// Remove any keys that have empty values.
 			Object.keys( query ).forEach( ( key ) => {

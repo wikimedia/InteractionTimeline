@@ -331,3 +331,12 @@ footer {
 .sk-three-bounce {
 	margin: 0;
 }
+
+.btn-share {
+	position: -webkit-sticky;
+	position: sticky;
+	float: right;
+	margin: -7.5rem 1.5rem 0 0;
+	bottom: 1rem;
+	background-color: $gray-200;
+}
