@@ -54,7 +54,7 @@ class ConnectionService implements ConnectionServiceInterface {
 				'dbname' => $this->getDBName( $wiki ),
 				'user' => $this->params['user'],
 				'password' => $this->params['pass'],
-				'host' => $this->params['host'],
+				'host' => $this->getHost( $wiki ),
 				'port' => $this->params['port'],
 				'driver' => 'pdo_mysql'
 			];
@@ -63,6 +63,18 @@ class ConnectionService implements ConnectionServiceInterface {
 		}
 
 		return $this->conn;
+	}
+
+	/**
+	 * @param string $wiki
+	 * @return string
+	 */
+	private function getHost( $wiki ) {
+		if ( $this->params['cluster'] ) {
+			return $wiki . '.' . $this->params['cluster'];
+		}
+
+		return $this->params['host'];
 	}
 
 	/**
