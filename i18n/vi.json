@@ -34,5 +34,8 @@
 	"report-bug": "Báo lỗi",
 	"revision-edit-summary-removed": "tóm lược sửa đổi đã bị xóa",
 	"view-source-code-on": "Xem tại $1",
-	"warning-no-results": "Không có kết quả"
+	"warning-no-results": "Không có kết quả",
+	"discuss-on-wiki": "Chia sẻ kết quả",
+	"discuss-on-wiki-copy": "Chép",
+	"discuss-on-wiki-copied": "Đã sao chép!"
 }

@@ -35,5 +35,9 @@
 	"report-bug": "버그 보고",
 	"revision-edit-summary-removed": "편집 요약 삭제됨",
 	"view-source-code-on": "$1에서 보기",
-	"warning-no-results": "결과 없음"
+	"warning-no-results": "결과 없음",
+	"discuss-on-wiki": "이 결과 공유",
+	"discuss-on-wiki-help": "이 상호작용 타임라인 결과를 다른 사람과 공유하려면 위키 토론에 이 위키텍스트를 복사해서 붙여넣으십시오",
+	"discuss-on-wiki-copy": "복사",
+	"discuss-on-wiki-copied": "복사 완료!"
 }

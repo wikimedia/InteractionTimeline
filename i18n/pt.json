@@ -35,5 +35,10 @@
 	"report-bug": "Reportar um defeito",
 	"revision-edit-summary-removed": "resumo da edição suprimido",
 	"view-source-code-on": "Ver em $1",
-	"warning-no-results": "Sem resultados"
+	"warning-no-results": "Sem resultados",
+	"discuss-on-wiki": "Partilhar estes resultados",
+	"discuss-on-wiki-text": "$1 e $2 em $3 [[User:$4]] ([[User talk:$4|disc]] | [[Special:Contributions/$4|contribs]]) e [[User:$5]] ([[User talk:$5|disc]] | [[Special:Contributions/$5|contribs]]) editaram ambos algumas páginas em comum. Pode ver uma lista cronológica de todas as edições de ambos na [$6 cronologia de interações] ou em forma de tabela no [$7 analisador de interações].",
+	"discuss-on-wiki-help": "Copie e insira este texto wiki numa discussão na wiki, para partilhar estes resultados da cronologia de interações com outros utilizadores",
+	"discuss-on-wiki-copy": "Copiar",
+	"discuss-on-wiki-copied": "Copiado!"
 }
