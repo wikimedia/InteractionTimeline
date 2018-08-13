@@ -5,7 +5,8 @@
 			"Amire80",
 			"Okras",
 			"Happy13241",
-			"Movses"
+			"Movses",
+			"Vlad5250"
 		]
 	},
 	"app-description": "Хронологическая история для двух пользователей на страницах, где они оба вносили изменения.",
@@ -38,5 +39,8 @@
 	"report-bug": "Сообщить об ошибке",
 	"revision-edit-summary-removed": "описание правки удалено",
 	"view-source-code-on": "Посмотреть на сайте $1",
-	"warning-no-results": "Нет результатов"
+	"warning-no-results": "Нет результатов",
+	"discuss-on-wiki": "Поделиться этими результатами",
+	"discuss-on-wiki-copy": "Копировать",
+	"discuss-on-wiki-copied": "Скопировано"
 }

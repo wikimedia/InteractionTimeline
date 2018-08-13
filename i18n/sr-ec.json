@@ -35,5 +35,7 @@
 	"report-bug": "Пријавите баг",
 	"revision-edit-summary-removed": "опис измене уклоњен",
 	"view-source-code-on": "Види на пројекту $1",
-	"warning-no-results": "Нема резултата"
+	"warning-no-results": "Нема резултата",
+	"discuss-on-wiki": "Подели ове резултате",
+	"discuss-on-wiki-copied": "Копирано!"
 }

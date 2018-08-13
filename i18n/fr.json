@@ -35,5 +35,10 @@
 	"report-bug": "Signaler un bogue",
 	"revision-edit-summary-removed": "résumé des modifications retiré",
 	"view-source-code-on": "Voir sur $1",
-	"warning-no-results": "Aucun résultat"
+	"warning-no-results": "Aucun résultat",
+	"discuss-on-wiki": "Partager ces résultats",
+	"discuss-on-wiki-text": "Entre $1 et $2 sur $3 [[User:$4]] ([[User talk:$4|discussion]] | [[Special:Contributions/$4|contributions]]) et [[User:$5]] ([[User talk:$5|discussion]] | [[Special:Contributions/$5|contributions]]) ont tous deux fait des modifications de certaines pages en commun. Vous pouvez voir une liste chronologique de toutes leurs modifications dans la [$6 Chronologie interactive] ou un affichage en tableau de [$7 l’analyseur d’interaction].",
+	"discuss-on-wiki-help": "Copier & coller ce wikitexte dans une discussion dans le wiki pour partager ces résultats de Chronologie d’interaction avec d’autres.",
+	"discuss-on-wiki-copy": "Copier",
+	"discuss-on-wiki-copied": "Copié !"
 }

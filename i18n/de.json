@@ -34,5 +34,10 @@
 	"report-bug": "Einen Fehler melden",
 	"revision-edit-summary-removed": "Zusammenfassung entfernt",
 	"view-source-code-on": "Auf $1 ansehen",
-	"warning-no-results": "Keine Ergebnisse"
+	"warning-no-results": "Keine Ergebnisse",
+	"discuss-on-wiki": "Diese Ergebnisse teilen",
+	"discuss-on-wiki-text": "Zwischen dem $1 und dem $2 haben sowohl [[User:$4|$4]] ([[User talk:$4|Diskussion]] | [[Special:Contributions/$4|Beiträge]]) als auch [[User:$5|$5]] ([[User talk:$5|Diskussion]] | [[Special:Contributions/$5|Beiträge]]) auf einigen Seiten von $3 Bearbeitungen durchgeführt. Du kannst eine chronologische Liste all ihrer Bearbeitungen auf der [$6 Interaktionszeitleiste] oder eine Tabellenansicht auf dem [$7 Interaktionsanalysator] ansehen.",
+	"discuss-on-wiki-help": "Kopiere diesen Wikitext und füge ihn in eine Wikidiskussion ein, um die Ergebnisse dieser Interaktionszeitleiste mit anderen zu teilen.",
+	"discuss-on-wiki-copy": "Kopieren",
+	"discuss-on-wiki-copied": "Kopiert!"
 }

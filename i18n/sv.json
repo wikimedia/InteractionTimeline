@@ -34,5 +34,10 @@
 	"report-bug": "Rapportera ett fel",
 	"revision-edit-summary-removed": "redigeringssammanfattning togs bort",
 	"view-source-code-on": "Visa på $1",
-	"warning-no-results": "Inga resultat"
+	"warning-no-results": "Inga resultat",
+	"discuss-on-wiki": "Dela dessa resultat",
+	"discuss-on-wiki-text": "Mellan $1 och $2 på $3 [[User:$4]] ([[User talk:$4|diskussion]] | [[Special:Contributions/$4|bidrag]]) och [[User:$5]] ([[User talk:$5|diskussion]] | [[Special:Contributions/$5|bidrag]]) redigerade båda några gemensamma sidor. Du kan se en kronologisk lista över alla deras redigeringar på [$6 interaktionstidslinjen] eller en tabellvy över [$7 interaktionsanalyseraren].",
+	"discuss-on-wiki-help": "Kopiera och klistra in denna wikitext i en annan wikidiskussion för att dela resultaten från interaktionstidslinjen med andra",
+	"discuss-on-wiki-copy": "Kopiera",
+	"discuss-on-wiki-copied": "Kopierades!"
 }
