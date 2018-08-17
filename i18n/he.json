@@ -8,8 +8,10 @@
 	},
 	"app-description": "היסטוריה כרונולוגית של שני משתמשים בדפים שבהם שניהם עשו עריכות.",
 	"app-feedback-link": "עזרה",
+	"app-title": "ציר זמן של אינטראקציה",
 	"back-top": "חזרה למעלה",
 	"between-edits": "$1 בין עריכות",
+	"between-interactions": "$1 בין אינטראקציות",
 	"error": "שגיאה",
 	"error-help": "$1, ואז $2.",
 	"error-help-report": "דווחו את השגיאה",
@@ -34,5 +36,10 @@
 	"report-bug": "דיווח באג",
 	"revision-edit-summary-removed": "תקציר העריכה הוסר",
 	"view-source-code-on": "להציג באתר $1",
-	"warning-no-results": "אין תוצאות"
+	"warning-no-results": "אין תוצאות",
+	"discuss-on-wiki": "שיתוף התוצאות האלו",
+	"discuss-on-wiki-text": "מ־$1 עד $2 ב־$3 [[User:$4|משתמש:$]] ([[User talk:$4|שיחה]] | [[Special:Contributions/$4|תרומות]]) ו[[User:$5|משתמש:$5]] ([[User talk:$5|שיחה]] | [[Special:Contributions/$5|תרומות]]) עשו עריכות למספר דפים במשותף. באפשרותך לראות רשימה כרונולוגית של כל העריכות שלהם ב[$6 ציר זמן של אינטראקציה] או בתצוגת טבלה ב[$7 מנתח אינטראקציה].",
+	"discuss-on-wiki-help": "העתיקו והדביקו את קוד הוויקי הזה לדיון בוויקי כדי לשתף את התוצאות האלה של ציר הזמן של אינטראקציה עם אחרים",
+	"discuss-on-wiki-copy": "העתקה",
+	"discuss-on-wiki-copied": "הועתק!"
 }
