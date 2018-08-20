@@ -35,5 +35,7 @@
 	"report-bug": "Innrapporter feil",
 	"revision-edit-summary-removed": "redigeringsforklaring fjernet",
 	"view-source-code-on": "Vis på $1",
-	"warning-no-results": "Ingen resultater"
+	"warning-no-results": "Ingen resultater",
+	"discuss-on-wiki-copy": "Kopier",
+	"discuss-on-wiki-copied": "Kopiert!"
 }
