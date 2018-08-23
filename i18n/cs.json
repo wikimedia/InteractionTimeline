@@ -3,7 +3,8 @@
 		"authors": [
 			"Ilimanaq29",
 			"Patriccck",
-			"Dvorapa"
+			"Dvorapa",
+			"Korytaacheck"
 		]
 	},
 	"app-description": "Chronologická historie dvou uživatelů na stránkách, na kterých oba editovali.",
@@ -36,5 +37,7 @@
 	"report-bug": "Nahlásit chybu",
 	"revision-edit-summary-removed": "Shrnutí editace odstraněno",
 	"view-source-code-on": "Zobrazit na $1",
-	"warning-no-results": "Žádné výsledky"
+	"warning-no-results": "Žádné výsledky",
+	"discuss-on-wiki": "Sdílet tyto výsledky",
+	"discuss-on-wiki-copy": "Kopírovat"
 }
