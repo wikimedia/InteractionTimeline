@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"By erdo can"
 		]
 	},
 	"app-description": "İki kullanıcının düzenleme yapmış oldukları sayfalarda her ikisi için kronolojik geçmiş.",
@@ -34,5 +35,8 @@
 	"report-bug": "Hata bildir",
 	"revision-edit-summary-removed": "düzenleme özeti silindi",
 	"view-source-code-on": "$1 üzerinde gör",
-	"warning-no-results": "Sonuç yok"
+	"warning-no-results": "Sonuç yok",
+	"discuss-on-wiki": "Bu sonuçları paylaş",
+	"discuss-on-wiki-copy": "Kopyala",
+	"discuss-on-wiki-copied": "Kopyalandı!"
 }
