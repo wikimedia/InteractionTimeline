@@ -35,5 +35,8 @@
 	"report-bug": "Մոլորութիւնի մասին տեղեկացնել",
 	"revision-edit-summary-removed": "Խմբագրութեան ամփոփումը ջնջուած է",
 	"view-source-code-on": "$1-ին վրայ նայիլ",
-	"warning-no-results": "Հետեւանք չկայ"
+	"warning-no-results": "Հետեւանք չկայ",
+	"discuss-on-wiki": "Բաժնել այս հետեւանքները",
+	"discuss-on-wiki-copy": "Պատճէնել",
+	"discuss-on-wiki-copied": "Պատճէնուեցաւ:"
 }
