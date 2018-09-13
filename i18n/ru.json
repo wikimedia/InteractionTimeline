@@ -41,6 +41,7 @@
 	"view-source-code-on": "Посмотреть на сайте $1",
 	"warning-no-results": "Нет результатов",
 	"discuss-on-wiki": "Поделиться этими результатами",
+	"discuss-on-wiki-text": "Между $1 и $2 на вики $3 два участника [[User:$4]] ([[User talk:$4|обс.]] | [[Special:Contributions/$4|вклад]]) и [[User:$5]] ([[User talk:$5|обс.]] | [[Special:Contributions/$5|вклад]]) сделали правки на некоторых страницах. Вы можете посмотреть хронологический список всех правок участников на [$6 Interaction Timeline] или в табличном виде в [$7 Interaction Analyser].",
 	"discuss-on-wiki-help": "Скопируйте и вставьте этот викитекст, чтобы поделиться с другими результатами Interaction Timeline",
 	"discuss-on-wiki-copy": "Копировать",
 	"discuss-on-wiki-copied": "Скопировано"

@@ -36,6 +36,9 @@
 	"revision-edit-summary-removed": "redigeringsforklaring fjernet",
 	"view-source-code-on": "Vis på $1",
 	"warning-no-results": "Ingen resultater",
+	"discuss-on-wiki": "Del disse resultatene",
+	"discuss-on-wiki-text": "Mellom $1 og $2 har både [[User:$4|$4]] ([[User talk:$4|diskusjon]] | [[Special:Contributions/$4|bidrag]]) og [[User:$5|$5]] ([[User talk:$5|diskusjon]] | [[Special:Contributions/$5|bidrag]]) redigert på samme sider på $3. Du kan se en kronologisk liste over redigeringene deres på [$6 interaksjonstidslinja] eller en tabellvisning på [$7 interaksjonsanalysatoren].",
+	"discuss-on-wiki-help": "Kopier og lim inn denne wikiteksten på en diskusjonsside på wikien for å dele disse resultatene fra interaksjonstidslinja med andre",
 	"discuss-on-wiki-copy": "Kopier",
 	"discuss-on-wiki-copied": "Kopiert!"
 }

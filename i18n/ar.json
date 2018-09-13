@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ديفيد",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Meno25"
 		]
 	},
 	"app-description": "سجل زمني لمستخدمين في الصفحات التي أجروا فيها تعديلات.",
@@ -35,5 +36,10 @@
 	"report-bug": "الإبلاغ عن خطأ",
 	"revision-edit-summary-removed": "تمت إزالة ملخص التعديل",
 	"view-source-code-on": "عرض في $1",
-	"warning-no-results": "لا توجد نتائج"
+	"warning-no-results": "لا توجد نتائج",
+	"discuss-on-wiki": "شارك هذه النتائج",
+	"discuss-on-wiki-text": "ما بين $1 و $2 في $3 [[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) و [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) كلاهما قاما بتعديلات على بعض الصفحات. يمكنك أن ترى قائمة مرتبة زمنيا لكل تعديلاتهم على [$6 Interaction Timeline] أو عرض في جدول على [$7 Interaction Analyser].",
+	"discuss-on-wiki-help": "انسخ والصق نص الويكي هذا لنقاش على الويكي لمشاركة نتائج الخط الزمني للمشاركة مع الآخرين",
+	"discuss-on-wiki-copy": "نسخ",
+	"discuss-on-wiki-copied": "نسخت!"
 }
