@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nirajan pant",
+			"सरोज कुमार ढकाल"
+		]
+	},
+	"app-feedback-link": "सहायता",
+	"app-title": "अन्तरकृया समयरेखा",
+	"back-top": "सुरुमा जानुहोस्",
+	"between-edits": "$1 सम्पादनको बीचमा",
+	"between-interactions": "$1 अन्तरकृयाको बीचमा",
+	"error": "त्रुटी",
+	"error-help": "$1 र त्यसपछि $2",
+	"error-help-report": "त्रुटी उजुरी गर्नुहोस्",
+	"error-help-refresh": "पृष्ठ ताजा पार्नुहोस्",
+	"error-message-request-url": "अनुरोध URL",
+	"field-label-end-date": "समाप्ति मिति",
+	"field-label-start-date": "आरम्भ मिति",
+	"field-label-users": "प्रयोगकर्ताहरू",
+	"field-label-wiki": "विकी",
+	"field-select-placeholder": "छान्नुहोस्...",
+	"field-select-no-results": "कुनै पनि नतिजाहरू भेटिएनन्",
+	"privacy-policy": "गोपनीयता नीति",
+	"powered-by": "विकिमिडिया टुलफर्जले प्रबर्धन गरेको",
+	"report-bug": "बग उजुरी गर्ने",
+	"revision-edit-summary-removed": "सम्पादन सारांश हटाइयो",
+	"view-source-code-on": "$1 मा हेर्नुहोस्",
+	"warning-no-results": "कुनै नतिजाहरू छैनन्",
+	"discuss-on-wiki-copy": "प्रतिलिपि गर्नुहोस्",
+	"discuss-on-wiki-copied": "प्रतिलिपी गरियो !"
+}
