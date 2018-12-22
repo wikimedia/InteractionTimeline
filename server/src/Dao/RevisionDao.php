@@ -99,12 +99,13 @@ class RevisionDao extends AbstractDao {
 			'r.rev_minor_edit',
 			'r.rev_len',
 			'r.rev_len - IFNULL(r2.rev_len, 0) as sizediff',
-			'r.rev_comment',
+			'c.comment_text AS rev_comment',
 			'r.rev_deleted'
 		];
 		$query->select( $fields )
 			->from( 'revision_userindex', 'r' )
 			->join( 'r', 'page', 'p', 'r.rev_page = page_id' )
+			->leftJoin( 'r', 'comment', 'c', 'r.rev_comment_id = c.comment_id' )
 			->leftJoin( 'r', 'revision_userindex', 'r2', 'r.rev_parent_id = r2.rev_id' )
 			->where( 'r.rev_id in (:rev_ids)' )
 			->orderBy( 'r.rev_timestamp', 'asc' )

@@ -34,5 +34,8 @@
 	"report-bug": "Αναφορά σφάλματος",
 	"revision-edit-summary-removed": "η σύνοψη επεξεργασίας αφαιρέθηκε",
 	"view-source-code-on": "Προβολή στο $1",
-	"warning-no-results": "Κανένα Αποτέλεσμα"
+	"warning-no-results": "Κανένα Αποτέλεσμα",
+	"discuss-on-wiki": "Κοινοποίηση αυτών των αποτελεσμάτων",
+	"discuss-on-wiki-copy": "Αντιγραφή",
+	"discuss-on-wiki-copied": "Αντιγράφηκε με επιτυχία"
 }

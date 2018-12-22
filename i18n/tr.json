@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"By erdo can"
 		]
 	},
 	"app-description": "İki kullanıcının düzenleme yapmış oldukları sayfalarda her ikisi için kronolojik geçmiş.",
@@ -34,5 +35,10 @@
 	"report-bug": "Hata bildir",
 	"revision-edit-summary-removed": "düzenleme özeti silindi",
 	"view-source-code-on": "$1 üzerinde gör",
-	"warning-no-results": "Sonuç yok"
+	"warning-no-results": "Sonuç yok",
+	"discuss-on-wiki": "Bu sonuçları paylaş",
+	"discuss-on-wiki-text": "$1 ile $2 arasında $3 [[User:$4]] ([[User talk:$4|mesaj]] | [[Special:Contributions/$4|katkılar]]) ve [[User:$5]] ([[User talk:$5|mesaj]] | [[Special:Contributions/$5|katkılar]]) vikilerinde her ikisi de ortak bazı sayfalarda düzenlemeler yaptı. [$6 Etkileşim Zaman Çizelgesi]'nde tüm düzenlemelerinin kronolojik bir listesini veya [$7 Etkileşim Çözümleyicisi] üzerinde bir tablo görünümünü görebilirsiniz.",
+	"discuss-on-wiki-help": "Bu Etkileşim Zaman Çizelgesi sonuçlarını başkalarıyla paylaşmak için bu wiki metnini bir wiki tartışmasına kopyalayın ve yapıştırın",
+	"discuss-on-wiki-copy": "Kopyala",
+	"discuss-on-wiki-copied": "Kopyalandı!"
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dmaza",
-			"Fitoschido"
+			"Fitoschido",
+			"Laura Ospina"
 		]
 	},
 	"app-description": "Historial para dos usuarios en páginas en las que ambos hayan hecho ediciones.",
@@ -35,5 +36,9 @@
 	"report-bug": "Informar de un defecto",
 	"revision-edit-summary-removed": "resumen de edición eliminado",
 	"view-source-code-on": "Ver en $1",
-	"warning-no-results": "No hay resultados"
+	"warning-no-results": "No hay resultados",
+	"discuss-on-wiki": "Compartir estos resultados",
+	"discuss-on-wiki-help": "Copiar y pegar este wikitext en una discusión on-wiki para compartir estos resultados de Interacción Timeline con otros",
+	"discuss-on-wiki-copy": "Copiar",
+	"discuss-on-wiki-copied": "¡Copiado!"
 }

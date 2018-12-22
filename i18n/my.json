@@ -8,6 +8,10 @@
 	"back-top": "ထိပ်ဆုံးသို့ ပြန်သွားရန်",
 	"between-edits": "$1 ကြား တည်းဖြတ်မှုများ",
 	"error": "အမှား",
+	"error-help": "$1၊ ပြီးလျင် $2။",
+	"error-help-report": "အမှားကို အစီရင်ခံရန်",
+	"error-help-refresh": "စာမျက်နှာကို ပြန်လည်ဆန်းသစ်ရန်",
+	"error-message-request-url": "URL တောင်းဆိုရန်",
 	"licensed-under": "$1 အောက်ရှိ လိုင်စင်သတ်မှတ်ထားသည်",
 	"field-label-end-date": "ကုန်ဆုံးသည့်ရက်စွဲ",
 	"field-label-start-date": "စတင်သည့်ရက်စွဲ",
@@ -16,7 +20,13 @@
 	"field-select-placeholder": "ရွေးချယ်...",
 	"field-select-no-results": "မည်သည့်ရလဒ်မျှ မရပါ",
 	"field-select-search-prompt": "ရှာဖွေရန် ရိုက်ထည့်ပါ",
+	"made-by": "ဝီကီမီဒီယာ ဖောင်ဒေးရှင်း၏ $1 ဖြင့် ပြုလုပ်သည်။",
+	"made-by-team": "အနှာက်ယှက်ပေးခြင်းကို တန်ပြန်တုန့်ပြန်သည့် ကိရိယာများအဖွဲ့",
 	"privacy-policy": "ကိုယ်ရေးကိုယ်တာ မူဝါဒ",
+	"revision-edit-summary-removed": "အကျဉ်းချုပ်တည်းဖြတ်မှုကို ဖယ်ရှားလိုက်သည်",
 	"view-source-code-on": "$1 ပေါ်တွင် ကြည့်ရှုရန်",
-	"warning-no-results": "ရလဒ်များ မရှိပါ"
+	"warning-no-results": "ရလဒ်များ မရှိပါ",
+	"discuss-on-wiki": "ဤရလဒ်မျာကို မျှဝေရန်",
+	"discuss-on-wiki-copy": "မိတ္တူကူး",
+	"discuss-on-wiki-copied": "မိတ္တူကူးလိုက်ပြီ"
 }

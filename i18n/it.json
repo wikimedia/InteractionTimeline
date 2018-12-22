@@ -18,5 +18,8 @@
 	"privacy-policy": "Informativa sulla privacy",
 	"report-bug": "Segnala un errore",
 	"view-source-code-on": "Vedi su $1",
-	"warning-no-results": "Nessun risultato"
+	"warning-no-results": "Nessun risultato",
+	"discuss-on-wiki": "Condividi questi risultati",
+	"discuss-on-wiki-copy": "Copia",
+	"discuss-on-wiki-copied": "Copiato!"
 }

@@ -35,5 +35,10 @@
 	"report-bug": "回報程式問題",
 	"revision-edit-summary-removed": "編輯摘要已移除",
 	"view-source-code-on": "在 $1 上檢視",
-	"warning-no-results": "沒有結果"
+	"warning-no-results": "沒有結果",
+	"discuss-on-wiki": "分享這些結果",
+	"discuss-on-wiki-text": "$1與$2期間，在 $3 上[[User:$4]]（[[User talk:$4|對話]] | [[Special:Contributions/$4|貢獻]]）與[[User:$5]]（[[User talk:$5|對話]] | [[Special:Contributions/$5|貢獻]]）有在同一頁面上做出了編輯。您可以在 [$6 Interaction Timeline] 或是 [$7 Interaction Analyser] 的表格視圖上，查看他們所有編輯內容的事件順序清單。",
+	"discuss-on-wiki-help": "將此份 wiki 文字複製並貼上到 wiki 上的討論區，來與其他人分享這些 Interaction Timeline 結果",
+	"discuss-on-wiki-copy": "複製",
+	"discuss-on-wiki-copied": "已複製！"
 }

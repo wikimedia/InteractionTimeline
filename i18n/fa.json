@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amirsara"
+		]
+	},
+	"app-feedback-link": "راهنما",
+	"error": "خطا",
+	"field-label-users": "کاربران",
+	"field-label-wiki": "ویکی",
+	"field-select-placeholder": "انتخاب…",
+	"field-select-no-results": "نتیجه‌ای یافت نشد",
+	"privacy-policy": "سیاست حفظ حریم خصوصی",
+	"report-bug": "گزارش یک اشکال",
+	"view-source-code-on": "نمایش در $1",
+	"warning-no-results": "بدون نتیجه",
+	"discuss-on-wiki-copy": "رونوشت",
+	"discuss-on-wiki-copied": "با موفقیت کپی شد"
+}

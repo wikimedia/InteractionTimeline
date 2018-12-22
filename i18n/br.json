@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gwenn-Ael"
+		]
+	},
+	"app-description": "Istor kronologel evit daou implijer hag o deus cheñchet an hevelep pajennoù",
+	"app-feedback-link": "Skoazell",
+	"app-title": "Deiziataer an etrefasoù",
+	"back-top": "Distreiñ da grec'h ar bajenn",
+	"between-edits": "$1 etre daou gemm",
+	"between-interactions": "$1 etre an etrefasoù",
+	"error": "Fazi",
+	"error-help": "$1, ha goude $2.",
+	"error-help-report": "Kasit keloù eus ar fazi",
+	"error-help-refresh": "Freskaat ar bajenn",
+	"error-message-request-url": "Goulenn URL",
+	"error-suppressed-diff": "Ne c'hallit ket diskwel an diforc'h-mañ rak unan eus an daou adweladur zo bet dilamet.",
+	"info-no-users": "Roit anv daou implijer evit kregiñ, mar plij.",
+	"info-no-wiki": "Roit anv ur wiki evit kregiñ, mar plij.",
+	"info-required-fields": "Roit anv daou implijer hag hini ar wiki evit kregiñ, mar plij.",
+	"licensed-under": "Dindan an aotre-implijout $1",
+	"field-label-end-date": "Deiziad echuiñ",
+	"field-label-start-date": "Deiziad kregiñ",
+	"field-label-users": "Implijerien",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Dibab...",
+	"field-select-no-results": "N'eus bet kavet disoc'h ebet",
+	"field-select-search-prompt": "Doare da glask",
+	"made-by": "Kaset da benn gant $1 eus an diazezadur Wikimedia.",
+	"made-by-team": "Skipailh karget eus ar binvioù enep-harellerezh",
+	"privacy-policy": "Reolennoù prevezded",
+	"powered-by": "Sevenet gant Wikimedia Toolforge",
+	"report-bug": "Kas keloù diwar-benn un draen",
+	"revision-edit-summary-removed": "diverradenn ar c'hemm diverket",
+	"view-source-code-on": "Gwel war $1",
+	"warning-no-results": "Disoc'h ebet",
+	"discuss-on-wiki": "Rannañ an disoc'hoù-se",
+	"discuss-on-wiki-copy": "Eilañ",
+	"discuss-on-wiki-copied": "Eilet!"
+}

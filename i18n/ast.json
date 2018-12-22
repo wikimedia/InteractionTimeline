@@ -34,5 +34,10 @@
 	"report-bug": "Informar d'un fallu",
 	"revision-edit-summary-removed": "resume d'edición desaniciáu",
 	"view-source-code-on": "Ver en $1",
-	"warning-no-results": "Nun hai resultaos"
+	"warning-no-results": "Nun hai resultaos",
+	"discuss-on-wiki": "Compartir estos resultaos",
+	"discuss-on-wiki-text": "Ente $1 y $2, en $3, [[User:$4]] ([[User talk:$4|alderique]] | [[Special:Contributions/$4|contribs]]) y [[User:$5]] ([[User talk:$5|alderique]] | [[Special:Contributions/$5|contribs]]) editaron en delles páxines en común. Puedes ver una llista cronolóxica de toles sos ediciones nel [$6 Cronograma d'Interaición] o una vista de tabla nel [$7 Analizador d'Interaición].",
+	"discuss-on-wiki-help": "Copia y pega esti testu wiki nun alderique de la wiki pa compartir con otros estos resultaos del Cronograma d'Interaición",
+	"discuss-on-wiki-copy": "Copiar",
+	"discuss-on-wiki-copied": "Copióse"
 }

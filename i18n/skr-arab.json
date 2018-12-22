@@ -7,12 +7,14 @@
 	"app-feedback-link": "مدد",
 	"error": "خرابی",
 	"error-help": "$1، تے ول $2۔",
-	"field-label-end-date": "ختم کرݨ دی تاریخ",
-	"field-label-start-date": "شروع کرݨ دی تاریخ",
+	"field-label-end-date": "ختم کرݨ دی تریخ",
+	"field-label-start-date": "شروع کرݨ دی تریخ",
 	"field-label-users": "ورتݨ آلے",
 	"field-label-wiki": "وکی",
 	"field-select-placeholder": "چُݨو۔۔۔",
 	"field-select-search-prompt": "ڳولݨ کیتے لکھو",
 	"view-source-code-on": "$1 تے ݙیکھو",
-	"warning-no-results": "کوئی نتیجہ کائنی۔"
+	"warning-no-results": "کوئی نتیجہ کائنی۔",
+	"discuss-on-wiki-copy": "نقل کرو",
+	"discuss-on-wiki-copied": "نقل تھی ڳئے!"
 }

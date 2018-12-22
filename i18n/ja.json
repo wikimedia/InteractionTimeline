@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gulpin",
+			"Suyama"
+		]
+	},
+	"app-description": "2人のユーザーが編集したページの時刻順の履歴。",
+	"app-feedback-link": "ヘルプ",
+	"app-title": "インタラクションのタイムライン",
+	"back-top": "トップに戻る",
+	"between-edits": "$1 前に編集",
+	"between-interactions": "$1前にインタラクション",
+	"error": "エラー",
+	"error-help": "$1して$2してください",
+	"error-help-report": "エラーを報告",
+	"error-help-refresh": "ページを更新",
+	"error-message-request-url": "リクエスト URL",
+	"error-suppressed-diff": "少なくともどちらかのリビジョンを見ることができないため、この差分を見ることはできません。",
+	"licensed-under": "$1 でライセンスされています。",
+	"field-label-end-date": "終了日",
+	"field-label-start-date": "開始日",
+	"field-label-users": "ユーザー",
+	"field-label-wiki": "ウィキ",
+	"field-select-placeholder": "選択...",
+	"field-select-no-results": "見つかりませんでした",
+	"field-select-search-prompt": "入力して検索",
+	"privacy-policy": "プライバシー・ポリシー",
+	"report-bug": "バグを報告",
+	"view-source-code-on": "$1で閲覧",
+	"warning-no-results": "該当結果はありません。",
+	"discuss-on-wiki": "これらの結果を共有",
+	"discuss-on-wiki-copy": "コピー",
+	"discuss-on-wiki-copied": "コピーしました"
+}

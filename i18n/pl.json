@@ -37,5 +37,8 @@
 	"report-bug": "Zgłoś błąd",
 	"revision-edit-summary-removed": "(usunięto opis zmian)",
 	"view-source-code-on": "Wyświetl na $1",
-	"warning-no-results": "Brak wyników"
+	"warning-no-results": "Brak wyników",
+	"discuss-on-wiki": "Udostępnij te wyniki",
+	"discuss-on-wiki-copy": "Kopiuj",
+	"discuss-on-wiki-copied": "Skopiowano!"
 }

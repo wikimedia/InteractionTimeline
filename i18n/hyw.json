@@ -35,5 +35,9 @@
 	"report-bug": "Մոլորութիւնի մասին տեղեկացնել",
 	"revision-edit-summary-removed": "Խմբագրութեան ամփոփումը ջնջուած է",
 	"view-source-code-on": "$1-ին վրայ նայիլ",
-	"warning-no-results": "Հետեւանք չկայ"
+	"warning-no-results": "Հետեւանք չկայ",
+	"discuss-on-wiki": "Բաժնել այս հետեւանքները",
+	"discuss-on-wiki-text": "$1- մինչեւ $2 թուականին, եւ $3 թուականին, [[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) եւ [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) փոփոխութիւններ կատարեցին քանի մը էջերու վրայ:  Կարելի է տեսնել ժամանակախօսական ցանկ մը որ կը բովանդակէ ամէն խմբագրութիւնները, [$6 Interaction Timeline]-ի վրայ կամ  [$7 Interaction Analyser] աղիւսակ-ի վրայ:",
+	"discuss-on-wiki-copy": "Պատճէնել",
+	"discuss-on-wiki-copied": "Պատճէնուեցաւ:"
 }

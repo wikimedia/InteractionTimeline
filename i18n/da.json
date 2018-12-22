@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joedalton"
+			"Joedalton",
+			"Saederup92"
 		]
 	},
 	"app-description": "Kronologisk historik for to brugere på sider, hvor de begge har lavet redigeringer.",
-	"app-feedback-link": "Lær mere og giv en tilbagemelding!",
+	"app-feedback-link": "Hjælp",
 	"app-title": "Interaktionstidslinje",
 	"back-top": "Tilbage til toppen",
 	"between-edits": "$1 mellem redigeringer",
@@ -34,5 +35,8 @@
 	"report-bug": "Rapporter en fejl",
 	"revision-edit-summary-removed": "redigeringsbeskrivelsen er fjernet",
 	"view-source-code-on": "Vis på $1",
-	"warning-no-results": "Ingen resultater"
+	"warning-no-results": "Ingen resultater",
+	"discuss-on-wiki": "Del disse resultater",
+	"discuss-on-wiki-copy": "Kopier",
+	"discuss-on-wiki-copied": "Kopieret!"
 }
