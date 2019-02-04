@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirzali",
+			"Orbot707"
+		]
+	},
+	"app-feedback-link": "Peşti",
+	"back-top": "Şo serêniye",
+	"between-edits": "Mabeynê vurriyayışan $1",
+	"error": "Xeta",
+	"error-help": "$1, û dıma $2.",
+	"error-help-report": "Xeta rapor ke",
+	"error-help-refresh": "pele newe ke",
+	"error-message-request-url": "Waşte URL",
+	"error-suppressed-diff": "Şıma nêşenê qet yew ferq bıvênê, çıke vurriyayışi hurdemêna zi dariyê we.",
+	"info-no-users": "Kerem ke, seba destpêkerdış rê dı karberan temin ke.",
+	"info-no-wiki": "Kerem ke, yew wiki xo rê weçine.",
+	"info-required-fields": "Kerem ke, seba destpêkerdış rê dı karberan û wiki temin ke.",
+	"licensed-under": "Bınê $1 de lisans kerdo",
+	"field-label-end-date": "Tarixê qediyayışi",
+	"field-label-users": "Karberi",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Weçine...",
+	"field-select-no-results": "Neticeyi nêvêniyayi",
+	"field-select-search-prompt": "Tipê cıgeyrayışi",
+	"privacy-policy": "Politikaya nımıtiye",
+	"revision-edit-summary-removed": "xulasaya vurriyayışi esteriye",
+	"view-source-code-on": "$1 de bıvêne",
+	"warning-no-results": "Neticeyi çıniyê",
+	"discuss-on-wiki": "Enê neticeyan vıla ke",
+	"discuss-on-wiki-copy": "Kopya ke",
+	"discuss-on-wiki-copied": "Kopya biyo!"
+}
