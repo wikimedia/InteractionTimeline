@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Message } from '@wikimedia/react.i18n';
+import { Message, BananaContext } from '@wikimedia/react.i18n';
 import Form from './form';
 import ShareContainer from './share/share.container';
 import TimelineContainer from './timeline/timeline.container';
@@ -87,7 +87,11 @@ export default () => (
 						</div>
 						<div className="col-sm-auto align-self-center">
 							<a href="https://tools.wmflabs.org/">
-								<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={Message( { id: 'powered-by' } )} />
+								<BananaContext.Consumer>
+									{banana => (
+										<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
+									)}
+								</BananaContext.Consumer>
 							</a>
 						</div>
 					</div>

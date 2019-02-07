@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Message } from '@wikimedia/react.i18n';
+import { Message, BananaContext } from '@wikimedia/react.i18n';
 import moment from 'moment';
 import clipboard from 'clipboard-polyfill';
 import 'material-design-icons/iconfont/material-icons.css';
@@ -36,24 +36,22 @@ class Share extends React.Component {
 		}
 	}
 
-	getMessageText() {
+	getMessageText( banana ) {
 		const dateFormat = 'YYYY-MM-DD';
 
-		return Message( {
-			id: 'discuss-on-wiki-text',
-			placeholders: [
-				this.props.startDate ? this.props.startDate.format( dateFormat ) : '2000-01-01',
-				this.props.endDate ? this.props.endDate.format( dateFormat ) : moment.utc().format( dateFormat ),
-				this.props.wiki ? this.props.wiki.domain : null,
-				...this.props.users,
-				'https://tools.wmflabs.org/interaction-timeline/' + this.props.queryString,
-				this.props.editorInteractUrl
-			]
-		} );
+		return banana.i18n(
+			'discuss-on-wiki-text',
+			this.props.startDate ? this.props.startDate.format( dateFormat ) : '2000-01-01',
+			this.props.endDate ? this.props.endDate.format( dateFormat ) : moment.utc().format( dateFormat ),
+			this.props.wiki ? this.props.wiki.domain : null,
+			...this.props.users,
+			'https://tools.wmflabs.org/interaction-timeline/' + this.props.queryString,
+			this.props.editorInteractUrl
+		);
 	}
 
-	copyToClipboard() {
-		clipboard.writeText( this.getMessageText() ).then( () => {
+	copyToClipboard( banana ) {
+		clipboard.writeText( this.getMessageText( banana ) ).then( () => {
 			this.setState( {
 				copied: true
 			} );
@@ -89,14 +87,22 @@ class Share extends React.Component {
 					<ModalHeader toggle={this.toggle}>{title}</ModalHeader>
 					<ModalBody>
 						<Form>
-							<Input type="textarea" rows={6} defaultValue={this.getMessageText()} innerRef={this.textArea} />
+							<BananaContext.Consumer>
+								{banana => (
+									<Input type="textarea" rows={6} defaultValue={this.getMessageText( banana )} innerRef={this.textArea} />
+								)}
+							</BananaContext.Consumer>
 							<FormText color="muted">
 								<Message id="discuss-on-wiki-help" />
 							</FormText>
 						</Form>
 					</ModalBody>
 					<ModalFooter>
-						<Button color="primary" onClick={this.copyToClipboard}><Message id={copiedMessage} /></Button>
+						<BananaContext.Consumer>
+							{banana => (
+								<Button color="primary" onClick={() => this.copyToClipboard( banana )}><Message id={copiedMessage} /></Button>
+							)}
+						</BananaContext.Consumer>
 					</ModalFooter>
 				</Modal>
 			</React.Fragment>
