@@ -26,7 +26,7 @@
 	"field-label-start-date": "Fecha de inicio",
 	"field-label-users": "Usuarios",
 	"field-label-wiki": "Wiki",
-	"field-select-placeholder": "Selecciona...",
+	"field-select-placeholder": "Seleccionar…",
 	"field-select-no-results": "No se han encontrado resultados",
 	"field-select-search-prompt": "Escribe para buscar",
 	"made-by": "Creado por el $1 de la Fundación Wikimedia",
@@ -38,6 +38,7 @@
 	"view-source-code-on": "Ver en $1",
 	"warning-no-results": "No hay resultados",
 	"discuss-on-wiki": "Compartir estos resultados",
+	"discuss-on-wiki-text": "Entre el $1 y el $2 en $3, tanto [[Usuario:$4]] ([[Usuario discusión:$4|discusión]] | [[Especial:Contribuciones/$4|contribs.]]) como [[Usuario:$5]] ([[Usuario discusión:$5|discusión]] | [[Especial:Contribuciones/$5|contribs.]]) hicieron ediciones a las mismas páginas. Puedes consultar una lista cronológica de todas las ediciones en la [$6 cronología de interacciones] o una vista tabular en el [$7 analizador de interacciones].",
 	"discuss-on-wiki-help": "Copiar y pegar este wikitext en una discusión on-wiki para compartir estos resultados de Interacción Timeline con otros",
 	"discuss-on-wiki-copy": "Copiar",
 	"discuss-on-wiki-copied": "¡Copiado!"
