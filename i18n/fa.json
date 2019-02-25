@@ -5,7 +5,13 @@
 		]
 	},
 	"app-feedback-link": "راهنما",
+	"back-top": "بازگشت به بالای صفحه",
 	"error": "خطا",
+	"error-help-report": "گزارش خطا",
+	"error-help-refresh": "تازه‌سازی صفحه",
+	"error-message-request-url": "نشانی اینترنتی درخواست",
+	"field-label-end-date": "تاریخ پایان",
+	"field-label-start-date": "تاریخ شروع",
 	"field-label-users": "کاربران",
 	"field-label-wiki": "ویکی",
 	"field-select-placeholder": "انتخاب…",
@@ -14,6 +20,7 @@
 	"report-bug": "گزارش یک اشکال",
 	"view-source-code-on": "نمایش در $1",
 	"warning-no-results": "بدون نتیجه",
+	"discuss-on-wiki": "اشتراک گذاری این نتایج",
 	"discuss-on-wiki-copy": "رونوشت",
 	"discuss-on-wiki-copied": "با موفقیت کپی شد"
 }

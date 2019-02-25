@@ -28,14 +28,16 @@
 	"field-select-no-results": "N'eus bet kavet disoc'h ebet",
 	"field-select-search-prompt": "Doare da glask",
 	"made-by": "Kaset da benn gant $1 eus an diazezadur Wikimedia.",
-	"made-by-team": "Skipailh karget eus ar binvioù enep-harellerezh",
+	"made-by-team": "Skipailh karget eus ar binvioù enep-harzellerezh",
 	"privacy-policy": "Reolennoù prevezded",
 	"powered-by": "Sevenet gant Wikimedia Toolforge",
 	"report-bug": "Kas keloù diwar-benn un draen",
-	"revision-edit-summary-removed": "diverradenn ar c'hemm diverket",
+	"revision-edit-summary-removed": "diverradenn eus ar c'hemm diverket",
 	"view-source-code-on": "Gwel war $1",
 	"warning-no-results": "Disoc'h ebet",
 	"discuss-on-wiki": "Rannañ an disoc'hoù-se",
+	"discuss-on-wiki-text": "Etre $1 ha $2 e$3 [[User:$4]] ([[User talk:$4|kaozeadenn]] | [[Special:Contributions/$4|contributions]]) ha[[User:$5]] ([[User talk:$5|k]] | [[Special:Contributions/$5|contributions]]) o deus degaset, int o-daou, kemmoù e pajennoù boutin zo. Gallout a reot gwelet ur roll eus an holl gemmoù-se dre renk an amzer e [$6 Kronologiezh an efrefasoù] pe diskwel anezho en daolenn [$7 parseur an etrefasoù].",
+	"discuss-on-wiki-help": "Eilañ & pegañ ar wikitestenn-mañ en ur gaozeadenn eus ar wiki evit rannañ an disoc'hoù-se eus kronoliezh an etrefasoù gant tud all.",
 	"discuss-on-wiki-copy": "Eilañ",
 	"discuss-on-wiki-copied": "Eilet!"
 }
