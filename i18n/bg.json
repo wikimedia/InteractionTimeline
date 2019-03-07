@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg",
+			"Vlad5250"
+		]
+	},
+	"app-feedback-link": "Помощ",
+	"app-title": "Хронология на взаимодействието",
+	"back-top": "Връщане в началото",
+	"between-edits": "$1 между редакциите",
+	"between-interactions": "$1 между взаимодействията",
+	"error": "Грешка",
+	"error-help": "$1, след това $2.",
+	"error-help-report": "Съобщаване за грешката",
+	"error-help-refresh": "презареждане на страницата",
+	"error-message-request-url": "URL на заявката:",
+	"licensed-under": "Под лиценза $1",
+	"field-label-end-date": "Крайна дата",
+	"field-label-start-date": "Начална дата",
+	"field-label-users": "Потребители",
+	"field-label-wiki": "Уики",
+	"field-select-placeholder": "Изберете...",
+	"field-select-no-results": "Не бяха открити резултати",
+	"privacy-policy": "Защита на личните данни",
+	"report-bug": "Съобщаване за грешка",
+	"revision-edit-summary-removed": "премахнато резюмето на редакцията",
+	"view-source-code-on": "Преглед в $1",
+	"warning-no-results": "Няма резултати",
+	"discuss-on-wiki": "Споделяне на резултатите",
+	"discuss-on-wiki-copy": "Копиране",
+	"discuss-on-wiki-copied": "Копирано!"
+}

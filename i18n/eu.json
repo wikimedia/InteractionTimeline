@@ -3,7 +3,8 @@
 		"authors": [
 			"EukeneFL",
 			"Mikel Ibaiba",
-			"Fitoschido"
+			"Fitoschido",
+			"Theklan"
 		]
 	},
 	"app-description": "Bi erabiltzaileek aldaketak egin dituzten orrialdeen historia kronologikoa.",
@@ -36,5 +37,8 @@
 	"report-bug": "Akatsa salatu",
 	"revision-edit-summary-removed": "aldaketa laburpena ezabatu da",
 	"view-source-code-on": "$1(e)an ikusi",
-	"warning-no-results": "Emaitzik ez"
+	"warning-no-results": "Emaitzik ez",
+	"discuss-on-wiki": "Emaitza hauek partekatu",
+	"discuss-on-wiki-copy": "Kopiatu",
+	"discuss-on-wiki-copied": "Kopiatua"
 }
