@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"app-description": "Cunde pe doje utinde sus a le pàggene addò lore onne fatte cangiaminde.",
+	"app-feedback-link": "Aijute",
+	"app-title": "Linèe d'u tiembe de inderazione",
+	"back-top": "Tuèrne sus",
+	"between-edits": "$1 'mbrà le cangiaminde",
+	"between-interactions": "$1 'mbrà le 'nderaziune",
+	"error": "Errore",
+	"error-help": "$1, e allore $2.",
+	"error-help-report": "Segnale l'errore",
+	"error-help-refresh": "aggiorne 'a pàgene",
+	"error-message-request-url": "URL richieste",
+	"error-suppressed-diff": "Non ge puè 'ndrucà sta differenze purcé une o tutte e doje le revisiune onne state scettate.",
+	"info-no-users": "Pe piacere dèje doje utinde pe accumenzà.",
+	"info-no-wiki": "Pe piacere dèje 'na uicchi pe accumenzà.",
+	"info-required-fields": "Pe piacere dèje doje utinde e 'na uicchi pe accumenzà.",
+	"licensed-under": "Licenziate sotte a $1",
+	"field-label-end-date": "Date de fine",
+	"field-label-start-date": "Date de inizie",
+	"field-label-users": "Utinde",
+	"field-label-wiki": "Uicchi",
+	"field-select-placeholder": "Scacchie...",
+	"field-select-no-results": "Nisciune resultate acchiate",
+	"field-select-search-prompt": "Tipe da cercà",
+	"made-by": "Fatte da $1 de Wikimedia Foundation",
+	"made-by-team": "Sqaudre de struminde anti-violenze",
+	"privacy-policy": "Regole p'a privacy",
+	"powered-by": "Fatte da Wikimedia Toolforge",
+	"report-bug": "Segnale 'n'errore",
+	"revision-edit-summary-removed": "(cangiamnde d'u riepileghe scettate)",
+	"view-source-code-on": "'Ndruche sus a $1",
+	"warning-no-results": "Nisciune resultate",
+	"discuss-on-wiki": "Condivide ste resultate",
+	"discuss-on-wiki-text": "'Mbrà $1 e $2 'u $3 [[User:$4]] ([[User talk:$4|'ngazzaminde]] | [[Special:Contributions/$4|condrebbute]]) e [[User:$5]] ([[User talk:$5|'ngazzaminde]] | [[Special:Contributions/$5|condrebbute]]) tutte e doje onne fatte cangiaminde sus a quacche pàggene in comune. Tu puè 'ndrucà 'n'elenghe cronologgeche de tutte le cangiaminde lore sus a [$6 Linèe d'u Timbe d'a 'nderazione] o 'nu 'ndrucamende d'a tabbelle sus a l'[$7 Analizzatore de l'inderaziune].",
+	"discuss-on-wiki-help": "Copie & 'ngolle stu uicchiteste sus a 'nu 'ngazzamende d'a uicchi pe condividee ste resultate d'a Linèe de tiembe d'a 'Nderazione cu l'otre",
+	"discuss-on-wiki-copy": "Copie",
+	"discuss-on-wiki-copied": "Copiate!"
+}

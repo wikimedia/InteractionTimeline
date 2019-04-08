@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"app-description": "Vrijemeslijedna povijest dva korisnika na stranicama u kojima su obojica uređivali.",
+	"app-feedback-link": "Pomoć",
+	"app-title": "Interakcijski vrijemeslijed",
+	"back-top": "Nazad na vrh",
+	"between-edits": "$1 između izmjenama",
+	"between-interactions": "$1 između interakcijama",
+	"error": "Greška",
+	"error-help": "$1, zatim $2.",
+	"error-help-report": "Prijavi grešku",
+	"error-help-refresh": "preučitaj ovu stranicu",
+	"error-message-request-url": "URL zahtjeva",
+	"error-suppressed-diff": "Ne možete vidjeti ovu razliku jer su jedna ili obe revizije skrivene.",
+	"info-no-users": "Navedite dva korisnika da biste počeli.",
+	"info-no-wiki": "Navedite wiki da biste počeli.",
+	"info-required-fields": "Navedite dva korisnika i wiki da biste počeli.",
+	"licensed-under": "Licencirano pod $1",
+	"field-label-end-date": "Završni datum",
+	"field-label-start-date": "Početni datum",
+	"field-label-users": "Korisnici",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Izaberite...",
+	"field-select-no-results": "Nisam ništa pronašao",
+	"field-select-search-prompt": "Unesite da biste pretražili",
+	"made-by": "Napravio $1 Fondacije Wikimedia.",
+	"made-by-team": "Tim za alate protiv uznemiravanja",
+	"privacy-policy": "Politika privatnosti",
+	"powered-by": "Omogućeno Wikimedijinim laboratorijama za alate",
+	"report-bug": "Prijavi grešku",
+	"revision-edit-summary-removed": "rezime izmjene je uklonjen",
+	"view-source-code-on": "Vidi na $1",
+	"warning-no-results": "Nema ishoda",
+	"discuss-on-wiki": "Podeli ovaj ishod",
+	"discuss-on-wiki-text": "Između $1 i $2 na $3 [[User:$4]] ([[User talk:$4|razgovor]] | [[Special:Contributions/$4|doprinosi]]) and [[User:$5]] ([[User talk:$5|razgovor]] | [[Special:Contributions/$5|doprinosi]]) oba napravila su uređivanja na jednim istim stranicama. Možete pogledati vremesledni popis svih njihovih uređivanja na [$6 Interakcijskom vremesledu] ili prikaz tabele na [$7 Analizatoru interakcije].",
+	"discuss-on-wiki-help": "Prekopirajte ovaj wikitekst u raspravi na wikiju da biste podijelili ovaj ishod interakcijskog vremesleda i drugima",
+	"discuss-on-wiki-copy": "Kopiraj",
+	"discuss-on-wiki-copied": "Iskopirano!"
+}
