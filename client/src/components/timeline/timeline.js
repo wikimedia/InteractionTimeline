@@ -5,22 +5,25 @@ import DateRevisionsContainer from './date-revisions.container';
 import StatusContainer from './status.container';
 import BackToTopButton from './back-top';
 
-const Users = () => (
-	<React.Fragment>
-		<div ref={( element ) => { this.stickyHeader = element; }} />
-		<div className="row sticky-top">
-			<div className="col ml-3 mr-3">
-				<div className="row">
-					<div className="col-12">
-						<div className="row users pr-1 pl-1 justify-content-center">
-							<div className="col">
-								<div className="row align-items-center justify-content-around text-center">
-									<UserListContainer />
+const Users = () => {
+	let stickyHeader = React.createRef();
+	return (
+		<React.Fragment>
+			<div ref={stickyHeader} />
+			<div className="row sticky-top">
+				<div className="col ml-3 mr-3">
+					<div className="row">
+						<div className="col-12">
+							<div className="row users pr-1 pl-1 justify-content-center">
+								<div className="col">
+									<div className="row align-items-center justify-content-around text-center">
+										<UserListContainer />
+									</div>
 								</div>
 							</div>
-						</div>
-						<div className="col-1 text-center">
-							<BackToTopButton stickyHeader={stickyHeader} />
+							<div className="col-1 text-center">
+								<BackToTopButton stickyHeader={stickyHeader} />
+							</div>
 						</div>
 					</div>
 				</div>
