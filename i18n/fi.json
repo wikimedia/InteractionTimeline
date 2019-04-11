@@ -5,7 +5,7 @@
 		]
 	},
 	"app-description": "Kronologinen historia kahdelle käyttäjälle sivuilla, missä molemmat ovat tehneet muokkauksia.",
-	"app-feedback-link": "Lisätietoja & jätä palautetta!",
+	"app-feedback-link": "Ohje",
 	"app-title": "Vuorovaikutteinen aikajana",
 	"back-top": "Takaisin alkuun",
 	"between-edits": "$1 muokkausten välillä",
@@ -30,9 +30,12 @@
 	"made-by": "Tehnyt Wikimedia Foundationin $1",
 	"made-by-team": "Anti-Harassment Tools -tiimi",
 	"privacy-policy": "Tietosuojakäytäntö",
-	"powered-by": "Moottorina toimii Wikimedia Toolforge",
+	"powered-by": "Palvelun tarjoaa Wikimedia Toolforge",
 	"report-bug": "Ilmoita viasta",
 	"revision-edit-summary-removed": "muokkausyhteenveto poistettu",
 	"view-source-code-on": "Näytä $1issa",
-	"warning-no-results": "Ei tuloksia"
+	"warning-no-results": "Ei tuloksia",
+	"discuss-on-wiki": "Jaa nämä tulokset",
+	"discuss-on-wiki-copy": "Kopioi",
+	"discuss-on-wiki-copied": "Kopioitu!"
 }
