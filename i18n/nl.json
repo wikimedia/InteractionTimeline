@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"KlaasZ4usV",
+			"Optilete"
+		]
+	},
+	"between-edits": "$1 tussen bewerkingen",
+	"error": "Fout",
+	"error-message-request-url": "Verzoek-URL:",
+	"field-label-end-date": "Einddatum",
+	"field-label-start-date": "Begindatum",
+	"field-label-users": "Gebruikers",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selecteer...",
+	"field-select-no-results": "Geen resultaten gevonden",
+	"powered-by": "Mogelijk gemaakt door Wikimedia Toolforge",
+	"report-bug": "Probleem melden",
+	"view-source-code-on": "Bekijken op $1"
+}
