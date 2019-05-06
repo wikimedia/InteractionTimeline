@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mirin"
+		]
+	},
+	"app-feedback-link": "Helpo",
+	"back-top": "Reiri Supren",
+	"error": "Eraro",
+	"field-label-users": "Uzantoj",
+	"field-label-wiki": "Vikio",
+	"field-select-search-prompt": "Tajpi por serĉi",
+	"made-by": "Farita de $1 de la Vikimedia Fondaĵo.",
+	"report-bug": "Raporti cimon",
+	"revision-edit-summary-removed": "forigis redaktan resumon",
+	"view-source-code-on": "Vidi ĉe $1",
+	"warning-no-results": "Neniu Rezulto",
+	"discuss-on-wiki": "Diskonigi tiujn rezultojn",
+	"discuss-on-wiki-copy": "Kopii",
+	"discuss-on-wiki-copied": "Kopiita!"
+}
