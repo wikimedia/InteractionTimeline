@@ -27,20 +27,21 @@ class RevisionDao extends AbstractDao {
 		$searchColumn = $this->getUserSearchColumn( $users );
 		$query->select( 'rev_id' )
 			->from( 'revision_userindex', 'r' )
+			->join( 'r', 'actor', 'a', 'r.rev_actor = a.actor_id' )
 			->where( $searchColumn . ' in (:users)' )
-			->andWhere( 'rev_page in (:pages)' )
-			->orderBy( 'rev_id', 'asc' )
+			->andWhere( 'r.rev_page in (:pages)' )
+			->orderBy( 'r.rev_id', 'asc' )
 			->setMaxResults( $limit )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY )
 			->setParameter( ':pages', $pages, Connection::PARAM_STR_ARRAY );
 
 		if ( $startDate ) {
-			$query->andWhere( 'rev_timestamp >= :start_date' )
+			$query->andWhere( 'r.rev_timestamp >= :start_date' )
 				->setParameter( ':start_date', $startDate->format( 'YmdHis' ) );
 		}
 
 		if ( $endDate ) {
-			$query->andWhere( 'rev_timestamp <= :end_date' )
+			$query->andWhere( 'r.rev_timestamp <= :end_date' )
 				->setParameter( ':end_date', $endDate->format( 'YmdHis' ) );
 		}
 		$this->logger->debug( sprintf( "Fetching revisions for users: %s", join( ', ', $users ) ) );
@@ -61,20 +62,21 @@ class RevisionDao extends AbstractDao {
 	) {
 		$query = $this->conn->createQueryBuilder();
 		$searchColumn = $this->getUserSearchColumn( $users );
-		$query->select( 'rev_page' )
-			->from( 'revision_userindex' )
+		$query->select( 'r.rev_page' )
+			->from( 'revision_userindex', 'r' )
+			->join( 'r', 'actor', 'a', 'r.rev_actor = a.actor_id' )
 			->where( $searchColumn . ' in (:users)' )
-			->groupBy( 'rev_page' )
+			->groupBy( 'r.rev_page' )
 			->having( 'count(distinct ' . $searchColumn . ') > 1' )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY );
 
 		if ( $startDate ) {
-			$query->andWhere( 'rev_timestamp >= :start_date' )
+			$query->andWhere( 'r.rev_timestamp >= :start_date' )
 				->setParameter( ':start_date', $startDate->format( 'YmdHis' ) );
 		}
 
 		if ( $endDate ) {
-			$query->andWhere( 'rev_timestamp <= :end_date' )
+			$query->andWhere( 'r.rev_timestamp <= :end_date' )
 				->setParameter( ':end_date', $endDate->format( 'YmdHis' ) );
 		}
 
@@ -94,7 +96,7 @@ class RevisionDao extends AbstractDao {
 			'r.rev_page',
 			'page_namespace',
 			'page_title',
-			'r.rev_user_text',
+			'a.actor_name',
 			'r.rev_timestamp',
 			'r.rev_minor_edit',
 			'r.rev_len',
@@ -104,7 +106,8 @@ class RevisionDao extends AbstractDao {
 		];
 		$query->select( $fields )
 			->from( 'revision_userindex', 'r' )
-			->join( 'r', 'page', 'p', 'r.rev_page = page_id' )
+			->join( 'r', 'page', 'p', 'r.rev_page = p.page_id' )
+			->join( 'r', 'actor', 'a', 'r.rev_actor = a.actor_id' )
 			->leftJoin( 'r', 'comment', 'c', 'r.rev_comment_id = c.comment_id' )
 			->leftJoin( 'r', 'revision_userindex', 'r2', 'r.rev_parent_id = r2.rev_id' )
 			->where( 'r.rev_id in (:rev_ids)' )
@@ -124,9 +127,9 @@ class RevisionDao extends AbstractDao {
 	 * @return string
 	 */
 	private function getUserSearchColumn( array $users ) {
-		$column = 'rev_user_text';
+		$column = 'a.actor_name';
 		if ( $this->isNumericArray( $users ) ) {
-			$column = 'rev_user';
+			$column = 'a.actor_user';
 		}
 
 		return $column;
