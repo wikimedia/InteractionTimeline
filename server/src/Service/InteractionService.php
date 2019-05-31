@@ -80,7 +80,7 @@ class InteractionService {
 				'page_id' => (int)$revision['rev_page'],
 				'page_title' => $this->buildTitle( $revision['page_title'] ),
 				'page_namespace' => (int)$revision['page_namespace'],
-				'user' => $revision['rev_user_text'],
+				'user' => $revision['actor_name'],
 				'timestamp' => strtotime( $revision['rev_timestamp'] ),
 				'minor' => !!$revision['rev_minor_edit'],
 				'size_diff' => (int)$revision['sizediff'],
