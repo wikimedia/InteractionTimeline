@@ -50,7 +50,7 @@ exit;
 
 ### Start
 ```
-webservice --backend=kubernetes start
+webservice --backend=kubernetes php7.2 start
 ```
 
 ### Stop
