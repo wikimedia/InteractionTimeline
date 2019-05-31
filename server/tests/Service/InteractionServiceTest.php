@@ -91,7 +91,7 @@ class InteractionServiceTest extends TestCase {
 				'rev_page' => '1',
 				'page_title' => 'title 1',
 				'page_namespace' => '1',
-				'rev_user_text' => 'user 1',
+				'actor_name' => 'user 1',
 				'rev_timestamp' => '20180222000000',
 				'rev_minor_edit' => 1,
 				'sizediff' => 100,
