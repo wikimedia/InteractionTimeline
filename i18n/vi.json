@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leducthn"
+			"Leducthn",
+			"Tuanminh01"
 		]
 	},
 	"app-description": "Lịch sử chỉnh sửa theo thứ tự của hai người dùng chỉnh sửa cùng một trang.",
@@ -36,6 +37,8 @@
 	"view-source-code-on": "Xem tại $1",
 	"warning-no-results": "Không có kết quả",
 	"discuss-on-wiki": "Chia sẻ kết quả",
+	"discuss-on-wiki-text": "Trong thời gian từ $1 tới $2 trên $3 ([[User talk:$4|thảo luận thành viên]] của [[User:$4]]| [[Special:Contributions/$4|đóng góp]]) và ([[User talk:$5|thảo luận thành viên]] của [[User:$5]]| [[Special:Contributions/$5|đóng góp]]) đều đã thực hiện thay đổi một số trang chung. Bạn có thể xem một danh sách các thay đổi này theo thời giantaiạ [$6 Dòng thời gian tương tác] hoặc theo bảng ở [$7 Phân tích tương tác].",
+	"discuss-on-wiki-help": "Sao chép và dán wikitext này vào một cuộc thảo luận trên wiki để chia sẻ các kết quả Dòng thời gian tương tác này với những người khác",
 	"discuss-on-wiki-copy": "Chép",
 	"discuss-on-wiki-copied": "Đã sao chép!"
 }
