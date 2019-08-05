@@ -1,0 +1,38 @@
+{
+	"@metadata": {
+		"authors": [
+			"Brazal.dang"
+		]
+	},
+	"app-feedback-link": "Katabangan",
+	"app-title": "Timeline kan interaksyon",
+	"back-top": "Magbalik sa itaas",
+	"between-edits": "$1 sa pagitan kan kaliwatan",
+	"between-interactions": "$1 sa pagitan kan interaksyon",
+	"error": "Salâ",
+	"error-help": "$1, asin $2.",
+	"error-help-report": "Ireport an sala",
+	"error-help-refresh": "I-refresh an pahina",
+	"error-message-request-url": "Hagad URL",
+	"info-no-users": "Magtao nin duwang paragamit para makapagpoon.",
+	"info-no-wiki": "Magtao nin wiki para makapagpoon.",
+	"info-required-fields": "Magtao nin duwang paragamit asin wiki para makapagpoon.",
+	"licensed-under": "Lisensiya sa $1",
+	"field-label-end-date": "Petsa kan pagtapos",
+	"field-label-start-date": "Petsa sa pagpoon",
+	"field-label-users": "Mga Paragamit",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Magpili...",
+	"field-select-no-results": "Mayong mga resultang nanumpungan",
+	"made-by": "Ginibo kan Wikimedia Foundation's $1.",
+	"made-by-team": "Grupo kan Anti-Harassment Tools",
+	"privacy-policy": "Kalakawan nin pribasidad",
+	"powered-by": "Pinapagana kan Wikimedia Toolforge",
+	"report-bug": "Magreport nin bug",
+	"revision-edit-summary-removed": "pagliwat na sumaryo pinaghale",
+	"view-source-code-on": "Hilingon sa $1",
+	"warning-no-results": "Mayo nin mga resulta",
+	"discuss-on-wiki": "Ibahagi an mga resulta",
+	"discuss-on-wiki-copy": "Kopyahon",
+	"discuss-on-wiki-copied": "Matrayumpong pinagkopya"
+}
