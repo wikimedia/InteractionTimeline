@@ -7,6 +7,7 @@
 	},
 	"app-feedback-link": "সাহায্য",
 	"back-top": "উপরে ফিরুন",
+	"between-edits": "সম্পাদনার মধ্যে সময় $1",
 	"error": "ত্রুটি",
 	"error-help": "$1, এবং তারপর $2।",
 	"error-help-refresh": "পাতাটি পুনঃসতেজ করুন",
@@ -27,5 +28,6 @@
 	"revision-edit-summary-removed": "সম্পাদনা সারাংশ অপসারিত হয়েছে",
 	"view-source-code-on": "$1-এ দেখুন",
 	"warning-no-results": "কোন ফলাফল নেই",
-	"discuss-on-wiki-copy": "অনুলিপি করুন"
+	"discuss-on-wiki-copy": "অনুলিপি করুন",
+	"discuss-on-wiki-copied": "অনুলিপি হয়েছে!"
 }
