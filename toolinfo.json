@@ -1,9 +1,9 @@
 {
     "name" : "interaction-timeline",
     "title" : "Interaction Timeline",
-    "description" : "Shows a chronologic history for two users on pages where they have both made edits.",
+    "description" : "Shows a chronological history for two users on pages where they have both made edits.",
     "url" : "https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline",
     "keywords" : "anti-harassment, javascript, php, wikipedia",
-    "author" : "David Barratt",
+    "author" : "David Barratt, Dayllan Maza",
     "repository" : "https://github.com/wikimedia/InteractionTimeline"
 }
