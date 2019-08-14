@@ -7,8 +7,17 @@
 > they can confidently make a decision about how to best resolve a user conduct
 > dispute.
 
-Project documentation: <https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline><br>
-Live instance: <https://tools.wmflabs.org/interaction-timeline/>
+## Non-GitHub Resources
+
+Description | Title
+----------- | --------
+Live instance | [Interaction Timeline][t2]
+Project documentation | [Community health initiative/Interaction Timeline - Meta][t2]
+Project Workboard | [InteractionTimeline · Workboard][t3]
+
+[t1]: https://tools.wmflabs.org/interaction-timeline/
+[t2]: https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline
+[t3]: https://phabricator.wikimedia.org/tag/interactiontimeline/
 
 ## Contributing
 *Dev access to Toolforge is required.*
