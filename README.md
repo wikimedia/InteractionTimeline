@@ -7,8 +7,17 @@
 > they can confidently make a decision about how to best resolve a user conduct
 > dispute.
 
-Project documentation: <https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline><br>
-Live instance: <https://tools.wmflabs.org/interaction-timeline/>
+## Non-GitHub Resources
+
+Description | Title
+----------- | --------
+Live instance | [Interaction Timeline][t2]
+Project documentation | [Community health initiative/Interaction Timeline - Meta][t2]
+Project Workboard | [InteractionTimeline · Workboard][t3]
+
+[t1]: https://tools.wmflabs.org/interaction-timeline/
+[t2]: https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline
+[t3]: https://phabricator.wikimedia.org/tag/interactiontimeline/
 
 ## Contributing
 *Dev access to Toolforge is required.*
@@ -16,32 +25,32 @@ Live instance: <https://tools.wmflabs.org/interaction-timeline/>
 - You can find `DB_USER` and `DB_PASS` in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
 - Open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
   - On Linux, ensure that your tunnel is bound to `0.0.0.0` rather than just localhost:
-```
-ssh -N yourusername@tools-dev.wmflabs.org -L 0.0.0.0:3306:enwiki.analytics.db.svc.eqiad.wmflabs:3306
-```
+    ```shell
+    ssh -N yourusername@tools-dev.wmflabs.org -L 0.0.0.0:3306:enwiki.analytics.db.svc.eqiad.wmflabs:3306
+    ```
 - Run the Interaction Timeline locally:
-```
-docker-compose up
-```
+    ```shell
+    docker-compose up
+    ```
 The app should be accessible at <http://127.0.0.1:8888> and <http://127.0.0.1:8888/api/hello>
 
 ## Deploy
 Interaction Timeline is hosted on [Toolfoge](https://tools.wmflabs.org)
-```
+```shell
 ssh login.tools.wmflabs.org;
 become interaction-timeline;
 cd tool;
 ```
 
 ### Pull
-```
+```shell
 git pull origin master
 ```
 
 ### Build
 [Toolforge](https://tools.wmflabs.org) provides Node.js 0.11 by default, but
 Node.js 6.11 is available via the Kubernetes backend.
-```
+```shell
 webservice --backend=kubernetes nodejs shell;
 cd tool/client;
 ./bin/build;
@@ -49,17 +58,17 @@ exit;
 ```
 
 ### Start
-```
+```shell
 webservice --backend=kubernetes php7.2 start
 ```
 
 ### Stop
-```
+```shell
 webservice --backend=kubernetes stop
 ```
 
 ### Restart
-```
+```shell
 webservice --backend=kubernetes restart
 ```
 
