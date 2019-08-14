@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Set } from 'immutable';
-import UserContaienr from './user.container';
+import UserContainer from './user.container';
 
 const UserList = ( { users } ) => (
 	users.map( ( user ) => (
-		<UserContaienr key={user} user={user} />
+		<UserContainer key={user} user={user} />
 	) ).toArray()
 );
 

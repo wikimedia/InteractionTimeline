@@ -32,6 +32,7 @@ class SelectUsers extends React.Component {
 			.filter( input => !!input )
 			.debounceTime( 250 )
 			.switchMap( ( input ) => {
+				input = input.trim();
 				// Set the loading state.
 				this.setState( {
 					...this.state,
