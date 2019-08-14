@@ -1,0 +1,342 @@
+$wm-blue: #006699;
+$wm-red: #990000;
+$wm-green: #339966;
+$primary: $wm-blue;
+$font-size-base: 0.9rem;
+$font-family-sans-serif: 'Lato', sans-serif;
+
+@import '~bootstrap/scss/_functions';
+@import "~bootstrap/scss/_variables";
+
+$grid-breakpoints: map-merge($grid-breakpoints, (
+	xxl: 2000px
+));
+
+$container-max-widths: map-merge($container-max-widths, (
+	xxl: 1960px
+));
+
+@import "~bootstrap/scss/bootstrap";
+
+// Bootstrap v4.0.0 Safari Fix... remove @supports
+.sticky-top {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+$header-footer-bg: #f6f6f6;
+$timeline-width: 0.25rem;
+$timeline-bg: (
+	left: #5AAAFA,
+	right: #6EEDD8,
+);
+$timeline-text: $black;
+$timeline-text-comment: $gray-700;
+
+html {
+	height: 100%;
+}
+
+body {
+	min-width: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+
+header,
+footer {
+	background-color: $header-footer-bg;
+}
+
+#root,
+.app {
+	min-height: 100vh;
+}
+
+.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.error {
+	min-height: 100%;
+	min-height: 100vh;
+}
+
+.alert-danger {
+	word-break: break-all;
+}
+
+.material-icons{
+	&.md-18 { font-size: 18px; }
+	&.md-24 { font-size: 24px; }
+	&.md-36 { font-size: 36px; }
+	&.md-48 { font-size: 48px; }
+}
+
+.date {
+	background-color: $gray-200;
+}
+
+.select-users .Select-multi-value-wrapper {
+	.Select-value {
+		color: $timeline-text;
+		.Select-value-icon:hover {
+			color: $timeline-text;
+		}
+	}
+	// First in the list
+	> .Select-value {
+		border-color: darken(map-get($timeline-bg, "left"), 10%);
+		background-color: map-get($timeline-bg, "left");
+		.Select-value-icon {
+			border-color: darken(map-get($timeline-bg, "left"), 10%);
+			&:hover {
+				border-color: darken(map-get($timeline-bg, "left"), 10%);
+				background-color: lighten(map-get($timeline-bg, "left"), 10%);
+			}
+		}
+		// All others in the list (will be restriected to 2).
+		& ~ .Select-value {
+			border-color: darken(map-get($timeline-bg, "right"), 10%);
+			background-color: map-get($timeline-bg, "right");
+			.Select-value-icon {
+				border-color: darken(map-get($timeline-bg, "right"), 10%);
+				&:hover {
+					border-color: darken(map-get($timeline-bg, "right"), 10%);
+					background-color: lighten(map-get($timeline-bg, "right"), 10%);
+				}
+			}
+		}
+	}
+}
+
+.Select-menu-outer {
+	z-index: 1000;
+}
+
+.timeline .user {
+	background-color: $gray-300;
+	text-decoration: none;
+	color: $body-color;
+	&.left {
+		background-color: map-get($timeline-bg, "left");
+		color: $timeline-text;
+	}
+	&.right {
+		background-color: map-get($timeline-bg, "right");
+		color: $timeline-text;
+	}
+	&.error {
+		min-height: inherit;
+		background-color: theme-color("danger");
+		color: $white;
+	}
+}
+
+.timeline a.user {
+	&:hover {
+		text-decoration: none;
+		background-color: $gray-200;
+	}
+	&.left:hover {
+		background-color: lighten(map-get($timeline-bg, "left"), 5%);
+	}
+	&.right:hover {
+		background-color: lighten(map-get($timeline-bg, "right"), 5%);
+	}
+	&.error:hover {
+		background-color: lighten(theme-color("danger"), 5%);
+	}
+}
+
+.date-revisions,
+.status.has-content {
+	background-color: $gray-100;
+}
+
+.status .wrapper {
+	min-height: 1.6rem;
+}
+
+.date-revisions .day {
+	background-color: $body-bg;
+}
+
+.revision {
+
+	.wrapper:before {
+		@extend .align-self-center;
+	}
+
+	a {
+		text-decoration: none;
+		color: $body-color;
+		&:hover {
+			text-decoration: none;
+			background-color: $gray-300;
+		}
+	}
+
+	.content {
+		word-wrap: break-word;
+		color: $timeline-text;
+		.comment {
+			color: $timeline-text-comment;
+		}
+	}
+
+	&.left {
+		.wrapper,
+		.record {
+			@extend .flex-row-reverse;
+		}
+		.content {
+			background-color: map-get($timeline-bg, "left");
+		}
+		a.content:hover {
+			background-color: lighten(map-get($timeline-bg, "left"), 5%);
+		}
+	}
+
+	&.right {
+		.content {
+			background-color: map-get($timeline-bg, "right");
+		}
+		a.content:hover {
+			background-color: lighten(map-get($timeline-bg, "right"), 5%);
+		}
+		.timestamp,
+		.timelapse {
+			@extend .text-right;
+		}
+	}
+
+	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
+		.wrapper {
+			border-style: solid;
+			border-color: $border-color;
+			border-width: 0;
+			&:before {
+				content: '';
+				display: block;
+				width: 1.5em;
+				height: 1.5em;
+				-moz-border-radius: 0.75em;
+				-webkit-border-radius: 0.75em;
+				border-radius: 0.75em;
+			}
+		}
+	}
+
+	&.right .wrapper {
+		border-left-width: $timeline-width;
+		margin-right: -($timeline-width / 2) - 1;
+		margin-left:  -($timeline-width / 2);
+		&:before {
+			background-color: map-get($timeline-bg, "right");
+			margin-left: -0.80rem;
+		}
+	}
+
+	&.left .wrapper {
+		border-right-width: $timeline-width;
+		margin-right: -($timeline-width / 2);
+		margin-left: -($timeline-width / 2) - 1;
+		&:before {
+			background-color: map-get($timeline-bg, "left");
+			margin-right: -0.80rem;
+		}
+	}
+}
+
+.timelapse {
+	color: #dc3545;
+}
+
+.diff {
+	&.left {
+		border-color: map-get($timeline-bg, "left") !important;
+	}
+	&.right {
+		border-color: map-get($timeline-bg, "right") !important;
+	}
+	&.wrapper {
+		margin-left: -($timeline-width / 2) - 1;
+		margin-right: -($timeline-width / 2) - 1;
+	}
+
+	.close-container {
+		margin-left: 0.05rem;
+		margin-top: -0.05rem;
+	}
+
+	.content {
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+	.table {
+		margin-bottom: 0;
+		table-layout: fixed;
+	}
+	.table th,
+	.table td {
+		border: none;
+		word-wrap: break-word;
+	}
+	.diff-empty {
+		width: 50%;
+	}
+	.diff-content,
+	.diff-context,
+	.diff-addedline,
+	.diff-deletedline {
+		width: 48%;
+	}
+	.diff-marker {
+		@extend .p-0;
+		@extend .text-center;
+		@extend .align-middle;
+		width: 2%;
+	}
+	.diff-lineno {
+		@extend .col-6;
+		font-weight: $font-weight-bold;
+	}
+	.diff-context,
+	.diff-deletedline,
+	.diff-addedline {
+		@extend .rounded;
+		@extend .border;
+		border-left-width: 4px !important;
+	}
+	.diff-deletedline {
+		border-color: #ffe49c !important;
+	}
+	.diff-addedline {
+		border-color: #a3d3ff !important;
+	}
+}
+
+.sk-three-bounce {
+	margin: 0;
+}
+
+.btn-share {
+	position: -webkit-sticky;
+	position: sticky;
+	float: right;
+	margin: -7.5rem 1.5rem 0 0;
+	bottom: 1rem;
+	background-color: $gray-200;
+}
