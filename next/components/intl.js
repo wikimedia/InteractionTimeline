@@ -1,6 +1,7 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { IntlProvider } from '@davidbarratt/react.i18n';
+import { IntlProvider } from '@wikimedia/react.i18n';
+import { getDir } from 'language-data';
 import ReducerContext from '../context/reducer';
 import messages from '../utils/messages';
 
@@ -17,9 +18,13 @@ function Intl( { children, locale } ) {
 		} );
 	}, [] );
 
+	const dir = useMemo( () => getDir( ( state.locale || locale ).split( '-' ).shift() ), [ locale, state.locale ] );
+
 	return (
 		<IntlProvider locale={state.locale || locale} messages={messages}>
-			{children}
+			<div lang={state.locale || locale} dir={dir}>
+				{children}
+			</div>
 		</IntlProvider>
 	);
 }
