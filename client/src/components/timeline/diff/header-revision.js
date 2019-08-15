@@ -50,7 +50,7 @@ class HeaderRevision extends React.PureComponent {
 
 		return (
 			<Header href={this.props.url} side={this.props.side} className="text-center">
-				<Link href={this.props.url} className="text-right">
+				<Link href={this.props.url}>
 					<i className="mr-2 material-icons">restore</i>
 				</Link>
 				{this.props.revision.user}<br />

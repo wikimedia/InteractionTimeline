@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Wiki from 'app/entities/wiki';
 import 'material-design-icons/iconfont/material-icons.css';
 import Header from './header';
+import Link from 'app/components/link';
 
 const User = ( { user, side, wiki } ) => {
 	if ( !user ) {
@@ -18,7 +19,9 @@ const User = ( { user, side, wiki } ) => {
 
 	return (
 		<Header href={href} className="rounded" side={side}>
-			<i className="mr-2 material-icons">person</i>
+			<Link href={href}>
+				<i className="mr-2 material-icons">person</i>
+			</Link>
 			<span>{user}</span>
 		</Header>
 	);
