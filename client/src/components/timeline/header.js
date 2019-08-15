@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'app/components/link';
 
-const Header = ( { children, href, className, side } ) => {
+const Header = ( { children, className, side } ) => {
 	if ( !children ) {
 		return (
 			<div className="col-6" />
