@@ -4,6 +4,7 @@ import { Message } from '@wikimedia/react.i18n';
 import RevisionEntity from 'app/entities/revision';
 import Header from 'app/components/timeline/header';
 import Spinner from 'app/components/timeline/spinner';
+import Link from 'app/components/link';
 
 class HeaderRevision extends React.PureComponent {
 
@@ -51,6 +52,9 @@ class HeaderRevision extends React.PureComponent {
 			<Header href={this.props.url} side={this.props.side} className="text-center">
 				{this.props.revision.user}<br />
 				{this.props.revision.timestamp.format( 'YYYY-MM-DD' )} &mdash; {this.props.revision.timestamp.format( 'HH:mm' )}
+				<Link href={this.props.url} className="text-right">
+					<i className="mr-2 material-icons">restore</i>
+				</Link>
 			</Header>
 		);
 	}

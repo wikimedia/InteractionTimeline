@@ -28,9 +28,9 @@ const Header = ( { children, href, className, side } ) => {
 	}
 
 	return (
-		<Link href={href} className={className.join( ' ' )}>
+		<div className={className.join( ' ' )}>
 			{children}
-		</Link>
+		</div>
 	);
 };
 
