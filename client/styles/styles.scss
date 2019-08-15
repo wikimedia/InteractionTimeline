@@ -1,11 +1,11 @@
-$wm-blue: #006699;
-$wm-red: #990000;
-$wm-green: #339966;
-$primary: $wm-blue;
 $font-size-base: 0.9rem;
 $font-family-sans-serif: 'Lato', sans-serif;
 
-@import '~bootstrap/scss/_functions';
+// TODO Should be wmui-color-accent50, but ligthen/darken doesn't work on vars
+$primary: #36c;
+
+@import "~wikimedia-ui-base/wikimedia-ui-base";
+@import "~bootstrap/scss/_functions";
 @import "~bootstrap/scss/_variables";
 
 $grid-breakpoints: map-merge($grid-breakpoints, (
@@ -26,14 +26,16 @@ $container-max-widths: map-merge($container-max-widths, (
 	z-index: 100;
 }
 
-$header-footer-bg: #f6f6f6;
+$header-footer-bg: var( --wmui-color-base80 );
 $timeline-width: 0.25rem;
 $timeline-bg: (
-	left: #5AAAFA,
-	right: #6EEDD8,
+	left: var( --wmui-color-accent90 ),
+	left-dark: var( --wmui-color-accent50 ),
+	right: var( --wmui-color-green90 ),
+	right-dark: var( --wmui-color-green50 ),
 );
 $timeline-text: $black;
-$timeline-text-comment: $gray-700;
+$timeline-text-comment: var( --wmui-color-base30 );
 
 html {
 	height: 100%;
@@ -85,7 +87,7 @@ footer {
 }
 
 .date {
-	background-color: $gray-200;
+	background-color: var( --wmui-color-base80 );
 }
 
 .select-users .Select-multi-value-wrapper {
@@ -97,24 +99,26 @@ footer {
 	}
 	// First in the list
 	> .Select-value {
-		border-color: darken(map-get($timeline-bg, "left"), 10%);
+		border-color: map-get($timeline-bg, "left-dark");
 		background-color: map-get($timeline-bg, "left");
 		.Select-value-icon {
-			border-color: darken(map-get($timeline-bg, "left"), 10%);
+			border-color: map-get($timeline-bg, "left-dark");
 			&:hover {
-				border-color: darken(map-get($timeline-bg, "left"), 10%);
-				background-color: lighten(map-get($timeline-bg, "left"), 10%);
+				border-color: map-get($timeline-bg, "left-dark");
+				background-color: map-get($timeline-bg, "left-dark");
+				color: var( --wmui-color-base100 );
 			}
 		}
 		// All others in the list (will be restriected to 2).
 		& ~ .Select-value {
-			border-color: darken(map-get($timeline-bg, "right"), 10%);
+			border-color: map-get($timeline-bg, "right-dark");
 			background-color: map-get($timeline-bg, "right");
 			.Select-value-icon {
-				border-color: darken(map-get($timeline-bg, "right"), 10%);
+				border-color: map-get($timeline-bg, "right-dark");
 				&:hover {
-					border-color: darken(map-get($timeline-bg, "right"), 10%);
-					background-color: lighten(map-get($timeline-bg, "right"), 10%);
+					border-color: map-get($timeline-bg, "right-dark");
+					background-color: map-get($timeline-bg, "right-dark");
+					color: var( --wmui-color-base100 );
 				}
 			}
 		}
@@ -126,7 +130,7 @@ footer {
 }
 
 .timeline .user {
-	background-color: $gray-300;
+	background-color: var( --wmui-color-base70 );
 	text-decoration: none;
 	color: $body-color;
 	&.left {
@@ -139,30 +143,33 @@ footer {
 	}
 	&.error {
 		min-height: inherit;
-		background-color: theme-color("danger");
-		color: $white;
+		background-color: var( --wmui-color-red90 );
+		color: var( ---wmui-color-base100 );
 	}
 }
 
 .timeline a.user {
 	&:hover {
 		text-decoration: none;
-		background-color: $gray-200;
+		background-color: var( --wmui-color-base80 );
 	}
 	&.left:hover {
-		background-color: lighten(map-get($timeline-bg, "left"), 5%);
+		background-color: map-get($timeline-bg, "left");
+		color: map-get($timeline-bg, "left-dark");
+
 	}
 	&.right:hover {
-		background-color: lighten(map-get($timeline-bg, "right"), 5%);
+		background-color: map-get($timeline-bg, "right");
+		color: map-get($timeline-bg, "right-dark");
 	}
 	&.error:hover {
-		background-color: lighten(theme-color("danger"), 5%);
+		background-color: var( --wmui-color-red90 ); // TODO No hover change
 	}
 }
 
 .date-revisions,
 .status.has-content {
-	background-color: $gray-100;
+	background-color: var( --wmui-color-base90 );
 }
 
 .status .wrapper {
@@ -184,7 +191,7 @@ footer {
 		color: $body-color;
 		&:hover {
 			text-decoration: none;
-			background-color: $gray-300;
+			background-color: var( --wmui-color-base70 );
 		}
 	}
 
@@ -201,20 +208,14 @@ footer {
 		.record {
 			@extend .flex-row-reverse;
 		}
-		.content {
+		.content { // TODO No hover
 			background-color: map-get($timeline-bg, "left");
-		}
-		a.content:hover {
-			background-color: lighten(map-get($timeline-bg, "left"), 5%);
 		}
 	}
 
 	&.right {
-		.content {
+		.content { // TODO No hover
 			background-color: map-get($timeline-bg, "right");
-		}
-		a.content:hover {
-			background-color: lighten(map-get($timeline-bg, "right"), 5%);
 		}
 		.timestamp,
 		.timelapse {
@@ -244,7 +245,7 @@ footer {
 		margin-right: -($timeline-width / 2) - 1;
 		margin-left:  -($timeline-width / 2);
 		&:before {
-			background-color: map-get($timeline-bg, "right");
+			background-color: map-get($timeline-bg, "right-dark");
 			margin-left: -0.80rem;
 		}
 	}
@@ -254,14 +255,14 @@ footer {
 		margin-right: -($timeline-width / 2);
 		margin-left: -($timeline-width / 2) - 1;
 		&:before {
-			background-color: map-get($timeline-bg, "left");
+			background-color: map-get($timeline-bg, "left-dark");
 			margin-right: -0.80rem;
 		}
 	}
 }
 
 .timelapse {
-	color: #dc3545;
+	color: var( --wmui-color-red50 );
 }
 
 .diff {
@@ -321,7 +322,7 @@ footer {
 		border-left-width: 4px !important;
 	}
 	.diff-deletedline {
-		border-color: #ffe49c !important;
+		border-color: #ff0000 !important;
 	}
 	.diff-addedline {
 		border-color: #a3d3ff !important;
