@@ -117,12 +117,10 @@ function userSearch( input$ ) {
 							results,
 						};
 					} ),
-					catchError( () => {
-						return {
-							type: 'RESULTS',
-							results: [],
-						};
-					} ),
+					catchError( () => ( {
+						type: 'RESULTS',
+						results: [],
+					} ) ),
 				),
 			);
 		} ),
