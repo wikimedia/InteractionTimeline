@@ -21,21 +21,21 @@ Project Workboard | [InteractionTimeline · Workboard][t3]
 
 ## Contributing
 *Dev access to Toolforge is required.*
-- Copy `./.env.dist` to `./.env` and customize.
-- You can find `DB_USER` and `DB_PASS` in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
-- Open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
-  - On Linux, ensure that your tunnel is bound to `0.0.0.0` rather than just localhost:
+* Copy `./.env.dist` to `./.env` and customize.
+* You can find `DB_USER` and `DB_PASS` in `replica.my.cnf` in your home directory after you [ssh into toolforge](https://wikitech.wikimedia.org/wiki/Help:Access#Accessing_Toolforge_instances).
+* Open an [ssh tunnel to toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#SSH_tunneling_for_local_testing_which_makes_use_of_Wiki_Replica_databases) on your machine.
+  * On Linux, ensure that your tunnel is bound to `0.0.0.0` rather than just localhost:
     ```shell
     ssh -N yourusername@tools-dev.wmflabs.org -L 0.0.0.0:3306:enwiki.analytics.db.svc.eqiad.wmflabs:3306
     ```
-- Run the Interaction Timeline locally:
+* Run the Interaction Timeline locally:
     ```shell
     docker-compose up
     ```
 The app should be accessible at <http://127.0.0.1:8888> and <http://127.0.0.1:8888/api/hello>
 
 ## Deploy
-Interaction Timeline is hosted on [Toolfoge](https://tools.wmflabs.org)
+Interaction Timeline is hosted on [Toolforge](https://tools.wmflabs.org)
 ```shell
 ssh login.tools.wmflabs.org;
 become interaction-timeline;
@@ -77,7 +77,7 @@ webservice --backend=kubernetes restart
 ```
 /api/{wiki}/interaction?user={username1|username2}&start_date={timestamp}&end_date={timestamp}&limit={50}&continue={continue_string}
 ```
-#### Parameters
+### Parameters
 * `wiki:` Wiki project we want to check the interactions on. Ex: enwiki, eswiki, testwiki
 * `user:` List of usernames involved in the interactions joined by a `|`. No less than 2
 * `start_date:` The start timestamp to return from
@@ -85,7 +85,10 @@ webservice --backend=kubernetes restart
 * `limit:` Maximum amount of interactions to list. Default to 50
 * `continue:` When more results are available, use the returned continue string to fetch the next page
 
-#### Example
+### Example
 ```
 /api/testwiki/interaction?user=Test-bananas|Test-apples&start_date=1509508800&end_date=1512104400&limit=10&continue=MzM4NTEy
 ```
+
+## Alternatives
+* [Editor Interaction Analyser](https://tools.wmflabs.org/sigma/editorinteract.py)
