@@ -161,7 +161,8 @@ function SelectUsers( props ) {
 				options={options}
 				onInputChange={onInputChange}
 				onChange={onValueChange}
-				openOnClick={value.length < 2}
+				openMenuOnClick={value.length < 2}
+				classNamePrefix="react-select"
 			/>
 		</div>
 	);
@@ -173,7 +174,7 @@ SelectUsers.propTypes = {
 };
 
 SelectUsers.defaultProps = {
-	value: []
+	value: [],
 };
 
 export default SelectUsers;

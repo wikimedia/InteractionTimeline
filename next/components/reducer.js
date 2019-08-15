@@ -21,8 +21,8 @@ function reducer( state, action ) {
 				...state,
 				query: {
 					...state.query,
-					// Ensure there are no duplicates.
-					user: [ ...( new Set( action.users ) ) ],
+					// Ensure there are no duplicates and that there are only 2.
+					user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
 				},
 			};
 		default:
