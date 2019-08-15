@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import Head from 'next/head';
-import { Message, BananaContext } from '@davidbarratt/react.i18n';
+import { Message, BananaContext } from '@wikimedia/react.i18n';
 import 'typeface-lato';
 import '../styles/styles.scss';
 import ErrorBoundary from './error-boundary';

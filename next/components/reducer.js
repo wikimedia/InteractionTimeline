@@ -4,6 +4,9 @@ import ReducerContext from '../context/reducer';
 
 const initialState = {
 	locale: '',
+	query: {
+		user: [],
+	},
 };
 
 function reducer( state, action ) {
@@ -12,6 +15,15 @@ function reducer( state, action ) {
 			return {
 				...state,
 				locale: action.locale,
+			};
+		case 'QUERY_USER_CHANGE':
+			return {
+				...state,
+				query: {
+					...state.query,
+					// Ensure there are no duplicates.
+					user: [ ...( new Set( action.users ) ) ],
+				},
 			};
 		default:
 			throw new Error( 'Unkown Action' );

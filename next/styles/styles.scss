@@ -43,6 +43,8 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
+	// @see https://github.com/twbs/bootstrap/issues/28238
+	text-align: inherit;
 }
 
 
