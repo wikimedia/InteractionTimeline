@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "airbnb",
+    "wikimedia"
+  ],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "import/extensions": ["off"],
+    "import/no-extraneous-dependencies": ["off"],
+    "import/no-unresolved": ["off"],
+    "import/no-namespace": ["error"],
+    "react/jsx-indent-props": [
+      "error",
+      "tab"
+    ],
+    "jsx-a11y/label-has-for": ["off"],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "no-case-declarations": ["off"],
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js"
+        ]
+      }
+    ],
+    "react/jsx-indent": [
+      "error",
+      "tab"
+    ],
+    "no-shadow": ["error"]
+  }
+}

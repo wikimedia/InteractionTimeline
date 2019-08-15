@@ -1,6 +1,3 @@
-/client/coverage
-/client/node_modules
-/server/vendor
-/html
 .env
 /etc/ssh/id_rsa
+/html

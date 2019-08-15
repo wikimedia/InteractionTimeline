@@ -1,39 +1,33 @@
 {
-  "extends": [
-    "airbnb",
-    "wikimedia"
-  ],
-  "env": {
-    "jest": true
-  },
-  "rules": {
-    "import/extensions": ["off"],
-    "import/no-extraneous-dependencies": ["off"],
-    "import/no-unresolved": ["off"],
-    "import/no-namespace": ["error"],
-    "react/jsx-indent-props": [
-      "error",
-      "tab"
-    ],
-    "jsx-a11y/label-has-for": ["off"],
-    "jsx-a11y/anchor-is-valid": ["off"],
-    "no-case-declarations": ["off"],
-    "one-var": [
-      "error",
-      "never"
-    ],
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [
-          ".js"
-        ]
-      }
-    ],
-    "react/jsx-indent": [
-      "error",
-      "tab"
-    ],
-    "no-shadow": ["error"]
+	"extends": [
+		"airbnb",
+		"wikimedia",
+		"wikimedia/language/es2017"
+	],
+	"parser": "babel-eslint",
+	"plugins": [
+		"react-hooks"
+	],
+	"rules": {
+		"comma-dangle": ["error", "always-multiline"],
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-indent-props": [
+			"error",
+			"tab"
+		],
+		"react/jsx-filename-extension": [
+			"error",
+			{
+				"extensions": [
+					".js"
+				]
+			}
+		],
+		"react/jsx-indent": [
+			"error",
+			"tab"
+		],
+		"react-hooks/rules-of-hooks": "error",
+		"jsx-a11y/control-has-associated-label": "off"
+	}
   }
-}
