@@ -1,2 +1,2 @@
 #!/bin/sh
-npm install --production --verbose
+npm install --production --verbose --unsafe-perm
