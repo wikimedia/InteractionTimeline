@@ -36,15 +36,13 @@ const Header = ( { children, className, side } ) => {
 Header.propTypes = {
 	children: PropTypes.node,
 	side: PropTypes.string,
-	className: PropTypes.string,
-	href: PropTypes.string
+	className: PropTypes.string
 };
 
 Header.defaultProps = {
 	children: undefined,
 	side: undefined,
-	className: '',
-	href: undefined
+	className: ''
 };
 
 export default Header;
