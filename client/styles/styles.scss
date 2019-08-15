@@ -1,8 +1,8 @@
 $font-size-base: 0.9rem;
-$font-family-sans-serif: 'Lato', sans-serif;
 
 // TODO Should be wmui-color-accent50, but ligthen/darken doesn't work on vars
 $primary: #36c;
+$font-family-sans-serif: var(--font-family-system-sans);
 
 @import "~wikimedia-ui-base/wikimedia-ui-base";
 @import "~bootstrap/scss/_functions";
