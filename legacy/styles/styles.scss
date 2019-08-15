@@ -45,8 +45,6 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
-	// @see https://github.com/twbs/bootstrap/issues/28238
-	text-align: inherit;
 }
 
 
@@ -92,18 +90,18 @@ footer {
 	background-color: var( --wmui-color-base80 );
 }
 
-.select-users .react-select__value-container--is-multi {
-	.react-select__multi-value {
+.select-users .Select-multi-value-wrapper {
+	.Select-value {
 		color: $timeline-text;
-		.react-select__multi-value__removen:hover {
+		.Select-value-icon:hover {
 			color: $timeline-text;
 		}
 	}
 	// First in the list
-	> .react-select__multi-value {
+	> .Select-value {
 		border-color: map-get($timeline-bg, "left-dark");
 		background-color: map-get($timeline-bg, "left");
-		.react-select__multi-value__remove {
+		.Select-value-icon {
 			border-color: map-get($timeline-bg, "left-dark");
 			&:hover {
 				border-color: map-get($timeline-bg, "left-dark");
@@ -112,10 +110,10 @@ footer {
 			}
 		}
 		// All others in the list (will be restriected to 2).
-		& ~ .react-select__multi-value {
+		& ~ .Select-value {
 			border-color: map-get($timeline-bg, "right-dark");
 			background-color: map-get($timeline-bg, "right");
-			.react-select__multi-value__remove {
+			.Select-value-icon {
 				border-color: map-get($timeline-bg, "right-dark");
 				&:hover {
 					border-color: map-get($timeline-bg, "right-dark");
@@ -127,7 +125,7 @@ footer {
 	}
 }
 
-.react-select__menu {
+.Select-menu-outer {
 	z-index: 1000;
 }
 
