@@ -136,9 +136,9 @@ function SelectUsers( props ) {
 
 	const search = useReactor( userSearch, dispatch );
 
-	const onInputChange = useCallback( ( input ) => search.next( input ) );
+	const onInputChange = useCallback( ( input ) => search.next( input ), [] );
 
-	const valueOptions = useMemo(() => getOptionsFromUsernames( value ), [ value ] );
+	const valueOptions = useMemo( () => getOptionsFromUsernames( value ), [ value ] );
 
 	const options = useMemo(
 		() => getOptionsFromUsernames( [ ...value, ...state.results ] ),
