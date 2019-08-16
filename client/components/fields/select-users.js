@@ -166,11 +166,11 @@ function SelectUsers( props ) {
 			/>
 		</div>
 	);
-};
+}
 
 SelectUsers.propTypes = {
 	onChange: PropTypes.func.isRequired,
-	value: PropTypes.arrayOf( PropTypes.string )
+	value: PropTypes.arrayOf( PropTypes.string ),
 };
 
 SelectUsers.defaultProps = {

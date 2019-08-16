@@ -6,28 +6,55 @@ const initialState = {
 	locale: '',
 	query: {
 		user: [],
+		wiki: '',
 	},
+	wikis: [],
 };
 
-function reducer( state, action ) {
-	switch ( action.type ) {
+function locacleReducer( state, action ) {
+	switch(action.type) {
 		case 'LOCALE_SET':
+			return action.locale;
+		default:
+			return state;
+	}
+}
+
+function queryReducer( state, action ) {
+	switch ( action.type ) {
+		case 'QUERY_WIKI_CHANGE':
 			return {
 				...state,
-				locale: action.locale,
+				wiki: action.wiki,
 			};
 		case 'QUERY_USER_CHANGE':
 			return {
 				...state,
-				query: {
-					...state.query,
-					// Ensure there are no duplicates and that there are only 2.
-					user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
-				},
+				// Ensure there are no duplicates and that there are only 2.
+				user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
 			};
 		default:
-			throw new Error( 'Unkown Action' );
+			return state;
 	}
+}
+
+function wikiReducer( state, action ) {
+	switch ( action.type ) {
+		case 'WIKIS_SET':
+			return [ ...action.wikis.reduce( (map, wiki) => map.set(wiki.id, wiki), new Map()).values() ];
+		default:
+			return state;
+	}
+}
+
+
+function reducer( state, action ) {
+	return {
+		...state,
+		locale: locacleReducer( state.locale, action ),
+		query: queryReducer( state.query, action ),
+		wikis: wikiReducer( state.wikis, action ),
+	};
 }
 
 function Reducer( { children } ) {
