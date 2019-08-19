@@ -6,7 +6,9 @@ const initialState = {
 	locale: '',
 	query: {
 		user: [],
-		wiki: '',
+		wiki: undefined,
+		startDate: undefined,
+		endDate: undefined,
 	},
 	wikis: [],
 };
@@ -33,6 +35,16 @@ function queryReducer( state, action ) {
 				// Ensure there are no duplicates and that there are only 2.
 				user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
 			};
+		case 'QUERY_START_DATE_CHANGE':
+			return {
+				...state,
+				startDate: action.startDate,
+			};
+		case 'QUERY_END_DATE_CHANGE':
+			return {
+				...state,
+				endDate: action.endDate,
+			};
 		default:
 			return state;
 	}
@@ -41,12 +53,15 @@ function queryReducer( state, action ) {
 function wikiReducer( state, action ) {
 	switch ( action.type ) {
 		case 'WIKIS_SET':
-			return [ ...action.wikis.reduce( (map, wiki) => map.set(wiki.id, wiki), new Map()).values() ];
+			return [
+				...action.wikis.reduce( ( map, wiki ) => (
+					map.set( wiki.id, wiki )
+				), new Map() ).values(),
+			];
 		default:
 			return state;
 	}
 }
-
 
 function reducer( state, action ) {
 	return {
