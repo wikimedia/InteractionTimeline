@@ -12,7 +12,7 @@ const initialState = {
 };
 
 function locacleReducer( state, action ) {
-	switch(action.type) {
+	switch ( action.type ) {
 		case 'LOCALE_SET':
 			return action.locale;
 		default:

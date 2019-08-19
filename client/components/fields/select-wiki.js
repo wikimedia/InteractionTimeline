@@ -14,11 +14,13 @@ function SelectWiki( props ) {
 	), [ wikis ] );
 
 	const selectValue = useMemo( () => (
-		options.find( ( option ) => option.value === value ) || { label: value, value }
+		value ?
+			options.find( ( option ) => option.value === value ) || { label: value, value } :
+			undefined
 	), [ value, options ] );
 
 	const onValueChange = useCallback(
-		( { value: newValue } ) => onChange( newValue ),
+		( selected ) => onChange( selected ? selected.value : '' ),
 		[ onChange ],
 	);
 
@@ -28,6 +30,7 @@ function SelectWiki( props ) {
 			placeholder={<Message id="field-select-placeholder" />}
 			noResultsText={<Message id="field-select-no-results" />}
 			searchPromptText={<Message id="field-select-search-prompt" />}
+			isClearable
 			value={selectValue}
 			onChange={onValueChange}
 			options={options}
@@ -35,7 +38,7 @@ function SelectWiki( props ) {
 			matchProp="label"
 		/>
 	);
-};
+}
 
 SelectWiki.propTypes = {
 	onChange: PropTypes.func.isRequired,

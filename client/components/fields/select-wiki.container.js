@@ -23,9 +23,9 @@ async function fetchWikiList() {
 						id: item.dbname,
 						domain: new URL( item.url ).hostname,
 						family: item.code,
-						code: group.code
+						code: group.code,
 					}
-				) )
+				) ),
 			]
 		), specialWikisList )
 		.sort( ( a, b ) => {
