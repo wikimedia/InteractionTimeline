@@ -2,7 +2,7 @@ import React from 'react';
 import { Message } from '@wikimedia/react.i18n';
 import SelectUsersContainer from './fields/select-users.container';
 import SelectWikiContainer from './fields/select-wiki.container';
-// import DateRangeContainer from './fields/date-range.container';
+import DateRangeContainer from './fields/date-range.container';
 
 function Form() {
 	return (
@@ -23,7 +23,7 @@ function Form() {
 					</div>
 				</div>
 				<div className="col-sm-6">
-					{/* <DateRangeContainer /> */}
+					<DateRangeContainer />
 				</div>
 			</div>
 		</form>

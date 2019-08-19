@@ -4,6 +4,7 @@ import SelectWiki from './select-wiki';
 import specialWikisList from '../../utils/special-wikis-list';
 
 async function fetchWikiList() {
+	/* global fetch */
 	const url = new URL( 'https://meta.wikimedia.org/w/api.php' );
 	url.searchParams.set( 'action', 'sitematrix' );
 	url.searchParams.set( 'format', 'json' );
@@ -13,6 +14,7 @@ async function fetchWikiList() {
 	const data = await response.json();
 
 	return Object.keys( data.sitematrix )
+		// eslint-disable-next-line no-restricted-globals
 		.filter( ( key ) => ( !isNaN( parseFloat( key ) ) && isFinite( key ) ) )
 		.map( ( key ) => data.sitematrix[ key ] )
 		.reduce( ( state, group ) => (
