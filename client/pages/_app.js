@@ -1,10 +1,9 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import Reducer from '../components/reducer';
 import Intl from '../components/intl';
-import Layout from '../components/layout';
 
 class InteractionTimeline extends App {
+	// Uncomment this to enable server-side rendering and get the language as part of the request.
 	static async getInitialProps( { Component, ctx } ) {
 		const { req } = ctx;
 
@@ -49,14 +48,10 @@ class InteractionTimeline extends App {
 					<meta name="msapplication-wide310x150logo" content="/static/favicons/mstile-310x150.png" />
 					<meta name="msapplication-square310x310logo" content="/static/favicons/mstile-310x310.png" />
 				</Head>
-				<Reducer>
-					<Intl locale={locale}>
-						<Layout locale={locale}>
-							{/* eslint-disable-next-line react/jsx-props-no-spreading */}
-							<Component {...pageProps} />
-						</Layout>
-					</Intl>
-				</Reducer>
+				<Intl locale={locale}>
+					{/* eslint-disable-next-line react/jsx-props-no-spreading */}
+					<Component {...pageProps} />
+				</Intl>
 			</Container>
 		);
 	}

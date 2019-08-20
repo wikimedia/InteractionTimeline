@@ -29,6 +29,7 @@
 		],
 		"react-hooks/rules-of-hooks": "error",
 		"jsx-a11y/control-has-associated-label": "off",
-		"jsx-a11y/label-has-associated-control": "off"
+		"jsx-a11y/label-has-associated-control": "off",
+		"no-tabs": "off"
 	}
   }
