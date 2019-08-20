@@ -53,7 +53,7 @@ function DatePicker( {
 }
 
 DatePicker.propTypes = {
-	value: PropTypes.instanceOf( moment ),
+	value: PropTypes.number,
 	id: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	isValidDate: PropTypes.func,
