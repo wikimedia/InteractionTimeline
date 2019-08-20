@@ -4,23 +4,23 @@ import Intl from '../components/intl';
 
 class InteractionTimeline extends App {
 	// Uncomment this to enable server-side rendering and get the language as part of the request.
-	static async getInitialProps( { Component, ctx } ) {
-		const { req } = ctx;
+	// static async getInitialProps( { Component, ctx } ) {
+	// 	const { req } = ctx;
 
-		// Set the locale from the user's Accept Language header.
-		// This prevents a flash of the wrong language or language keys.
-		let locale;
-		if ( req ) {
-			locale = req.headers[ 'accept-language' ].split( ',' ).shift();
-		}
+	// 	// Set the locale from the user's Accept Language header.
+	// 	// This prevents a flash of the wrong language or language keys.
+	// 	let locale;
+	// 	if ( req ) {
+	// 		locale = req.headers[ 'accept-language' ].split( ',' ).shift();
+	// 	}
 
-		let pageProps = {};
-		if ( Component.getInitialProps ) {
-			pageProps = await Component.getInitialProps( ctx );
-		}
+	// 	let pageProps = {};
+	// 	if ( Component.getInitialProps ) {
+	// 		pageProps = await Component.getInitialProps( ctx );
+	// 	}
 
-		return { pageProps, locale };
-	}
+	// 	return { pageProps, locale };
+	// }
 
 	render() {
 		const { Component, pageProps, locale } = this.props;
