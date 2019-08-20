@@ -1,9 +1,9 @@
 import { useContext, useCallback } from 'react';
-import reducer from '../../context/reducer';
+import ReducerContext from '../../context/reducer';
 import SelectUsers from './select-users';
 
 function SelectUsersContainer( props ) {
-	const [ state, dispatch ] = useContext( reducer );
+	const [ state, dispatch ] = useContext( ReducerContext );
 	const onChange = useCallback( ( value ) => dispatch( { type: 'QUERY_USER_CHANGE', users: value } ) );
 
 	return (

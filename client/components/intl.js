@@ -22,7 +22,6 @@ function Intl( { children, locale } ) {
 
 	// Set the locale from the user's browser.
 	// @TODO Allow the user to set their language and set a cookie(?)
-	//       might need to move this somewhere else.
 	useEffect( () => {
 		/* global navigator */
 		dispatch( {

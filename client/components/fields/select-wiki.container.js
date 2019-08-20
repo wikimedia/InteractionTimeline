@@ -1,5 +1,5 @@
 import { useContext, useCallback, useEffect } from 'react';
-import reducer from '../../context/reducer';
+import ReducerContext from '../../context/reducer';
 import SelectWiki from './select-wiki';
 import specialWikisList from '../../utils/special-wikis-list';
 
@@ -51,7 +51,7 @@ async function fetchWikiList() {
 }
 
 function SelectWikiContainer( props ) {
-	const [ state, dispatch ] = useContext( reducer );
+	const [ state, dispatch ] = useContext( ReducerContext );
 
 	useEffect( () => {
 		fetchWikiList().then( ( wikis ) => dispatch( {

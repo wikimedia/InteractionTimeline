@@ -2,9 +2,11 @@ import { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import moment from 'moment';
+import reducer from '../reducers/index';
 import ReducerContext from '../context/reducer';
 import Layout from '../components/layout';
 import Form from '../components/form';
+import TimelineContainer from '../components/timeline/timeline.container';
 
 const defaultState = {
 	query: {
@@ -15,93 +17,9 @@ const defaultState = {
 	},
 	queryParsed: false,
 	wikis: [],
+	revisions: [],
+	status: 'notready',
 };
-
-function queryReducer( state, action ) {
-	switch ( action.type ) {
-		case 'QUERY_PARSED':
-		case 'QUERY_UPDATE':
-			return {
-				...state,
-				wiki: action.query.wiki || state.wiki,
-				// Ensure there are no duplicates and that there are only 2.
-				user: [ ...( new Set( action.query.user || state.user ) ) ].slice( 0, 2 ),
-				startDate: action.query.startDate ?
-					parseInt( action.query.startDate, 10 ) :
-					state.startDate,
-				endDate: action.query.endDate ?
-					parseInt( action.query.endDate, 10 ) :
-					state.endDate,
-			};
-		case 'QUERY_WIKI_CHANGE':
-			return {
-				...state,
-				wiki: action.wiki,
-			};
-		case 'QUERY_USER_CHANGE':
-			return {
-				...state,
-				// Ensure there are no duplicates and that there are only 2.
-				user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
-			};
-		case 'QUERY_START_DATE_CHANGE':
-			return {
-				...state,
-				startDate: action.startDate,
-			};
-		case 'QUERY_END_DATE_CHANGE':
-			return {
-				...state,
-				endDate: action.endDate,
-			};
-		default:
-			return state;
-	}
-}
-
-function queryParsedReducer( state, action ) {
-	switch ( action.type ) {
-		case 'QUERY_PARSED':
-			return true;
-		default:
-			return state;
-	}
-}
-
-function wikiReducer( state, action ) {
-	switch ( action.type ) {
-		case 'WIKIS_SET':
-			return [
-				...action.wikis.reduce( ( map, wiki ) => (
-					map.set( wiki.id, wiki )
-				), new Map() ).values(),
-			];
-		default:
-			return state;
-	}
-}
-
-function reducer( state, action ) {
-	const query = queryReducer( state.query, action );
-	const wikis = wikiReducer( state.wikis, action );
-	const queryParsed = queryParsedReducer( state.queryParsed, action );
-
-	// If anything changed, update the object.
-	if (
-		state.query !== query ||
-		state.queryParsed !== queryParsed ||
-		state.wikis !== wikis
-	) {
-		return {
-			...state,
-			query,
-			queryParsed,
-			wikis,
-		};
-	}
-
-	return state;
-}
 
 function Index( { initialState } ) {
 	const [ state, dispatch ] = useReducer( reducer, initialState );
@@ -186,7 +104,7 @@ function Index( { initialState } ) {
 				</div>
 				<div className="row">
 					<div className="col">
-						{/* <TimelineContainer /> */}
+						<TimelineContainer />
 					</div>
 				</div>
 			</Layout>
@@ -212,6 +130,8 @@ Index.propTypes = {
 		query: PropTypes.object,
 		queryParsed: PropTypes.bool,
 		wikis: PropTypes.arrayOf( PropTypes.object ),
+		revisions: PropTypes.arrayOf( PropTypes.object ),
+		status: PropTypes.string,
 	} ),
 };
 
