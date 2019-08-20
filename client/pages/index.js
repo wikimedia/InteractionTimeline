@@ -13,11 +13,13 @@ const defaultState = {
 		startDate: undefined,
 		endDate: undefined,
 	},
+	queryParsed: false,
 	wikis: [],
 };
 
 function queryReducer( state, action ) {
 	switch ( action.type ) {
+		case 'QUERY_PARSED':
 		case 'QUERY_UPDATE':
 			return {
 				...state,
@@ -57,6 +59,15 @@ function queryReducer( state, action ) {
 	}
 }
 
+function queryParsedReducer( state, action ) {
+	switch ( action.type ) {
+		case 'QUERY_PARSED':
+			return true;
+		default:
+			return state;
+	}
+}
+
 function wikiReducer( state, action ) {
 	switch ( action.type ) {
 		case 'WIKIS_SET':
@@ -73,15 +84,18 @@ function wikiReducer( state, action ) {
 function reducer( state, action ) {
 	const query = queryReducer( state.query, action );
 	const wikis = wikiReducer( state.wikis, action );
+	const queryParsed = queryParsedReducer( state.queryParsed, action );
 
 	// If anything changed, update the object.
 	if (
 		state.query !== query ||
+		state.queryParsed !== queryParsed ||
 		state.wikis !== wikis
 	) {
 		return {
 			...state,
 			query,
+			queryParsed,
 			wikis,
 		};
 	}
@@ -92,7 +106,7 @@ function reducer( state, action ) {
 function Index( { initialState } ) {
 	const [ state, dispatch ] = useReducer( reducer, initialState );
 
-	// // Set default query on load.
+	// Set default query on load.
 	useEffect( () => {
 		/* global window */
 		const url = new URL( window.location.href );
@@ -104,7 +118,7 @@ function Index( { initialState } ) {
 		const emptyQuery = user.length === 0 && !wiki && !startDate && !endDate;
 
 		dispatch( {
-			type: 'QUERY_UPDATE',
+			type: 'QUERY_PARSED',
 			query: {
 				user,
 				wiki,
@@ -117,15 +131,8 @@ function Index( { initialState } ) {
 
 	// Push the query to the route.
 	useEffect( () => {
-		// If the query is the same as the initial state, then skip.
-		if (
-			state.query.user.length === initialState.query.user.length &&
-			state.query.user[ 0 ] === initialState.query.user[ 0 ] &&
-			state.query.user[ 1 ] === initialState.query.user[ 1 ] &&
-			state.query.wiki === initialState.query.wiki &&
-			state.query.startDate === initialState.query.startDate &&
-			state.query.endDate === initialState.query.endDate
-		) {
+		// If the query hasn't been initiall parsed yet, then skip updating until it has been.
+		if ( !state.queryParsed ) {
 			return;
 		}
 
@@ -149,8 +156,16 @@ function Index( { initialState } ) {
 
 		const search = searchParams.toString();
 
+		const url = new URL( window.location.href );
+
+		// If the current url matches the "updated" string, skip update.
+		if ( url.searchParams.toString() === search ) {
+			return;
+		}
+
 		Router.replace( search ? `/?${search}` : '/' );
 	}, [
+		state.queryParsed,
 		state.query.user,
 		state.query.wiki,
 		state.query.startDate,
@@ -195,6 +210,7 @@ function Index( { initialState } ) {
 Index.propTypes = {
 	initialState: PropTypes.shape( {
 		query: PropTypes.object,
+		queryParsed: PropTypes.bool,
 		wikis: PropTypes.arrayOf( PropTypes.object ),
 	} ),
 };
