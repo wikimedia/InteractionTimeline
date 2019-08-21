@@ -19,6 +19,7 @@ const defaultState = {
 	wikis: [],
 	revisions: [],
 	status: 'notready',
+	error: null,
 };
 
 function Index( { initialState } ) {

@@ -25,6 +25,7 @@
 		"reactstrap": "^8.0.1",
 		"rxjs": "^6.5.2",
 		"save": "^2.4.0",
+		"spinkit": "^1.2.5",
 		"typeface-lato": "0.0.75",
 		"wikimedia-ui-base": "^0.14.0"
 	},

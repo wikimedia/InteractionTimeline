@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import UserListContainer from './user-list.container';
 // import DateRevisionsContainer from './date-revisions.container';
-// import StatusContainer from './status.container';
+import StatusContainer from './status.container';
 import BackToTopButton from './back-top';
 
 function Users() {
@@ -51,7 +51,7 @@ function Status( { empty } ) {
 			<div className="col">
 				<div className="row wrapper mt-3 mb-3">
 					<div className="col ml-3 mr-3">
-						{/* <StatusContainer /> */}
+						<StatusContainer />
 					</div>
 				</div>
 			</div>

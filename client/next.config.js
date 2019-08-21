@@ -10,8 +10,8 @@ module.exports = withCSS( withSass( {
 				loader: 'file-loader',
 				options: {
 					publicPath: '/_next/static/files/',
-              		outputPath: `${isServer ? '../' : ''}static/files/`,
-              		name: '[name]-[hash].[ext]',
+					outputPath: `${isServer ? '../' : ''}static/files/`,
+					name: '[name]-[hash].[ext]',
 				},
 			},
 		} );
