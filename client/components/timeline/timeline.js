@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
-// import UserListContainer from './user-list.container';
+import UserListContainer from './user-list.container';
 // import DateRevisionsContainer from './date-revisions.container';
 // import StatusContainer from './status.container';
 // import BackToTopButton from './back-top';
@@ -18,7 +18,7 @@ function Users() {
 							<div className="row users pr-1 pl-1 justify-content-center">
 								<div className="col">
 									<div className="row align-items-center justify-content-around text-center">
-										{/* <UserListContainer /> */}
+										<UserListContainer />
 									</div>
 								</div>
 							</div>

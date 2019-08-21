@@ -27,7 +27,7 @@ function Header( {
 
 	if ( side ) {
 		classNameList = [
-			...className,
+			...classNameList,
 			side,
 		];
 	}
