@@ -1,6 +1,3 @@
 #!/bin/sh
-npm config set prefix ~/.npm npm \
-	&& npm install -g npm \
-	&& PATH=$(npm bin -g):$PATH  \
-	&& npm install \
+npm install --verbose --unsafe-perm \
 	&& npm run watch

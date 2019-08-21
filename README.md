@@ -49,9 +49,9 @@ git pull origin master
 
 ### Build
 [Toolforge](https://tools.wmflabs.org) provides Node.js 0.11 by default, but
-Node.js 6.11 is available via the Kubernetes backend.
+Node 10 is available via the Kubernetes backend.
 ```shell
-webservice --backend=kubernetes nodejs shell;
+webservice --backend=kubernetes node10 shell;
 cd tool/client;
 ./bin/build;
 exit;
