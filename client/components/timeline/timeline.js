@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import UserListContainer from './user-list.container';
 // import DateRevisionsContainer from './date-revisions.container';
 // import StatusContainer from './status.container';
-// import BackToTopButton from './back-top';
+import BackToTopButton from './back-top';
 
 function Users() {
 	const stickyHeader = useRef();
@@ -24,7 +24,7 @@ function Users() {
 							</div>
 						</div>
 						<div className="col-1 text-center">
-							{/* <BackToTopButton stickyHeader={stickyHeader} /> */}
+							<BackToTopButton stickyHeader={stickyHeader.current} />
 						</div>
 					</div>
 				</div>
