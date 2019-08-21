@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bikarhêner",
-			"Kur"
+			"Kur",
+			"George Animal"
 		]
 	},
 	"app-description": "Dîroka kronolojîk ji bo rûpelên ku herdu bikarhêner jî sererast kirine.",
@@ -35,5 +36,6 @@
 	"report-bug": "Çewtiyeke bişîne",
 	"revision-edit-summary-removed": "kurteya guherandinê hate jêbirin",
 	"view-source-code-on": "Li ser $1 bibîne",
-	"warning-no-results": "Encam tine"
+	"warning-no-results": "Encam tine",
+	"discuss-on-wiki": "Van encaman parve bike"
 }
