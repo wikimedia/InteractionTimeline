@@ -79,14 +79,15 @@ function BackToTopButton( { stickyHeader } ) {
 		// If the observer already exists, disonnect and reconnect.
 		if ( observer.current ) {
 			observer.current.disconnect();
-			observer.current.observe( stickyHeader );
 		} else {
 			observer.current = new IntersectionObserver( ( entries ) => {
 				entries.forEach( ( entry ) => {
 					showButton.next( entry );
 				} );
 			} );
+		}
 
+		if ( stickyHeader ) {
 			observer.current.observe( stickyHeader );
 		}
 
@@ -124,7 +125,8 @@ function BackToTopButton( { stickyHeader } ) {
 }
 
 BackToTopButton.propTypes = {
-	// This will be an Element object or undefined, but Element does not exist on the server/at build.
+	// This will be an Element object or undefined,
+	// but Element does not exist on the server/at build.
 	stickyHeader: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
