@@ -11,10 +11,10 @@ function UserContaienr( { user } ) {
 			return undefined;
 		}
 
-		return state.wiki.find( ( { id } ) => id === state.query.wiki );
+		return state.wikis.find( ( { id } ) => id === state.query.wiki );
 	}, [
 		state.query.wiki,
-		state.wiki,
+		state.wikis,
 	] );
 
 	const side = useMemo( () => {
