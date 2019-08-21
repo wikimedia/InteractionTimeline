@@ -54,7 +54,16 @@ export default () => (
 			<footer className="row mt-auto pt-2 pb-2 justify-content-center">
 				<div className="col-xl-10 col-sm-8">
 					<div className="row align-items-baseline justify-content-between">
-						<div className="col-sm-auto">
+						<div className="col-sm-auto align-self-center">
+							<a href="https://tools.wmflabs.org/">
+								<BananaContext.Consumer>
+									{banana => (
+										<img className="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
+									)}
+								</BananaContext.Consumer>
+							</a>
+						</div>
+						<div className="col-sm-auto text-right">
 							<h6>
 								<Message
 									id="made-by"
@@ -84,15 +93,6 @@ export default () => (
 									<Message id="report-bug" />
 								</a>
 							</h6>
-						</div>
-						<div className="col-sm-auto align-self-center">
-							<a href="https://tools.wmflabs.org/">
-								<BananaContext.Consumer>
-									{banana => (
-										<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
-									)}
-								</BananaContext.Consumer>
-							</a>
 						</div>
 					</div>
 				</div>
