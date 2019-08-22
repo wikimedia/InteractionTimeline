@@ -38,6 +38,7 @@ class AppErrorHandler {
 		return $response
 			->withStatus( $errorCode )
 			->withHeader( 'Content-Type', 'application/json' )
-			->withJson( [ 'message' => $message ] );
+			->withJson( [ 'message' => $message ] )
+			->withHeader( 'Access-Control-Allow-Origin', '*' );
 	}
 }

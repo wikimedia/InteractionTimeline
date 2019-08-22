@@ -1,17 +1,62 @@
+/**
+ * Validate the query and update the status accordingly.
+ *
+ * @param {Object} state
+ * @return {Object}
+ */
 function updateStatus( state ) {
-	const ready = !!state.query.wiki && state.query.user.length >= 2;
-
-	if ( ready && state.status === 'ready' ) {
-		return state;
+	if ( state.error ) {
+		return {
+			...state,
+			status: 'error',
+		};
 	}
 
-	if ( !ready && state.status === 'notready' ) {
-		return state;
+	if ( !state.query.wiki && state.query.user.length < 2 ) {
+		return {
+			...state,
+			status: 'notready',
+		};
+	}
+
+	if ( state.query.wiki && state.query.user.length < 2 ) {
+		return {
+			...state,
+			status: 'nousers',
+		};
+	}
+
+	if ( !state.query.wiki && state.query.user.length >= 2 ) {
+		return {
+			...state,
+			status: 'nowiki',
+		};
+	}
+
+	if ( state.cont === false ) {
+		if ( state.revisions.length === 0 ) {
+			return {
+				...state,
+				status: 'noresults',
+			};
+		}
+
+		return {
+			...state,
+			status: 'done',
+		};
+	}
+
+	if ( state.cont !== null ) {
+		return {
+			...state,
+			status: 'continue',
+		};
 	}
 
 	return {
 		...state,
-		status: ready ? 'ready' : 'notready',
+		status: 'ready',
 	};
 }
 
@@ -54,21 +99,21 @@ function reducer( state, action ) {
 				},
 			} );
 		case 'QUERY_START_DATE_CHANGE':
-			return {
+			return updateStatus( {
 				...state,
 				query: {
 					...state.query,
 					startDate: action.startDate,
 				},
-			};
+			} );
 		case 'QUERY_END_DATE_CHANGE':
-			return {
+			return updateStatus( {
 				...state,
 				query: {
 					...state.query,
 					endDate: action.endDate,
 				},
-			};
+			} );
 		case 'WIKIS_SET':
 			return {
 				...state,
@@ -78,11 +123,40 @@ function reducer( state, action ) {
 					), new Map() ).values(),
 				],
 			};
+		case 'REVISIONS_SET':
+			return updateStatus( {
+				...state,
+				revisions: action.revisions,
+				cont: action.cont,
+			} );
+		case 'REVISIONS_ADD':
+			return updateStatus( {
+				...state,
+				revisions: [
+					// Merge the arrays.
+					...[
+						...state.revisions,
+						...action.revisions,
+					]
+						// Remove any duplicates.
+						.reduce( ( map, revision ) => (
+							map.set( revision.id, revision )
+						), new Map() ).entries(),
+				]
+					// Sort by id.
+					.sort( ( a, b ) => a.id - b.id ),
+				cont: action.cont,
+			} );
 		case 'STATUS_FETCHING':
 			return {
 				...state,
 				status: 'fetching',
 			};
+		case 'ERROR':
+			return updateStatus( {
+				...state,
+				error: action.error,
+			} );
 		case 'ERROR_CLEAR':
 			return updateStatus( {
 				...state,

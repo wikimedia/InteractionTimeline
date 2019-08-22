@@ -1,15 +1,11 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { AjaxError } from 'rxjs/ajax';
 import { Message } from '@wikimedia/react.i18n';
 import Alert from './alert';
 
 function ErrorMessage( { error, clearError } ) {
+	console.log('ERROR', error );
 	const code = useMemo( () => {
-		if ( !( error instanceof AjaxError ) ) {
-			return null;
-		}
-
 		if ( error.response && error.response.error && error.response.error.code ) {
 			return error.response.error.code;
 		}
@@ -24,7 +20,7 @@ function ErrorMessage( { error, clearError } ) {
 	] );
 
 	const details = useMemo( () => {
-		if ( !( error instanceof AjaxError ) ) {
+		if ( !error.request || !error.request.url ) {
 			return null;
 		}
 
@@ -58,12 +54,26 @@ function ErrorMessage( { error, clearError } ) {
 		clearError,
 	] );
 
+	const message = useMemo( () => {
+		if ( !error ) {
+			return null;
+		}
+
+		if ( error.response && error.response.message ) {
+			return error.response.message;
+		}
+
+		return error.message;
+	}, [
+		error,
+	] );
+
 	return (
 		<Alert type="error">
 			{clearButton}
 			{/* eslint-disable-next-line react/jsx-one-expression-per-line */}
 			<h4 className="alert-heading"><Message id="error" /> {code}</h4>
-			<p>{error.message}</p>
+			<p>{message}</p>
 			{details}
 		</Alert>
 	);
