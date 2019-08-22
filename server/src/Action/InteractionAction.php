@@ -43,7 +43,7 @@ class InteractionAction {
 
 		$ret['data'] = $interaction;
 
-		return $response->withJson( $ret );
+		return $response->withJson( $ret )->withHeader( 'Access-Control-Allow-Origin', '*' );
 	}
 
 	/**
