@@ -34,7 +34,7 @@ class ErrorBoundary extends PureComponent {
 		}
 
 		const report = (
-			<a href="https://phabricator.wikimedia.org/project/board/3156/">
+			<a href="https://phabricator.wikimedia.org/project/board/3156/" target="_blank" rel="noopener noreferrer">
 				<Message id="error-help-report" />
 			</a>
 		);
@@ -42,6 +42,7 @@ class ErrorBoundary extends PureComponent {
 		const refresh = (
 			<button
 				type="button"
+				className="btn btn-link p-0"
 				ref={( refreshLink ) => { this.refreshLink = refreshLink; }}
 				onKeyPress={this.handleRefresh}
 				onClick={this.handleRefresh}

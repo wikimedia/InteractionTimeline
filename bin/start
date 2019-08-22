@@ -13,4 +13,5 @@ fi
 composer install -d /var/www/server || exit 1;
 mkdir -p /var/www/html/api || exit 1;
 ln -sf ../../server/public/index.php /var/www/html/api/index.php || exit 1;
-lighttpd -D -f /etc/lighttpd/lighttpd.conf || exit 1;
+# Lighttpd < 1.4.46 cannot resolve the IP address, so we'll do that for it.
+CLIENT_IP=$(getent hosts client | cut -d' ' -f1) lighttpd -D -f /etc/lighttpd/lighttpd.conf || exit 1;

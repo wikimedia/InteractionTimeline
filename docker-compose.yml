@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web:
+  server:
     build: ./
     env_file:
       - .env
@@ -10,10 +10,13 @@ services:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
       - ./:/var/www:cached
     links:
+      - client
       - redis
-  watch:
+  client:
     image: docker-registry.tools.wmflabs.org/toollabs-node10-web
     working_dir: /code/client
+    expose:
+      - 3000
     command:
       - ./bin/watch
     volumes:

@@ -78,6 +78,11 @@ function reducer( state, action ) {
 					), new Map() ).values(),
 				],
 			};
+		case 'STATUS_FETCHING':
+			return {
+				...state,
+				status: 'fetching',
+			};
 		case 'ERROR_CLEAR':
 			return updateStatus( {
 				...state,
