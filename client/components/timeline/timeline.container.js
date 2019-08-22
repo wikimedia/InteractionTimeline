@@ -1,50 +1,94 @@
 import { useContext } from 'react';
 import { of, concat } from 'rxjs';
-import { flatMap, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators';
+import {
+	flatMap,
+	distinctUntilChanged,
+	filter,
+	switchMap,
+	map,
+	takeUntil,
+	catchError,
+} from 'rxjs/operators';
+import { ajax } from 'rxjs/ajax';
 import useReactor from '@cinematix/reactor';
 import ReducerContext from '../../context/reducer';
 import Timeline from './timeline';
-import { ajax } from 'rxjs/ajax';
 
+// @TODO Update this to work with pagination.... ?
 function interactionReactor( input$ ) {
 	return input$.pipe(
-		filter( ( { status, cont } ) => status === 'ready' && cont !== false ),
-		distinctUntilChanged( ( x, y ) => (
-			x.status === y.status &&
-			x.user.length === y.user.length &&
-			x.user[ 0 ] === y.user[ 0 ] &&
-			x.user[ 1 ] === y.user[ 1 ] &&
-			x.wiki === y.wiki &&
-			x.startDate === y.startDate &&
-			x.endDate === y.endDate &&
-			x.cont === y.cont
-		) ),
+		// Validate that the query has everything needed.
+		filter( ( { user, wiki } ) => !!wiki && user.length >= 2 ),
 		// If a new fetch is recieved, cancel the old one. We should be careful
 		// to not invoke multiple identical requests.
-		switchMap( ( { wiki, user, startDate, endDate, cont } ) => {
+		switchMap( ( {
+			wiki,
+			user,
+			startDate,
+			endDate,
+			cont,
+		} ) => {
 			// The | character is not URL safe, so URLSearchParams encodes it. :/
 			// Setting it directly on the url resolves the problem.
 			const users = user.map( ( u ) => encodeURIComponent( u ) ).join( '|' );
-			// @TODO Customize the URL!
-			const url = new URL( `${process.env.PUBLIC_PATH}api/${wiki}/interaction?user=${users}` );
-
+			const searchParams = new URLSearchParams();
 			if ( startDate ) {
-				url.searchParams.set( 'start_date', startDate );
+				searchParams.set( 'start_date', startDate );
 			}
 			if ( endDate ) {
-				url.searchParams.set( 'end_date', endDate );
+				searchParams.set( 'end_date', endDate );
 			}
 			if ( cont ) {
-				url.searchParams.set( 'continue', cont );
+				searchParams.set( 'continue', cont );
 			}
+
+			const extraParams = searchParams.toString();
+			const url = `${process.env.PUBLIC_PATH}api/${wiki}/interaction?user=${users}${extraParams ? `&${extraParams}` : ''}`;
 
 			return concat(
 				of( {
 					type: 'STATUS_FETCHING',
 				} ),
-				ajax.getJSON( url.toString() ).pipe(
-					tap( ( data ) => console.log( data ) )
-				)
+				ajax.getJSON( url ).pipe(
+					map( ( { data: contribs, continue: nextCont } ) => {
+						// If the response is empty, we're done.
+						if ( !contribs || contribs.length === 0 ) {
+							return {
+								type: 'REVISIONS_ADD',
+								revisions: [],
+								cont: nextCont || false,
+							};
+						}
+
+						const revisions = contribs.map( ( data ) => (
+							{
+								id: data.rev_id,
+								pageId: data.page_id,
+								pageNamespace: data.page_namespace,
+								title: data.page_title,
+								sizeDiff: data.size_diff,
+								commentHidden: data.comment_hidden,
+								timestamp: data.timestamp,
+							}
+						) );
+
+						return {
+							// If we didn't use a continue,
+							// this is the first page and the revisions should be reset.
+							type: cont ? 'REVISIONS_ADD' : 'REVISIONS_SET',
+							revisions,
+							cont: nextCont || false,
+						};
+					} ),
+					// If the query is no longer valid, cancel the request.
+					takeUntil( input$.pipe(
+						filter( ( { status } ) => status !== 'fetching' )
+					) ),
+					catchError( ( error ) => of( {
+						type: 'ERROR',
+						error,
+					} ) ),
+				),
 			);
 		} ),
 	);
@@ -53,33 +97,32 @@ function interactionReactor( input$ ) {
 function TimelineContainer() {
 	const [ state, dispatch ] = useContext( ReducerContext );
 
+	// Get the initial set of interactions when the query changes.
 	useReactor( ( input$ ) => (
 		interactionReactor( input$.pipe(
 			// Convert the array into an object.
+			// The continue will be undefined because this is the first page.
 			flatMap( ( [
-				status,
 				user,
 				wiki,
 				startDate,
 				endDate,
-				cont,
 			] ) => of( {
-				status,
 				user,
 				wiki,
 				startDate,
 				endDate,
-				cont,
 			} ) )
 		) )
 	), dispatch, [
-		state.status,
 		state.query.user,
 		state.query.wiki,
 		state.query.startDate,
 		state.query.endDate,
-		state.cont,
 	] );
+
+	console.log('EMPTY', state.revisions.length === 0);
+	console.log('STATUS', state.status);
 
 	return (
 		<Timeline

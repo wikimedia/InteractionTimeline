@@ -18,6 +18,7 @@ const defaultState = {
 	queryParsed: false,
 	wikis: [],
 	revisions: [],
+	cont: null,
 	status: 'notready',
 	error: null,
 };
