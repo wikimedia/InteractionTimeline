@@ -1,70 +1,23 @@
-/**
- * Validate the query and update the status accordingly.
- *
- * @param {Object} state
- * @return {Object}
- */
-function updateStatus( state ) {
-	if ( state.error ) {
-		return {
-			...state,
-			status: 'error',
-		};
-	}
-
-	if ( !state.query.wiki && state.query.user.length < 2 ) {
-		return {
-			...state,
-			status: 'notready',
-		};
-	}
-
-	if ( state.query.wiki && state.query.user.length < 2 ) {
-		return {
-			...state,
-			status: 'nousers',
-		};
-	}
-
-	if ( !state.query.wiki && state.query.user.length >= 2 ) {
-		return {
-			...state,
-			status: 'nowiki',
-		};
-	}
-
-	if ( state.cont === false ) {
-		if ( state.revisions.length === 0 ) {
-			return {
-				...state,
-				status: 'noresults',
-			};
-		}
-
-		return {
-			...state,
-			status: 'done',
-		};
-	}
-
-	if ( state.cont !== null ) {
-		return {
-			...state,
-			status: 'continue',
-		};
-	}
-
-	return {
-		...state,
-		status: 'ready',
-	};
-}
+const defaultState = {
+	query: {
+		user: [],
+		wiki: undefined,
+		startDate: undefined,
+		endDate: undefined,
+	},
+	queryParsed: false,
+	wikis: [],
+	revisions: [],
+	cont: null,
+	loading: false,
+	error: null,
+};
 
 function reducer( state, action ) {
 	switch ( action.type ) {
 		case 'QUERY_PARSED':
 		case 'QUERY_UPDATE':
-			return updateStatus( {
+			return {
 				...state,
 				// If the query was parsed, set to true, otherwise leave the same as before.
 				queryParsed: action.type === 'QUERY_PARSED' ? true : state.queryParsed,
@@ -80,40 +33,45 @@ function reducer( state, action ) {
 						parseInt( action.query.endDate, 10 ) :
 						state.query.endDate,
 				},
-			} );
+				error: null,
+			};
 		case 'QUERY_WIKI_CHANGE':
-			return updateStatus( {
+			return {
 				...state,
 				query: {
 					...state.query,
 					wiki: action.wiki,
 				},
-			} );
+				error: null,
+			};
 		case 'QUERY_USER_CHANGE':
-			return updateStatus( {
+			return {
 				...state,
 				query: {
 					...state.query,
 					// Ensure there are no duplicates and that there are only 2.
 					user: [ ...( new Set( action.users ) ) ].slice( 0, 2 ),
 				},
-			} );
+				error: null,
+			};
 		case 'QUERY_START_DATE_CHANGE':
-			return updateStatus( {
+			return {
 				...state,
 				query: {
 					...state.query,
 					startDate: action.startDate,
 				},
-			} );
+				error: null,
+			};
 		case 'QUERY_END_DATE_CHANGE':
-			return updateStatus( {
+			return {
 				...state,
 				query: {
 					...state.query,
 					endDate: action.endDate,
 				},
-			} );
+				error: null,
+			};
 		case 'WIKIS_SET':
 			return {
 				...state,
@@ -124,13 +82,14 @@ function reducer( state, action ) {
 				],
 			};
 		case 'REVISIONS_SET':
-			return updateStatus( {
+			return {
 				...state,
 				revisions: action.revisions,
 				cont: action.cont,
-			} );
+				loading: false,
+			};
 		case 'REVISIONS_ADD':
-			return updateStatus( {
+			return {
 				...state,
 				revisions: [
 					// Merge the arrays.
@@ -146,25 +105,27 @@ function reducer( state, action ) {
 					// Sort by id.
 					.sort( ( a, b ) => a.id - b.id ),
 				cont: action.cont,
-			} );
-		case 'STATUS_FETCHING':
+				loading: false,
+			};
+		case 'LOADING':
 			return {
 				...state,
-				status: 'fetching',
+				loading: true,
 			};
 		case 'ERROR':
-			return updateStatus( {
+			return {
 				...state,
+				loading: false,
 				error: action.error,
-			} );
+			};
 		case 'ERROR_CLEAR':
-			return updateStatus( {
+			return {
 				...state,
 				error: null,
-			} );
+			};
 		default:
 			throw new Error( 'Unknown Action' );
 	}
 }
 
-export default reducer;
+export { reducer, defaultState };

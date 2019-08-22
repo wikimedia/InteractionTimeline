@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { of, concat } from 'rxjs';
 import {
 	flatMap,
@@ -17,8 +17,19 @@ import Timeline from './timeline';
 // @TODO Update this to work with pagination.... ?
 function interactionReactor( input$ ) {
 	return input$.pipe(
+		// Ensure that this isn't the exact same request as the previous one.
+		distinctUntilChanged( ( x, y ) => (
+			x.user.length === y.user.length &&
+			x.user[ 0 ] === y.user[ 0 ] &&
+			x.user[ 1 ] === y.user[ 1 ] &&
+			x.wiki === y.wiki &&
+			x.startDate === y.startDate &&
+			x.endDate === y.endDate &&
+			x.cont === y.cont &&
+			x.hasError === y.hasError
+		) ),
 		// Validate that the query has everything needed.
-		filter( ( { user, wiki } ) => !!wiki && user.length >= 2 ),
+		filter( ( { user, wiki, hasError } ) => !hasError && !!wiki && user.length >= 2 ),
 		// If a new fetch is recieved, cancel the old one. We should be careful
 		// to not invoke multiple identical requests.
 		switchMap( ( {
@@ -47,7 +58,7 @@ function interactionReactor( input$ ) {
 
 			return concat(
 				of( {
-					type: 'STATUS_FETCHING',
+					type: 'LOADING',
 				} ),
 				ajax.getJSON( url ).pipe(
 					map( ( { data: contribs, continue: nextCont } ) => {
@@ -82,7 +93,7 @@ function interactionReactor( input$ ) {
 					} ),
 					// If the query is no longer valid, cancel the request.
 					takeUntil( input$.pipe(
-						filter( ( { status } ) => status !== 'fetching' )
+						filter( ( data ) => !data.wiki || data.user.length < 2 )
 					) ),
 					catchError( ( error ) => of( {
 						type: 'ERROR',
@@ -107,11 +118,13 @@ function TimelineContainer() {
 				wiki,
 				startDate,
 				endDate,
+				hasError,
 			] ) => of( {
 				user,
 				wiki,
 				startDate,
 				endDate,
+				hasError,
 			} ) )
 		) )
 	), dispatch, [
@@ -119,15 +132,53 @@ function TimelineContainer() {
 		state.query.wiki,
 		state.query.startDate,
 		state.query.endDate,
+		!!state.error,
 	] );
 
-	console.log('EMPTY', state.revisions.length === 0);
-	console.log('STATUS', state.status);
+	// Status derived from the state.
+	const status = useMemo( () => {
+		if ( state.error ) {
+			return 'error';
+		}
+
+		if ( state.loading ) {
+			return 'fetching';
+		}
+
+		if ( !state.query.wiki && state.query.user.length < 2 ) {
+			return 'notready';
+		}
+
+		if ( state.query.wiki && state.query.user.length < 2 ) {
+			return 'nousers';
+		}
+
+		if ( !state.query.wiki && state.query.user.length >= 2 ) {
+			return 'nowiki';
+		}
+
+		if ( state.cont === false && state.revisions.length === 0 ) {
+			return 'noresults';
+		}
+
+		if ( state.cont === false ) {
+			return 'done';
+		}
+
+		return 'ready';
+	}, [
+		state.error,
+		state.loading,
+		state.query.wiki,
+		state.query.user,
+		state.cont,
+		state.revisions,
+	] );
 
 	return (
 		<Timeline
 			empty={state.revisions.length === 0}
-			status={state.status}
+			status={status}
 		/>
 	);
 }
