@@ -19,6 +19,6 @@ module.exports = withCSS( withSass( {
 		return config;
 	},
 	env: {
-		PUBLIC_PATH: process.env.PUBLIC_PATH,
+		PUBLIC_PATH: process.env.PUBLIC_PATH || ( process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/' ),
 	},
 } ) );

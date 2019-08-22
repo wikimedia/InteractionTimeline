@@ -1,7 +1,7 @@
 #!/bin/sh
 npm install --production --verbose --unsafe-perm \
-	&& npm run build \
-	&& npm run export \
+	&& npm run --production build \
+	&& npm run --production export \
 	&& mkdir -p ../html/api \
 	&& mv ../html/api ../api \
 	&& rm -rf ../html \
