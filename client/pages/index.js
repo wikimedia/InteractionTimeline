@@ -2,26 +2,11 @@ import { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 import moment from 'moment';
-import reducer from '../reducers/index';
+import { reducer, defaultState } from '../reducers/index';
 import ReducerContext from '../context/reducer';
 import Layout from '../components/layout';
 import Form from '../components/form';
 import TimelineContainer from '../components/timeline/timeline.container';
-
-const defaultState = {
-	query: {
-		user: [],
-		wiki: undefined,
-		startDate: undefined,
-		endDate: undefined,
-	},
-	queryParsed: false,
-	wikis: [],
-	revisions: [],
-	cont: null,
-	status: 'notready',
-	error: null,
-};
 
 function Index( { initialState } ) {
 	const [ state, dispatch ] = useReducer( reducer, initialState );

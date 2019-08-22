@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import UserListContainer from './user-list.container';
 // import DateRevisionsContainer from './date-revisions.container';
-import StatusContainer from './status.container';
+import Status from './status';
 import BackToTopButton from './back-top';
 
 function Users() {
@@ -33,41 +33,11 @@ function Users() {
 	);
 }
 
-function Status( { empty } ) {
-	let className = [
-		'status',
-		'row',
-	];
-
-	if ( !empty ) {
-		className = [
-			...className,
-			'has-content',
-		];
-	}
-
-	return (
-		<div className={className.join( ' ' )}>
-			<div className="col">
-				<div className="row wrapper mt-3 mb-3">
-					<div className="col ml-3 mr-3">
-						<StatusContainer />
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-}
-
-Status.propTypes = {
-	empty: PropTypes.bool.isRequired,
-};
-
 function Timeline( { status, empty } ) {
-	if ( status === 'notready' ) {
+	if ( [ 'notready', 'nousers', 'nowiki' ].includes( status ) ) {
 		return (
 			<div className="timeline">
-				<Status empty={empty} />
+				<Status status={status} empty={empty} />
 			</div>
 		);
 	}
@@ -76,7 +46,7 @@ function Timeline( { status, empty } ) {
 		return (
 			<div className="timeline">
 				<Users />
-				<Status empty={empty} />
+				<Status status={status} empty={empty} />
 			</div>
 		);
 	}
@@ -85,13 +55,13 @@ function Timeline( { status, empty } ) {
 		<div className="timeline">
 			<Users />
 			{/* <DateRevisionsContainer /> */}
-			<Status empty={empty} />
+			<Status status={status} empty={empty} />
 		</div>
 	);
 }
 
 Timeline.propTypes = {
-	status: PropTypes.oneOf( [ 'notready', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
+	status: PropTypes.oneOf( [ 'notready', 'nousers', 'nowiki', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	empty: PropTypes.bool.isRequired,
 };
 
