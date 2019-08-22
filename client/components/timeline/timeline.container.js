@@ -26,7 +26,7 @@ function interactionReactor( input$ ) {
 			// Setting it directly on the url resolves the problem.
 			const users = user.map( ( u ) => encodeURIComponent( u ) ).join( '|' );
 			// @TODO Customize the URL!
-			const url = new URL( `https://tools.wmflabs.org/interaction-timeline/api/${wiki}/interaction?user=${users}` );
+			const url = new URL( `${process.env.PUBLIC_PATH}api/${wiki}/interaction?user=${users}` );
 
 			if ( startDate ) {
 				url.searchParams.set( 'start_date', startDate );

@@ -7,4 +7,3 @@ npm install --production --verbose --unsafe-perm \
 	&& rm -rf ../html \
 	&& mv ./out ../html \
 	&& mv ../api ../html/api
-
