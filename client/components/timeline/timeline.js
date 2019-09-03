@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import UserListContainer from './user-list.container';
-// import DateRevisionsContainer from './date-revisions.container';
+import DateRevisions from './date-revisions';
 import Status from './status';
 import BackToTopButton from './back-top';
 
@@ -33,7 +33,7 @@ function Users() {
 	);
 }
 
-function Timeline( { status, empty } ) {
+function Timeline( { status, empty, fetchList } ) {
 	if ( [ 'notready', 'nousers', 'nowiki' ].includes( status ) ) {
 		return (
 			<div className="timeline">
@@ -54,7 +54,7 @@ function Timeline( { status, empty } ) {
 	return (
 		<div className="timeline">
 			<Users />
-			{/* <DateRevisionsContainer /> */}
+			<DateRevisions fetchList={fetchList} />
 			<Status status={status} empty={empty} />
 		</div>
 	);
@@ -63,6 +63,7 @@ function Timeline( { status, empty } ) {
 Timeline.propTypes = {
 	status: PropTypes.oneOf( [ 'notready', 'nousers', 'nowiki', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
 	empty: PropTypes.bool.isRequired,
+	fetchList: PropTypes.func.isRequired,
 };
 
 export default Timeline;

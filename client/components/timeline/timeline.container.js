@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useCallback, useMemo } from 'react';
 import { of, concat } from 'rxjs';
 import {
 	flatMap,
@@ -13,6 +13,7 @@ import { ajax } from 'rxjs/ajax';
 import useReactor from '@cinematix/reactor';
 import ReducerContext from '../../context/reducer';
 import Timeline from './timeline';
+import { start } from 'repl';
 
 // @TODO Update this to work with pagination.... ?
 function interactionReactor( input$ ) {
@@ -135,6 +136,26 @@ function TimelineContainer() {
 		!!state.error,
 	] );
 
+	const interactionFetcher = useReactor( interactionReactor, dispatch );
+
+	const fetchList = useCallback( () => {
+		interactionFetcher.next( {
+			user: state.query.user,
+			wiki: state.query.wiki,
+			startDate: state.query.startDate,
+			endDate: start.query.endDate,
+			cont: state.cont,
+			hasError: !!state.error,
+		} );
+	}, [
+		state.query.user,
+		state.query.wiki,
+		state.query.startDate,
+		start.query.endDate,
+		state.cont,
+		!!state.error,
+	]);
+
 	// Status derived from the state.
 	const status = useMemo( () => {
 		if ( state.error ) {
@@ -179,6 +200,7 @@ function TimelineContainer() {
 		<Timeline
 			empty={state.revisions.length === 0}
 			status={status}
+			fetchList={fetchList}
 		/>
 	);
 }
