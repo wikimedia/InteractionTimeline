@@ -75,11 +75,12 @@ webservice --backend=kubernetes restart
 ## API Endpoints
 ### Interaction
 ```
-/api/{wiki}/interaction?user={username1|username2}&start_date={timestamp}&end_date={timestamp}&limit={50}&continue={continue_string}
+/api/{wiki}/interaction?user={username1|username2}&namespace={0|1|2}&start_date={timestamp}&end_date={timestamp}&limit={50}&continue={continue_string}
 ```
 ### Parameters
 * `wiki:` Wiki project we want to check the interactions on. Ex: enwiki, eswiki, testwiki
 * `user:` List of usernames involved in the interactions joined by a `|`. No less than 2
+* `namespace:` List of namespaces ids we want the interactions on joined by a `|`
 * `start_date:` The start timestamp to return from
 * `end_date:` The end timestamp to return to
 * `limit:` Maximum amount of interactions to list. Default to 50
@@ -87,7 +88,7 @@ webservice --backend=kubernetes restart
 
 ### Example
 ```
-/api/testwiki/interaction?user=Test-bananas|Test-apples&start_date=1509508800&end_date=1512104400&limit=10&continue=MzM4NTEy
+/api/testwiki/interaction?user=Test-bananas|Test-apples&namespace=0|4|5&start_date=1509508800&end_date=1512104400&limit=10&continue=MzM4NTEy
 ```
 
 ## Alternatives

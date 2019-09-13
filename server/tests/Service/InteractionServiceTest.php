@@ -42,7 +42,7 @@ class InteractionServiceTest extends TestCase {
 		$service = new InteractionService( $revisionDao, $userDao );
 
 		$this->expectException( \InvalidArgumentException::class );
-		$service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
+		$service->getInteraction( $users, [], $startDate, $endDate, $limit, $continue );
 	}
 
 	public function testInteractionFailsWithNoUserIdsFound() {
