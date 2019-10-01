@@ -1,0 +1,35 @@
+{
+	"@metadata": {
+		"authors": [
+			"Belkacem77"
+		]
+	},
+	"app-description": "Azray n sin n yiseqdacen i icerken isebtar ideg beddlen.",
+	"app-feedback-link": "Tallelt",
+	"app-title": "Awitay n temyigawt",
+	"back-top": "Uɣal d asawen",
+	"between-edits": "$1 gar sin n yibeddilen",
+	"between-interactions": "$1 gar temyigawin",
+	"error": "Tuccḍa",
+	"error-help": "$1 sakin $2.",
+	"error-help-report": "Azen tuccḍa",
+	"error-help-refresh": "smiren asebter",
+	"error-message-request-url": "Tansa URL n tuttra",
+	"info-no-users": "Mudd-d sin n yiseqdacen akken ad tebduḍ",
+	"info-no-wiki": "Mudd-d awiki akken ad tebduḍ.",
+	"info-required-fields": "Mudd-d sin n yiseqdacen akked uwiki akken ad tebduḍ.",
+	"licensed-under": "Ddaw n turagt $1",
+	"field-label-end-date": "Azemz n taggara",
+	"field-label-start-date": "Azemz n tazwara",
+	"field-label-users": "Iseqdacen",
+	"field-label-wiki": "Awiki",
+	"field-select-placeholder": "Fren...",
+	"field-select-no-results": "Ulac igmaḍ",
+	"field-select-search-prompt": "Aru akken ad tnadiḍ",
+	"made-by": "Ixdem-it $1 seg tesbeddit Wikimedia.",
+	"privacy-policy": "Tasertit n tbaḍnit",
+	"powered-by": "Yessul-it Wikimedia Toolforge",
+	"report-bug": "Azen abug",
+	"revision-edit-summary-removed": "agzul n yibeddilen yettwakkes",
+	"warning-no-results": "Ulac igmad"
+}
