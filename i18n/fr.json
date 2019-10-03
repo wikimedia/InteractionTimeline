@@ -3,7 +3,8 @@
 		"authors": [
 			"Wladek92",
 			"Gomoko",
-			"Verdy p"
+			"Verdy p",
+			"Thibaut120094"
 		]
 	},
 	"app-description": "Historique chronologique pour deux utilisateurs ayant modifié les mêmes pages.",
@@ -29,7 +30,7 @@
 	"field-select-placeholder": "Sélectionner...",
 	"field-select-no-results": "Aucun résultat trouvé",
 	"field-select-search-prompt": "Type à rechercher",
-	"made-by": "Réalisé par l’$1 de la Fondation Wikimédia.",
+	"made-by": "Réalisé par l’$1 de la Fondation Wikimedia.",
 	"made-by-team": "Équipe en charge des outils anti-harcèlement",
 	"privacy-policy": "Politique de confidentialité",
 	"powered-by": "Propulsé par Wikimédia Toolforge",
