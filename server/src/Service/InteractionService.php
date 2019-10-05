@@ -123,7 +123,7 @@ class InteractionService {
 	private function validateNamespaces( $namespaces ) {
 		foreach ( $namespaces as $ns ) {
 			if ( !is_numeric( $ns ) || (int)$ns != $ns ) {
-				throw new \InvalidArgumentException( 'only namespaces ids are allowed' );
+				throw new \InvalidArgumentException( 'namespaces must be specified by ID' );
 			}
 		}
 	}

@@ -80,7 +80,7 @@ webservice --backend=kubernetes restart
 ### Parameters
 * `wiki:` Wiki project we want to check the interactions on. Ex: enwiki, eswiki, testwiki
 * `user:` List of usernames involved in the interactions joined by a `|`. No less than 2
-* `namespace:` List of namespaces ids we want the interactions on joined by a `|`
+* `namespace:` List of namespace ids we want the interactions on joined by a `|`
 * `start_date:` The start timestamp to return from
 * `end_date:` The end timestamp to return to
 * `limit:` Maximum amount of interactions to list. Default to 50
