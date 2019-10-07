@@ -9,7 +9,8 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Fetch user interaction in commonly edited pages
 	 *
-	 * @param array $users List of usernames/IPs or user ids
+	 * @param string[] $users List of usernames/IPs or user ids
+	 * @param int[] $namespaces List of namespace ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @param int $limit
@@ -17,10 +18,10 @@ class RevisionDao extends AbstractDao {
 	 * @return array
 	 */
 	public function getUserRevisionsInCommonPages(
-		array $users, \DateTimeInterface $startDate = null, \DateTimeInterface $endDate = null,
-		$limit = 50, $continue = null
+		array $users, array $namespaces = [], \DateTimeInterface $startDate = null,
+		\DateTimeInterface $endDate = null, $limit = 50, $continue = null
 	) {
-		$pages = $this->getUsersCommonPages( $users, $startDate, $endDate );
+		$pages = $this->getUsersCommonPages( $users, $namespaces, $startDate, $endDate );
 
 		// build query to find interaction between users in common pages
 		$query = $this->conn->createQueryBuilder();
@@ -52,13 +53,15 @@ class RevisionDao extends AbstractDao {
 	/**
 	 * Get common edited pages between multiple users
 	 *
-	 * @param array $users List of usernames/IPs or user ids
+	 * @param string[] $users List of usernames/IPs or user ids
+	 * @param int[] $namespaces List of namespace ids
 	 * @param \DateTimeInterface|null $startDate
 	 * @param \DateTimeInterface|null $endDate
 	 * @return array
 	 */
-	public function getUsersCommonPages(
-		array $users, \DateTimeInterface $startDate = null, \DateTimeInterface $endDate = null
+	private function getUsersCommonPages(
+		array $users, array $namespaces = [], \DateTimeInterface $startDate = null,
+		\DateTimeInterface $endDate = null
 	) {
 		$query = $this->conn->createQueryBuilder();
 		$searchColumn = $this->getUserSearchColumn( $users );
@@ -69,6 +72,12 @@ class RevisionDao extends AbstractDao {
 			->groupBy( 'r.rev_page' )
 			->having( 'count(distinct ' . $searchColumn . ') > 1' )
 			->setParameter( ':users', $users, Connection::PARAM_STR_ARRAY );
+
+		if ( !empty( $namespaces ) ) {
+			$query->join( 'r', 'page', 'p', 'r.rev_page = p.page_id' )
+				->andWhere( 'p.page_namespace in (:namespaces)' )
+				->setParameter( ':namespaces', $namespaces, Connection::PARAM_STR_ARRAY );
+		}
 
 		if ( $startDate ) {
 			$query->andWhere( 'r.rev_timestamp >= :start_date' )

@@ -28,6 +28,7 @@ class InteractionService {
 
 	/**
 	 * @param string[] $users
+	 * @param int[] $namespaces
 	 * @param int|string|null $startDate
 	 * @param int|string|null $endDate
 	 * @param int $limit
@@ -35,10 +36,12 @@ class InteractionService {
 	 * @return array
 	 */
 	public function getInteraction(
-		array $users, $startDate = null, $endDate = null, $limit = 50, $continue = null
+		array $users, array $namespaces = [], $startDate = null, $endDate = null,
+		$limit = 50, $continue = null
 	) {
 		$this->validateUsers( $users );
 		$this->validateLimit( $limit );
+		$this->validateNamespaces( $namespaces );
 
 		$startDate = $this->sanitizeDate( $startDate );
 		$endDate = $this->sanitizeDate( $endDate );
@@ -56,7 +59,7 @@ class InteractionService {
 		}
 
 		list( $revisionIds, $continue ) = $this->revisionDao->getUserRevisionsInCommonPages(
-				$users,  $startDate, $endDate, $limit, $continue
+				$users, $namespaces, $startDate, $endDate, $limit, $continue
 		);
 
 		$revisions = [];
@@ -110,6 +113,18 @@ class InteractionService {
 	private function validateLimit( $limit ) {
 		if ( $limit <= 0 ) {
 			throw new \InvalidArgumentException( 'limit may not be less than 1' );
+		}
+	}
+
+	/**
+	 * @param array $namespaces
+	 * @throws \InvalidArgumentException
+	 */
+	private function validateNamespaces( $namespaces ) {
+		foreach ( $namespaces as $ns ) {
+			if ( !is_numeric( $ns ) || (int)$ns != $ns ) {
+				throw new \InvalidArgumentException( 'namespaces must be specified by ID' );
+			}
 		}
 	}
 

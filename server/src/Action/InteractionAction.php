@@ -28,14 +28,15 @@ class InteractionAction {
 	 * @return Response
 	 */
 	public function __invoke( Request $request, Response $response, $args ) {
-		$users = $this->parseUsers( $request->getQueryParam( 'user', null ) );
+		$users = $this->parseListQueryParam( $request->getQueryParam( 'user', null ) );
+		$namespaces = $this->parseListQueryParam( $request->getQueryParam( 'namespace', null ) );
 		$startDate = $request->getQueryParam( 'start_date', null );
 		$endDate = $request->getQueryParam( 'end_date', null );
 		$limit = $request->getQueryParam( 'limit', 50 );
 		$continue = $request->getQueryParam( 'continue', null );
 
 		list( $interaction, $continue ) =
-			$this->service->getInteraction( $users, $startDate, $endDate, $limit, $continue );
+			$this->service->getInteraction( $users, $namespaces, $startDate, $endDate, $limit, $continue );
 
 		if ( $continue ) {
 			$ret['continue'] = $continue;
@@ -47,10 +48,15 @@ class InteractionAction {
 	}
 
 	/**
-	 * @param string $users
+	 * @param string $param
 	 * @return array
 	 */
-	private function parseUsers( $users ) {
-		return explode( '|', $users );
+	private function parseListQueryParam( $param ) {
+		$params = [];
+		if ( !is_null( $param ) ) {
+			$params = explode( '|', $param );
+		}
+
+		return $params;
 	}
 }
