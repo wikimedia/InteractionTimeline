@@ -12,7 +12,7 @@ services:
     links:
       - redis
   watch:
-    image: docker-registry.tools.wmflabs.org/toollabs-nodejs-web
+    image: docker-registry.tools.wmflabs.org/toollabs-node10-web
     working_dir: /code/client
     command:
       - ./bin/watch
