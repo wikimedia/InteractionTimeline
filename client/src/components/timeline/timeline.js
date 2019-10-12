@@ -13,7 +13,7 @@ const Users = () => {
 			<div className="row sticky-top">
 				<div className="col ml-3 mr-3">
 					<div className="row">
-						<div className="col-10 offset-1">
+						<div className="col-12">
 							<div className="row users pr-1 pl-1 justify-content-center">
 								<div className="col">
 									<div className="row align-items-center justify-content-around text-center">
