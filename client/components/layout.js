@@ -38,7 +38,7 @@ function Layout( { children } ) {
 						<div className="row align-items-baseline justify-content-between">
 							<div className="col-sm-auto align-self-center">
 								<a href="https://tools.wmflabs.org/">
-									<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
+									<img className="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
 								</a>
 							</div>
 							<div className="col-sm-auto text-right">

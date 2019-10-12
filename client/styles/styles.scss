@@ -45,13 +45,9 @@ body {
 	min-width: 100%;
 	min-height: 100%;
 	overflow-x: hidden;
+	background-color: $header-footer-bg;
 	// @see https://github.com/twbs/bootstrap/issues/28238
 	text-align: inherit;
-}
-
-header,
-footer {
-	background-color: $header-footer-bg;
 }
 
 #root,
@@ -108,8 +104,14 @@ footer {
 .select-users .react-select__value-container--is-multi {
 	.react-select__multi-value {
 		color: $timeline-text;
-		.react-select__multi-value__removen:hover {
-			color: $timeline-text;
+		border: 1px solid;
+		.react-select__multi-value__remove {
+			border-left: 1px solid;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			&:hover {
+				color: $timeline-text;
+			}
 		}
 	}
 	// First in the list

@@ -13,7 +13,6 @@ import { ajax } from 'rxjs/ajax';
 import useReactor from '@cinematix/reactor';
 import ReducerContext from '../../context/reducer';
 import Timeline from './timeline';
-import { start } from 'repl';
 
 // @TODO Update this to work with pagination.... ?
 function interactionReactor( input$ ) {
@@ -151,7 +150,7 @@ function TimelineContainer() {
 		state.query.user,
 		state.query.wiki,
 		state.query.startDate,
-		start.query.endDate,
+		state.query.endDate,
 		state.cont,
 		!!state.error,
 	]);
