@@ -105,6 +105,9 @@ body {
 	.react-select__multi-value {
 		color: $timeline-text;
 		border: 1px solid;
+		.react-select__multi-value__label {
+			padding-right: 6px;
+		}
 		.react-select__multi-value__remove {
 			border-left: 1px solid;
 			border-top-left-radius: 0;

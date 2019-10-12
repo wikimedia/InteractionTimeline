@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import useReactor from '@cinematix/reactor';
 
 function useIntersection( reaction, dispatch, element, options ) {
@@ -14,6 +14,10 @@ function useIntersection( reaction, dispatch, element, options ) {
 	}
 
 	useEffect(() => {
+		if (!element) {
+			return;
+		}
+
 		observer.current.observe( element );
 
 		return () => observer.current.unobserve( element );

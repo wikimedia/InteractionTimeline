@@ -54,7 +54,7 @@ function Timeline( { status, empty, fetchList } ) {
 	return (
 		<div className="timeline">
 			<Users />
-			<DateRevision status={status} empty={empty} fetchList={fetchList} />
+			<DateRevisions status={status} empty={empty} fetchList={fetchList} />
 			<Status status={status} empty={empty} />
 		</div>
 	);
