@@ -80,8 +80,8 @@ function Index( { initialState } ) {
 	return (
 		<ReducerContext.Provider value={[ state, dispatch ]}>
 			<Layout>
-				<div className="row justify-content-center">
-					<div className="col-xl-10 col-sm-8">
+				<div className="row justify-content-center form pt-3">
+					<div className="col-xl-12 col-sm-8">
 						<div className="row mb-3">
 							<div className="col">
 								<Form />

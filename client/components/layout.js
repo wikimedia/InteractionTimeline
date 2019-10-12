@@ -16,10 +16,10 @@ function Layout( { children } ) {
 				<meta name="application-name" content={banana.i18n( 'app-title' )} />
 				<meta name="description" content={banana.i18n( 'app-description' )} />
 			</Head>
-			<div className="container-fluid app d-flex flex-column">
-				<header className="row border-bottom pt-2 pb-2 mb-3 justify-content-center">
+			<div className="container app d-flex flex-column">
+				<header className="row pt-2 pb-2 mb-3 justify-content-center header">
 					<div className="col-xl-10 col-sm-8">
-						<div className="row align-items-baseline justify-content-between">
+						<div className="row align-items-baseline justify-content-between header">
 							<div className="col-sm-auto">
 								<h2><Message id="app-title" /></h2>
 								<h6><Message id="app-description" /></h6>
@@ -33,10 +33,15 @@ function Layout( { children } ) {
 					</div>
 				</header>
 				{children}
-				<footer className="row mt-auto border-top pt-2 pb-2 justify-content-center">
+				<footer className="row mt-auto pt-2 pb-2 justify-content-center">
 					<div className="col-xl-10 col-sm-8">
 						<div className="row align-items-baseline justify-content-between">
-							<div className="col-sm-auto">
+							<div className="col-sm-auto align-self-center">
+								<a href="https://tools.wmflabs.org/">
+									<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
+								</a>
+							</div>
+							<div className="col-sm-auto text-right">
 								<h6>
 									<Message
 										id="made-by"
@@ -66,11 +71,6 @@ function Layout( { children } ) {
 										<Message id="report-bug" />
 									</a>
 								</h6>
-							</div>
-							<div className="col-sm-auto align-self-center">
-								<a href="https://tools.wmflabs.org/">
-									<img src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt={banana.i18n( 'powered-by' )} />
-								</a>
 							</div>
 						</div>
 					</div>
