@@ -16,5 +16,5 @@ jobs:
         run: 'ls -la /__t'
       -
         run: 'ls -la /github/home'
-       -
+      -
         run: 'ls -la /github/workflow'
