@@ -9,5 +9,4 @@ jobs:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
     steps:
       -
-        working-directory: 'client'
-        run: './bin/build && npm test'
+        run: 'ls -la'
