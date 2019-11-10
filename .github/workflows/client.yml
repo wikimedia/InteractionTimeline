@@ -10,5 +10,6 @@ jobs:
       volumes: 
         - './client:/code'
     steps:
-      - working-directory: '/code'
-      - run: './bin/build && npm test'
+      -
+        working-directory: '/code'
+        run: './bin/build && npm test'
