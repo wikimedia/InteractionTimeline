@@ -9,4 +9,5 @@ jobs:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
     steps:
       -
-        run: 'echo $GITHUB_WORKSPACE && pwd'
+        working-directory: './client'
+        run: './bin/build && npm test'
