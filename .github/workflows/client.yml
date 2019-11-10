@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
-      volumes: 
-        - '/workspace/client:/code'
     steps:
       -
-        working-directory: '/code'
+        working-directory: /github/workflow
         run: 'ls -la'
