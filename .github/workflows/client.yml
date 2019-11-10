@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
+      volumes: 
+        - ./:/code
     steps:
       -
-        run: 'ls -la /__w/InteractionTimeline/InteractionTimeline'
+        run: 'ls -la /code'
