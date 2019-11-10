@@ -9,5 +9,12 @@ jobs:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
     steps:
       -
-        working-directory: /github/workflow
-        run: 'ls -la'
+        run: 'ls -la /__w'
+      -
+        run: 'ls -la /__e'
+      -
+        run: 'ls -la /__t'
+      -
+        run: 'ls -la /github/home'
+       -
+        run: 'ls -la /github/workflow'
