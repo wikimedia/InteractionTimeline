@@ -9,4 +9,4 @@ jobs:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
     steps:
       -
-        run: 'ls -la /__w/InteractionTimeline'
+        run: 'ls -la /__w/InteractionTimeline/InteractionTimeline'
