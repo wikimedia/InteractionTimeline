@@ -18,7 +18,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^4.3.1",
     "cldrpluralruleparser": "^1.3.1",
     "clean-webpack-plugin": "^0.1.17",
     "clipboard-polyfill": "^2.5.2",
