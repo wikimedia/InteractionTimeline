@@ -1,0 +1,14 @@
+name: Client
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
+      volumes: 
+        - './client:/code'
+    steps:
+      - working-directory: '/code'
+      - run: './bin/build && npm test'
