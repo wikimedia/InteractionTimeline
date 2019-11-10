@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
-      volumes: 
-        - ./:/code
     steps:
       -
-        run: 'ls -la /code'
+        uses: actions/checkout@v1
+      - 
+        working-directory: "${GITHUB_WORKSPACE}/client"
+        run: './bin/build'
+      -
+         working-directory: "${GITHUB_WORKSPACE}/client"
+         run: 'npm test'
