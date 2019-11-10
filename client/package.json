@@ -39,7 +39,7 @@
     "react": "^16.2.0",
     "react-addons-shallow-compare": "^15.6.2",
     "react-datetime": "^2.14.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
