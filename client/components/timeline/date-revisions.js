@@ -4,10 +4,10 @@ import { map, filter, debounceTime } from 'rxjs/operators';
 import useIntersection from '../../hooks/intersection';
 // import DateListContainer from './date-list.container';
 
-function DateRevisions( { status, empty, fetchList }) {
+function DateRevisions( { status, empty, fetchList } ) {
 	const bottom = useRef();
 
-	const invokeFetch = useCallback(() => {
+	const invokeFetch = useCallback( () => {
 		// The debounce delays the emissions so the props may not be the same.
 		if ( status !== 'ready' ) {
 			return;
@@ -17,18 +17,18 @@ function DateRevisions( { status, empty, fetchList }) {
 			return;
 		}
 
-		return fetchList();
+		fetchList();
 	}, [
 		status,
 		empty,
 		fetchList,
-	]);
+	] );
 
 	useIntersection(
-		value$ => (
+		( value$ ) => (
 			value$.pipe(
-				map( entry => entry.isIntersecting ),
-				filter( isBottomVisable => isBottomVisable ),
+				map( ( entry ) => entry.isIntersecting ),
+				filter( ( isBottomVisable ) => isBottomVisable ),
 				filter( () => status === 'ready' ),
 				filter( () => !empty ),
 				debounceTime( 250 )
@@ -37,7 +37,7 @@ function DateRevisions( { status, empty, fetchList }) {
 		invokeFetch,
 		bottom.current,
 		{
-			rootMargin: '0px 0px 20% 0px'
+			rootMargin: '0px 0px 20% 0px',
 		}
 	);
 
@@ -54,7 +54,7 @@ function DateRevisions( { status, empty, fetchList }) {
 DateRevisions.propTypes = {
 	empty: PropTypes.bool.isRequired,
 	status: PropTypes.oneOf( [ 'notready', 'nousers', 'nowiki', 'ready', 'fetching', 'done', 'error' ] ).isRequired,
-	fetchList: PropTypes.func.isRequired
+	fetchList: PropTypes.func.isRequired,
 };
 
 export default DateRevisions;

@@ -142,7 +142,7 @@ function TimelineContainer() {
 			user: state.query.user,
 			wiki: state.query.wiki,
 			startDate: state.query.startDate,
-			endDate: start.query.endDate,
+			endDate: state.query.endDate,
 			cont: state.cont,
 			hasError: !!state.error,
 		} );
@@ -153,7 +153,7 @@ function TimelineContainer() {
 		state.query.endDate,
 		state.cont,
 		!!state.error,
-	]);
+	] );
 
 	// Status derived from the state.
 	const status = useMemo( () => {
