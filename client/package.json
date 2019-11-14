@@ -4,7 +4,10 @@
 		"dev": "next dev -H 0.0.0.0 -p 80",
 		"build": "next build",
 		"export": "next export",
-		"start": "next start"
+		"start": "next start",
+		"lint": "eslint --color .",
+		"fix": "eslint --color --fix .",
+		"test": "eslint --color ."
 	},
 	"dependencies": {
 		"@cinematix/reactor": "^2.0.0",
