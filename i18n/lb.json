@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Soued031"
 		]
 	},
 	"app-feedback-link": "Hëllef",
@@ -12,7 +13,7 @@
 	"error-help-report": "Feeler mellen",
 	"error-help-refresh": "d'Säit aktualiséieren",
 	"error-message-request-url": "URL ufroen",
-	"info-no-wiki": "Gitt w.e.g. eng Wiki u fir unzefänken.",
+	"info-no-wiki": "Gitt wgl. eng Wiki u fir unzefänken.",
 	"licensed-under": "Lizenzéiert ënner $1.",
 	"field-label-end-date": "Schlussdatum",
 	"field-label-start-date": "Ufanksdatum",
