@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"Geraki"
 		]
 	},
 	"app-description": "Χρονολογικό ιστορικό για δύο χρήστες σε σελίδες όπου και οι δύο έχουν κάνει επεξεργασίες.",
@@ -29,7 +30,7 @@
 	"field-select-search-prompt": "Πληκτρολογήστε για αναζήτηση",
 	"made-by": "Δημιουργήθηκε από το $1 του Ιδρύματος Wikimedia.",
 	"made-by-team": "Ομάδα εργαλείων αντι-παρενόχλησης",
-	"privacy-policy": "Πολιτική ιδιωτικού απορρήτου",
+	"privacy-policy": "Πολιτική ιδιωτικότητας",
 	"powered-by": "Τροφοδοτείται από το Wikimedia Toolforge",
 	"report-bug": "Αναφορά σφάλματος",
 	"revision-edit-summary-removed": "η σύνοψη επεξεργασίας αφαιρέθηκε",

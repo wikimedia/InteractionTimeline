@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Épine"
+			"Épine",
+			"Arya sarhan"
 		]
 	},
-	"app-feedback-link": "زیاتر بزانە و بۆچوونەکانت بەجێبێڵە!",
+	"app-feedback-link": "یارمەتی",
 	"back-top": "گەڕانەوە بۆ سەرەوە",
 	"between-edits": "$1 لە نێوان دەستکارییەکان",
 	"error": "ھەڵە",
@@ -30,5 +31,7 @@
 	"report-bug": "سکاڵای کێشەیەک بدە",
 	"revision-edit-summary-removed": "کورتەی دەستکاری لابرا",
 	"view-source-code-on": "لە $1دا بیبینە",
-	"warning-no-results": "هیچ ئەنجامێک نییە"
+	"warning-no-results": "هیچ ئەنجامێک نییە",
+	"discuss-on-wiki-copy": "لەبەرگرتنەوە",
+	"discuss-on-wiki-copied": "لەبەرگیرایەوە"
 }
