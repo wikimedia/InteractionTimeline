@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ykhwong",
-			"Revi"
+			"Revi",
+			"아라"
 		]
 	},
 	"app-description": "두 사용자가 문서에 편집한 시간 순서에 따른 역사입니다.",
@@ -30,7 +31,7 @@
 	"field-select-search-prompt": "검색하려면 입력하세요",
 	"made-by": "위키미디어 재단의 $1님이 만들었습니다.",
 	"made-by-team": "괴롭힘 대응 도구 팀",
-	"privacy-policy": "개인정보 정책",
+	"privacy-policy": "개인정보처리방침",
 	"powered-by": "Wikimedia Toolforge에 의해 지원됨",
 	"report-bug": "버그 보고",
 	"revision-edit-summary-removed": "편집 요약 삭제됨",
