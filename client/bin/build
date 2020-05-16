@@ -1,2 +1,9 @@
 #!/bin/sh
-npm install --production --verbose --unsafe-perm
+npm install --production --verbose --unsafe-perm \
+	&& npm run --production build \
+	&& npm run --production export \
+	&& mkdir -p ../html/api \
+	&& mv ../html/api ../api \
+	&& rm -rf ../html \
+	&& mv ./out ../html \
+	&& mv ../api ../html/api

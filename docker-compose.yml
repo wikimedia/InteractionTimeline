@@ -1,19 +1,27 @@
 version: '3'
 services:
-  web:
+  server:
     build: ./
     env_file:
       - .env
     ports:
-      - 8888:80
+      - '8888:80'
     volumes:
       - ./etc/lighttpd/lighttpd.conf:/etc/lighttpd/lighttpd.conf:cached
       - ./:/var/www:cached
     links:
+      - client
       - redis
-  watch:
+  client:
     image: docker-registry.tools.wmflabs.org/toollabs-node10-web
     working_dir: /code/client
+    env_file:
+      - .env
+    # Access the client service directly for hot module replacement. Will need the PUBLIC_PATH env set.
+    ports:
+      - '3000:80'
+    expose:
+      - 80
     command:
       - ./bin/watch
     volumes:

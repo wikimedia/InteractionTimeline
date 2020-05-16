@@ -1,0 +1,343 @@
+$font-size-base: 0.9rem;
+
+// TODO Should be wmui-color-accent50, but ligthen/darken doesn't work on vars
+$primary: #36c;
+$font-family-sans-serif: var(--font-family-system-sans);
+
+@import "~wikimedia-ui-base/wikimedia-ui-base";
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+
+$grid-breakpoints: map-merge($grid-breakpoints, (
+	xxl: 2000px
+));
+
+$container-max-widths: map-merge($container-max-widths, (
+	xxl: 1960px
+));
+
+@import "~bootstrap/scss/bootstrap";
+
+// Bootstrap v4.0.0 Safari Fix... remove @supports
+.sticky-top {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+$header-footer-bg: var( --wmui-color-base80 );
+$timeline-width: 0.25rem;
+$timeline-bg: (
+	left: var( --wmui-color-accent90 ),
+	left-dark: var( --wmui-color-accent50 ),
+	right: var( --wmui-color-green90 ),
+	right-dark: var( --wmui-color-green50 ),
+);
+$timeline-text: $black;
+$timeline-text-comment: var( --wmui-color-base30 );
+
+html {
+	height: 100%;
+}
+
+body {
+	min-width: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+
+header,
+footer {
+	background-color: $header-footer-bg;
+}
+
+#root,
+.app {
+	min-height: 100vh;
+}
+
+.visible {
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.error {
+	min-height: 100%;
+	min-height: 100vh;
+}
+
+.alert-danger {
+	word-break: break-all;
+}
+
+.material-icons{
+	&.md-18 { font-size: 18px; }
+	&.md-24 { font-size: 24px; }
+	&.md-36 { font-size: 36px; }
+	&.md-48 { font-size: 48px; }
+}
+
+.date {
+	background-color: var( --wmui-color-base80 );
+}
+
+.select-users .Select-multi-value-wrapper {
+	.Select-value {
+		color: $timeline-text;
+		.Select-value-icon:hover {
+			color: $timeline-text;
+		}
+	}
+	// First in the list
+	> .Select-value {
+		border-color: map-get($timeline-bg, "left-dark");
+		background-color: map-get($timeline-bg, "left");
+		.Select-value-icon {
+			border-color: map-get($timeline-bg, "left-dark");
+			&:hover {
+				border-color: map-get($timeline-bg, "left-dark");
+				background-color: map-get($timeline-bg, "left-dark");
+				color: var( --wmui-color-base100 );
+			}
+		}
+		// All others in the list (will be restriected to 2).
+		& ~ .Select-value {
+			border-color: map-get($timeline-bg, "right-dark");
+			background-color: map-get($timeline-bg, "right");
+			.Select-value-icon {
+				border-color: map-get($timeline-bg, "right-dark");
+				&:hover {
+					border-color: map-get($timeline-bg, "right-dark");
+					background-color: map-get($timeline-bg, "right-dark");
+					color: var( --wmui-color-base100 );
+				}
+			}
+		}
+	}
+}
+
+.Select-menu-outer {
+	z-index: 1000;
+}
+
+.timeline .user {
+	background-color: var( --wmui-color-base70 );
+	text-decoration: none;
+	color: $body-color;
+	&.left {
+		background-color: map-get($timeline-bg, "left");
+		color: $timeline-text;
+	}
+	&.right {
+		background-color: map-get($timeline-bg, "right");
+		color: $timeline-text;
+	}
+	&.error {
+		min-height: inherit;
+		background-color: var( --wmui-color-red90 );
+		color: var( ---wmui-color-base100 );
+	}
+}
+
+.timeline a.user {
+	&:hover {
+		text-decoration: none;
+		background-color: var( --wmui-color-base80 );
+	}
+	&.left:hover {
+		background-color: map-get($timeline-bg, "left");
+		color: map-get($timeline-bg, "left-dark");
+
+	}
+	&.right:hover {
+		background-color: map-get($timeline-bg, "right");
+		color: map-get($timeline-bg, "right-dark");
+	}
+	&.error:hover {
+		background-color: var( --wmui-color-red90 ); // TODO No hover change
+	}
+}
+
+.date-revisions,
+.status.has-content {
+	background-color: var( --wmui-color-base90 );
+}
+
+.status .wrapper {
+	min-height: 1.6rem;
+}
+
+.date-revisions .day {
+	background-color: $body-bg;
+}
+
+.revision {
+
+	.wrapper:before {
+		@extend .align-self-center;
+	}
+
+	a {
+		text-decoration: none;
+		color: $body-color;
+		&:hover {
+			text-decoration: none;
+			background-color: var( --wmui-color-base70 );
+		}
+	}
+
+	.content {
+		word-wrap: break-word;
+		color: $timeline-text;
+		.comment {
+			color: $timeline-text-comment;
+		}
+	}
+
+	&.left {
+		.wrapper,
+		.record {
+			@extend .flex-row-reverse;
+		}
+		.content { // TODO No hover
+			background-color: map-get($timeline-bg, "left");
+		}
+	}
+
+	&.right {
+		.content { // TODO No hover
+			background-color: map-get($timeline-bg, "right");
+		}
+		.timestamp,
+		.timelapse {
+			@extend .text-right;
+		}
+	}
+
+	@media screen and (min-width: map-get($grid-breakpoints, "md")) {
+		.wrapper {
+			border-style: solid;
+			border-color: $border-color;
+			border-width: 0;
+			&:before {
+				content: '';
+				display: block;
+				width: 1.5em;
+				height: 1.5em;
+				-moz-border-radius: 0.75em;
+				-webkit-border-radius: 0.75em;
+				border-radius: 0.75em;
+			}
+		}
+	}
+
+	&.right .wrapper {
+		border-left-width: $timeline-width;
+		margin-right: -($timeline-width / 2) - 1;
+		margin-left:  -($timeline-width / 2);
+		&:before {
+			background-color: map-get($timeline-bg, "right-dark");
+			margin-left: -0.80rem;
+		}
+	}
+
+	&.left .wrapper {
+		border-right-width: $timeline-width;
+		margin-right: -($timeline-width / 2);
+		margin-left: -($timeline-width / 2) - 1;
+		&:before {
+			background-color: map-get($timeline-bg, "left-dark");
+			margin-right: -0.80rem;
+		}
+	}
+}
+
+.timelapse {
+	color: var( --wmui-color-red50 );
+}
+
+.diff {
+	&.left {
+		border-color: map-get($timeline-bg, "left") !important;
+	}
+	&.right {
+		border-color: map-get($timeline-bg, "right") !important;
+	}
+	&.wrapper {
+		margin-left: -($timeline-width / 2) - 1;
+		margin-right: -($timeline-width / 2) - 1;
+	}
+
+	.close-container {
+		margin-left: 0.05rem;
+		margin-top: -0.05rem;
+	}
+
+	.content {
+		max-height: 500px;
+		overflow-y: scroll;
+	}
+	.table {
+		margin-bottom: 0;
+		table-layout: fixed;
+	}
+	.table th,
+	.table td {
+		border: none;
+		word-wrap: break-word;
+	}
+	.diff-empty {
+		width: 50%;
+	}
+	.diff-content,
+	.diff-context,
+	.diff-addedline,
+	.diff-deletedline {
+		width: 48%;
+	}
+	.diff-marker {
+		@extend .p-0;
+		@extend .text-center;
+		@extend .align-middle;
+		width: 2%;
+	}
+	.diff-lineno {
+		@extend .col-6;
+		font-weight: $font-weight-bold;
+	}
+	.diff-context,
+	.diff-deletedline,
+	.diff-addedline {
+		@extend .rounded;
+		@extend .border;
+		border-left-width: 4px !important;
+	}
+	.diff-deletedline {
+		border-color: #ff0000 !important;
+	}
+	.diff-addedline {
+		border-color: #a3d3ff !important;
+	}
+}
+
+.sk-three-bounce {
+	margin: 0;
+}
+
+.btn-share {
+	position: -webkit-sticky;
+	position: sticky;
+	float: right;
+	margin: -7.5rem 1.5rem 0 0;
+	bottom: 1rem;
+	background-color: $gray-200;
+}
