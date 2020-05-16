@@ -37,7 +37,7 @@ The app should be accessible at <http://127.0.0.1:8888> and <http://127.0.0.1:88
 ## Deploy
 Interaction Timeline is hosted on [Toolforge](https://tools.wmflabs.org)
 ```shell
-ssh login.tools.wmflabs.org;
+ssh login.toolforge.org;
 become interaction-timeline;
 cd tool;
 ```
