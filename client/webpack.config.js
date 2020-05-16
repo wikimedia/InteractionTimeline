@@ -1,14 +1,11 @@
 /* eslint-env node */
 const path = require( 'path' );
-const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const CleanWebpackPlugin = require( 'clean-webpack-plugin' );
 const ScriptExtHtmlWebpackPlugin = require( 'script-ext-html-webpack-plugin' );
 const FaviconsWebpackPlugin = require( 'favicons-webpack-plugin' );
-
-const publicPath = process.env.NODE_ENV === 'production' ? '/interaction-timeline/' : '/';
 
 const extractSass = new ExtractTextPlugin( {
 	filename: 'styles/[name].css',
@@ -20,7 +17,7 @@ const config = {
 	output: {
 		filename: 'scripts/[name].js',
 		path: path.resolve( __dirname, '../html' ),
-		publicPath
+		publicPath: '/'
 	},
 	devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
 	resolve: {
@@ -85,12 +82,6 @@ const config = {
 		new CleanWebpackPlugin( [ '../html' ], {
 			exclude: [ 'api' ],
 			allowExternal: true
-		} ),
-		new webpack.DefinePlugin( {
-			APP_ENV: JSON.stringify( process.env.APP_ENV ),
-			// @see https://facebook.github.io/react/docs/optimizing-performance.html#webpack
-			'process.env.NODE_ENV': JSON.stringify( process.env.NODE_ENV ),
-			'process.env.PUBLIC_PATH': JSON.stringify( publicPath )
 		} ),
 		new HtmlWebpackPlugin( {
 			title: 'Interaction Timeline',

@@ -20,7 +20,7 @@ const buildRevisionUrl = ( wiki, users, startDate, endDate, cont ) => {
 		return encodeURIComponent( user );
 	} );
 
-	let url = `${process.env.PUBLIC_PATH}api/${wiki}/interaction?user=${users.join( '|' )}`;
+	let url = `/api/${wiki}/interaction?user=${users.join( '|' )}`;
 
 	if ( startDate ) {
 		url += '&start_date=' + startDate;
