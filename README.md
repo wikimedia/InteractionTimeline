@@ -15,7 +15,7 @@ Live instance | [Interaction Timeline][t2]
 Project documentation | [Community health initiative/Interaction Timeline - Meta][t2]
 Project Workboard | [InteractionTimeline · Workboard][t3]
 
-[t1]: https://tools.wmflabs.org/interaction-timeline/
+[t1]: https://interaction-timeline.toolforge.org/
 [t2]: https://meta.wikimedia.org/wiki/Community_health_initiative/Interaction_Timeline
 [t3]: https://phabricator.wikimedia.org/tag/interactiontimeline/
 
@@ -59,7 +59,7 @@ exit;
 
 ### Start
 ```shell
-webservice --backend=kubernetes php7.2 start
+webservice --canonical --backend=kubernetes php7.2 start
 ```
 
 ### Stop
@@ -69,7 +69,7 @@ webservice --backend=kubernetes stop
 
 ### Restart
 ```shell
-webservice --backend=kubernetes restart
+webservice --canonical --backend=kubernetes restart
 ```
 
 ## API Endpoints

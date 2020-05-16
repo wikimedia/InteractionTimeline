@@ -45,7 +45,7 @@ class Share extends React.Component {
 			this.props.endDate ? this.props.endDate.format( dateFormat ) : moment.utc().format( dateFormat ),
 			this.props.wiki ? this.props.wiki.domain : null,
 			...this.props.users,
-			'https://tools.wmflabs.org/interaction-timeline/' + this.props.queryString,
+			'https://interaction-timeline.toolforge.org/' + this.props.queryString,
 			this.props.editorInteractUrl
 		);
 	}
