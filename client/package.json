@@ -1,14 +1,11 @@
 {
   "license": "GPL-3.0",
   "scripts": {
-    "postinstall": "webpack",
+    "build": "NODE_ENV=production webpack",
     "watch": "webpack --watch",
     "lint": "eslint --color .",
     "fix": "eslint --color --fix .",
     "test": "eslint --color . && jest"
-  },
-  "config": {
-    "unsafe-perm": true
   },
   "dependencies": {
     "@wikimedia/react.i18n": "^2.0.0",

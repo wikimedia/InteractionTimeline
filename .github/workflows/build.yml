@@ -19,9 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker-registry.tools.wmflabs.org/toolforge-node10-sssd-web
+    defaults:
+      run:
+        working-directory: client
     steps:
       - uses: actions/checkout@v1
-      - run: './bin/build'
-        working-directory: client
-      - run: 'npm test'
-        working-directory: client
+      - run: npm install --verbose --unsafe-perm
+      - run: npm run build --if-present
+      - run: npm test
