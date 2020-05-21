@@ -6,7 +6,7 @@ jobs:
   server:
     runs-on: ubuntu-latest
     container:
-      image: docker-registry.tools.wmflabs.org/toollabs-php72-web
+      image: docker-registry.tools.wmflabs.org/toolforge-php72-sssd-web
       env:
         COMPOSER_ALLOW_SUPERUSER: 1
     steps:
@@ -18,10 +18,10 @@ jobs:
   client:
     runs-on: ubuntu-latest
     container:
-      image: 'docker-registry.tools.wmflabs.org/toollabs-node10-web'
+      image: docker-registry.tools.wmflabs.org/toolforge-node10-sssd-web
     steps:
       - uses: actions/checkout@v1
-      - run: 'npm install --verbose --unsafe-perm'
+      - run: './bin/build'
         working-directory: client
       - run: 'npm test'
         working-directory: client
