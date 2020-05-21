@@ -53,7 +53,7 @@ Node 10 is available via the Kubernetes backend.
 ```shell
 webservice --backend=kubernetes node10 shell;
 cd tool/client;
-npm install --verbose --unsafe-perm;
+npm ci --verbose --unsafe-perm;
 npm run build;
 exit;
 ```
