@@ -51,7 +51,7 @@ git pull origin master
 [Toolforge](https://tools.wmflabs.org) provides Node.js 0.11 by default, but
 Node 10 is available via the Kubernetes backend.
 ```shell
-webservice --backend=kubernetes node10 shell;
+webservice --backend=kubernetes --mem 2Gi node10 shell;
 cd tool/client;
 npm ci --verbose --unsafe-perm;
 npm run build;
