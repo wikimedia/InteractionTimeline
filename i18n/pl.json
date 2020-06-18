@@ -4,6 +4,7 @@
 			"Chrumps",
 			"DeRudySoulStorm",
 			"Tar Lócesilion",
+			"WaldiSt",
 			"Woytecr"
 		]
 	},
@@ -39,6 +40,7 @@
 	"view-source-code-on": "Wyświetl na $1",
 	"warning-no-results": "Brak wyników",
 	"discuss-on-wiki": "Udostępnij te wyniki",
+	"discuss-on-wiki-help": "Skopiuj i wklej ten wikitext do dyskusji na wiki, aby udostępnić wyniki Osi czasu interakcji innym osobom",
 	"discuss-on-wiki-copy": "Kopiuj",
 	"discuss-on-wiki-copied": "Skopiowano!"
 }
