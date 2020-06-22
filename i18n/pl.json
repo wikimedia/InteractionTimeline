@@ -3,6 +3,7 @@
 		"authors": [
 			"Chrumps",
 			"DeRudySoulStorm",
+			"Rainbow P",
 			"Tar Lócesilion",
 			"WaldiSt",
 			"Woytecr"
@@ -10,7 +11,7 @@
 	},
 	"app-description": "Chronologiczna historia edycji dwóch użytkowników edytujących te same strony.",
 	"app-feedback-link": "Pomoc",
-	"app-title": "Interakcja Oś czasu",
+	"app-title": "Interaction Timeline",
 	"back-top": "Powrót do góry",
 	"between-edits": "$1 między edycjami",
 	"between-interactions": "$1 pomiędzy interakcjami",
@@ -40,6 +41,7 @@
 	"view-source-code-on": "Wyświetl na $1",
 	"warning-no-results": "Brak wyników",
 	"discuss-on-wiki": "Udostępnij te wyniki",
+	"discuss-on-wiki-text": "Pomiędzy $1 i $2 na $3 [[User:$4]] ([[User talk:$4|dyskusja]] | [[Special:Contributions/$4|wkład]]) i [[User:$5]] ([[User talk:$5|dyskusja]] | [[Special:Contributions/$5|wkład]]) obydwaj zrobili zmiany na tych samych stronach. Możesz zobaczyć chronologiczną list wszystkich ich zmian na [$6 Osi Czasu Interakcji], albo w widoku tabeli w [$7 Analizatorze Interakcji].",
 	"discuss-on-wiki-help": "Skopiuj i wklej ten wikitext do dyskusji na wiki, aby udostępnić wyniki Osi czasu interakcji innym osobom",
 	"discuss-on-wiki-copy": "Kopiuj",
 	"discuss-on-wiki-copied": "Skopiowano!"
