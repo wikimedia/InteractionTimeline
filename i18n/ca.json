@@ -1,18 +1,44 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Mguix"
 		]
 	},
+	"app-description": "Historial cronològic per a dos usuaris que van modificar les mateixes pàgines.",
 	"app-feedback-link": "Ajuda",
+	"app-title": "Cronologia d’interaccions",
 	"back-top": "Torna a dalt",
+	"between-edits": "$1 entre edicions",
+	"between-interactions": "$1 entre interaccions",
+	"error": "Error",
+	"error-help": "$1, i llavors $2.",
+	"error-help-report": "Informar de l'error",
+	"error-help-refresh": "Actualitzar la pàgina",
+	"error-message-request-url": "URL de la sol·licitud",
+	"error-suppressed-diff": "No podeu veure aquesta diferència perquè s'ha suprimit una o les dues revisions.",
+	"info-no-users": "Si us plau proporcionar dos usuaris per a començar.",
+	"info-no-wiki": "Si us plau proporcionar un wiki per a començar.",
+	"info-required-fields": "Si us plau proporcionar dos usuaris i wiki per a començar.",
 	"licensed-under": "Subjecte als termes de la llicència $1",
+	"field-label-end-date": "Data Final",
 	"field-label-start-date": "Data d’inici",
 	"field-label-users": "Usuaris",
+	"field-label-wiki": "Viqui",
+	"field-select-placeholder": "Selecciona...",
 	"field-select-no-results": "No s’ha trobat cap resultat",
+	"field-select-search-prompt": "Escriviu per a buscar",
 	"made-by": "Realitzada per l’$1 de la Fundació Wikimedia.",
+	"made-by-team": "Equip d'eines antiacosament",
 	"privacy-policy": "Política de privadesa",
 	"powered-by": "Funciona amb Wikimedia Toolforge",
 	"report-bug": "Informeu d’un error",
-	"warning-no-results": "Cap resultat"
+	"revision-edit-summary-removed": "resum de les modificacions retirades",
+	"view-source-code-on": "Mostra en $1",
+	"warning-no-results": "Cap resultat",
+	"discuss-on-wiki": "Comparteix aquests resultats",
+	"discuss-on-wiki-text": "Entre $1 i $2 sobre $3 [[User:$4]] ([[User talk:$4|discussion]] '''·''' [[Special:Contributions/$4|contributions]]) i [[User:$5]] ([[User talk:$5|discussion]] '''·''' [[Special:Contributions/$5|contributions]]) van fer edicions a les mateixes pàgines. Pots consultar una llista cronològica de totes les edicions a la [$6 cronologia d'interaccions] o una vista tabular en l’[$7 analitzador d'interaccions].",
+	"discuss-on-wiki-help": "Copiar i enganxar aquest text en una discussió en wiki per a compartir aquests resultats a la línia de temps de la interacció amb altres",
+	"discuss-on-wiki-copy": "Còpiar",
+	"discuss-on-wiki-copied": "Copiat!"
 }
