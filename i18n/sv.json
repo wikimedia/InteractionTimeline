@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
 	"app-description": "Kronologisk historik för två användare på sidor som de båda har redigerat.",
 	"app-feedback-link": "Hjälp",
 	"app-title": "Interaktionstidslinje",
-	"back-top": "Tillbaka till början",
+	"back-top": "Tillbaka till toppen",
 	"between-edits": "$1 mellan redigeringarna",
 	"between-interactions": "$1 mellan interaktioner",
 	"error": "Fel",
@@ -15,7 +16,7 @@
 	"error-help-report": "Rapportera felet",
 	"error-help-refresh": "uppdatera sidan",
 	"error-message-request-url": "Begär webbadress",
-	"error-suppressed-diff": "Du kan inte se denna diff eftersom en eller båda sidversioner har censurerats.",
+	"error-suppressed-diff": "Du kan inte se denna skillnad eftersom en eller båda sidversioner har censurerats.",
 	"info-no-users": "Ange två användare för att börja.",
 	"info-no-wiki": "Ange en wiki för att börja.",
 	"info-required-fields": "Ange två användare och wiki för att börja.",
@@ -28,7 +29,7 @@
 	"field-select-no-results": "Inga resultat hittades",
 	"field-select-search-prompt": "Skriv för att söka",
 	"made-by": "Skapad av Wikimedia Foundations $1.",
-	"made-by-team": "gruppen för verktyg av antitrakasseri",
+	"made-by-team": "Antimobbningsverktygsgruppen",
 	"privacy-policy": "Integritetspolicy",
 	"powered-by": "Drivs av Wikimedia Toolforge",
 	"report-bug": "Rapportera ett fel",
