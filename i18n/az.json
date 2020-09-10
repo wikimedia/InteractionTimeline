@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Şeyx Şamil"
+		]
+	},
+	"app-feedback-link": "Kömək",
+	"back-top": "Əvvələ qayıt",
+	"error": "Xəta",
+	"error-help-report": "Xətanı bildir",
+	"error-help-refresh": "səhifəni yenilə",
+	"field-label-end-date": "Bitmə tarixi",
+	"field-label-start-date": "Başlanğıc tarixi",
+	"field-label-users": "İstifadəçilər",
+	"field-label-wiki": "Viki",
+	"field-select-placeholder": "Seç...",
+	"field-select-no-results": "Nəticələr tapılmadı",
+	"privacy-policy": "Məxfilik siyasəti",
+	"report-bug": "Xəta bildir",
+	"warning-no-results": "Nəticə yoxdur",
+	"discuss-on-wiki-copy": "Kopyala",
+	"discuss-on-wiki-copied": "Kopyalandı!"
+}
