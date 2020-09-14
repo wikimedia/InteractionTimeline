@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aslmad mohamed belarhzali"
+			"Aslmad mohamed belarhzali",
+			"Hakim1bal"
 		]
 	},
 	"app-feedback-link": "ⵜⵉⵡⵉⵙⵉ",
+	"between-edits": "$1 ⴳⵔ ⵙⵉⵏ ⵏ ⵉⵙⵏⴼⵍⵏ",
 	"error": "ⴰⵣⴳⴰⵍ",
 	"error-help": "$1, ⵉⵍⵎⵎⴰ $2.",
 	"error-help-report": "ⵛⴽⴽⵎ ⵙ ⵓⵣⴳⴰⵍ",
@@ -18,5 +20,6 @@
 	"field-select-search-prompt": "ⴰⵔⴰ ⴰⴼⴰⴷ ⴰⴷ ⵜⵔⵣⵓⴷ",
 	"made-by": "ⵜⵙⴽⵔ ⵜ ⵜⵎⵔⵙⵍⵜ ⵡⵉⴽⵉⵎⵉⴷⵢⴰ $1",
 	"view-source-code-on": "ⵙⴽⵏ ⴳ $1",
-	"warning-no-results": "ⵓⵔ ⵍⵍⵉⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ"
+	"warning-no-results": "ⵓⵔ ⵍⵍⵉⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ",
+	"discuss-on-wiki-copy": "ⵙⵙⵏⵖⵍ"
 }
