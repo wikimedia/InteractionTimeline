@@ -3,7 +3,8 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"By erdo can",
-			"Hedda"
+			"Hedda",
+			"MuratTheTurkish"
 		]
 	},
 	"app-description": "Her ikisinin de düzenleme yaptıkları sayfalarda iki kullanıcı için kronolojik geçmiş.",
@@ -39,7 +40,7 @@
 	"warning-no-results": "Sonuç Yok",
 	"discuss-on-wiki": "Bu sonuçları paylaş",
 	"discuss-on-wiki-text": "$1 ve $2 arasında $3 üzerinden [[User:$4]] ([[User talk:$4|mesaj]] | [[Special:Contributions/$4|katkılar]]) ve [[User:$5]] ([[User talk:$5|mesaj]] | [[Special:Contributions/$5|katkılar]]) vikilerinde her ikisi de ortak bazı sayfalarda düzenlemeler yaptı. [$6 Etkileşim Zaman Çizelgesi]'nde tüm düzenlemelerinin kronolojik bir listesini veya [$7 Etkileşim Çözümleyicisi] üzerinde bir tablo görünümünü görebilirsiniz.",
-	"discuss-on-wiki-help": "Bu Etkileşim Zaman Çizelgesi sonuçlarını başkalarıyla paylaşmak için bu vikimetin dosyasını bir wiki tartışmasına kopyalayıp yapıştırın",
+	"discuss-on-wiki-help": "Bu Etkileşim Zaman Çizelgesi sonuçlarını başkalarıyla paylaşmak için bu vikimetin dosyasını bir viki tartışmasına kopyalayıp yapıştırın",
 	"discuss-on-wiki-copy": "Kopyala",
 	"discuss-on-wiki-copied": "Kopyalandı!"
 }
