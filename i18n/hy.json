@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kareyac"
+		]
+	},
+	"app-feedback-link": "Օգնություն",
+	"error": "Սխալ",
+	"error-help-refresh": "թարմացնել էջը",
+	"field-label-users": "Մասնակիցներ",
+	"field-label-wiki": "Վիքի",
+	"field-select-placeholder": "Ընտրեք...",
+	"field-select-no-results": "Ոչինչ չի գտնվել",
+	"privacy-policy": "Գաղտնիության քաղաքականություն",
+	"warning-no-results": "Արդյունք չկա",
+	"discuss-on-wiki": "Կիսվել այս արդյունքներով",
+	"discuss-on-wiki-copy": "Պատճենել"
+}
