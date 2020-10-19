@@ -19,7 +19,10 @@
 	"field-select-no-results": "ⵓⵔ ⵜⴻⵜⵜⵢⴰⴼⴰ ⴰⵡⴷ ⵢⴰⵜ ⵜⵢⴰⴼⵓⵜ",
 	"field-select-search-prompt": "ⴰⵔⴰ ⴰⴼⴰⴷ ⴰⴷ ⵜⵔⵣⵓⴷ",
 	"made-by": "ⵜⵙⴽⵔ ⵜ ⵜⵎⵔⵙⵍⵜ ⵡⵉⴽⵉⵎⵉⴷⵢⴰ $1",
+	"privacy-policy": "ⵜⴰⵙⵔⵜⵉⵜ ⵏ ⵜⵉⵏⵏⵓⵜⵍⴰ",
 	"view-source-code-on": "ⵙⴽⵏ ⴳ $1",
 	"warning-no-results": "ⵓⵔ ⵍⵍⵉⵏⵜ ⵜⵢⴰⴼⵓⵜⵉⵏ",
-	"discuss-on-wiki-copy": "ⵙⵙⵏⵖⵍ"
+	"discuss-on-wiki": "ⴱⴹⵓ ⵜⵉⵢⴰⴼⵓⵜⵉⵏ ⴰⴷ",
+	"discuss-on-wiki-copy": "ⵙⵙⵏⵖⵍ",
+	"discuss-on-wiki-copied": "ⵉⵜⵜⵓⵏⵖⵍ!"
 }
