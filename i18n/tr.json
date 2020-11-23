@@ -18,7 +18,7 @@
 	"error-help-report": "Hatayı bildir",
 	"error-help-refresh": "sayfayı yenile",
 	"error-message-request-url": "URL iste",
-	"error-suppressed-diff": "Düzeltmelerden biri veya her ikisi de bastırıldığı için bu farkı görüntüleyemezsiniz.",
+	"error-suppressed-diff": "Revizyonlardan biri veya her ikisi de bastırıldığı için bu farkı görüntüleyemezsiniz.",
 	"info-no-users": "Lütfen başlamak için iki kullanıcı sağlayın.",
 	"info-no-wiki": "Lütfen başlamak için bir viki sağlayın.",
 	"info-required-fields": "Lütfen başlamak için iki kullanıcı ve viki sağlayın.",
