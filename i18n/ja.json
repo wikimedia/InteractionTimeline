@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gulpin",
+			"Omotecho",
 			"Suyama"
 		]
 	},
-	"app-description": "2人のユーザーが編集したページの時刻順の履歴。",
+	"app-description": "2人のユーザーがともに編集した複数ページの時刻順の履歴。",
 	"app-feedback-link": "ヘルプ",
 	"app-title": "インタラクションのタイムライン",
 	"back-top": "トップに戻る",
@@ -17,6 +18,9 @@
 	"error-help-refresh": "ページを更新",
 	"error-message-request-url": "リクエスト URL",
 	"error-suppressed-diff": "少なくともどちらかのリビジョンを見ることができないため、この差分を見ることはできません。",
+	"info-no-users": "比較する利用者2人を指定してください。",
+	"info-no-wiki": "調べるウィキを指定してください。",
+	"info-required-fields": "比較する利用者2人とウィキを指定してください。",
 	"licensed-under": "$1 でライセンスされています。",
 	"field-label-end-date": "終了日",
 	"field-label-start-date": "開始日",
@@ -25,11 +29,17 @@
 	"field-select-placeholder": "選択...",
 	"field-select-no-results": "見つかりませんでした",
 	"field-select-search-prompt": "入力して検索",
+	"made-by": "制作はウィキメディア財団の$1が担当しました。",
+	"made-by-team": "嫌がらせ対策ツール・チーム",
 	"privacy-policy": "プライバシー・ポリシー",
+	"powered-by": "ウィキメディア Toolforge 提供",
 	"report-bug": "バグを報告",
+	"revision-edit-summary-removed": "編集要約を削除しました",
 	"view-source-code-on": "$1で閲覧",
 	"warning-no-results": "該当結果はありません。",
 	"discuss-on-wiki": "これらの結果を共有",
+	"discuss-on-wiki-text": "$1 から $2 の間に $3 で[[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) と [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) の両者とも編集したページが複数あります。それらの編集について時刻順の一覧を見るには[$6 Interaction Timeline]または[$7 Interaction Analyser]から今日形式で表示できます。",
+	"discuss-on-wiki-help": "このウィキ文をオンウィキの議論のページにコピー&ペーストすると他の人と Interaction Timeline の結果を共有できます",
 	"discuss-on-wiki-copy": "コピー",
 	"discuss-on-wiki-copied": "コピーしました"
 }
