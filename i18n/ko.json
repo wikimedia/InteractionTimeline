@@ -3,6 +3,7 @@
 		"authors": [
 			"Revi",
 			"Ykhwong",
+			"그냥기여자",
 			"아라"
 		]
 	},
@@ -38,6 +39,7 @@
 	"view-source-code-on": "$1에서 보기",
 	"warning-no-results": "결과 없음",
 	"discuss-on-wiki": "이 결과 공유",
+	"discuss-on-wiki-text": "$1에서 $2 사이 $3 [[User:$4]] ([[User talk:$4|토론]] | [[Special:Contributions/$4|기여]])님과 [[User:$5]] ([[User talk:$5|토론]] | [[Special:Contributions/$5|기여]])님이 일부 페이지에 대하여 공동으로 편집했습니다. [$6 상호작용 타임라인]에서 시간 순서대로 나열한 목록으로 편집 사항을 보거나 [$7 상호작용 분석]에서 표의 형태로 편집 사항을 볼 수 있습니다.",
 	"discuss-on-wiki-help": "이 상호작용 타임라인 결과를 다른 사람과 공유하려면 위키 토론에 이 위키텍스트를 복사해서 붙여넣으십시오",
 	"discuss-on-wiki-copy": "복사",
 	"discuss-on-wiki-copied": "복사 완료!"
