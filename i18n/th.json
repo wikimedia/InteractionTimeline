@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"B20180",
+			"Prame Tan"
+		]
+	},
+	"app-description": "ประวัติตามลำดับเวลาสำหรับผู้ใช้สองคนในหน้าเว็บที่พวกเขาได้ทำการแก้ไขทั้งคู่",
+	"app-feedback-link": "ช่วยเหลือ",
+	"app-title": "เส้นเวลาการโต้ตอบ",
+	"back-top": "กลับไปด้านบน",
+	"between-edits": "$1 ระหว่างการแก้ไข",
+	"between-interactions": "$1 ระหว่างการโต้ตอบ",
+	"error": "ข้อผิดพลาด",
+	"error-help-report": "รายงานปัญหา",
+	"error-help-refresh": "รีเฟรชหน้าใหม่",
+	"error-message-request-url": "ขอ URL",
+	"info-no-users": "กรุณาระบุผู้ใช้สองคนเพื่อเริ่มต้น",
+	"info-no-wiki": "กรุณาระบุวิกิเพื่อเริ่มต้น",
+	"info-required-fields": "กรุณาระบุผู้ใช้สองคนและวิกิเพื่อเริ่มต้น",
+	"licensed-under": "อยู่ภายใต้สัญญาอนุญาต $1",
+	"field-label-end-date": "วันที่สิ้นสุด",
+	"field-label-start-date": "วันที่เริ่มต้น",
+	"field-label-users": "ผู้ใช้",
+	"field-label-wiki": "วิกิ",
+	"field-select-placeholder": "เลือก...",
+	"field-select-no-results": "ไม่พบผลลัพธ์",
+	"field-select-search-prompt": "พิมพ์เพื่อค้นหา",
+	"made-by-team": "ทีมงานเครื่องมือป้องกันการคุกคาม",
+	"privacy-policy": "นโยบายความเป็นส่วนตัว",
+	"report-bug": "รายงานข้อผิดพลาด",
+	"revision-edit-summary-removed": "(ความย่อการแก้ไขถูกลบ)",
+	"view-source-code-on": "ดูบน $1",
+	"warning-no-results": "ไม่มีผลลัพธ์",
+	"discuss-on-wiki-copy": "คัดลอก",
+	"discuss-on-wiki-copied": "คัดลอกเสร็จสมบูรณ์"
+}
