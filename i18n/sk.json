@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jaroslav.micek"
+		]
+	},
+	"app-description": "Chronologická história dvoch používateľov na stránkach, na ktorých obaja urobili úpravy.",
+	"app-feedback-link": "Pomoc",
+	"app-title": "Interaction Timeline (Časová os interakcie)",
+	"back-top": "Späť na začiatok",
+	"between-edits": "$1 medzi úpravami",
+	"between-interactions": "$1 medzi interakciami",
+	"error": "Chyba",
+	"error-help": "$1, a potom $2.",
+	"error-help-report": "Nahlásiť chybu",
+	"error-help-refresh": "obnoviť stránku",
+	"error-message-request-url": "Požiadavka URL",
+	"error-suppressed-diff": "Nemôžete vidieť tento rozdiel pretože jedna alebo obe zmeny boli zakázané.",
+	"info-no-users": "Na začatie prosím uveďte dvoch používateľov.",
+	"info-no-wiki": "Na začatie prosím uveďte wiki.",
+	"info-required-fields": "Na začatie prosím uveďte dvoch používateľov a wiki.",
+	"licensed-under": "Licencované cez $1",
+	"field-label-end-date": "Dátum ukončenia",
+	"field-label-start-date": "Dátum začiatku",
+	"field-label-users": "Používatelia",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Vybrať...",
+	"field-select-no-results": "Neboli nájdené žiadne výsledky",
+	"field-select-search-prompt": "Písať pre vyhľadanie",
+	"made-by": "Vytvoril Wikimedia Foundation's $1.",
+	"made-by-team": "Tým nástrojov proti obťažovaniu",
+	"privacy-policy": "Ochrana osobných údajov",
+	"powered-by": "Poháňané cez Wikimedia Toolforge",
+	"report-bug": "Nahlásiť chybu",
+	"revision-edit-summary-removed": "zhrnutie úprav odstránené",
+	"view-source-code-on": "Zobraziť na $1",
+	"warning-no-results": "Žiadne výsledky",
+	"discuss-on-wiki": "Zdieľať tieto výsledky",
+	"discuss-on-wiki-text": "Medzi $1 a $2 na $3 [[User:$4]] ([[User talk:$4|dialóg]] |[[Special:Contributions/$4|príspevky]]) a [[User:$5]] ([[User talk:$5|dialóg]] |[[Special:Contributions/$5|príspevky]]) obaja používatelia urobili nejaké úpravy na stránka v common. Na stránkach [$6 Interaction Timeline] môžete vidieť kompletný chronologický zoznam ich úprav alebo tabuľku na [$7 Interaction Analyser].",
+	"discuss-on-wiki-help": "Kopírovať a prilepiť tento text na wiki diskusiu pre zdieľanie tejto časovej osi interakcie s ostatnými používateľmi",
+	"discuss-on-wiki-copy": "Kopírovať",
+	"discuss-on-wiki-copied": "Skopírované!"
+}
