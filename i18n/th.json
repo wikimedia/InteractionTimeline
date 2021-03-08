@@ -12,6 +12,7 @@
 	"between-edits": "$1 ระหว่างการแก้ไข",
 	"between-interactions": "$1 ระหว่างการโต้ตอบ",
 	"error": "ข้อผิดพลาด",
+	"error-help": "$1 แล้ว $2",
 	"error-help-report": "รายงานปัญหา",
 	"error-help-refresh": "รีเฟรชหน้าใหม่",
 	"error-message-request-url": "ขอ URL",
@@ -32,6 +33,8 @@
 	"revision-edit-summary-removed": "(ความย่อการแก้ไขถูกลบ)",
 	"view-source-code-on": "ดูบน $1",
 	"warning-no-results": "ไม่มีผลลัพธ์",
+	"discuss-on-wiki": "แชร์ผลลัพธ์เหล่านี้",
+	"discuss-on-wiki-text": "ระหว่างวันที่ $1 ถึง $2 บน $3 ผู้ใช้[[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]])และ[[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]])ได้แก้ไขบนหน้าบางหน้าร่วมกัน คุณสามารถดูรายชื่อการแก้ไขทั้งหมดเรียงตามเวลาได้ที่[$6 Interaction Timeline] หรือผ่านแบบตารางบน [$7 Interaction Analyser]",
 	"discuss-on-wiki-copy": "คัดลอก",
 	"discuss-on-wiki-copied": "คัดลอกเสร็จสมบูรณ์"
 }
