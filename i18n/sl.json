@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"app-description": "Kronološka zgodovina dveh uporabnikov na straneh, ki sta jih urejala oba.",
+	"app-feedback-link": "Pomoč",
+	"app-title": "Časovnica interakcij",
+	"back-top": "Nazaj na vrh",
+	"between-edits": "$1 med urejanjema",
+	"between-interactions": "$1 med interakcijama",
+	"error": "Napaka",
+	"error-help": "$1, nato $2.",
+	"error-help-report": "Sporočite napako",
+	"error-help-refresh": "osvežite stran",
+	"error-message-request-url": "URL zahtevka",
+	"error-suppressed-diff": "Te razlike ne morete videti, saj sta bili obe redakciji ali ena od redakcij skriti.",
+	"info-no-users": "Za začetek navedite dva uporabnika.",
+	"info-no-wiki": "Za začetek navedite viki.",
+	"info-required-fields": "Za začetek navedite dva uporabnika in viki.",
+	"licensed-under": "Licenca: $1",
+	"field-label-end-date": "Končni datum",
+	"field-label-start-date": "Začetni datum",
+	"field-label-users": "Uporabnika",
+	"field-label-wiki": "Viki",
+	"field-select-placeholder": "Izberite ...",
+	"field-select-no-results": "Ni najdenih zadetkov",
+	"field-select-search-prompt": "Vnesite iskalni niz",
+	"made-by": "Ustvarila $1 fundacije Wikimedia.",
+	"made-by-team": "Ekipa za orodja pred nadlegovanjem",
+	"privacy-policy": "Pravilnik o zasebnosti",
+	"powered-by": "Omogoča Wikimedia Toolforge",
+	"report-bug": "Sporočite hrošča",
+	"revision-edit-summary-removed": "povzetek urejanja odstranjen",
+	"view-source-code-on": "Ogled na spletnem mestu $1",
+	"warning-no-results": "Ni zadetkov",
+	"discuss-on-wiki": "Deli zadetke",
+	"discuss-on-wiki-text": "Med datumoma $1 in $2 sta v projektu $3 uporabnika [[User:$4|$4]] ([[User talk:$4|pogovor]] | [[Special:Contributions/$4|prispevki]]) in [[User:$5|$5]] ([[User talk:$5|pogovor]] | [[Special:Contributions/$5|prispevki]]) urejala nekatere skupne strani. Časovno urejen seznam vseh njunih urejanj si lahko ogledate na [$6 Časovnici interakcij] ali kot preglednico v [$7 Analizatorju interakcij].",
+	"discuss-on-wiki-help": "Za deljenje teh zadetkov Časovnice interakcij z drugimi skopirajte in prilepite to besedilo na pogovorno stran vikija.",
+	"discuss-on-wiki-copy": "Kopiraj",
+	"discuss-on-wiki-copied": "Kopirano!"
+}
