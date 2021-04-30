@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
+		]
+	},
+	"app-feedback-link": "ಸಹಾಯ",
+	"error": "ದೋಷ",
+	"error-help-report": "ದೋಷವನ್ನು ವರದಿ ಮಾಡಿ",
+	"field-label-end-date": "ಮುಕ್ತಾಯದ ದಿನಾಂಕ",
+	"field-label-start-date": "ಆರಂಭದ ದಿನಾಂಕ",
+	"field-label-users": "ಬಳಕೆದಾರರು",
+	"field-label-wiki": "ವಿಕಿ",
+	"field-select-no-results": "ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ",
+	"privacy-policy": "ಗೌಪ್ಯತಾ ನೀತಿ",
+	"revision-edit-summary-removed": "ಸಂಪಾದನೆಯ ಸಾರಾಂಶ ತೆಗೆದುಹಾಕಲಾಗಿದೆ",
+	"view-source-code-on": "$1 ನಲ್ಲಿ ನೋಡಿ"
+}
