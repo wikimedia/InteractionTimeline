@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Maol",
 			"Sabelöga",
 			"WikiPhoenix"
 		]
@@ -33,7 +34,7 @@
 	"privacy-policy": "Integritetspolicy",
 	"powered-by": "Drivs av Wikimedia Toolforge",
 	"report-bug": "Rapportera ett fel",
-	"revision-edit-summary-removed": "redigeringssammanfattning togs bort",
+	"revision-edit-summary-removed": "redigeringssammanfattning borttagen",
 	"view-source-code-on": "Visa på $1",
 	"warning-no-results": "Inga resultat",
 	"discuss-on-wiki": "Dela dessa resultat",
