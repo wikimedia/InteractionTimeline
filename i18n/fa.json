@@ -1,26 +1,44 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amirsara"
+			"Amirsara",
+			"Jeeputer"
 		]
 	},
+	"app-description": "تاریخچهٔ زمان‌بندی‌شده دو کاربر در صفحه‌هایی که هر دو در آن‌ها ویرایش داشته‌اند.",
 	"app-feedback-link": "راهنما",
+	"app-title": "خط زمانی تعامل",
 	"back-top": "بازگشت به بالای صفحه",
+	"between-edits": "$1 بین ویرایش‌ها",
+	"between-interactions": "$1 بین تعامل‌ها",
 	"error": "خطا",
+	"error-help": "$1، و سپس $2",
 	"error-help-report": "گزارش خطا",
 	"error-help-refresh": "تازه‌سازی صفحه",
-	"error-message-request-url": "نشانی اینترنتی درخواست",
+	"error-message-request-url": "درخواست نشانی اینترنتی",
+	"error-suppressed-diff": "شما نمی‌توانید این تفاوت را ببینید. زیرا هردو یا یکی از نسخه‌ها فرونشانی شده‌است.",
+	"info-no-users": "برای شروع، لطفاً دو کاربر را مشخص کنید.",
+	"info-no-wiki": "برای شروع، لطفاً یک ویکی را مشخص کنید.",
+	"info-required-fields": "برای شروع، لطفاً دو کاربر و یک ویکی را مشخص کنید.",
+	"licensed-under": "تحت پروانهٔ $1",
 	"field-label-end-date": "تاریخ پایان",
 	"field-label-start-date": "تاریخ شروع",
 	"field-label-users": "کاربران",
 	"field-label-wiki": "ویکی",
 	"field-select-placeholder": "انتخاب…",
 	"field-select-no-results": "نتیجه‌ای یافت نشد",
+	"field-select-search-prompt": "برای جستجو شروع به نوشتن کنید",
+	"made-by": "ساخته‌شده توسط $1 بنیاد ویکی‌مدیا",
+	"made-by-team": "تیم ابزارهای مبارزه با آزار و اذیت",
 	"privacy-policy": "سیاست حفظ حریم خصوصی",
+	"powered-by": "قدرت‌گرفته از تول‌فورج ویکی‌مدیا",
 	"report-bug": "گزارش یک اشکال",
-	"view-source-code-on": "نمایش در $1",
+	"revision-edit-summary-removed": "خلاصهٔ ویرایش حذف شد",
+	"view-source-code-on": "مشاهده در $1",
 	"warning-no-results": "بدون نتیجه",
-	"discuss-on-wiki": "اشتراک گذاری این نتایج",
+	"discuss-on-wiki": "اشتراک‌گذاری این نتایج",
+	"discuss-on-wiki-text": "بین $1 و $2 در $3 [[کاربر:$4]] ([[بحث کاربر:$4|بحث]] | [[ویژه:مشارکت‌ها/$4|مشارکت‌ها]]) و [[کاربر:$5]] ([[بحث کاربر:$5|بحث]] | [[ویژه:مشارکت‌ها/$5|مشارکت‌ها]]) هردو در برخی صفحه‌های مشترک ویرایش‌هایی داشته‌اند. می‌توانید یک فهرستی زمان‌بندی‌شده از تمامی ویرایش‌های آن‌ها را در [$6 خط زمانی تعامل] یا در نمای جدول در [$7 تحلیل تعامل] ببینید.",
+	"discuss-on-wiki-help": "برای اشتراک‌گذاری این نتایج در خط زمانی تعامل با دیگران، این ویکی‌متن را به بحثی که در ویکی مربوطه در جریان است کپی کنید",
 	"discuss-on-wiki-copy": "رونوشت",
-	"discuss-on-wiki-copied": "با موفقیت کپی شد"
+	"discuss-on-wiki-copied": "کپی شد!"
 }
