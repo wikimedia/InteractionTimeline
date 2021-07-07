@@ -20,3 +20,5 @@ services:
       - ./:/code:cached
   redis:
     image: redis
+    sysctls:
+      net.core.somaxconn: 511
