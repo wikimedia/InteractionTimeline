@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni"
+		]
+	},
+	"app-feedback-link": "მოხვარა",
+	"back-top": "ჟილე დორთა",
+	"between-edits": "$1 რედაქტირაფეფს შქას",
+	"error": "ჩილათა",
+	"error-help": "$1, დო უკული $2.",
+	"error-help-report": "ქუგმოგებაბეთ ჩილათაშ გეშა",
+	"error-help-refresh": "ხასჷლაშ გოახალაფა",
+	"field-label-end-date": "თებაშ თარიღი",
+	"field-label-start-date": "დოჭყაფაშ თარიღი",
+	"field-label-users": "მახვარებუეფი",
+	"field-label-wiki": "ვიკი",
+	"field-select-placeholder": "გეგშაგორი...",
+	"field-select-no-results": "შედეგიქ ვეგორინჷ",
+	"privacy-policy": "კონფიდენციალურალაშ პოლიტიკა",
+	"revision-edit-summary-removed": "რედაქტირაფაშ რეზიუმე ლასირი რე",
+	"view-source-code-on": "ქოძირით $1-ის",
+	"warning-no-results": "მუთუნქ ვეგორუ",
+	"discuss-on-wiki-copy": "კოპირაფა",
+	"discuss-on-wiki-copied": "კოპირაფილი რე!"
+}
