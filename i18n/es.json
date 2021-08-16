@@ -3,10 +3,11 @@
 		"authors": [
 			"Dmaza",
 			"Fitoschido",
+			"Jack30",
 			"Laura Ospina"
 		]
 	},
-	"app-description": "Historial para dos usuarios en páginas en las que ambos hayan hecho ediciones.",
+	"app-description": "Historial cronológico para dos usuarios en páginas que ambos hayan editado",
 	"app-feedback-link": "Ayuda",
 	"app-title": "Cronología de interacciones",
 	"back-top": "Volver al principio",
