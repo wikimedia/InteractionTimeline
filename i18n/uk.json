@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Piramidion"
 		]
 	},
@@ -24,7 +25,7 @@
 	"field-label-start-date": "Дата початку",
 	"field-label-users": "Користувачі",
 	"field-label-wiki": "Вікі",
-	"field-select-placeholder": "Виберіть...",
+	"field-select-placeholder": "Виберіть…",
 	"field-select-no-results": "Нічого не знайдено",
 	"field-select-search-prompt": "Введіть для пошуку",
 	"made-by": "Створено $1 Фонду Вікімедіа.",

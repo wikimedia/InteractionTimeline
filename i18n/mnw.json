@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aue Nai"
+			"Aue Nai",
+			"咽頭べさ"
 		]
 	},
 	"app-feedback-link": "ရီု",
@@ -11,6 +12,7 @@
 	"field-label-start-date": "တ္ၚဲစပ္တမ်",
 	"field-label-users": "ညးလွပ်",
 	"field-label-wiki": "ဝဳကဳ",
+	"field-select-placeholder": "ရုဲကေတ်",
 	"field-select-no-results": "အရာမဂၠာဲဂှ် မုဟွံဂွံ ဆဵု",
 	"discuss-on-wiki-copy": "စၠောအ်ကပ်ပဳ"
 }
