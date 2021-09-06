@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"L2212"
+		]
+	},
+	"app-description": "Istòria cronològica pro duos impitadores chi ant modificadu sas matessi pàginas.",
+	"app-feedback-link": "Agiudu",
+	"app-title": "Cronologia de sas interatziones",
+	"back-top": "Torra a su cumintzu",
+	"between-edits": "$1 intre modìficas",
+	"between-interactions": "$1 intre interatziones",
+	"error": "Faddina",
+	"error-help": "$1, e a pustis $2.",
+	"error-help-report": "Sinnala sa faddina",
+	"error-help-refresh": "annoa sa pàgina",
+	"error-message-request-url": "URL de sa dimanda",
+	"error-suppressed-diff": "Non podes bìdere custa diferèntzia ant suprimidu una o ambas duas revisiones.",
+	"info-no-users": "Dislinda duos impitadores pro incumintzare.",
+	"info-no-wiki": "Dislinda una wiki pro incumintzare.",
+	"info-required-fields": "Dislinda duos impitadores e una wiki pro incumintzare.",
+	"licensed-under": "In suta de sa litzèntzia $1",
+	"field-label-end-date": "Data Finale",
+	"field-label-start-date": "Data de incumintzu",
+	"field-label-users": "Impitadores",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Ischerta...",
+	"field-select-no-results": "Perunu resurtadu agatadu",
+	"field-select-search-prompt": "Iscrie pro chircare",
+	"made-by": "Fata dae sa $1 de sa Fundatzione Wikimedia.",
+	"made-by-team": "Iscuadra de ainas anti-apurias",
+	"privacy-policy": "Polìtica pro sos datos privados",
+	"powered-by": "Funtzionat cun Wikimedia Toolforge",
+	"report-bug": "Sinnala una faddina",
+	"revision-edit-summary-removed": "resumu de sas modìficas bogadu",
+	"view-source-code-on": "Ammustra in $1",
+	"warning-no-results": "Perunu resurtadu",
+	"discuss-on-wiki": "Cumpartzi custos resurtados",
+	"discuss-on-wiki-text": "Intre $1 e $2 in $3 [[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) e [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) ant totu sos duos fatu modìficas a unas cantas matessi pàginas. Podes bìdere sa lista cronològica de totu sas modìficas issoro in sa [$6 Cronologia de sas interatziones] o una vista a tabella in s'[$7 Analizadore de interatziones].",
+	"discuss-on-wiki-help": "Còpia e incolla custu wikitestu in un'arresonu in sa wiki pro cumpartzire custos resurtados de sa cronologia de sas interatziones cun sos àteros",
+	"discuss-on-wiki-copy": "Còpia",
+	"discuss-on-wiki-copied": "Copiadu!"
+}
