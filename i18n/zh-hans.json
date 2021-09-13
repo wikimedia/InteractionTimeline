@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Deathkon",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Tranve"
 		]
 	},
 	"app-description": "两位用户在其均编辑过的页面上的历史，按时间顺序排列。",
@@ -38,7 +39,7 @@
 	"warning-no-results": "没有结果",
 	"discuss-on-wiki": "分享这些结果",
 	"discuss-on-wiki-text": "在$1至$2之间，在$3上的[[User:$4]]([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]])与[[User:$5]]([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]])都对一些页面进行了编辑。您可以在[$6 Interaction Timeline]中查看按时间顺序列出的所有他们编辑的内容，或在[$7 Interaction Analyser]中以表格视图的方式查看。",
-	"discuss-on-wiki-help": "将此wiki文本复制并粘贴到on-wiki讨论中，以便与其他人共享这些交互式时间线的结果",
+	"discuss-on-wiki-help": "将此wikitext复制并粘贴到on-wiki讨论中，以便与其他人共享这些交互式时间线的结果",
 	"discuss-on-wiki-copy": "复制",
 	"discuss-on-wiki-copied": "已复制！"
 }
