@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Leducthn",
+			"Minh Nguyen",
 			"Tuanminh01"
 		]
 	},
-	"app-description": "Lịch sử chỉnh sửa theo thứ tự của hai người dùng chỉnh sửa cùng một trang.",
+	"app-description": "Lịch sử sửa đổi theo thứ tự của hai người dùng sửa đổi cùng một trang.",
 	"app-feedback-link": "Trợ giúp",
 	"app-title": "Dòng thời gian tương tác",
 	"back-top": "Trở lên đầu trang",
-	"between-edits": "$1 giữa các lần chỉnh sửa",
+	"between-edits": "$1 giữa các lần sửa đổi",
 	"between-interactions": "$1 giữa các lần tương tác",
 	"error": "Lỗi",
 	"error-help": "$1 và sau đó $2.",
