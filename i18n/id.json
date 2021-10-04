@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akmaie Ajam"
+		]
+	},
+	"app-description": "Sejarah secara kronologis untuk dua pengguna di halaman dimana kedua-duanya melakukan suntingan.",
+	"app-feedback-link": "Bantuan",
+	"app-title": "Garis Waktu Interaksi",
+	"back-top": "Kembali ke Atas",
+	"between-edits": "$1 antara suntingan",
+	"between-interactions": "$1 antara interaksi",
+	"error": "Kesalahan",
+	"error-help": "$1, dan kemudian $2.",
+	"error-help-report": "Laporkan kesalahan",
+	"error-help-refresh": "muat ulang halaman",
+	"error-message-request-url": "Minta URL",
+	"error-suppressed-diff": "Anda tidak bisa melihat perbedaan ini karena salah satu atau kedua revisi telah disembunyikan.",
+	"info-no-users": "Harap berikan dua pengguna untuk memulai.",
+	"info-no-wiki": "Harap berikan wiki untuk memulai.",
+	"info-required-fields": "Harap berikan dua pengguna dan wiki untuk memulai.",
+	"licensed-under": "Dilisensikan di bawah $1",
+	"field-label-end-date": "Tanggal Selesai",
+	"field-label-start-date": "Tanggal Dimulai",
+	"field-label-users": "Pengguna",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Pilih...",
+	"field-select-no-results": "Tidak ada hasil yang ditemukan",
+	"field-select-search-prompt": "Ketik untuk mencari",
+	"made-by": "Dibuat oleh $1 Wikimedia Foundation.",
+	"made-by-team": "Tim Alat Anti-Gangguan",
+	"privacy-policy": "Kebijakan privasi",
+	"powered-by": "Didukung oleh Wikimedia Toolforge",
+	"report-bug": "Laporkan bug/kutu",
+	"revision-edit-summary-removed": "ringkasan suntingan dihapus",
+	"view-source-code-on": "Lihat di $1",
+	"warning-no-results": "Tidak Ada Hasil",
+	"discuss-on-wiki": "Bagikan hasil tersebut",
+	"discuss-on-wiki-text": "Antara $1 dan $2 pada $3 [[Pengguna:$4]] ([[Pembicaraan Pengguna:$4|bicara]] | [[Istimewa:Kontribusi/$4|kontribusi]]) dan [[Pengguna:$5]] ([[Pembicaraan Pengguna:$5|bicara]] | [[Istimewa:Kontribusi/$5|contribs]]) keduanya menyunting halaman tertentu. Anda dapat melihat daftar kronologis semua penyuntingan mereka pada [$6 Garis Waktu Interaksi] atau daftar tabel pada or [$7 Garis Waktu Interaksi].",
+	"discuss-on-wiki-help": "Salin & tempelkan wikiteks ini ke diskusi pada wiki untuk membagikan hasil Garis Waktu Interaksi dengan orang lain",
+	"discuss-on-wiki-copy": "Salin",
+	"discuss-on-wiki-copied": "Berhasil disalin!"
+}
