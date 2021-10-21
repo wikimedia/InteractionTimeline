@@ -4,6 +4,7 @@
 			"Dmaza",
 			"Fitoschido",
 			"Jack30",
+			"Jakeukalane",
 			"Laura Ospina"
 		]
 	},
@@ -20,8 +21,8 @@
 	"error-message-request-url": "URL de solicitud",
 	"error-suppressed-diff": "No puedes ver estas diferencias porque se ha suprimido al menos una de las revisiones.",
 	"info-no-users": "Proporciona dos usuarios para comenzar.",
-	"info-no-wiki": "Proporciona un wiki para comenzar.",
-	"info-required-fields": "Proporciona dos usuarios y un wiki para comenzar.",
+	"info-no-wiki": "Proporciona una wiki para comenzar.",
+	"info-required-fields": "Proporciona dos usuarios y una wiki para comenzar.",
 	"licensed-under": "Disponible bajo la licencia $1",
 	"field-label-end-date": "Fecha de finalización",
 	"field-label-start-date": "Fecha de inicio",
