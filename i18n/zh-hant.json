@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ericliu1912",
 			"Kly",
 			"Sanmosa"
 		]
 	},
 	"app-description": "顯示兩名使用者在曾編輯過的同一個頁面裡順序歷史記錄。",
 	"app-feedback-link": "說明",
-	"app-title": "Interaction Timeline",
+	"app-title": "互動時間線",
 	"back-top": "返回頂端",
 	"between-edits": "在 $1期間的編輯",
 	"between-interactions": "在 $1期間的互動",
