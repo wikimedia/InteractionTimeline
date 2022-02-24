@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Brazal.dang"
+			"Brazal.dang",
+			"Daramlagon"
 		]
 	},
-	"app-feedback-link": "Katabangan",
+	"app-feedback-link": "Tabang",
 	"app-title": "Timeline kan interaksyon",
 	"back-top": "Magbalik sa itaas",
 	"between-edits": "$1 sa pagitan kan kaliwatan",
