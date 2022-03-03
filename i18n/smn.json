@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Seipinne"
+		]
+	},
+	"app-feedback-link": "Iše",
+	"error": "Feilâ",
+	"error-help-report": "Almoot feeilâ",
+	"field-label-end-date": "Nuuhâmpeivi",
+	"field-label-start-date": "Älgimpeivi",
+	"field-label-users": "Kevtteeh",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Valjii...",
+	"field-select-no-results": "Ij uuccâmpuátusijd",
+	"view-source-code-on": "Čääiti $1ist",
+	"warning-no-results": "Iä puátuseh",
+	"discuss-on-wiki-copy": "Kopijist",
+	"discuss-on-wiki-copied": "Kopijistum!"
+}
