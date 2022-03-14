@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Muotâ",
 			"Seipinne"
 		]
 	},
@@ -12,7 +13,7 @@
 	"field-label-users": "Kevtteeh",
 	"field-label-wiki": "Wiki",
 	"field-select-placeholder": "Valjii...",
-	"field-select-no-results": "Ij uuccâmpuátusijd",
+	"field-select-no-results": "Iä uuccâmpuátuseh",
 	"view-source-code-on": "Čääiti $1ist",
 	"warning-no-results": "Iä puátuseh",
 	"discuss-on-wiki-copy": "Kopijist",
