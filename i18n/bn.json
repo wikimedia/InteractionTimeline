@@ -2,14 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
+			"CX Zoom",
 			"আফতাবুজ্জামান"
 		]
 	},
+	"app-description": "দুইজন ব্যবহারকারীর জন্য সময়ানুক্রমিক ইতিহাস যেখানে দুইজনেই সম্পাদনা করেছেন",
 	"app-feedback-link": "সাহায্য",
 	"back-top": "উপরে ফিরুন",
 	"between-edits": "সম্পাদনার মধ্যে সময় $1",
 	"error": "ত্রুটি",
 	"error-help": "$1, এবং তারপর $2।",
+	"error-help-report": "ত্রুটি প্রতিবেদন করুন",
 	"error-help-refresh": "পাতাটি পুনঃসতেজ করুন",
 	"error-message-request-url": "অনুরোধের URL",
 	"info-no-users": "শুরু করতে দুইজন ব্যবহারকারী প্রদান করুন।",
