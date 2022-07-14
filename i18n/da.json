@@ -37,6 +37,8 @@
 	"view-source-code-on": "Vis på $1",
 	"warning-no-results": "Ingen resultater",
 	"discuss-on-wiki": "Del disse resultater",
+	"discuss-on-wiki-text": "Mellem $1 og $2 den $3 [[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) og [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) foretog begge redigeringer på nogle fælles sider. Du kan se en kronologisk liste over alle deres redigeringer på [$6 Interaction Timeline] eller en tabelvisning på [$7 Interaction Analyser].",
+	"discuss-on-wiki-help": "Kopier og indsæt denne wikitekst til en diskussion på wiki for at dele disse tidslinjeresultater vedrørende interaktion med andre",
 	"discuss-on-wiki-copy": "Kopier",
 	"discuss-on-wiki-copied": "Kopieret!"
 }
