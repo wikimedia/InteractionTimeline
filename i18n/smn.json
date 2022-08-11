@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Muotâ",
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
 	"app-feedback-link": "Iše",
+	"back-top": "Maassâd pajas",
 	"error": "Feilâ",
 	"error-help-report": "Almoot feeilâ",
 	"field-label-end-date": "Nuuhâmpeivi",
