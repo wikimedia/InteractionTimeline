@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"GinawaSaHapon"
+		]
+	},
+	"app-description": "Kronolohikal na nakaraan ng dalawang tagagamit sa mga pahinang pareho nilang in-edit.",
+	"app-feedback-link": "Tulong",
+	"app-title": "Interaction Timeline",
+	"back-top": "Umakyat",
+	"between-edits": "$1 sa pagitan ng mga edit",
+	"between-interactions": "$1 sa pagitan ng mga interaksyon",
+	"error": "Error",
+	"error-help": "$1, tapos $2.",
+	"error-help-report": "Iulat ang error",
+	"error-help-refresh": "i-refresh ang pahina",
+	"error-message-request-url": "URL ng hiling",
+	"error-suppressed-diff": "Hindi mo makikita ang pagkakaibang ito dahil tinago ang isa o parehong pagbabago.",
+	"info-no-users": "Magbigay ng dalawang tagagamit para magsimula.",
+	"info-no-wiki": "Magbigay ng wiki para magsimula.",
+	"info-required-fields": "Magbigay ng dalawang tagagamit at wiki para magsimula.",
+	"licensed-under": "Lisensiyado sa ilalim ng $1",
+	"field-label-end-date": "Dulo",
+	"field-label-start-date": "Simula",
+	"field-label-users": "Mga tagagamit",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Pumili...",
+	"field-select-no-results": "Walang nakitang resulta",
+	"field-select-search-prompt": "Mag-type para maghanap",
+	"made-by": "Ginawa ng $1 ng Wikimedia Foundation.",
+	"made-by-team": "Anti-Harassment Tools team",
+	"privacy-policy": "Patakaran sa Pagkapribado",
+	"powered-by": "Pinapagana ng Wikimedia Toolforge",
+	"report-bug": "Mag-ulat ng bug",
+	"revision-edit-summary-removed": "tinanggal ang buod",
+	"view-source-code-on": "tingnan sa $1",
+	"warning-no-results": "Walang resulta",
+	"discuss-on-wiki": "Ibahagi ang mga resultang ito",
+	"discuss-on-wiki-text": "Mula $1 hanggang $2 sa $3, parehong gumawa ng mga edit sina [[User:$4]] ([[User talk:$4|usapan]] | [[Special:Contributions/$4|ambag]]) at [[User:$5]] ([[User talk:$5|usapan]] | [[Special:Contributions/$5|ambag]]) sa ilang mga pahina. Makikita mo ang isang kronolohikal na listahan ng lahat ng mga edit nila sa [$6 Interaction Timeline] o sa table na [$7 Interaction Analyzer].",
+	"discuss-on-wiki-help": "Kopyahin at i-paste ang wikitext na ito sa isang on-wiki na usapan para maibahagi ang mga resulta ng Interaction Timeline sa iba",
+	"discuss-on-wiki-copy": "Kopyahin",
+	"discuss-on-wiki-copied": "Nakopya na!"
+}
