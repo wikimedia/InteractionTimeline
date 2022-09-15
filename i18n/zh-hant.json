@@ -5,7 +5,8 @@
 			"Ericliu1912",
 			"Kly",
 			"Sanmosa",
-			"Tranve"
+			"Tranve",
+			"Winston Sung"
 		]
 	},
 	"app-description": "顯示兩名使用者在曾編輯過的同一個頁面裡順序歷史記錄。",
@@ -33,7 +34,7 @@
 	"field-select-search-prompt": "要搜尋的類型",
 	"made-by": "由維基媒體基金會的 $1 製作。",
 	"made-by-team": "Anti-Harassment Tools team",
-	"privacy-policy": "隱私政策",
+	"privacy-policy": "隱私權政策",
 	"powered-by": "由維基媒體 Toolforge 提供支援",
 	"report-bug": "回報程式問題",
 	"revision-edit-summary-removed": "編輯摘要已移除",
