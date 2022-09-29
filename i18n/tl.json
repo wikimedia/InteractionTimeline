@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Jojit fb"
 		]
 	},
 	"app-description": "Kronolohikal na nakaraan ng dalawang tagagamit sa mga pahinang pareho nilang in-edit.",
 	"app-feedback-link": "Tulong",
 	"app-title": "Interaction Timeline",
 	"back-top": "Umakyat",
-	"between-edits": "$1 sa pagitan ng mga edit",
+	"between-edits": "$1 sa pagitan ng mga binago",
 	"between-interactions": "$1 sa pagitan ng mga interaksyon",
 	"error": "Error",
 	"error-help": "$1, tapos $2.",
