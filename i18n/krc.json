@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Къарачайлы"
+		]
+	},
+	"app-description": "Экиси да тюзелтиу этген бетледе эки къошулуучу ючюн хронология тарих.",
+	"app-feedback-link": "Болушлукъ",
+	"app-title": "Интеракцияны хронологиясы",
+	"back-top": "Башына къайт",
+	"between-edits": "Тюзетиуле арасында $1",
+	"between-interactions": "Бир бири бла байламлыкъ арасында $1",
+	"error": "Халат",
+	"error-help": "$1, сора $2.",
+	"error-help-report": "Халатны билдир",
+	"error-help-refresh": "бетни джангырт",
+	"error-message-request-url": "URL излем",
+	"error-suppressed-diff": "Версияларындан бири неда экиси да букъдурулдугъу ючюн, бу башхалыкъны кёраллмазсыз.",
+	"info-no-users": "Тилейбиз, башлар ючюн эки къошулуучуну белгилегиз.",
+	"info-no-wiki": "Тилейбиз, башлар ючюн викини белгилегиз.",
+	"info-required-fields": "Тилейбиз, башлар ючюн эки къошулуучуну эмда эки вики белгилегиз.",
+	"licensed-under": "$1 тюбюнде лицензиялы",
+	"field-label-end-date": "Бошалыу дата",
+	"field-label-start-date": "Башлау дата",
+	"field-label-users": "Къошулуучула",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Сайла...",
+	"field-select-no-results": "Джукъ да табылмады",
+	"field-select-search-prompt": "Излер ючюн джазыгъыз",
+	"made-by": "Викимедия Фондну $1 командасы этгенди.",
+	"made-by-team": "Анти-Зорлукъ Адырланы командасы",
+	"privacy-policy": "Ташалыкъ политика",
+	"powered-by": "Wikimedia Toolforge дагъан",
+	"report-bug": "Халатны юсюнден билдир",
+	"revision-edit-summary-removed": "тюрлендириуню суратлауу кетерилгенди",
+	"view-source-code-on": "$1 сайтда къара",
+	"warning-no-results": "Эсеб джокъду",
+	"discuss-on-wiki": "Бу эсеблени юлеш",
+	"discuss-on-wiki-text": "$1 бла $2 арасында $3 юсюнден [[User:$4]] ([[User talk:$4|билдириу]] | [[Special:Contributions/$4|къошуу]]) эмда [[User:$5]] ([[User talk:$5|билдириу]] | [[Special:Contributions/$5|къошуу]]) викилеге хар экиси да ортакъ бир къауум бетледе тюзетиу этди. [$6 Interaction Timeline]-да бютеу тюзетиулени хронология тизмесин неда'[$7 Interaction Analyser]-де таблица кёрюнюмню кёрюрге боллукъсуз.",
+	"discuss-on-wiki-help": "Бу Бир-бирине Байламлыкъ Хронологияны эсеблерин башхала бла юлешир ючюн бу викитекстни викисюзюуге копия этиб салыгъыз.",
+	"discuss-on-wiki-copy": "Копия этиу",
+	"discuss-on-wiki-copied": "Копия этилди!"
+}
