@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Balyozxane",
 			"Bikarhêner",
 			"George Animal",
 			"Kur"
@@ -38,7 +39,7 @@
 	"view-source-code-on": "Li ser $1 bibîne",
 	"warning-no-results": "Encam tine",
 	"discuss-on-wiki": "Van encaman parve bike",
-	"discuss-on-wiki-text": "Di navbera $1 û $2 de li $3 [[User:$4]] ([[User talk:$4|gotûbêj]] | [[Special:Contributions/$4|beşdarî]]) û [[User:$5]] ([[User talk:$5|gotûbêj]] | [[Special:Contributions/$5|beşdarî]])her du jî li ser hin rûpelên eynî guhertinan kirine. Tu dikarî lîsteyeke kronolojîk yê temamiya guhertinên wan bibînî li ser [$6 Demnameya Înteraksiyonê] an wek şabloneke bibînî li ser [$7 Analîzera Înterakiyonê].",
+	"discuss-on-wiki-text": "Di navbera $1 û $2 de li $3 [[User:$4]] ([[User talk:$4|gotûbêj]] | [[Special:Contributions/$4|beşdarî]]) û [[User:$5]] ([[User talk:$5|gotûbêj]] | [[Special:Contributions/$5|beşdarî]])her du jî li ser hin rûpelên eynî guhartinan kirine. Tu dikarî lîsteyeke kronolojîk yê temamiya guhartinên wan bibînî li ser [$6 Demnameya Înteraksiyonê] an wek şabloneke bibînî li ser [$7 Analîzera Înterakiyonê].",
 	"discuss-on-wiki-help": "Vê wîkînivîsê jê bigire & pê ve bike li ser gotûbêjeke li ser wîkiyê, ji bo ku van encamên Demnameya Înteraksiyonê bi kesên din re parve bikî.",
 	"discuss-on-wiki-copy": "Kopî bike",
 	"discuss-on-wiki-copied": "Hate kopîkirin!"
