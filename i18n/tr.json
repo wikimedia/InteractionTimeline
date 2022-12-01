@@ -5,7 +5,8 @@
 			"By erdo can",
 			"Hedda",
 			"Joseph",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"ToprakM"
 		]
 	},
 	"app-description": "Her ikisinin de düzenleme yaptıkları sayfalarda iki kullanıcı için kronolojik geçmiş.",
@@ -33,7 +34,7 @@
 	"field-select-search-prompt": "Aramak için yazın",
 	"made-by": "Wikimedia Vakfı'dan $1 tarafından yapılmıştır",
 	"made-by-team": "Anti-Taciz Araçları ekibi",
-	"privacy-policy": "Gizlilik ilkesi",
+	"privacy-policy": "Gizlilik politikası",
 	"powered-by": "Wikimedia Toolforge tarafından desteklenmektedir",
 	"report-bug": "Hata bildir",
 	"revision-edit-summary-removed": "düzenleme özeti silindi",
