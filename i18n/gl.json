@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Banjo"
+			"Banjo",
+			"Toliño"
 		]
 	},
 	"app-feedback-link": "Axuda",
@@ -20,7 +21,7 @@
 	"field-label-wiki": "Wiki",
 	"field-select-placeholder": "Selecionar...",
 	"field-select-no-results": "Non se atopou ningún resultado",
-	"privacy-policy": "Política de privacidade",
+	"privacy-policy": "Política de protección de datos",
 	"powered-by": "Impulsado por Wikimedia Toolforge",
 	"report-bug": "Informar dun erro",
 	"revision-edit-summary-removed": "resumo de edición eliminado",
