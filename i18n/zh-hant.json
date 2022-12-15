@@ -6,7 +6,8 @@
 			"Kly",
 			"Sanmosa",
 			"Tranve",
-			"Winston Sung"
+			"Winston Sung",
+			"捍粵者"
 		]
 	},
 	"app-description": "顯示兩名使用者在曾編輯過的同一個頁面裡順序歷史記錄。",
@@ -21,9 +22,9 @@
 	"error-help-refresh": "重新整理頁面",
 	"error-message-request-url": "請求 URL",
 	"error-suppressed-diff": "因修訂版本已被隱藏，您無法檢視差異。",
-	"info-no-users": "請提供兩名使用者來進行。",
-	"info-no-wiki": "請提供 wiki 來進行。",
-	"info-required-fields": "請提供兩名使用者與 wiki 來進行。",
+	"info-no-users": "請提供兩名用者以開始",
+	"info-no-wiki": "請提供wiki來開始",
+	"info-required-fields": "請提供兩名使用者與wiki來開始。",
 	"licensed-under": "使用 $1 條款授權",
 	"field-label-end-date": "結束日期",
 	"field-label-start-date": "開始日期",
