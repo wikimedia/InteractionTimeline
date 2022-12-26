@@ -4,6 +4,7 @@
 			"Balyozxane",
 			"Bikarhêner",
 			"George Animal",
+			"Ghybu",
 			"Kur"
 		]
 	},
@@ -16,7 +17,7 @@
 	"error": "Çewtî",
 	"error-help": "$1, û piştre $2",
 	"error-help-report": "Çewtiyê rapor bike",
-	"error-help-refresh": "rûpelê nû bike",
+	"error-help-refresh": "rûpelê rojane bike",
 	"error-message-request-url": "URL bixwaze",
 	"error-suppressed-diff": "Tu vê ferqê nikarî bibînî ji ber ku revîzyonek an jî her du revîzyon jî ji holê hatine rakirin.",
 	"info-no-users": "Xêra xwe ji bo destpêkirinê du bikarhêner peyda bike.",
