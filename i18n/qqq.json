@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Armeniki",
+			"McDutchie",
 			"Robby"
 		]
 	},
@@ -28,7 +29,7 @@
 	"field-label-wiki": "Label for the 'Wiki' field\n{{Identical|Wiki}}",
 	"field-select-placeholder": "Select field placeholder, displayed when there's no value\n{{Identical|Select}}",
 	"field-select-no-results": "Select field placeholder displayed when there are no matching search results",
-	"field-select-search-prompt": "Select field label to prompt for search input",
+	"field-select-search-prompt": "Select field label to prompt for search input\n{{doc-important|\"Type\" means \"write using the keyboard\", not \"kind\"; this is a prompt for the user to type their search query}}",
 	"made-by": "Footer message that tells the user who made the tool.\n\n$1 is {{msg-wm|Interaction-timeline-made-by-team}}",
 	"made-by-team": "The name of the team, linked to the team page, that created teh tool. Used is {{msg-wm|Interaction-timeline-made-by}}",
 	"privacy-policy": "Link to privacy policy.\n{{Identical|Privacy policy}}",

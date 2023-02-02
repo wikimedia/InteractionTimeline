@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Nirajan pant",
+			"बडा काजी",
 			"सरोज कुमार ढकाल"
 		]
 	},
@@ -18,7 +19,7 @@
 	"field-label-end-date": "समाप्ति मिति",
 	"field-label-start-date": "आरम्भ मिति",
 	"field-label-users": "प्रयोगकर्ताहरू",
-	"field-label-wiki": "विकी",
+	"field-label-wiki": "विकि",
 	"field-select-placeholder": "छान्नुहोस्...",
 	"field-select-no-results": "कुनै पनि नतिजाहरू भेटिएनन्",
 	"privacy-policy": "गोपनीयता नीति",

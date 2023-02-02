@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"app-description": "Historia chronologic pro duo usatores sur paginas ubi le duo ha facite modificationes.",
+	"app-feedback-link": "Adjuta",
+	"app-title": "Chronologia de interactiones",
+	"back-top": "Retro al initio",
+	"between-edits": "$1 inter modificationes",
+	"between-interactions": "$1 inter interactiones",
+	"error": "Error",
+	"error-help": "$1, e alora $2.",
+	"error-help-report": "Signalar le error",
+	"error-help-refresh": "refrescar le pagina",
+	"error-message-request-url": "URL de requesta",
+	"error-suppressed-diff": "Tu non pote vider iste comparation perque un o le duo del versiones ha essite supprimite.",
+	"info-no-users": "Per favor forni duo usatores pro comenciar.",
+	"info-no-wiki": "Per favor forni un wiki pro comenciar.",
+	"info-required-fields": "Per favor forni duo usatores e un wiki pro comenciar.",
+	"licensed-under": "Sub licentia $1",
+	"field-label-end-date": "Data de fin",
+	"field-label-start-date": "Data de initio",
+	"field-label-users": "Usatores",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Selige…",
+	"field-select-no-results": "Necun resultato trovate",
+	"field-select-search-prompt": "Scribe pro cercar",
+	"made-by": "Facite per le $1 del Fundation Wikimedia.",
+	"made-by-team": "equipa de instrumentos anti-molestias",
+	"privacy-policy": "Politica de confidentialitate",
+	"powered-by": "Actionate per Wikimedia Toolforge",
+	"report-bug": "Reportar un defecto",
+	"revision-edit-summary-removed": "summario del modification removite",
+	"view-source-code-on": "Vider sur $1",
+	"warning-no-results": "Nulle resultato",
+	"discuss-on-wiki": "Condivider iste resultatos",
+	"discuss-on-wiki-text": "Inter le $1 e le $2 sur $3, le duo usatores [[User:$4|$4]] ([[User talk:$4|discussion]] | [[Special:Contributions/$4|contributiones]]) e [[User:$5|$5]] ([[User talk:$5|discussion]] | [[Special:Contributions/$5|contributiones]]) ha facite modificationes de alcun paginas in commun. Tu pote vider un lista chronologic de tote lor modificationes sur le [$6 chronologia de interactiones] o un vista tabular sur le [$7 analysator de interactiones].",
+	"discuss-on-wiki-help": "Copia e colla iste wikitexto in un discussion sur le wiki pro condivider iste resultatos del chronologia de interactiones con altere personas.",
+	"discuss-on-wiki-copy": "Copiar",
+	"discuss-on-wiki-copied": "Copiate!"
+}

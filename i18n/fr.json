@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
+			"McDutchie",
 			"Thibaut120094",
 			"Verdy p",
 			"Wladek92"
@@ -29,7 +30,7 @@
 	"field-label-wiki": "Wiki",
 	"field-select-placeholder": "Sélectionner...",
 	"field-select-no-results": "Aucun résultat trouvé",
-	"field-select-search-prompt": "Type à rechercher",
+	"field-select-search-prompt": "Tapez pour rechercher",
 	"made-by": "Réalisé par l’$1 de la Fondation Wikimedia.",
 	"made-by-team": "Équipe en charge des outils anti-harcèlement",
 	"privacy-policy": "Politique de confidentialité",
