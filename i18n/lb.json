@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"app-feedback-link": "Hëllef",
@@ -13,7 +14,9 @@
 	"error-help-report": "Feeler mellen",
 	"error-help-refresh": "d'Säit aktualiséieren",
 	"error-message-request-url": "URL ufroen",
+	"info-no-users": "Gitt wgl. zwee Benotzer u fir unzefänken.",
 	"info-no-wiki": "Gitt wgl. eng Wiki u fir unzefänken.",
+	"info-required-fields": "Gitt wgl. zwee Benotzer an eng Wiki u fir unzefänken.",
 	"licensed-under": "Lizenzéiert ënner $1.",
 	"field-label-end-date": "Schlussdatum",
 	"field-label-start-date": "Ufanksdatum",
@@ -27,6 +30,7 @@
 	"report-bug": "E Feeler mellen",
 	"view-source-code-on": "Op $1 kucken",
 	"warning-no-results": "Keng Resultater",
+	"discuss-on-wiki": "Dës Resultater deelen",
 	"discuss-on-wiki-copy": "Kopéieren",
 	"discuss-on-wiki-copied": "Kopéiert!"
 }
