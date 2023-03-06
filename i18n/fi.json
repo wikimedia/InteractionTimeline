@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Nike",
 			"Pyscowicz"
 		]
 	},
@@ -36,6 +37,8 @@
 	"view-source-code-on": "Näytä $1issa",
 	"warning-no-results": "Ei tuloksia",
 	"discuss-on-wiki": "Jaa nämä tulokset",
+	"discuss-on-wiki-text": "$1 ja $2 välillä sivuston $3 käyttäjät [[User:$4]] ([[User talk:$4|keskustelusivu]] | [[Special:Contributions/$4|muokkaukset]]) ja [[User:$5]] ([[User talk:$5|keskustelusivu]] | [[Special:Contributions/$5|muokkaukset]]) tekivät muutoksia joihinkin samoihin sivuihin. Voit nähdä luettelon heidän muokkauksista aikajärjestyksessä [$6 vuorovaikutusaikajanalla] tai taulukkomuodossa [$7 vuorovaikutusanalysaattorissa].",
+	"discuss-on-wiki-help": "Kopioi ja liitä tämä wikiteksti wikissä olevaan keskusteluun jakaaksesi nämä vuorovaikutusaikajanan tulokset muiden kanssa",
 	"discuss-on-wiki-copy": "Kopioi",
 	"discuss-on-wiki-copied": "Kopioitu!"
 }
