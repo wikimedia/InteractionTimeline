@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Atzerritik",
 			"EukeneFL",
 			"Fitoschido",
 			"Mikel Ibaiba",
@@ -18,8 +19,8 @@
 	"error-help-report": "Akatsa jakinarazi",
 	"error-help-refresh": "Orrialdea freskatu",
 	"error-message-request-url": "URLa eskatu",
-	"error-suppressed-diff": "Ezin duzu diff hau ikusi bertsio bat edo biak ezabatuak izan direlako.",
-	"info-no-users": "Mesedez, eman bi erabiltzaile hasteko",
+	"error-suppressed-diff": "Ezin duzu desberdintasun hau ikusi, bi berrikuspenetako bat edo biak ezabatu dituztelako.",
+	"info-no-users": "Mesedez, eman bi erabiltzaile hasteko.",
 	"info-no-wiki": "Mesedez eskaini wikia hasteko.",
 	"info-required-fields": "Mesedez eskain esazu bi erabiltzaileak eta wiki hasteko.",
 	"licensed-under": "$1 lizentziaren babespean",
