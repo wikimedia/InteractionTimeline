@@ -4,6 +4,7 @@
 			"Atzerritik",
 			"EukeneFL",
 			"Fitoschido",
+			"Juele",
 			"Mikel Ibaiba",
 			"Theklan"
 		]
@@ -40,6 +41,8 @@
 	"view-source-code-on": "$1(e)an ikusi",
 	"warning-no-results": "Emaitzik ez",
 	"discuss-on-wiki": "Emaitza hauek partekatu",
+	"discuss-on-wiki-text": "$1 eta $2 artean $3 n [[Erabiltzailea: $4 ]] ([[Erabiltzailea: $4 |hitzaldia]] | [[Special:Contributions/ $4 |ekarpenak]]) eta [[Erabiltzailea: $5 ]] ([[Erabiltzaileen eztabaida : $5 |hitzaldia]] | [[Special:Contributions/ $5 |ekarpenak]]) biek aldaketak egin zituzten orri komun batzuetan. Beren aldaketa guztien zerrenda kronologikoa ikus dezakezu [ $6 Interaction Timeline] edo taula ikuspegi bat [ $7 Interaction Analyser] atalean.",
+	"discuss-on-wiki-help": "Kopiatu eta itsatsi wikitestu hau wiki eztabaida batean, interakzioaren denbora-lerroaren emaitza horiek beste batzuekin partekatzeko",
 	"discuss-on-wiki-copy": "Kopiatu",
 	"discuss-on-wiki-copied": "Kopiatua"
 }
