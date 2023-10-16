@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Magiczocker",
 			"Metalhead64"
 		]
 	},
@@ -20,17 +21,17 @@
 	"info-no-wiki": "Bitte gib zum Anfangen ein Wiki an.",
 	"info-required-fields": "Bitte gib zum Anfangen zwei Benutzer und ein Wiki an.",
 	"licensed-under": "Lizenziert unter $1",
-	"field-label-end-date": "End-Datum",
-	"field-label-start-date": "Start-Datum",
+	"field-label-end-date": "Enddatum",
+	"field-label-start-date": "Anfangsdatum",
 	"field-label-users": "Benutzer",
 	"field-label-wiki": "Wiki",
-	"field-select-placeholder": "Auswählen …",
+	"field-select-placeholder": "Auswählen...",
 	"field-select-no-results": "Keine Ergebnisse gefunden",
 	"field-select-search-prompt": "Tippen zum Suchen",
 	"made-by": "Erstellt vom $1.",
 	"made-by-team": "Anti-Belästigungs-Werkzeuge-Team der Wikimedia Foundation",
 	"privacy-policy": "Datenschutzrichtlinie",
-	"powered-by": "Powered by Wikimedia Toolforge",
+	"powered-by": "Unterstützt von Wikimedia Toolforge",
 	"report-bug": "Einen Fehler melden",
 	"revision-edit-summary-removed": "Zusammenfassung entfernt",
 	"view-source-code-on": "Auf $1 ansehen",
