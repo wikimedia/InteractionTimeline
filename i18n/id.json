@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akmaie Ajam"
+			"Akmaie Ajam",
+			"Veracious"
 		]
 	},
 	"app-description": "Sejarah secara kronologis untuk dua pengguna di halaman dimana kedua-duanya melakukan suntingan.",
@@ -10,7 +11,7 @@
 	"back-top": "Kembali ke Atas",
 	"between-edits": "$1 antara suntingan",
 	"between-interactions": "$1 antara interaksi",
-	"error": "Kesalahan",
+	"error": "Galat",
 	"error-help": "$1, dan kemudian $2.",
 	"error-help-report": "Laporkan kesalahan",
 	"error-help-refresh": "muat ulang halaman",
