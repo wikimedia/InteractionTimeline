@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Thakurji"
+		]
+	},
+	"app-feedback-link": "Madat",
+	"error": "Galti",
+	"error-help": "$1, aur fir $2.",
+	"error-help-report": "Error ke report karo",
+	"error-help-refresh": "panna ke refresh karo",
+	"error-message-request-url": "URL ke request karo",
+	"field-label-end-date": "Khalaas waala taarik",
+	"field-label-start-date": "Suruu waala taarik",
+	"field-label-users": "Sadasya",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Select karo...",
+	"field-select-no-results": "Koi result nai milaa",
+	"discuss-on-wiki-copy": "Copy karo",
+	"discuss-on-wiki-copied": "Copy kar lewa gais hai!"
+}
