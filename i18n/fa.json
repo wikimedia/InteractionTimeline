@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amirsara",
+			"Ebraminio",
 			"Jeeputer"
 		]
 	},
@@ -16,7 +17,7 @@
 	"error-help-report": "گزارش خطا",
 	"error-help-refresh": "تازه‌سازی صفحه",
 	"error-message-request-url": "درخواست نشانی اینترنتی",
-	"error-suppressed-diff": "شما نمی‌توانید این تفاوت را ببینید. زیرا هردو یا یکی از نسخه‌ها فرونشانی شده‌است.",
+	"error-suppressed-diff": "شما نمی‌توانید این تفاوت را ببینید. زیرا هردو یا یکی از نسخه‌ها فرونشانی شده است.",
 	"info-no-users": "برای شروع، لطفاً دو کاربر را مشخص کنید.",
 	"info-no-wiki": "برای شروع، لطفاً یک ویکی را مشخص کنید.",
 	"info-required-fields": "برای شروع، لطفاً دو کاربر و یک ویکی را مشخص کنید.",
