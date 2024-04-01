@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cookai1205",
 			"Diskdance",
 			"Ericliu1912",
 			"Kly",
@@ -12,7 +13,7 @@
 	},
 	"app-description": "顯示兩名使用者在曾編輯過的同一個頁面裡順序歷史記錄。",
 	"app-feedback-link": "說明",
-	"app-title": "互動時間線",
+	"app-title": "互動時間軸",
 	"back-top": "返回頂端",
 	"between-edits": "在 $1期間的編輯",
 	"between-interactions": "在 $1期間的互動",
@@ -33,8 +34,8 @@
 	"field-select-placeholder": "選擇...",
 	"field-select-no-results": "查無結果",
 	"field-select-search-prompt": "要搜尋的類型",
-	"made-by": "由維基媒體基金會的 $1 製作。",
-	"made-by-team": "Anti-Harassment Tools team",
+	"made-by": "由維基媒體基金會的$1製作。",
+	"made-by-team": "反騷擾工具團隊",
 	"privacy-policy": "隱私權政策",
 	"powered-by": "由維基媒體 Toolforge 提供支援",
 	"report-bug": "回報程式問題",
@@ -42,7 +43,7 @@
 	"view-source-code-on": "在 $1 上檢視",
 	"warning-no-results": "沒有結果",
 	"discuss-on-wiki": "分享這些結果",
-	"discuss-on-wiki-text": "$1與$2期間，在 $3 上[[User:$4]]（[[User talk:$4|對話]] | [[Special:Contributions/$4|貢獻]]）與[[User:$5]]（[[User talk:$5|對話]] | [[Special:Contributions/$5|貢獻]]）有在同一頁面上做出了編輯。您可以在 [$6 Interaction Timeline] 或是 [$7 Interaction Analyser] 的表格視圖上，查看他們所有編輯內容的事件順序清單。",
+	"discuss-on-wiki-text": "$1至$2期間在 $3 上，[[User:$4]]（[[User talk:$4|討論]] | [[Special:Contributions/$4|貢獻]]）與[[User:$5]]（[[User talk:$5|討論]] | [[Special:Contributions/$5|貢獻]]）有在同一頁面上做出編輯。您可以在 [$6 Interaction Timeline] 檢視他們所有編輯內容的事件順序清單，或是在 [$7 Interaction Analyser] 檢視表格視圖。",
 	"discuss-on-wiki-help": "將此份 wikitext 複製並貼上到 wiki 上的討論區，來與其他人分享這些 Interaction Timeline 結果",
 	"discuss-on-wiki-copy": "複製",
 	"discuss-on-wiki-copied": "已複製！"
