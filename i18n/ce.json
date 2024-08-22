@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"app-description": "Шина декъашхочо агӀонаш тӀехь хийцамаш бина хронологин истори.",
+	"app-feedback-link": "ГӀо",
+	"app-title": "Interaction Timeline",
+	"back-top": "ЙухагӀо хьала",
+	"between-edits": "$1 хийцамашна йукъахь",
+	"between-interactions": "$1 йукъаметтигашна йукъахь",
+	"error": "ГӀалат",
+	"error-help": "$1, цул тӀаьхьа $2.",
+	"error-help-report": "ГӀалатех хаам бар",
+	"error-help-refresh": "агӀо карлайаккха",
+	"error-message-request-url": "Дехаран URL-адрес",
+	"error-suppressed-diff": "ХӀара башхалла хьажа йиш йац хьан, хӀунда аьлча цхьаъ йа ший а верси къайлайаьккхина йу.",
+	"info-no-users": "Дехар до, шиъ декъашхо билгалбе",
+	"info-no-wiki": "Дехар до, анализ йан вики билгалйаккха.",
+	"info-required-fields": "Дехар до, шиъ декъашхо а, вики билгалде",
+	"licensed-under": "Лицензица $1",
+	"field-label-end-date": "Чекхйолу хан",
+	"field-label-start-date": "Йолайелла хан",
+	"field-label-users": "Декъашхой",
+	"field-label-wiki": "Вики",
+	"field-select-placeholder": "Харжа…",
+	"field-select-no-results": "ХӀума ца карийна",
+	"field-select-search-prompt": "Йазде лахарна",
+	"made-by": "$1 Викимедиа Фондан командо йина.",
+	"made-by-team": "Хьийзорна дуьхьал команда",
+	"privacy-policy": "Конфиденционаллин политика",
+	"powered-by": "Wikimedia Toolforge гӀирсан тӀехь",
+	"report-bug": "Хаийта гӀалатах",
+	"revision-edit-summary-removed": "нисдарах лаьцна хаам дӀабаьккхина",
+	"view-source-code-on": "$1 сайт тӀехь хьажа",
+	"warning-no-results": "Цхьа а жамӀ дац",
+	"discuss-on-wiki": "ХӀара жамӀаш декъа",
+	"discuss-on-wiki-text": "$1 а, $2 а йукъахь $3 вики тӀехь ши декъашхо (в)йу [[User:$4]] ([[User talk:$4|дийц.]] | [[Special:Contributions/$4|къинхьегам]]) а,  [[User:$5]] ([[User talk:$5|дийц.]]| [[Special:Contributions/$5|къинхьегам]]) хийцамаш бина цхьайолчу агӀонаш тӀехь. Хьан йиш йу хьажа массо а декъашхойн хийцамийн хронологин могӀам [$6 Interaction Timeline] тӀехь йа таблицин кепехь йолу [$7 Interaction Analyser] чохь.",
+	"discuss-on-wiki-help": "ХӀара викитекст копеш а йина, чуйилла, кхечаьрца Interaction Timeline жамӀаш декъархьама",
+	"discuss-on-wiki-copy": "Копийан",
+	"discuss-on-wiki-copied": "Копийина!"
+}
