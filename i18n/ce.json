@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Исмаил Садуев",
 			"Умар"
 		]
 	},
@@ -32,7 +33,7 @@
 	"privacy-policy": "Конфиденционаллин политика",
 	"powered-by": "Wikimedia Toolforge гӀирсан тӀехь",
 	"report-bug": "Хаийта гӀалатах",
-	"revision-edit-summary-removed": "нисдарах лаьцна хаам дӀабаьккхина",
+	"revision-edit-summary-removed": "нисдарх лаьцна хаам дӀабаьккхина",
 	"view-source-code-on": "$1 сайт тӀехь хьажа",
 	"warning-no-results": "Цхьа а жамӀ дац",
 	"discuss-on-wiki": "ХӀара жамӀаш декъа",
