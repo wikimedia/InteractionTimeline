@@ -3,7 +3,8 @@
 		"authors": [
 			"NMW03",
 			"Nemoralis",
-			"Şeyx Şamil"
+			"Şeyx Şamil",
+			"Əkrəm Cəfər"
 		]
 	},
 	"app-description": "Hər ikisinin redaktə etdiyi səhifələrdə iki istifadəçi üçün xronoloji tarixçə.",
@@ -40,6 +41,6 @@
 	"discuss-on-wiki": "Bu nəticələri paylaş",
 	"discuss-on-wiki-text": "$1 və $2 tarixləri arasında [[İstifadəçi:$4]] ([[İstifadəçi müzakirəsi:$4 |müzakirə]] | [[Special:Contributions/$4|töhfələr]]) və [[İstifadəçi:$5]] ([[İstifadəçi müzakirəsi:$5|müzakirə]] | [[Special:Contributions/$5 |töhfələr]]) adlı istifadəçilər $3 saytındakı eyni məqalələrdə redaktə edib. Onların bütün redaktələrinin xronoloji siyahısına [$6 Qarşılıqlı Əlaqə Qrafikində], cədvəlinə isə [$7 Qarşılıqlı Fəaliyyət Analizatorunda] baxa bilərsiniz.",
 	"discuss-on-wiki-help": "Bu Qarşılıqlı Fəaliyyət Qrafiki nəticələrini başqaları ilə bölüşmək üçün bu vikimətni kopyalayın və vikidaxili müzakirəyə yapışdırın",
-	"discuss-on-wiki-copy": "Kopyala",
+	"discuss-on-wiki-copy": "Kopiyala",
 	"discuss-on-wiki-copied": "Kopyalandı!"
 }
