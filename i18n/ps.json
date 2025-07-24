@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
+		]
+	},
+	"app-description": "د دوو کارنانو لپاره د هغو مخونو چې دوی دواړو سم‌کړي دي د نېټو په ترتيب پېښليک",
+	"app-feedback-link": "لارښود",
+	"app-title": "د تعامل مهالوېش",
+	"back-top": "بېرته سر ته",
+	"between-edits": "$1 سمونونو ترمنځ",
+	"between-interactions": "$1 تعاملاتو ترمنځ",
+	"error": "تېروتنه",
+	"error-help": "$1 او بيا $2.",
+	"error-help-report": "د تېروتنې خبر ورکول",
+	"error-help-refresh": "مخ تاندول",
+	"error-message-request-url": "وېبتړ غوښتل",
+	"error-suppressed-diff": "تاسو دا توپير نشئ کتلی، ځکه چې يو يا دواړه بياکتنې له منځه وړل شوې دي.",
+	"info-no-users": "مهرباني وکړئ پيلولو لپاره دوه کارنان چمتو کړئ.",
+	"info-no-wiki": "مهرباني وکړئ پيلولو لپاره يو ويکي چمتو کړئ.",
+	"info-required-fields": "مهرباني وکړئ پيلولو لپاره دوه کارنان او ويکي چمتو کړئ.",
+	"licensed-under": "$1 منښتليک سره سم",
+	"field-label-end-date": "پای نېټه",
+	"field-label-start-date": "پيل نېټه",
+	"field-label-users": "کارنان",
+	"field-label-wiki": "ويکي",
+	"field-select-placeholder": "وټاکئ...",
+	"field-select-no-results": "هېڅ پايلې ونه موندل شوې",
+	"field-select-search-prompt": "پلټلو لپاره وټاپئ",
+	"made-by": "ويکي‌رسنۍ بنسټ له خوا جوړ شوی $1.",
+	"made-by-team": "ځورونې ضد توکو ډله",
+	"privacy-policy": "پټنتيا تگلار",
+	"powered-by": "د ويکي‌رسنۍ توک‌سپنوونکي له خوا پرمخ‌وړل شوی",
+	"report-bug": "تېروتنې خبر ورکول",
+	"revision-edit-summary-removed": "سمون لنډيز لرې‌شو",
+	"view-source-code-on": "په $1 باندې کتل",
+	"warning-no-results": "بې پايلو",
+	"discuss-on-wiki": "دا پايلې وېشل",
+	"discuss-on-wiki-help": "دا ويکي‌ليک ولمېسئ او په شننه کې يې ولېښئ؛ ترڅو د دې د تعامل مهالوېش پايلې له نورو سره شريکې شي.",
+	"discuss-on-wiki-copy": "لمېسل",
+	"discuss-on-wiki-copied": "ولمېسل‌شو!"
+}
