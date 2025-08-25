@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Belkacem77"
+			"Belkacem77",
+			"ButterflyOfFire"
 		]
 	},
 	"app-description": "Azray n sin n yiseqdacen i icerken isebtar ideg beddlen.",
@@ -31,5 +32,8 @@
 	"powered-by": "Yessul-it Wikimedia Toolforge",
 	"report-bug": "Azen abug",
 	"revision-edit-summary-removed": "agzul n yibeddilen yettwakkes",
-	"warning-no-results": "Ulac igmad"
+	"view-source-code-on": "Wali-t deg $1",
+	"warning-no-results": "Ulac igmad",
+	"discuss-on-wiki-copy": "Nɣel",
+	"discuss-on-wiki-copied": "Yettwanɣel!"
 }
