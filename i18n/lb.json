@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"GilPe",
 			"Robby",
 			"Soued031",
 			"Volvox"
@@ -34,7 +35,7 @@
 	"privacy-policy": "Dateschutzrichtlinnen",
 	"powered-by": "Powered by Wikimedia Toolforge",
 	"report-bug": "E Feeler mellen",
-	"revision-edit-summary-removed": "Resumé vun der Ännerung ewechgeholl",
+	"revision-edit-summary-removed": "Resümmee vun der Ännerung ewechgeholl",
 	"view-source-code-on": "Op $1 kucken",
 	"warning-no-results": "Keng Resultater",
 	"discuss-on-wiki": "Dës Resultater deelen",
