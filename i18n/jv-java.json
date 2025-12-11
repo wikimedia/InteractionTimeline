@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bennylin"
+		]
+	},
+	"app-description": "Riwayat kronologis kanggo rong panganggo ing kaca sing wis diowahi loro-lorone.",
+	"app-feedback-link": "ꦥꦶꦠꦸꦭꦸꦁ",
+	"app-title": "ꦭꦶꦤꦶꦮꦼꦏ꧀ꦠꦸ​ꦆꦤ꧀ꦠꦼꦂꦫꦏ꧀ꦱꦶ",
+	"back-top": "ꦧꦭꦶ​ꦚꦁ​ꦤ꧀ꦝꦸꦮꦸꦂ",
+	"between-edits": "$1ꦲꦤ꧀ꦠꦫꦤꦺ​ꦧꦼꦱꦸꦠ꧀ꦠꦤ꧀",
+	"between-interactions": "$1ꦲꦤ꧀ꦠꦫꦤꦺ​ꦆꦤ꧀ꦠꦼꦂꦫꦏ꧀ꦱꦶ",
+	"error": "ꦒꦭꦠ꧀",
+	"error-help": "$1꧈ꦧꦚ꧀ꦗꦸꦂ$2꧉",
+	"error-help-report": "ꦭꦥꦺꦴꦂꦫꦏꦺ​ꦩꦱꦭꦃ",
+	"error-help-refresh": "ꦲꦚꦂꦫꦶ​ꦏꦕ",
+	"error-message-request-url": "ꦗꦭꦸꦏ꧀URL",
+	"error-suppressed-diff": "Sampéyan ora bisa ndeleng bédané rèvisi iki amarga salah siji utawa loro-loroné rèvisi wis disingkiraké.",
+	"info-no-users": "Mangga paringana kalih panganggo kanggé miwiti.",
+	"info-no-wiki": "Mangga paringana satunggal wiki kanggé miwiti.",
+	"info-required-fields": "Mangga paringana kalih panganggo lan satunggal wiki kanggé miwiti.",
+	"licensed-under": "ꦢꦶꦭꦶꦱꦺꦤ꧀ꦱꦶꦏ꧀ꦤꦺ​ꦱꦗꦿꦺꦴꦤꦶꦁ$1",
+	"field-label-end-date": "ꦠꦁꦒꦭ꧀ꦧꦸꦧꦂ",
+	"field-label-start-date": "ꦠꦁꦒꦭ꧀ꦮꦶꦮꦶꦠ꧀",
+	"field-label-users": "ꦤꦫꦒꦸꦤ",
+	"field-label-wiki": "ꦮꦶꦏꦶ",
+	"field-select-placeholder": "ꦥꦶꦭꦶꦃ…",
+	"field-select-no-results": "ꦮꦺꦴꦃꦲꦶꦁ​ꦒꦺꦴꦭꦺꦏ꧀ꦲꦺꦴꦫ​ꦲꦤ",
+	"field-select-search-prompt": "ꦏꦼꦠꦶꦁ​ꦏꦁꦒꦺꦴ​​ꦲꦁꦒꦺꦴꦭꦺꦏ꧀ꦏꦶ",
+	"made-by": "ꦢꦶꦒꦮꦺ​ꦢꦺꦤꦶꦁ​$1ꦱꦏ​ꦮꦶꦏꦶꦩꦺꦢꦶꦪꦃ",
+	"made-by-team": "ꦠꦶꦩ꧀Anti-Harassment Tools",
+	"privacy-policy": "ꦤꦶꦠꦶꦥꦿꦶꦮ꦳ꦱꦶ",
+	"powered-by": "ꦢꦶꦢꦸꦏꦸꦁ​ꦢꦺꦤꦶꦁWikimedia Toolforge",
+	"report-bug": "ꦭꦥꦺꦴꦂ​ꦏꦼꦏꦸꦠꦸ",
+	"revision-edit-summary-removed": "ꦫꦶꦁꦏꦼꦱ꧀ꦱꦤ꧀ꦧꦼꦱꦸꦠ꧀ꦠꦤ꧀ꦢꦶꦲꦥꦸꦱ꧀",
+	"view-source-code-on": "ꦢꦼꦊꦁꦲꦶꦁ$1",
+	"warning-no-results": "ꦲꦺꦴꦫ​ꦲꦤ​ꦏꦱꦶꦭ꧀",
+	"discuss-on-wiki": "ꦧꦒꦺꦏ꧀ꦤꦺ​ꦏꦱꦶꦭ꧀ꦲꦶꦏꦶ",
+	"discuss-on-wiki-text": "Antara $1 dan $2 pada $3 [[Pengguna:$4]] ([[Pembicaraan Pengguna:$4|bicara]] | [[Istimewa:Kontribusi/$4|kontribusi]]) dan [[Pengguna:$5]] ([[Pembicaraan Pengguna:$5|bicara]] | [[Istimewa:Kontribusi/$5|contribs]]) keduanya menyunting halaman tertentu. Anda dapat melihat daftar kronologis semua penyuntingan mereka pada [$6 Garis Waktu Interaksi] atau daftar tabel pada or [$7 Garis Waktu Interaksi].",
+	"discuss-on-wiki-help": "Salin & tempelkan wikiteks ini ke diskusi pada wiki untuk membagikan hasil Garis Waktu Interaksi dengan orang lain",
+	"discuss-on-wiki-copy": "ꦱꦭꦶꦤ꧀",
+	"discuss-on-wiki-copied": "ꦢꦶꦱꦭꦶꦤ꧀!"
+}
