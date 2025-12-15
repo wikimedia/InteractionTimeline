@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Akmaie Ajam",
+			"Penyuwangi",
 			"Veracious"
 		]
 	},
@@ -38,7 +39,7 @@
 	"warning-no-results": "Tidak Ada Hasil",
 	"discuss-on-wiki": "Bagikan hasil tersebut",
 	"discuss-on-wiki-text": "Antara $1 dan $2 pada $3 [[Pengguna:$4]] ([[Pembicaraan Pengguna:$4|bicara]] | [[Istimewa:Kontribusi/$4|kontribusi]]) dan [[Pengguna:$5]] ([[Pembicaraan Pengguna:$5|bicara]] | [[Istimewa:Kontribusi/$5|contribs]]) keduanya menyunting halaman tertentu. Anda dapat melihat daftar kronologis semua penyuntingan mereka pada [$6 Garis Waktu Interaksi] atau daftar tabel pada or [$7 Garis Waktu Interaksi].",
-	"discuss-on-wiki-help": "Salin & tempelkan wikiteks ini ke diskusi pada wiki untuk membagikan hasil Garis Waktu Interaksi dengan orang lain",
+	"discuss-on-wiki-help": "Salin & tempel teks wiki ini ke diskusi pada wiki untuk membagikan hasil Linimasa Interaksi dengan orang lain",
 	"discuss-on-wiki-copy": "Salin",
 	"discuss-on-wiki-copied": "Berhasil disalin!"
 }
