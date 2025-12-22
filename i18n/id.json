@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Akmaie Ajam",
+			"Bennylin",
 			"Penyuwangi",
 			"Veracious"
 		]
 	},
-	"app-description": "Sejarah secara kronologis untuk dua pengguna di halaman dimana kedua-duanya melakukan suntingan.",
+	"app-description": "Sejarah kronologis dua pengguna yang melakukan suntingan di halaman yang sama.",
 	"app-feedback-link": "Bantuan",
 	"app-title": "Garis Waktu Interaksi",
 	"back-top": "Kembali ke Atas",
