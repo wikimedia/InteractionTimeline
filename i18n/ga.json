@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aindriu80"
+		]
+	},
+	"app-description": "Stair chroineolaíoch do bheirt úsáideoirí ar leathanaigh inar rinne an bheirt acu eagarthóireacht.",
+	"app-feedback-link": "Cabhair",
+	"app-title": "Amlíne Idirghníomhaíochta",
+	"back-top": "Ar ais go Barr",
+	"between-edits": "$1 idir eagarthóireachtaí",
+	"between-interactions": "$1 idir idirghníomhaíochtaí",
+	"error": "Earráid",
+	"error-help": "$1, agus ansin $2.",
+	"error-help-report": "Tuairiscigh an earráid",
+	"error-help-refresh": "athnuachan an leathanach",
+	"error-message-request-url": "Iarr URL",
+	"error-suppressed-diff": "Ní féidir leat an difríocht seo a fheiceáil mar go bhfuil ceann amháin nó an dá athbhreithniú curtha faoi chois.",
+	"info-no-users": "Cuir beirt úsáideoirí ar fáil le tosú.",
+	"info-no-wiki": "Cuir vicí ar fáil le tosú, le do thoil.",
+	"info-required-fields": "Cuir dhá úsáideoir agus vicí ar fáil le tosú, le do thoil.",
+	"licensed-under": "Ceadúnaithe faoi $1",
+	"field-label-end-date": "Dáta Deiridh",
+	"field-label-start-date": "Dáta Tosaigh",
+	"field-label-users": "Úsáideoirí",
+	"field-label-wiki": "Vicí",
+	"field-select-placeholder": "Roghnaigh...",
+	"field-select-no-results": "Níor aimsíodh aon torthaí",
+	"field-select-search-prompt": "Clóscríobh le cuardach",
+	"made-by": "Déanta ag $1 Fhondúireacht Wikimedia.",
+	"made-by-team": "Foireann Uirlisí Frithchiapadh",
+	"privacy-policy": "Polasaí príobháideachta",
+	"powered-by": "Cumhachtaithe ag Wikimedia Toolforge",
+	"report-bug": "Tuairiscigh fabht",
+	"revision-edit-summary-removed": "achoimre eagarthóireachta bainte",
+	"view-source-code-on": "Féach ar $1",
+	"warning-no-results": "Gan Torthaí",
+	"discuss-on-wiki": "Roinn na torthaí seo",
+	"discuss-on-wiki-text": "Idir $1 agus $2 ar $3 rinne [[User:$4]] ([[User talk:$4|plé]] | [[Special:Contributions/$4|contribs]]) agus [[User:$5]] ([[User talk:$5|plé]] | [[Special:Contributions/$5|contribs]]) araon eagarthóireachtaí ar roinnt leathanach i gcoiteann. Is féidir leat liosta croineolaíoch dá gcuid eagarthóireachtaí go léir a fheiceáil ar an [$6 Amlíne Idirghníomhaíochta] nó i radharc tábla ar an [$7 Anailíseoir Idirghníomhaíochta].",
+	"discuss-on-wiki-help": "Cóipeáil agus greamaigh an téacs vicí seo chuig plé ar an vicí chun na torthaí seo den Amlíne Idirghníomhaíochta a roinnt le daoine eile.",
+	"discuss-on-wiki-copy": "Cóipeáil",
+	"discuss-on-wiki-copied": "Cóipeáilte!"
+}
