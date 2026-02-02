@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rivoz"
+		]
+	},
+	"app-feedback-link": "Abi",
+	"back-top": "Tagasi üles",
+	"between-edits": "$1 erinevust",
+	"error": "Tõrge",
+	"error-help-report": "Teata veast",
+	"error-help-refresh": "värskenda lehekülge",
+	"error-message-request-url": "Taotluse URL",
+	"info-no-users": "Palun määrake alustuseks kaks kasutajat.",
+	"info-no-wiki": "Palun lisage alustuseks wiki.",
+	"info-required-fields": "Alustamiseks lisa palun kaks kasutajat ja wiki.",
+	"licensed-under": "Avaldatud litsentsi $1 all.",
+	"field-label-end-date": "Lõpu kuupäev:",
+	"field-label-start-date": "Alguse kuupäev",
+	"field-label-users": "Kasutajad",
+	"field-label-wiki": "Viki",
+	"field-select-placeholder": "Vali...",
+	"field-select-no-results": "Ei leidnud midagi",
+	"field-select-search-prompt": "Otsimiseks kirjuta",
+	"privacy-policy": "Andmekaitsereeglid",
+	"powered-by": "Tootja: Wikimedia Toolforge",
+	"report-bug": "Teata veast",
+	"revision-edit-summary-removed": "muudatuse kokkuvõte on eemaldatud",
+	"view-source-code-on": "Vaata kohas $1",
+	"warning-no-results": "Tulemusi pole",
+	"discuss-on-wiki": "Jaga neid tulemusi",
+	"discuss-on-wiki-copy": "Kopeeri",
+	"discuss-on-wiki-copied": "Kopeeritud!"
+}
