@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pikne",
 			"Rivoz"
 		]
 	},
@@ -11,19 +12,19 @@
 	"error-help-report": "Teata veast",
 	"error-help-refresh": "värskenda lehekülge",
 	"error-message-request-url": "Taotluse URL",
-	"info-no-users": "Palun määrake alustuseks kaks kasutajat.",
-	"info-no-wiki": "Palun lisage alustuseks wiki.",
-	"info-required-fields": "Alustamiseks lisa palun kaks kasutajat ja wiki.",
+	"info-no-users": "Palun määra alustuseks kaks kasutajat.",
+	"info-no-wiki": "Palun lisa alustuseks viki.",
+	"info-required-fields": "Alustamiseks lisa palun kaks kasutajat ja viki.",
 	"licensed-under": "Avaldatud litsentsi $1 all.",
-	"field-label-end-date": "Lõpu kuupäev:",
-	"field-label-start-date": "Alguse kuupäev",
+	"field-label-end-date": "Lõppkuupäev",
+	"field-label-start-date": "Alguskuupäev",
 	"field-label-users": "Kasutajad",
 	"field-label-wiki": "Viki",
 	"field-select-placeholder": "Vali...",
 	"field-select-no-results": "Ei leidnud midagi",
 	"field-select-search-prompt": "Otsimiseks kirjuta",
 	"privacy-policy": "Andmekaitsereeglid",
-	"powered-by": "Tootja: Wikimedia Toolforge",
+	"powered-by": "Vahendab Wikimedia Toolforge",
 	"report-bug": "Teata veast",
 	"revision-edit-summary-removed": "muudatuse kokkuvõte on eemaldatud",
 	"view-source-code-on": "Vaata kohas $1",
