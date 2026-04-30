@@ -7,6 +7,7 @@
 			"Okras",
 			"Pacha Tchernof",
 			"Patrick Star",
+			"Shabe",
 			"Vlad5250"
 		]
 	},
@@ -24,7 +25,7 @@
 	"error-suppressed-diff": "Вы не можете просмотреть это разницу, поскольку одна или обе версии были скрыты.",
 	"info-no-users": "Пожалуйста укажите двух участников.",
 	"info-no-wiki": "Пожалуйста укажите вики для анализа.",
-	"info-required-fields": "Пожалуйста укажите двух участников и вики.",
+	"info-required-fields": "Для начала укажите двух пользователей и вики-сайт.",
 	"licensed-under": "Под лицензией $1",
 	"field-label-end-date": "Дата окончания",
 	"field-label-start-date": "Дата начала",
