@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Revi",
+			"Tensama0415",
 			"Ykhwong",
 			"그냥기여자",
 			"아라"
@@ -33,7 +34,7 @@
 	"made-by": "위키미디어 재단의 $1님이 만들었습니다.",
 	"made-by-team": "괴롭힘 대응 도구 팀",
 	"privacy-policy": "개인정보보호정책",
-	"powered-by": "Wikimedia Toolforge에 의해 지원됨",
+	"powered-by": "위키미디어 툴포지에 의해 지원됨",
 	"report-bug": "버그 보고",
 	"revision-edit-summary-removed": "편집 요약 삭제됨",
 	"view-source-code-on": "$1에서 보기",
