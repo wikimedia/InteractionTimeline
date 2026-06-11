@@ -17,7 +17,7 @@
 	"error-help": "$1, en dan $2.",
 	"error-help-report": "Fout melden",
 	"error-help-refresh": "pagina verversen",
-	"error-message-request-url": "Verzoek-URL:",
+	"error-message-request-url": "Verzoek-url",
 	"error-suppressed-diff": "U kunt dit verschil niet bekijken omdat een of beide versies zijn onderdrukt.",
 	"info-no-users": "Geef twee gebruikersnamen op om te beginnen.",
 	"info-no-wiki": "Geef een wiki op om te beginnen.",
