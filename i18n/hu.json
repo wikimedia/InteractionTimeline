@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"EmeseToth"
+		]
+	},
+	"app-description": "Két felhasználó kronológiai laptörténete azokon a lapokon, ahol mindketten szerkesztettek.",
+	"app-feedback-link": "Súgó",
+	"app-title": "Interaction Timeline",
+	"back-top": "Vissza a tetejére",
+	"between-edits": "$1 a szerkesztések között",
+	"between-interactions": "$1 interakciók között",
+	"error": "Hiba",
+	"error-help": "$1, majd $2.",
+	"error-help-report": "Hiba jelentése",
+	"error-help-refresh": "frissítsd a lapot",
+	"error-message-request-url": "Kérés URL-címe",
+	"error-suppressed-diff": "Ez a változtatás nem tekinthető meg, mert az egyik vagy mindkét változat elrejtésre került.",
+	"info-no-users": "Adj meg két felhasználót a kezdéshez.",
+	"info-no-wiki": "Adj meg egy wikit a kezdéshez.",
+	"info-required-fields": "Adj meg két felhasználót és egy wikit a kezdéshez.",
+	"licensed-under": "$1 alatt engedélyezett",
+	"field-label-end-date": "Befejező dátum",
+	"field-label-start-date": "Kezdő dátum",
+	"field-label-users": "Felhasználók",
+	"field-label-wiki": "Wiki",
+	"field-select-placeholder": "Válassz...",
+	"field-select-no-results": "Nincs találat",
+	"field-select-search-prompt": "Írd be a keresendő szöveget",
+	"made-by": "A Wikimédia Alapítvány $1 támogatásával készült.",
+	"made-by-team": "Anti-Harassment Tools csapata",
+	"privacy-policy": "Adatvédelmi irányelvek",
+	"powered-by": "A Wikimedia Toolforge támogatásával",
+	"report-bug": "Hibajelentés",
+	"revision-edit-summary-removed": "szerkesztési összefoglaló eltávolítva",
+	"view-source-code-on": "Megtekintés itt: $1",
+	"warning-no-results": "Nincsenek találatok",
+	"discuss-on-wiki": "Osszad meg ezeket az eredményeket",
+	"discuss-on-wiki-text": "$1 és $2 között a(z) $3 wikin [[User:$4]] ([[User talk:$4|beszélgetés]] | [[Special:Contributions/$4|közreműködések]]) és [[User:$5]] ([[User talk:$5|beszélgetés]] | [[Special:Contributions/$5|közreműködések]]) mindketten szerkesztettek néhány közös lapot. Az összes szerkesztésük időrendi listáját a(z) [$6 Interakciós idővonalon], táblázatos nézetben pedig a(z) [$7 Interakciós elemzőn] tekintheted meg.",
+	"discuss-on-wiki-help": "Másold ki és illeszd be ezt a wikiszöveget egy wikibe, hogy megoszthassad az Interakciós Idővonal eredményeit másokkal.",
+	"discuss-on-wiki-copy": "Másolás",
+	"discuss-on-wiki-copied": "Kimásolva!"
+}
