@@ -1,20 +1,44 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saraiki"
+			"Saraiki",
+			"Tauqeerkhansurani"
 		]
 	},
+	"app-description": "ݙو ورتیوݨ آلیاں دی انہاں صفحیاں تے ترتیبی تاریخ جیڑھے تے انہاں ݙوہاں ترمیماں کیتیاں ہن۔",
 	"app-feedback-link": "مدد",
+	"app-title": "Interaction Timeline",
+	"back-top": "واپس اُتے ونجو",
+	"between-edits": "$1 ترمیماں دے وچکار",
+	"between-interactions": "$1 تعاملاں دے وچکار",
 	"error": "خرابی",
 	"error-help": "$1، تے ول $2۔",
+	"error-help-report": "غلطی دی رپورٹ",
+	"error-help-refresh": "صفحہ تازہ کرو",
+	"error-message-request-url": "درخواست یوآرایل",
+	"error-suppressed-diff": "تساں ایہ فرق نہیں ݙیکھ سڳدے کیوں جو ہک یا ݙوہاں نظرثانیاں کوں لکایا ڳیا ہے۔",
+	"info-no-users": "مہربانی کرکے شروع کرݨ کیتے ݙو ورتیوݨ آلے ݙیو۔",
+	"info-no-wiki": "مہربانی کرکے شروع کرݨ کیتے ہک وکی ݙیو۔",
+	"info-required-fields": "مہربانی کرکے شروع کرݨ کیتے ݙو ورتیوݨ آلے اتے ہک وکی ݙیو۔",
+	"licensed-under": "$1 دے تحت لائسنس شدہ",
 	"field-label-end-date": "ختم کرݨ دی تریخ",
 	"field-label-start-date": "شروع کرݨ دی تریخ",
 	"field-label-users": "ورتݨ آلے",
 	"field-label-wiki": "وکی",
 	"field-select-placeholder": "چُݨو۔۔۔",
+	"field-select-no-results": "کوئی نتیجہ نی لبھیا",
 	"field-select-search-prompt": "ڳولݨ کیتے لکھو",
+	"made-by": "Wikimedia Foundation دے $1 ولوں بݨایا ڳیا۔",
+	"made-by-team": "Anti-Harassment Tools ٹیم",
+	"privacy-policy": "پرائیویسی پالیسی",
+	"powered-by": "Wikimedia Toolforge ولوں چلایا ویندا ہے",
+	"report-bug": "بگ دی رپورٹ کرو",
+	"revision-edit-summary-removed": "ترمیم دا خلاصہ ہٹا ݙتا ڳیا",
 	"view-source-code-on": "$1 تے ݙیکھو",
 	"warning-no-results": "کوئی نتیجہ کائنی۔",
+	"discuss-on-wiki": "ایہ نتائج شئیر کرو",
+	"discuss-on-wiki-text": "$1 اتے $2 دے وچکار $3 تے [[User:$4]] ([[User talk:$4|talk]] | [[Special:Contributions/$4|contribs]]) اتے [[User:$5]] ([[User talk:$5|talk]] | [[Special:Contributions/$5|contribs]]) ݙوہاں کجھ صفحیاں تے ترمیماں کیتیاں۔ تساں انہاں دیاں ساریاں ترمیماں دی ترتیبی فہرست [$6 Interaction Timeline] تے یا [$7 Interaction Analyser] تے ٹیبل ویو وچ ݙیکھ سڳدے ہو۔",
+	"discuss-on-wiki-help": "ایندے Interaction Timeline نتائج بیاں نال شئیر کرݨ کیتے ایں وکی متن کوں ہک وکی تے جاری گفتگو وچ کاپی کرکے چپکاؤ۔",
 	"discuss-on-wiki-copy": "نقل کرو",
 	"discuss-on-wiki-copied": "نقل تھی ڳئے!"
 }
