@@ -1,5 +1,0 @@
-Host *
-    UseRoaming no
-    ServerAliveInterval 30
-    AddressFamily inet
-    IdentityFile /root/.ssh/id_rsa
